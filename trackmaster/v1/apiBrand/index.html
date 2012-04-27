@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="en-us" />
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+  <title>API - 品牌接口</title>
+  <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="/css/960.css" rel="stylesheet" type="text/css" />
+  <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
+  <link href="/shared/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="/shared/css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="/shared/js/jquery.js" type="text/javascript"></script>
+  <script src="/shared/js/documentation.js" type="text/javascript"></script>
+</head>
+<body class="api">
+
+    <div id="header-wrapper">
+      <div id="header">
+        <div>
+          <a class="logo" href="/"><img src="/images/logo_developer.png" width="255" height="45" /></a>
+          <ul class="nav">
+            <li><a href="/trackmaster/v1/apiIndex/">AdMaster</a></li>
+          
+          </ul>
+        </div>
+      </div><!-- #header -->
+    </div><!-- #header-wrapper -->
+
+    <div id="wrapper">
+      <div class="content">
+    <h1 id="api---">API - 品牌接口</h1>
+
+<h2 id="p1">获取指定网络下指定广告主下的所有品牌</h2>
+
+<pre><code>GET /networks/:network/advs/:adv/brands
+</code></pre>
+
+<h3 id="section">响应</h3>
+<pre class="headers">
+<code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+<pre class="highlight">
+<code class="language-javascript"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"巧乐兹"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span>
+  <span class="p">}</span>
+<span class="p">]</span></code></pre>
+
+<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a>  </p>
+
+<h3 id="section-1">适用版本</h3>
+<p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
+
+<h2 id="p2">获取指定 ID 品牌详细信息</h2>
+
+<pre><code>GET /networks/advs/brands/:id
+</code></pre>
+
+<h3 id="section-2">响应</h3>
+<pre class="headers">
+<code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+<pre class="highlight">
+<code class="language-javascript"><span class="p">{</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"巧乐兹"</span><span class="p">,</span>
+    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/advs/brands/1"</span><span class="p">,</span>
+    <span class="s2">"network_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"adv_id"</span><span class="o">:</span> <span class="mi">10231</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span>
+<span class="p">}</span></code></pre>
+
+<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a>  </p>
+
+<h3 id="section-3">适用版本</h3>
+<p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
+
+<h2 id="p3">添加指定品牌到指定网络广告主下</h2>
+
+<pre><code>POST /networks/:network/advs/:adv/brands
+</code></pre>
+
+<h3 id="section-4">请求</h3>
+<pre class="highlight">
+<code class="language-javascript"><span class="p">{</span>
+    <span class="s1">'name'</span><span class="o">:</span> <span class="s1">'巧乐兹'</span>
+<span class="p">}</span></code></pre>
+<dl>
+<dt>name</dt>
+  <dd>
+<em>必填</em> <em>String</em> - 品牌名称</dd>
+</dl><h3 id="section-5">响应</h3>
+<pre class="headers">
+<code>Status: 201 Created 
+Location: http://api.trackmaster.com.cn/networks/:network/advs/:adv/brands
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+<pre class="highlight">
+<code class="language-javascript"><span class="p">{</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"巧乐兹"</span><span class="p">,</span>
+    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/advs/brands/1"</span><span class="p">,</span>
+    <span class="s2">"network_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"adv_id"</span><span class="o">:</span> <span class="mi">10231</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span>
+<span class="p">}</span></code></pre>
+
+<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a></p>
+
+<h3 id="section-6">适用版本</h3>
+<p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
+
+<h2 id="p4">修改指定的网络广告主下品牌名称</h2>
+
+<pre><code>PATCH /networks/advs/brands/:id
+</code></pre>
+
+<h3 id="section-7">请求</h3>
+<pre class="highlight">
+<code class="language-javascript"><span class="p">{</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"巧乐鸡"</span>
+<span class="p">}</span></code></pre>
+<dl>
+<dt>name</dt>
+  <dd>
+<em>必选</em> <em>String</em> - 品牌名称</dd>
+</dl><h2 id="section-8">响应</h2>
+<pre class="headers no-response">
+<code>Status: 204 No Content 
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a>  </p>
+
+<h3 id="section-9">适用版本</h3>
+<p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
+
+<h2 id="p5">删除指定的网络广告主下品牌</h2>
+
+<pre><code>DELETE /networks/advs/brands/:id
+</code></pre>
+
+<h3 id="section-10">响应</h3>
+<pre class="headers no-response">
+<code>Status: 204 No Content 
+Location: http://api.trackmaster.com.cn/networks/:network/advs/:adv/brands
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a>  </p>
+
+<h3 id="section-11">适用版本</h3>
+<p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
+      </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+      <div class="js-toggle-list sidebar-module expandable">
+        <ul>
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiGetStart/">API 快速入门 </a></h3>
+            <ul class="js-guides">
+              <li><a href="/trackmaster/v1/apiGetStart/#step1">创建应用</a></li>
+              <li><a href="/trackmaster/v1/apiGetStart/#step2">用户身份认证</a></li>
+              <li><a href="/trackmaster/v1/apiGetStart/#step3">开始API之旅</a></li>
+            </ul>
+          </li>
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiOauth/">Oauth认证</a></h3>
+            <ul class="js-guides">
+              <li><a href="/trackmaster/v1/apiOauth/">Oauth认证</a></li>
+            </ul>
+          </li>
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiCommon/">通用说明</a></h3>
+            <ul class="js-guides">
+              <li><a href="/trackmaster/v1/apiCommon/#p1">全局名称定义</a></li>
+              <li><a href="/trackmaster/v1/apiCommon/#p2">通用参数说明</a></li>
+              <li><a href="/trackmaster/v1/apiCommon/#p3">通用元素说明</a></li>
+              <li><a href="/trackmaster/v1/apiCommon/#p4">返回状态说明</a></li>
+              <li><a href="/trackmaster/v1/apiCommon/#p5">错误码字典</a></li>
+            </ul>
+          </li>
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiNetwork/">工作网络</a></h3>
+            <ul class="js-guides">
+              <li><a href="/trackmaster/v1/apiNetwork/#p1">获取当前授权用户有权操作的所有工作网络</a></li>
+              <li><a href="/trackmaster/v1/apiNetwork/#p2">获取指定工作网络信息</a></li>
+            </ul>
+          </li>
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiAdv/">广告主</a></h3>
+            <ul class="js-guides">
+              <li><a href="/trackmaster/v1/apiAdv/#p1">获取系统广告主列表</a></li>
+              <li><a href="/trackmaster/v1/apiAdv/#p2">获取指定系统广告主信息</a></li>
+              <li><a href="/trackmaster/v1/apiAdv/#p3">获取指定工作网络下所有广告主信息</a></li>
+              <li><a href="/trackmaster/v1/apiAdv/#p4">获取指定网络下的指定广告主信息</a></li>
+              <li><a href="/trackmaster/v1/apiAdv/#p5">添加指定系统广告主到指定工作网络下</a></li>
+              <li><a href="/trackmaster/v1/apiAdv/#p6">修改指定网络下的指定广告主</a></li>
+              <li><a href="/trackmaster/v1/apiAdv/#p7">删除指定工作网络下的指定广告主</a></li>
+            </ul>
+          </li>
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiBrand/">品牌</a></h3>
+            <ul class="js-guides">
+              <li><a href="/trackmaster/v1/apiBrand/#p1">获取指定网络下指定广告主下的所有品牌</a></li>
+            <li><a href="/trackmaster/v1/apiBrand/#p2">获取指定品牌详细信息</a></li>
+            <li><a href="/trackmaster/v1/apiBrand/#p3">添加指定品牌到指定网络广告主下</a></li>
+            <li><a href="/trackmaster/v1/apiBrand/#p4">修改指定网络广告主下品牌名称</a></li>
+            <li><a href="/trackmaster/v1/apiBrand/#p5">删除指定网络广告主下品牌</a></li>
+            </ul>
+          </li>
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiMedia/">媒体</a></h3>
+            <ul class="js-guides">
+              <li><a href="/trackmaster/v1/apiMedia/#p1">获取系统媒体库列表</a></li>
+              <li><a href="/trackmaster/v1/apiMedia/#p2">获取指定系统媒体详细信息</a></li>
+              <li><a href="/trackmaster/v1/apiMedia/#p3">获取指定工作网络下媒体库列表</a></li>
+              <li><a href="/trackmaster/v1/apiMedia/#p4">获取指定工作网络下指定媒体信息</a></li>
+              <li><a href="/trackmaster/v1/apiMedia/#p5">给指定工作网络添加一个媒体</a></li>
+              <li><a href="/trackmaster/v1/apiMedia/#p6">删除指定工作网络下的媒体</a></li>
+              <li><a href="/trackmaster/v1/apiMedia/#p7">修改指定工作网络下指定媒体属性</a></li>
+              <li><a href="/trackmaster/v1/apiMedia/#p8">获取指定项目下已添加的媒体</a></li>
+              <li><a href="/trackmaster/v1/apiMedia/#p9">获取指定项目下指定媒体详细信息</a></li>
+              <li><a href="/trackmaster/v1/apiMedia/#p10">为指定项目添加指定媒体</a></li>
+              <li><a href="/trackmaster/v1/apiMedia/#p11">删除指定项目下某个媒体</a></li>
+            </ul>
+          </li>
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiCampaign/">项目</a></h3>
+            <ul class="js-guides">
+              <li><a href="/trackmaster/v1/apiCampaign/#p1">获取指定网络下某个广告主有操作权限的项目列表</a></li>
+              <li><a href="/trackmaster/v1/apiCampaign/#p2">获取指定项目信息</a></li>
+              <li><a href="/trackmaster/v1/apiCampaign/#p3">添加指定项目到指定广告主下</a></li>
+              <li><a href="/trackmaster/v1/apiCampaign/#p4">删除指定项目</a></li>
+              <li><a href="/trackmaster/v1/apiCampaign/#p5">修改指定项目属性</a></li>
+            </ul>
+          </li>
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiPlacement/">广告位</a></h3>
+            <ul class="js-guides">
+                <li><a href="/trackmaster/v1/apiPlacement/#p1">获取指定项目下指定媒体的广告位列表</a></li>
+                <li><a href="/trackmaster/v1/apiPlacement/#p2">获取指定广告位信息</a></li>
+                <li><a href="/trackmaster/v1/apiPlacement/#p3">添加一个广告位在指定项目下</a></li>
+                <li><a href="/trackmaster/v1/apiPlacement/#p4">删除指定的广告位</a></li>
+                <li><a href="/trackmaster/v1/apiPlacement/#p5">修改指定的广告位属性</a></li>
+            </ul>
+          </li>
+        <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiCreative/">创意</a></h3>
+            <ul class="js-guides">
+                <li><a href="/trackmaster/v1/apiCreative/#p1">获取指定项目所有创意</a></li>
+                <li><a href="/trackmaster/v1/apiCreative/#p2">获取项目下指定创意信息</a></li>
+                <li><a href="/trackmaster/v1/apiCreative/#p3">在指定项目下添加创意</a></li>
+                <li><a href="/trackmaster/v1/apiCreative/#p4">删除指定的创意</a></li>
+                <li><a href="/trackmaster/v1/apiCreative/#p5">修改指定的创意属性</a></li>
+            </ul>
+          </li>
+        <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiSpot/">点位</a></h3>
+            <ul class="js-guides">
+                <li><a href="/trackmaster/v1/apiSpot/#p1">获取指定项目下指定时间段内的点位</a></li>
+                <li><a href="/trackmaster/v1/apiSpot/#p2">修改指定点位</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div> <!-- /sidebar-module -->
+    </div><!-- /sidebar-shell -->
+
+    </div><!-- #wrapper -->
+
+    <div id="footer" >
+       <div class="lower_footer">
+        <div class="footer_inner clearfix">              
+          <div id="legal"> 
+              <ul id="legal_links">
+                <li><a href="http://www.admaster.com.cn/">AdMaster首页</a></li>
+                <li><a href="http://www.trackmaster.com.cn/?m=home&a=service">服务条款</a></li>
+                <li><a href="http://www.admaster.com.cn/?page_id=27">与我们联系</a></li>
+              </ul>
+
+              <p>&copy; <span id="year">year</span> AdMaster Inc. All rights reserved.</p>
+            </div><!-- /#legal or /#legal_ie-->
+        </div><!-- /.site -->
+      </div><!-- /.lower_footer -->
+    </div><!-- /#footer -->
+</body>
+</html>
