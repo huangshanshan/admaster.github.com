@@ -29,7 +29,7 @@ title: API - 欢迎
 如果您是富有经验的开发者，请阅读[快速开发范例][FastDev]。
 
 [email]: mailto:api@admaster.com.cn
-[OAuth2.0]: apiOauth
-[apiMain]: /v1/apiMain
-[FastDev]:apiGetStart
-[License]:apiLisence
+[OAuth2.0]: /trackmaster/v1/apiOauth/
+[apiMain]: /trackmaster/v1/apiMain
+[FastDev]: /trackmaster/v1/apiGetStart/
+[License]: /trackmaster/v1/apiLisence

@@ -4,7 +4,7 @@ title: API - 快速入门
 
 #API - 快速入门
 
-本文档为开发者快速入门提供一个概览，更为完整的 API 信息请参阅 [TrackMaster™ API 文档说明](apiMain)。
+本文档为开发者快速入门提供一个概览，更为完整的 API 信息请参阅 TrackMaster™ API 文档说明。
 
 在开发之前你需要在 [管理应用页面](http://api.trackmaster.com.cn/app/new) 申请创建一个应用，填入应用的描述信息，从而获得 Client ID 和 Client Secret Key（CSK）， Client ID 用于唯一标识你的应用。创建完成后，使用 OAuth2.0 对用户进行验证，保障用户的隐私和安全性。
 
@@ -16,7 +16,7 @@ title: API - 快速入门
 
 <h2 id="step2">第二步：用户身份认证</h2>
 
-大部分 TrackMaster™ API 的调用需要对用户的身份进行认证。目前 TrackMaster™ 仅支持 OAuth2.0 认证。关于 OAuth 2.0 的详细说明请参见 [OAuth2.0说明](apiOauth)。
+大部分 TrackMaster™ API 的调用需要对用户的身份进行认证。目前 TrackMaster™ 仅支持 OAuth2.0 认证。关于 OAuth 2.0 的详细说明请参见 [OAuth2.0说明](/admaster/v1/apiOauth/)。
 
 <h2 id="step3">第三步：开始API之旅</h2>
 
@@ -35,6 +35,4 @@ http://api.admaster.com.cn/v1/advs
 
     示例代码，待添加
 
-[返回][apiIndex]
 
-[apiIndex]: apiIndex

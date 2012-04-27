@@ -141,7 +141,5 @@ X-RateLimit-Remaining: 4999
 ###适用版本
 [v1.0][version]
 
-
-[apiMain]: apiMain
-[version]: apiVersion
-[apiCommon]:apiCommon
+[version]: /trackmaster/v1/apiVersion/
+[apiCommon]:/trackmaster/v1/apiCommon/#p5

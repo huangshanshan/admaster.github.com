@@ -401,8 +401,6 @@ X-RateLimit-Remaining: 4999
   </tr>
 </table>
 
-[返回列表][apiMain]
 
-[apiMain]: apiMain
-[version]: apiVersion
-[apiCommon]:apiCommon
+[version]: /trackmaster/v1/apiVersion/
+[apiCommon]:/trackmaster/v1/apiCommon/#p5

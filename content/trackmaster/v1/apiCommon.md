@@ -80,4 +80,4 @@ title: API - 接口定义 - 通用说明
 
 <em>待续</em>
 
-[apiOauth]: apiOauth
+[apiOauth]: /trackmaster/v1/apiOauth/

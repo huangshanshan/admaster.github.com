@@ -444,5 +444,5 @@ X-RateLimit-Remaining: 4999
 
 [v1.0][version]
 
-[version]: apiVersion
-[apiCommon]:/v1/apiCommon/#p5
+[version]: /trackmaster/v1/apiVersion/
+[apiCommon]:/trackmaster/v1/apiCommon/#p5

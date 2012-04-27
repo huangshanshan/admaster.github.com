@@ -51,12 +51,10 @@ creative\_id
 
 ###响应
 
-***headers***
+<pre class="headers no-response">
+<code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
 
-    Status: 204 No Content
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
 
-[返回列表][apiMain]  
-
-[apiMain]: apiMain
