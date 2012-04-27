@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>API - 欢迎</title>
+  <title>API - 接口定义 - 通用说明</title>
   <link href="/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -30,31 +30,103 @@
 
     <div id="wrapper">
       <div class="content">
-    <h1 id="trackmaster-api---">TrackMaster™ API - 欢迎</h1>
+    <h1 id="api------">API - 接口定义 - 通用说明</h1>
 
-<p>欢迎您成为 TrackMaster™ 的第三方开发者，本 API 文档是您开发的主要参考手册。我们将持续地更新并维护，以便您能方便快捷地获取所需信息。如果您在文档中发现错漏，或者找不到需要的内容，欢迎<a href="mailto:api@admaster.com.cn">联系我们</a>。</p>
+<h2 id="p1">全局名称定义</h2>
+<p><em>待添加</em></p>
 
-<h2 id="section">准备</h2>
+<h2 id="p2">通用参数说明</h2>
 
-<p>在您使用 TrackMaster™ 提供的 API 进行开发前，您应当确认以下内容：</p>
+<ul>
+<li>
+    <h4 id="accesstoken">access_token</h4>
+    <p>oauth 验证串，通过授权验证可以得到，请求授权数据的时候需要携带，具体查看<a href="apiOauth">oauth 验证</a></p>
+  </li>
+  <li>
+    <h4 id="start">start</h4>
+    <p>获取列表数据时，指定返回的结果开始位置，用来实现分页</p>
+  </li>
+  <li>
+    <h4 id="count">count</h4>
+    <p>获取列表数据是，指定返回的结果条目数，最大值为50</p>
+  </li>
+  <li>
+    <h4 id="q">q</h4>
+    <p>提供搜索功能的接口可以指定 q 来实现搜索，搜索一般为名称的部分或 id 的全部</p>
+  </li>
+</ul><h2 id="p3">通用元素说明</h2>
 
-<p><strong>申请 ClientID 与 Client Secret Key：</strong></p>
+<p><em> 通用元素是指请求数据返回的结果中的一些通用的含义 </em></p>
 
-<p>访问<a href="http://api.trackmaster.com.cn/app/new">管理应用页面</a>并申请创建一个应用，填入应用的描述信息，从而获得 Client ID 和 Client Secret，这个 Client ID 用于唯一标识您的应用。</p>
+<ul>
+<li>
+    <h4 id="id">id</h4>
+    <p>元素中的 id 为该元素的唯一标识，全局唯一，特例的话会特别说明</p>
+  </li>
+  <li>
+    <h4 id="total">_total</h4>
+    <p>获取列表数据时，total 为符合条件的记录总数，客户端程序用请求参数中的 start, count 和元素中的 total 来实现分页功能.</p>
+  </li>
+  <li>
+    <h4 id="list">_list</h4>
+    <p>获取列表数据时，具体的结果集和会放在 list 元素下，list 为数组格式，需要配合分页来呈现</p>
+  </li>
+  <li>
+    <h4 id="all">_all</h4>
+    <p>获取所有数据时，具体的结果集会放在 all 元素下，all 为数组格式，all 的结果不需要分页</p>
+  </li>
+  <li>
+    <h4 id="dateline">dateline</h4>
+    <p>dateline代表的是该数据产生的时间，用时间戳(int 型)来表示</p>
+  </li>
+  <li>
+    <h4 id="errorcode">error_code</h4>
+    <p>错误码，在调用接口的时候发生内部逻辑错误时，在得到的结果中会有 error_code，具体参考本页下方的错误码字典</p>
+  </li>
+  <li>
+    <h4 id="errormsg">error_msg</h4>
+    <p>同上，在内部错误的时候，会有 error_msg 记录这错误的信息</p>
+  </li>
+</ul><h2 id="p4">返回状态说明</h2>
 
-<p><strong>了解 Oauth2.0</strong></p>
+<p><strong>返回状态在请求返回的头部信息</strong></p>
 
-<p>我们使用 <a href="apiOauth">OAuth2.0</a> 标准对用户进行验证，保障用户的隐私和安全性。您需要对此有必要的了解。</p>
+<ul>
+<li>
+    <h4 id="ok">200 OK</h4>
+    <p>请求成功，只是请求成功，不代表没有逻辑错误，逻辑错误记录在 error_code, error_msg 元素中</p>
+  </li>
+  <li>
+    <h4 id="created">201 CREATED</h4>
+    <p>创建成功</p>
+  </li>
+  <li>
+    <h4 id="accepted">202 ACCEPTED</h4>
+    <p>更新、修改成功</p>
+  </li>
+  <li>
+    <h4 id="bad-request">400 BAD REQUEST</h4>
+    <p>请求地址不存在或者带有不支持的参数</p>
+  </li>
+  <li>
+    <h4 id="unauthorized">401 UNAUTHORIZED</h4>
+    <p>未经授权</p>
+  </li>
+  <li>
+    <h4 id="forbidden">403 FORBIDDEN</h4>
+    <p>禁止访问</p>
+  </li>
+  <li>
+    <h4 id="not-found">404 NOT FOUND</h4>
+    <p>请求的资源不存在</p>
+  </li>
+  <li>
+    <h4 id="internal-server-error">500 INTERNAL SERVER ERROR</h4>
+    <p>服务器内部错误</p>
+  </li>
+</ul><h2 id="p5">错误代码说明</h2>
 
-<p><strong>授权</strong></p>
-
-<p>要使用 TrackMaster™ API 进行开发，请先阅读<a href="apiLisence">授权协议</a>。</p>
-
-<h2 id="section-1">着手开发</h2>
-
-<p>您需要阅读 <strong>TrackMaster™ API</strong> <a href="/v1/apiMain">开发文档</a>了解详细功能。</p>
-
-<p>如果您是富有经验的开发者，请阅读<a href="apiGetStart">快速开发范例</a>。</p>
+<p><em>待续</em></p>
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">

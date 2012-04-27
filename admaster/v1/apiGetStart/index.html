@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>API - 欢迎</title>
+  <title>API - 快速入门</title>
   <link href="/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -30,31 +30,41 @@
 
     <div id="wrapper">
       <div class="content">
-    <h1 id="trackmaster-api---">TrackMaster™ API - 欢迎</h1>
+    <h1 id="api---">API - 快速入门</h1>
 
-<p>欢迎您成为 TrackMaster™ 的第三方开发者，本 API 文档是您开发的主要参考手册。我们将持续地更新并维护，以便您能方便快捷地获取所需信息。如果您在文档中发现错漏，或者找不到需要的内容，欢迎<a href="mailto:api@admaster.com.cn">联系我们</a>。</p>
+<p>本文档为开发者快速入门提供一个概览，更为完整的 API 信息请参阅 <a href="apiMain">TrackMaster™ API 文档说明</a>。</p>
 
-<h2 id="section">准备</h2>
+<p>在开发之前你需要在 <a href="http://api.trackmaster.com.cn/app/new">管理应用页面</a> 申请创建一个应用，填入应用的描述信息，从而获得 Client ID 和 Client Secret Key（CSK）， Client ID 用于唯一标识你的应用。创建完成后，使用 OAuth2.0 对用户进行验证，保障用户的隐私和安全性。</p>
 
-<p>在您使用 TrackMaster™ 提供的 API 进行开发前，您应当确认以下内容：</p>
+<h2 id="step1">第一步：创建应用</h2>
 
-<p><strong>申请 ClientID 与 Client Secret Key：</strong></p>
+<p>为了保护用户的数据，防止 API 被滥用或恶意使用，每个 API 的使用者在 <a href="http://api.trackmaster.com.cn/app/new">管理应用页面</a> 创建自己的应用，从而获得 Client ID 以及 Client Secret Key（CSK）。每个 Client ID 唯一标识一个 API 应用。</p>
 
-<p>访问<a href="http://api.trackmaster.com.cn/app/new">管理应用页面</a>并申请创建一个应用，填入应用的描述信息，从而获得 Client ID 和 Client Secret，这个 Client ID 用于唯一标识您的应用。</p>
+<p>使用 TrackMaster™ API 时，每小时最多访问5000次，超过限制的话会被封禁。如果你的应用确实需要超过每小时5000次请求，请与 api@admaster.com.cn 联系。请提供你的应用的详细信息，包括 Client ID、目的、使用 API 的方式、预计请求频次、网站 URL、是否商业行为、访问 API 所使用的服务器的 IP 地址等信息。审核通过后可设置白名单，放宽访问限制。</p>
 
-<p><strong>了解 Oauth2.0</strong></p>
+<h2 id="step2">第二步：用户身份认证</h2>
 
-<p>我们使用 <a href="apiOauth">OAuth2.0</a> 标准对用户进行验证，保障用户的隐私和安全性。您需要对此有必要的了解。</p>
+<p>大部分 TrackMaster™ API 的调用需要对用户的身份进行认证。目前 TrackMaster™ 仅支持 OAuth2.0 认证。关于 OAuth 2.0 的详细说明请参见 <a href="apiOauth">OAuth2.0说明</a>。</p>
 
-<p><strong>授权</strong></p>
+<h2 id="step3">第三步：开始API之旅</h2>
 
-<p>要使用 TrackMaster™ API 进行开发，请先阅读<a href="apiLisence">授权协议</a>。</p>
+<p>某些 API 接口需要以特定用户身份来调用，例如获取广告主信息、操作广告位等。您的应用需要先通过 OAuth 认证得到 Access Token，才能够以与之对应的用户身份来调用 API。调用时，需要在每个 API 请求中加入 access_token 参数。</p>
 
-<h2 id="section-1">着手开发</h2>
+<p>某些 API 接口可以不必以特定用户身份调用。如果您的应用不需要验证用户身份，则调用这些 API 时不需要传 access_token 参数，而应该传 Client ID 参数，值为应用的 App ID。</p>
 
-<p>您需要阅读 <strong>TrackMaster™ API</strong> <a href="/v1/apiMain">开发文档</a>了解详细功能。</p>
+<p>现在让我们真正开始一次 API 的调用，下面通过一个简单的示例来演示 TrackMaster™ API 的使用。这个示例中展示了…</p>
 
-<p>如果您是富有经验的开发者，请阅读<a href="apiGetStart">快速开发范例</a>。</p>
+<p>调用：请求的 URL 如下（注意将 source 参数的值设置为您的应用的 App ID）:
+http://api.admaster.com.cn/v1/advs</p>
+
+<p>返回：请求上面的 URL 之后，返回 JSON 数据。</p>
+
+<p><strong>响应</strong></p>
+
+<pre><code>示例代码，待添加
+</code></pre>
+
+<p><a href="apiIndex">返回</a></p>
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">
