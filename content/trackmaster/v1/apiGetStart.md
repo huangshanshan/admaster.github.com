@@ -16,7 +16,7 @@ title: API - 快速入门
 
 <h2 id="step2">第二步：用户身份认证</h2>
 
-大部分 TrackMaster™ API 的调用需要对用户的身份进行认证。目前 TrackMaster™ 仅支持 OAuth2.0 认证。关于 OAuth 2.0 的详细说明请参见 [OAuth2.0说明](/admaster/v1/apiOauth/)。
+大部分 TrackMaster™ API 的调用需要对用户的身份进行认证。目前 TrackMaster™ 仅支持 OAuth2.0 认证。关于 OAuth 2.0 的详细说明请参见 [OAuth2.0说明](/trackmaster/v1/apiOauth/)。
 
 <h2 id="step3">第三步：开始API之旅</h2>
 

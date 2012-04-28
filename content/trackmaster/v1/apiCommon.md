@@ -5,6 +5,7 @@ title: API - 接口定义 - 通用说明
 # API - 接口定义 - 通用说明
 
 <h2 id="p1">全局名称定义</h2>
+![trackmast结构示意图](/images/trackmaster.png)
 <em>待添加</em>
 
 
