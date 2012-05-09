@@ -182,8 +182,9 @@ target\_audience
     "age": "19_25",//年龄设定，例如: 16_20  16岁到20岁
     "sex": "male"//性别设定，`male` 男, `female` 女
 }
-
-
+</code></pre>
+<pre class="highlight">
+<code class="language-javascript">
 {
     "name": "这是一个测试项目",
     "brand_id": 10021,
