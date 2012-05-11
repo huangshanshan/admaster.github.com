@@ -67,6 +67,7 @@ X-RateLimit-Remaining: 4999
 [v1.0][version]
 
 <h2 id="p3">获取指定工作网络下所有广告主信息</h2>
+
 ###API
 
     GET /networks/:network/advs
@@ -191,6 +192,7 @@ X-RateLimit-Remaining: 4999
 关于错误返回值与错误代码，参见[错误代码说明][apiCommon]。
 
 ###适用版本
+
 [v1.0][version]
 
 <h2 id="p7">删除指定工作网络下的指定广告主</h2>

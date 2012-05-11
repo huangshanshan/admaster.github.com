@@ -176,7 +176,9 @@ Location: http://api.trackmaster.com.cn/networks/:network/medias
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
+
 ###适用版本
+
 [v1.0][version]
 
 <h2 id="p7">修改指定工作网络下指定媒体属性</h2>
@@ -275,6 +277,7 @@ Location: http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/medias
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
+
 ###适用版本
 [v1.0][version]
 
