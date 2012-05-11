@@ -200,15 +200,17 @@ Location: http://api.trackmaster.com.cn/networks/:network/medias
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
-<p>###适用版本
-<a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
+
+<h3 id="section-12">适用版本</h3>
+
+<p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
 <h2 id="p7">修改指定工作网络下指定媒体属性</h2>
 
 <pre><code>PATCH /networks/medias/:id
 </code></pre>
 
-<h3 id="section-12">请求</h3>
+<h3 id="section-13">请求</h3>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"新浪财经"</span><span class="p">,</span>
@@ -228,7 +230,7 @@ X-RateLimit-Remaining: 4999
   <dd>
 <em>可选</em> <em>Enum</em> - 状态 <code>enabled</code>, <code>disabled</code>
 </dd>
-</dl><h3 id="section-13">响应</h3>
+</dl><h3 id="section-14">响应</h3>
 <pre class="headers no-response">
 <code>Status: 204 No Content 
 Location: http://api.trackmaster.com.cn/networks/medias/1
@@ -236,7 +238,7 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h3 id="section-14">适用版本</h3>
+<h3 id="section-15">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
 <h2 id="p8">获取指定项目下已添加的媒体</h2>
@@ -244,7 +246,7 @@ X-RateLimit-Remaining: 4999
 <pre><code>GET /networks/adv/campaigns/:campaign/medias
 </code></pre>
 
-<h3 id="section-15">响应</h3>
+<h3 id="section-16">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
 X-RateLimit-Limit: 5000
@@ -263,7 +265,7 @@ X-RateLimit-Remaining: 4999
 
 <p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a> </p>
 
-<h3 id="section-16">适用版本</h3>
+<h3 id="section-17">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
 <h2 id="p9">获取指定项目下指定媒体详细信息</h2>
@@ -271,7 +273,7 @@ X-RateLimit-Remaining: 4999
 <pre><code>GET /networks/advs/campaigns/:campaign/medias/:id
 </code></pre>
 
-<h3 id="section-17">响应</h3>
+<h3 id="section-18">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
 X-RateLimit-Limit: 5000
@@ -298,15 +300,16 @@ Location: http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/medias
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
-<p>###适用版本
-<a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
+
+<h3 id="section-19">适用版本</h3>
+<p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
 <h2 id="p11">删除指定项目下指定的媒体</h2>
 
 <pre><code>DELETE /networks/advs/campaigns/:campaign/medias/:id
 </code></pre>
 
-<h3 id="section-18">响应</h3>
+<h3 id="section-20">响应</h3>
 <pre class="headers no-response">
 <code>Status: 204 No Content
 Location: http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/medias
@@ -314,7 +317,7 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h3 id="section-19">适用版本</h3>
+<h3 id="section-21">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
       </div>
 
