@@ -42,11 +42,21 @@ X-RateLimit-Remaining: 4999
         "id": 1025,
         //频道名称
         "name": "体育新闻",
+        //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
+        "type": "web",
+        //广告位在第几屏幕
+        "screen": 3,
+        //频道地址
+        "home": "http://www.admaster.com.cn/",
+        //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
+        "materia_type": 'flash',
+        //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
+        "materia_dimension": "400x300",
+        //物料文件大小，单位由 materia_size_unit 指定
+        "materia_size": 200,
+        //物料文件大小单位，Byte KByte MByte
+        "materia_size_unit": "Byte"
     }
-    //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他
-    "channel_type": "web",
-    //频道地址
-    "channel_url": "http://www.admaster.com.cn/",
     //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推
     "rotation" : "1/4",
     //点击目标地址

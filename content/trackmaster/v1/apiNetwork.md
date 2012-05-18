@@ -21,6 +21,13 @@ X-RateLimit-Remaining: 4999
     "url": "https://api.trackmaster.com.cn/networks/1",
     "name": "测试工作网络", //别名
     "created_at": "2012-09-06T20:39:23Z" //创建时间
+    "account": {
+        "status": "enabled", //`enabled` 可用, `disabled` 禁用, `unactive` 未激活
+        "created_at": "2012-01-10T02:30:59Z", //当前用户加入网络的时间
+        "role": {
+            "id": 1,
+            "name": "高丽管理员(super admin)"
+        }
    }
 ]
 </code></pre>
