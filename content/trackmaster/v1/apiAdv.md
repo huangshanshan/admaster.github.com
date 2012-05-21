@@ -108,7 +108,7 @@ X-RateLimit-Remaining: 4999
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/:network/advertisers/1/camaigns>; rel="campaigns"
+Link: <http://api.trackmaster.com.cn/networks/:network/advertisers/1/campaigns>; rel="campaigns"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -139,7 +139,7 @@ X-RateLimit-Remaining: 4999
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content 
-Link: <http://api.trackmaster.com.cn/networks/:network/advertisers/1/camaigns>; rel="campaigns"
+Link: <http://api.trackmaster.com.cn/networks/:network/advertisers/1/campaigns>; rel="campaigns"
 Location: http://api.trackmaster.com.cn/networks/:network/advertisers/1
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
@@ -173,7 +173,7 @@ status
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/:network/advertisers/1/camaigns>; rel="campaigns"
+Link: <http://api.trackmaster.com.cn/networks/:network/advertisers/1/campaigns>; rel="campaigns"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
