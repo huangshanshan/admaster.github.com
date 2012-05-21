@@ -6,7 +6,7 @@ title: API - 广告位接口
 
 <h2 id="p1">获取指定项目下指定媒体的广告位列表</h2>
 
-    GET /networks/advs/campaigns/:campaign/placements
+    GET /networks/advertisers/campaigns/:campaign/placements
 
 ###参数
 
@@ -19,8 +19,8 @@ media\_id
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/placements?page=2>; rel="next",
-      <http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/placements?page=10>; rel="last"
+Link: <http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign/placements?page=2>; rel="next",
+      <http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign/placements?page=10>; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -31,7 +31,7 @@ X-RateLimit-Remaining: 4999
     //广告位ID，全局唯一
     "id": 1,
     //获取详情接口地址
-    "url": "http://api.trackmaster.com.cn/networks/advs/campaigns/placements/1",
+    "url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/placements/1",
     //广告位位置名称
     "name": "这是一个测试广告位",
     //工作网络下媒体ID
@@ -102,7 +102,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p2">获取指定广告位信息</h2>
 
-    GET /networks/advs/campaigns/placements/:id
+    GET /networks/advertisers/campaigns/placements/:id
 
 ###响应
 <pre class="headers">
@@ -116,7 +116,7 @@ X-RateLimit-Remaining: 4999
 //广告位ID，全局唯一
 "id": 1,
 //获取详情接口地址
-"url": "http://api.trackmaster.com.cn/networks/advs/campaigns/placements/1",
+"url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/placements/1",
 //广告位位置名称
 "name": "这是一个测试广告位",
 //工作网络下媒体ID
@@ -177,7 +177,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">添加一个广告位在指定项目下</h2>
 
-    POST /networks/advs/campaigns/:campaign/placements
+    POST /networks/advertisers/campaigns/:campaign/placements
 
 ###请求
 
@@ -292,7 +292,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 {
     "id": 1,
-    "url": "http://api.trackmaster.com.cn/networks/advs/campaigns/placements/1",
+    "url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/placements/1",
     "name": "这是一个测试广告位",
     "media_id": 1314,
     "channel": {
@@ -329,19 +329,19 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p4">删除指定的广告位</h2>
 
-    DELETE /networks/advs/campaigns/placements/:id
+    DELETE /networks/advertisers/campaigns/placements/:id
 
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/placements
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign/placements
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
 <h2 id="p5">修改指定的广告位属性</h2>
 
-    PATCH /networks/advs/campaigns/placements/:id
+    PATCH /networks/advertisers/campaigns/placements/:id
 
 ###请求
 

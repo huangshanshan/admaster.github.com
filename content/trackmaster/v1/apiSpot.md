@@ -2,7 +2,7 @@
 
 <h2 id="p1">获取指定项目下指定时间段内的点位</h2>
 
-    GET /networks/advs/campaigns/:campaign/spots
+    GET /networks/advertisers/campaigns/:campaign/spots
 
 ###参数
 
@@ -16,8 +16,8 @@ end\_date
 
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/spots?page=2>; rel="next",
-      <http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/spots?page=10>; rel="last"
+Link: <http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign/spots?page=2>; rel="next",
+      <http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign/spots?page=10>; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -39,7 +39,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p2">修改指定点位</h2>
 
-    PATCH /networks/advs/campaigns/spots/:placement/:date
+    PATCH /networks/advertisers/campaigns/spots/:placement/:date
 
 ###请求
 

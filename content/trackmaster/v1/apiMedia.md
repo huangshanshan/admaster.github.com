@@ -232,7 +232,7 @@ X-RateLimit-Remaining: 4999
 [
   {
     "id": 1314,
-    "url": "http://api.trackmaster.com.cn/networks/advs/campaigns/10092/medias/1314",
+    "url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/10092/medias/1314",
     "name": "新浪",
     "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
     "created_at": "2012-09-06T20:39:23Z"
@@ -247,7 +247,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p9">获取指定项目下指定媒体详细信息</h2>
 
-    GET /networks/advs/campaigns/:campaign/medias/:id
+    GET /networks/advertisers/campaigns/:campaign/medias/:id
 
 ###响应
 <pre class="headers">
@@ -259,7 +259,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 {
     "id": 1314,
-    "url": "http://api.trackmaster.com.cn/networks/advs/campaigns/10092/medias/1314",
+    "url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/10092/medias/1314",
     "name": "新浪",
     "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
     "created_at": "2012-09-06T20:39:23Z"
@@ -269,11 +269,11 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p10">为指定项目添加指定媒体</h2>
 
-    PUT /networks/advs/campaigns/:campaign/medias/:id
+    PUT /networks/advertisers/campaigns/:campaign/medias/:id
 
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/medias
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign/medias
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -283,12 +283,12 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p11">删除指定项目下指定的媒体</h2>
 
-    DELETE /networks/advs/campaigns/:campaign/medias/:id
+    DELETE /networks/advertisers/campaigns/:campaign/medias/:id
 
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/medias
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign/medias
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
