@@ -48,7 +48,7 @@ X-RateLimit-Remaining: 4999
     "name": "巧乐兹",
     "url": "http://api.trackmaster.com.cn/networks/advertisers/brands/1",
     "network_id": 1,
-    "adv_id": 10231,
+    "advertiser_id": 10231,
     "created_at": "2012-09-06T20:39:23Z"
 }
 </code></pre>
@@ -86,7 +86,7 @@ X-RateLimit-Remaining: 4999
     "name": "巧乐兹",
     "url": "http://api.trackmaster.com.cn/networks/advertisers/brands/1",
     "network_id": 1,
-    "adv_id": 10231,
+    "advertiser_id": 10231,
     "created_at": "2012-09-06T20:39:23Z"
 }
 </code></pre>
