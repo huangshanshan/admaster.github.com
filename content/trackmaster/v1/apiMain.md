@@ -45,9 +45,9 @@
 
 **API**|说明|参数
 :-----:|----|:---:
-**[GET /networks/:network/advertisers/:adv/brands][apiBrandAdvAll]**|获取指定 ID 网络下指定 ID 广告主下的所有品牌|2
+**[GET /networks/:network/advertisers/:advertiser_id/brands][apiBrandAdvAll]**|获取指定 ID 网络下指定 ID 广告主下的所有品牌|2
 **[GET /networks/advertisers/brands/:id][apiBrandAdvDetail]**|获取指定 ID 品牌详细信息|1
-**[POST /networks/:network/advertisers/:adv/brands][apiBrandAdvAdd]**|添加指定 ID 品牌到指定 ID 网络广告主下|2
+**[POST /networks/:network/advertisers/:advertiser_id/brands][apiBrandAdvAdd]**|添加指定 ID 品牌到指定 ID 网络广告主下|2
 **[PATCH /networks/advertisers/brands/:id][apiBrandAdvModify]**|修改特定 ID 的网络广告主下品牌名称|1
 **[DELETE /networks/advertisers/brands/:id][apiBrandAdvDel]**|删除指定 ID 的网络广告主下品牌|1
 
@@ -72,9 +72,9 @@
 
 **API**|说明|参数
 :-----:|----|:---:
-**[GET /networks/:network/advertisers/:adv/campaigns][apiCampaignList]**|获取指定网络下某个广告主有操作权限的项目列表|2
+**[GET /networks/:network/advertisers/:advertiser_id/campaigns][apiCampaignList]**|获取指定网络下某个广告主有操作权限的项目列表|2
 **[GET /networks/advertisers/campaigns/:id][apiCampaignOne]**|获取指定项目信息|1
-**[POST /networks/:network/advertisers/:adv/campaigns][apiCampaignAdd]**|添加指定项目到指定广告主下|2
+**[POST /networks/:network/advertisers/:advertiser_id/campaigns][apiCampaignAdd]**|添加指定项目到指定广告主下|2
 **[DELETE /networks/advertisers/campaigns/:id][apiCampaignDel]**|删除指定项目|1
 **[PATCH /networks/advertisers/campaigns/:id][apiCampaignModify]**|修改指定项目属性|1
 

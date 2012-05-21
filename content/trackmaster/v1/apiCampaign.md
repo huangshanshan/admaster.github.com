@@ -6,7 +6,7 @@ title: API - 项目接口
 
 <h2 id="p1">获取指定工作网络下某个广告主有操作权限的项目列表</h2>
 
-    GET /networks/:network/advertisers/:adv/campaigns
+    GET /networks/:network/advertisers/:advertiser_id/campaigns
 
 ###参数
 
@@ -56,8 +56,8 @@ direction
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/:network/advertisers/:adv/campaigns?page=2>; rel="next",
-      <http://api.trackmaster.com.cn/networks/:network/advertisers/:adv/campaigns?page=10>; rel="last"
+Link: <http://api.trackmaster.com.cn/networks/:network/advertisers/:advertiser_id/campaigns?page=2>; rel="next",
+      <http://api.trackmaster.com.cn/networks/:network/advertisers/:advertiser_id/campaigns?page=10>; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -144,7 +144,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">添加指定项目到指定广告主下</h2>
 
-    POST /networks/:network/advertisers/:adv/campaigns
+    POST /networks/:network/advertisers/:advertiser_id/campaigns
 
 ###请求
 
@@ -247,7 +247,7 @@ X-RateLimit-Remaining: 4999
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/:network/advertisers/:adv/campaigns
+Location: http://api.trackmaster.com.cn/networks/:network/advertisers/:advertiser_id/campaigns
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
