@@ -70,7 +70,7 @@ X-RateLimit-Remaining: 4999
 
 ###API
 
-    GET /networks/:network/advertisers
+    GET /networks/:network_id/advertisers
 
 ###响应
 <pre class="headers">
@@ -83,7 +83,7 @@ X-RateLimit-Remaining: 4999
 [
   {
     "id": 1,
-    "url": "http://api.trackmaster.com.cn/networks/:network/advertisers/1",
+    "url": "http://api.trackmaster.com.cn/networks/:network_id/advertisers/1",
     "name": "IBM",   //广告主名称
     "status": "enabled",
     "alias": "ibm",
@@ -103,12 +103,12 @@ X-RateLimit-Remaining: 4999
 
 ###API
 
-    GET /networks/:network/advertisers/:id
+    GET /networks/:network_id/advertisers/:id
 
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/:network/advertisers/1/campaigns>; rel="campaigns"
+Link: <http://api.trackmaster.com.cn/networks/:network_id/advertisers/1/campaigns>; rel="campaigns"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -116,7 +116,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 {
     "id": 1,
-    "url": "http://api.trackmaster.com.cn/networks/:network/advertisers/1",
+    "url": "http://api.trackmaster.com.cn/networks/:network_id/advertisers/1",
     "name": "IBM",   //广告主名称
     "status": "enabled",
     "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
@@ -134,13 +134,13 @@ X-RateLimit-Remaining: 4999
 
 ###API
 
-    PUT /networks/:network/advertisers/:id
+    PUT /networks/:network_id/advertisers/:id
 
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content 
-Link: <http://api.trackmaster.com.cn/networks/:network/advertisers/1/campaigns>; rel="campaigns"
-Location: http://api.trackmaster.com.cn/networks/:network/advertisers/1
+Link: <http://api.trackmaster.com.cn/networks/:network_id/advertisers/1/campaigns>; rel="campaigns"
+Location: http://api.trackmaster.com.cn/networks/:network_id/advertisers/1
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -154,7 +154,7 @@ X-RateLimit-Remaining: 4999
 
 ###API
 
-    PATCH /networks/:network/advertisers/:id
+    PATCH /networks/:network_id/advertisers/:id
 
 ###请求
 <pre class="highlight">
@@ -173,7 +173,7 @@ status
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/:network/advertisers/1/campaigns>; rel="campaigns"
+Link: <http://api.trackmaster.com.cn/networks/:network_id/advertisers/1/campaigns>; rel="campaigns"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -181,7 +181,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 {
   "id": 1,
-  "url": "http://api.trackmaster.com.cn/networks/:network/advertisers/1",
+  "url": "http://api.trackmaster.com.cn/networks/:network_id/advertisers/1",
   "name": "IBM",
   "alias": "通用电器",
   "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
@@ -199,12 +199,12 @@ X-RateLimit-Remaining: 4999
 
 ###API
 
-    DELETE /networks/:network/advertisers/:id
+    DELETE /networks/:network_id/advertisers/:id
 
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content 
-Link: <http://api.trackmaster.com.cn/networks/:network/advertisers>; rel="campaigns"
+Link: <http://api.trackmaster.com.cn/networks/:network_id/advertisers>; rel="campaigns"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>

@@ -67,13 +67,13 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">获取指定工作网络下媒体库列表</h2>
 
-    GET /networks/:network/medias
+    GET /networks/:network_id/medias
 
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/:network/medias?page=2>; rel="next",
-      <http://api.trackmaster.com.cn/networks/:network/medias?page=10>; rel="last"
+Link: <http://api.trackmaster.com.cn/networks/:network_id/medias?page=2>; rel="next",
+      <http://api.trackmaster.com.cn/networks/:network_id/medias?page=10>; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -128,7 +128,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p5">给指定工作网络添加一个媒体</h2>
 
-    POST /networks/:network/medias
+    POST /networks/:network_id/medias
 
 ###请求
 <pre class="highlight">
@@ -172,7 +172,7 @@ X-RateLimit-Remaining: 4999
 <pre class="headers no-response">
 <code>
 Status: 204 No Content 
-Location: http://api.trackmaster.com.cn/networks/:network/medias
+Location: http://api.trackmaster.com.cn/networks/:network_id/medias
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -219,7 +219,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p8">获取指定项目下已添加的媒体</h2>
 
-    GET /networks/adv/campaigns/:campaign/medias
+    GET /networks/advertisers/campaigns/:campaign_id/medias
 
 ###响应
 <pre class="headers">
@@ -247,7 +247,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p9">获取指定项目下指定媒体详细信息</h2>
 
-    GET /networks/advertisers/campaigns/:campaign/medias/:id
+    GET /networks/advertisers/campaigns/:campaign_id/medias/:id
 
 ###响应
 <pre class="headers">
@@ -269,11 +269,11 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p10">为指定项目添加指定媒体</h2>
 
-    PUT /networks/advertisers/campaigns/:campaign/medias/:id
+    PUT /networks/advertisers/campaigns/:campaign_id/medias/:id
 
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign/medias
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/medias
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -283,12 +283,12 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p11">删除指定项目下指定的媒体</h2>
 
-    DELETE /networks/advertisers/campaigns/:campaign/medias/:id
+    DELETE /networks/advertisers/campaigns/:campaign_id/medias/:id
 
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign/medias
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/medias
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>

@@ -6,7 +6,7 @@ title: API - 广告位接口
 
 <h2 id="p1">获取指定项目下指定媒体的广告位列表</h2>
 
-    GET /networks/advertisers/campaigns/:campaign/placements
+    GET /networks/advertisers/campaigns/:campaign_id/placements
 
 ###参数
 
@@ -19,8 +19,8 @@ media\_id
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign/placements?page=2>; rel="next",
-      <http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign/placements?page=10>; rel="last"
+Link: <http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/placements?page=2>; rel="next",
+      <http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/placements?page=10>; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -177,7 +177,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">添加一个广告位在指定项目下</h2>
 
-    POST /networks/advertisers/campaigns/:campaign/placements
+    POST /networks/advertisers/campaigns/:campaign_id/placements
 
 ###请求
 
@@ -334,7 +334,7 @@ X-RateLimit-Remaining: 4999
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign/placements
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/placements
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>

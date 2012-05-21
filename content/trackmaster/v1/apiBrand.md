@@ -7,7 +7,7 @@ title: API - 品牌接口
 
 <h2 id="p1">获取指定网络下指定广告主下的所有品牌</h2>
 
-    GET /networks/:network/advertisers/:advertiser_id/brands
+    GET /networks/:network_id/advertisers/:advertiser_id/brands
 
 ###响应
 <pre class="headers">
@@ -60,7 +60,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">添加指定品牌到指定网络广告主下</h2>
 
-    POST /networks/:network/advertisers/:advertiser_id/brands
+    POST /networks/:network_id/advertisers/:advertiser_id/brands
 
 ###请求
 <pre class="highlight">
@@ -75,7 +75,7 @@ name
 ###响应
 <pre class="headers">
 <code>Status: 201 Created 
-Location: http://api.trackmaster.com.cn/networks/:network/advertisers/:advertiser_id/brands
+Location: http://api.trackmaster.com.cn/networks/:network_id/advertisers/:advertiser_id/brands
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -131,7 +131,7 @@ X-RateLimit-Remaining: 4999
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content 
-Location: http://api.trackmaster.com.cn/networks/:network/advertisers/:advertiser_id/brands
+Location: http://api.trackmaster.com.cn/networks/:network_id/advertisers/:advertiser_id/brands
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
