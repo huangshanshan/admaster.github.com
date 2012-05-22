@@ -37,14 +37,14 @@
 
 <h3 id="api">API</h3>
 
-<pre><code>GET /advs
+<pre><code>GET /advertisers
 </code></pre>
 
 <h3 id="section">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
-Link: &lt;http://api.trackmaster.com.cn/advs?page=2&gt;; rel="next",
-      &lt;http://api.trackmaster.com.cn/advs?page=10&gt;; rel="last"
+Link: &lt;http://api.trackmaster.com.cn/advertisers?page=2&gt;; rel="next",
+      &lt;http://api.trackmaster.com.cn/advertisers?page=10&gt;; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -52,7 +52,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript"><span class="p">[</span>
   <span class="p">{</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/advs/1"</span><span class="p">,</span>
+    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/advertisers/1"</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"IBM"</span><span class="p">,</span>  <span class="c1">//广告主名称</span>
     <span class="s2">"logo"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/advIcon/1.jpg"</span><span class="p">,</span>  <span class="c1">//Logo URL</span>
     <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span>  <span class="c1">//创建时间</span>
@@ -69,7 +69,7 @@ X-RateLimit-Remaining: 4999
 
 <h3 id="api-1">API</h3>
 
-<pre><code>GET /advs/:id
+<pre><code>GET /advertisers/:id
 </code></pre>
 
 <h3 id="section-2">响应</h3>
@@ -81,7 +81,7 @@ X-RateLimit-Remaining: 4999
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/advs/1"</span><span class="p">,</span>
+    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/advertisers/1"</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"IBM"</span><span class="p">,</span>   <span class="c1">//广告主名称</span>
     <span class="s2">"logo"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/advIcon/1.jpg"</span><span class="p">,</span>  <span class="c1">//Logo URL</span>
     <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span>  <span class="c1">//创建时间</span>
@@ -96,7 +96,7 @@ X-RateLimit-Remaining: 4999
 
 <h3 id="api-2">API</h3>
 
-<pre><code>GET /networks/:network/advs
+<pre><code>GET /networks/:network_id/advertisers
 </code></pre>
 
 <h3 id="section-4">响应</h3>
@@ -109,7 +109,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript"><span class="p">[</span>
   <span class="p">{</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/:network/advs/1"</span><span class="p">,</span>
+    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/:network_id/advertisers/1"</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"IBM"</span><span class="p">,</span>   <span class="c1">//广告主名称</span>
     <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"enabled"</span><span class="p">,</span>
     <span class="s2">"alias"</span><span class="o">:</span> <span class="s2">"ibm"</span><span class="p">,</span>
@@ -128,20 +128,20 @@ X-RateLimit-Remaining: 4999
 
 <h3 id="api-3">API</h3>
 
-<pre><code>GET /networks/:network/advs/:id
+<pre><code>GET /networks/:network_id/advertisers/:id
 </code></pre>
 
 <h3 id="section-6">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
-Link: &lt;http://api.trackmaster.com.cn/networks/:network/advs/1/camaigns&gt;; rel="campaigns"
+Link: &lt;http://api.trackmaster.com.cn/networks/:network_id/advertisers/1/campaigns&gt;; rel="campaigns"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/:network/advs/1"</span><span class="p">,</span>
+    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/:network_id/advertisers/1"</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"IBM"</span><span class="p">,</span>   <span class="c1">//广告主名称</span>
     <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"enabled"</span><span class="p">,</span>
     <span class="s2">"logo"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/advIcon/1.jpg"</span><span class="p">,</span>  <span class="c1">//Logo URL</span>
@@ -158,14 +158,14 @@ X-RateLimit-Remaining: 4999
 
 <h3 id="api-4">API</h3>
 
-<pre><code>PUT /networks/:network/advs/:id
+<pre><code>PUT /networks/:network_id/advertisers/:id
 </code></pre>
 
 <h3 id="section-8">响应</h3>
 <pre class="headers no-response">
 <code>Status: 204 No Content 
-Link: &lt;http://api.trackmaster.com.cn/networks/:network/advs/1/camaigns&gt;; rel="campaigns"
-Location: http://api.trackmaster.com.cn/networks/:network/advs/1
+Link: &lt;http://api.trackmaster.com.cn/networks/:network_id/advertisers/1/campaigns&gt;; rel="campaigns"
+Location: http://api.trackmaster.com.cn/networks/:network_id/advertisers/1
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -178,7 +178,7 @@ X-RateLimit-Remaining: 4999
 
 <h3 id="api-5">API</h3>
 
-<pre><code>PATCH /networks/:network/advs/:id
+<pre><code>PATCH /networks/:network_id/advertisers/:id
 </code></pre>
 
 <h3 id="section-10">请求</h3>
@@ -198,14 +198,14 @@ X-RateLimit-Remaining: 4999
 </dl><h3 id="section-11">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
-Link: &lt;http://api.trackmaster.com.cn/networks/:network/advs/1/camaigns&gt;; rel="campaigns"
+Link: &lt;http://api.trackmaster.com.cn/networks/:network_id/advertisers/1/campaigns&gt;; rel="campaigns"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
   <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/:network/advs/1"</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/:network_id/advertisers/1"</span><span class="p">,</span>
   <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"IBM"</span><span class="p">,</span>
   <span class="s2">"alias"</span><span class="o">:</span> <span class="s2">"通用电器"</span><span class="p">,</span>
   <span class="s2">"logo"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/advIcon/1.jpg"</span><span class="p">,</span>  <span class="c1">//Logo URL</span>
@@ -222,13 +222,13 @@ X-RateLimit-Remaining: 4999
 
 <h3 id="api-6">API</h3>
 
-<pre><code>DELETE /networks/:network/advs/:id
+<pre><code>DELETE /networks/:network_id/advertisers/:id
 </code></pre>
 
 <h3 id="section-13">响应</h3>
 <pre class="headers no-response">
 <code>Status: 204 No Content 
-Link: &lt;http://api.trackmaster.com.cn/networks/:network/advs&gt;; rel="campaigns"
+Link: &lt;http://api.trackmaster.com.cn/networks/:network_id/advertisers&gt;; rel="campaigns"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -310,6 +310,16 @@ X-RateLimit-Remaining: 4999
               <li><a href="/trackmaster/v1/apiMedia/#p11">删除指定项目下某个媒体</a></li>
             </ul>
           </li>
+
+<li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiChannel/">频道</a></h3>
+            <ul class="js-guides">
+              <li><a href="/trackmaster/v1/apiChannel/#p1">获取指定媒体频道列表</a></li>
+              <li><a href="/trackmaster/v1/apiChannel/#p2">获取指定频道详细信息</a></li>
+              <li><a href="/trackmaster/v1/apiChannel/#p3">为指定媒体新增频道</a></li>
+            </ul>
+          </li>
+
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiCampaign/">项目</a></h3>
             <ul class="js-guides">

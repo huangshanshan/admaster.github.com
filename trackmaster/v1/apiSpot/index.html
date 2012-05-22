@@ -35,7 +35,7 @@
 
 <h2 id="p1">获取指定项目下指定时间段内的点位</h2>
 
-<pre><code>GET /networks/advs/campaigns/:campaign/spots
+<pre><code>GET /networks/advertisers/campaigns/:campaign_id/spots
 </code></pre>
 
 <h3 id="section">参数</h3>
@@ -51,8 +51,8 @@
 
 <pre class="headers">
 <code>Status: 200 OK
-Link: &lt;http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/spots?page=2&gt;; rel="next",
-      &lt;http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/spots?page=10&gt;; rel="last"
+Link: &lt;http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/spots?page=2&gt;; rel="next",
+      &lt;http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/spots?page=10&gt;; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -72,7 +72,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p2">修改指定点位</h2>
 
-<pre><code>PATCH /networks/advs/campaigns/spots/:placement/:date
+<pre><code>PATCH /networks/advertisers/campaigns/spots/:placement_id/:date
 </code></pre>
 
 <h3 id="section-2">请求</h3>
@@ -165,6 +165,16 @@ X-RateLimit-Remaining: 4999
               <li><a href="/trackmaster/v1/apiMedia/#p11">删除指定项目下某个媒体</a></li>
             </ul>
           </li>
+
+<li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiChannel/">频道</a></h3>
+            <ul class="js-guides">
+              <li><a href="/trackmaster/v1/apiChannel/#p1">获取指定媒体频道列表</a></li>
+              <li><a href="/trackmaster/v1/apiChannel/#p2">获取指定频道详细信息</a></li>
+              <li><a href="/trackmaster/v1/apiChannel/#p3">为指定媒体新增频道</a></li>
+            </ul>
+          </li>
+
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiCampaign/">项目</a></h3>
             <ul class="js-guides">

@@ -85,37 +85,37 @@
     </tr></thead>
 <tbody>
 <tr>
-<td style="text-align: center"><strong><a href="apiAdv#liblist">GET /advs</a></strong></td>
+<td style="text-align: center"><strong><a href="apiAdv#liblist">GET /advertisers</a></strong></td>
       <td>获取系统广告主列表</td>
       <td style="text-align: center">0</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiAdv#libone">GET /advs/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiAdv#libone">GET /advertisers/:id</a></strong></td>
       <td>获取指定 ID 系统广告主信息</td>
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiAdv#nwlist">GET /networks/:network/advs</a></strong></td>
+<td style="text-align: center"><strong><a href="apiAdv#nwlist">GET /networks/:network_id/advertisers</a></strong></td>
       <td>获取指定 ID 工作网络下所有广告主信息</td>
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiAdv#nwModify">GET /networks/:network/advs/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiAdv#nwModify">GET /networks/:network_id/advertisers/:id</a></strong></td>
       <td>获取指定 ID 网络下的指定 ID 广告主信息</td>
       <td style="text-align: center">2</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiAdv#nwone">PUT /networks/:network/advs/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiAdv#nwone">PUT /networks/:network_id/advertisers/:id</a></strong></td>
       <td>添加指定 ID 系统广告主到指定 ID 工作网络下</td>
       <td style="text-align: center">2</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiAdv#nwadd">PATCH /networks/:network/advs/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiAdv#nwadd">PATCH /networks/:network_id/advertisers/:id</a></strong></td>
       <td>修改指定 ID 网络下的指定 ID 广告主</td>
       <td style="text-align: center">2</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiAdv#nwdel">DELETE /networks/:network/advs/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiAdv#nwdel">DELETE /networks/:network_id/advertisers/:id</a></strong></td>
       <td>删除指定 ID 工作网络下的指定 ID 广告主</td>
       <td style="text-align: center">2</td>
     </tr>
@@ -130,27 +130,27 @@
     </tr></thead>
 <tbody>
 <tr>
-<td style="text-align: center"><strong><a href="apiBrand#advall">GET /networks/:network/advs/:adv/brands</a></strong></td>
+<td style="text-align: center"><strong><a href="apiBrand#advall">GET /networks/:network_id/advertisers/:advertiser_id/brands</a></strong></td>
       <td>获取指定 ID 网络下指定 ID 广告主下的所有品牌</td>
       <td style="text-align: center">2</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiBrand#Detail">GET /networks/advs/brands/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiBrand#Detail">GET /networks/advertisers/brands/:id</a></strong></td>
       <td>获取指定 ID 品牌详细信息</td>
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiBrand#advadd">POST /networks/:network/advs/:adv/brands</a></strong></td>
+<td style="text-align: center"><strong><a href="apiBrand#advadd">POST /networks/:network_id/advertisers/:advertiser_id/brands</a></strong></td>
       <td>添加指定 ID 品牌到指定 ID 网络广告主下</td>
       <td style="text-align: center">2</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiBrand#advmodify">PATCH /networks/advs/brands/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiBrand#advmodify">PATCH /networks/advertisers/brands/:id</a></strong></td>
       <td>修改特定 ID 的网络广告主下品牌名称</td>
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiBrand#advdel">DELETE /networks/advs/brands/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiBrand#advdel">DELETE /networks/advertisers/brands/:id</a></strong></td>
       <td>删除指定 ID 的网络广告主下品牌</td>
       <td style="text-align: center">1</td>
     </tr>
@@ -175,7 +175,7 @@
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiMedia#nw">GET /networks/:network/medias</a></strong></td>
+<td style="text-align: center"><strong><a href="apiMedia#nw">GET /networks/:network_id/medias</a></strong></td>
       <td>获取指定工作网络下媒体库列表</td>
       <td style="text-align: center">1</td>
     </tr>
@@ -185,7 +185,7 @@
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiMedia#nwadd">POST /networks/:network/medias</a></strong></td>
+<td style="text-align: center"><strong><a href="apiMedia#nwadd">POST /networks/:network_id/medias</a></strong></td>
       <td>给指定工作网络添加一个媒体</td>
       <td style="text-align: center">1</td>
     </tr>
@@ -200,22 +200,22 @@
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiMedia#cp">GET /networks/adv/campaigns/:campaign/medias</a></strong></td>
+<td style="text-align: center"><strong><a href="apiMedia#cp">GET /networks/advertisers/campaigns/:campaign_id/medias</a></strong></td>
       <td>获取指定项目下已添加的媒体</td>
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiMedia#one">GET /networks/advs/campaigns/:campaign/medias/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiMedia#one">GET /networks/advertisers/campaigns/:campaign_id/medias/:id</a></strong></td>
       <td>获取指定项目下指定媒体详细信息</td>
       <td style="text-align: center">2</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiMediaNwPro#Pro">PUT /networks/advs/campaigns/:campaign/medias/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiMediaNwPro#Pro">PUT /networks/advertisers/campaigns/:campaign_id/medias/:id</a></strong></td>
       <td>为指定项目添加指定媒体</td>
       <td style="text-align: center">2</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiMedia#one">DELETE /networks/advs/campaigns/:campaign/medias/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiMedia#one">DELETE /networks/advertisers/campaigns/:campaign_id/medias/:id</a></strong></td>
       <td>删除指定项目下某个媒体</td>
       <td style="text-align: center">2</td>
     </tr>
@@ -230,27 +230,27 @@
     </tr></thead>
 <tbody>
 <tr>
-<td style="text-align: center"><strong><a href="apiCampaign#list">GET /networks/:network/advs/:adv/campaigns</a></strong></td>
+<td style="text-align: center"><strong><a href="apiCampaign#list">GET /networks/:network_id/advertisers/:advertiser_id/campaigns</a></strong></td>
       <td>获取指定网络下某个广告主有操作权限的项目列表</td>
       <td style="text-align: center">2</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiCampaign#one">GET /networks/advs/campaigns/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiCampaign#one">GET /networks/advertisers/campaigns/:id</a></strong></td>
       <td>获取指定项目信息</td>
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiCampaign#add">POST /networks/:network/advs/:adv/campaigns</a></strong></td>
+<td style="text-align: center"><strong><a href="apiCampaign#add">POST /networks/:network_id/advertisers/:advertiser_id/campaigns</a></strong></td>
       <td>添加指定项目到指定广告主下</td>
       <td style="text-align: center">2</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiCampaign#del">DELETE /networks/advs/campaigns/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiCampaign#del">DELETE /networks/advertisers/campaigns/:id</a></strong></td>
       <td>删除指定项目</td>
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiCampaign#modify">PATCH /networks/advs/campaigns/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiCampaign#modify">PATCH /networks/advertisers/campaigns/:id</a></strong></td>
       <td>修改指定项目属性</td>
       <td style="text-align: center">1</td>
     </tr>
@@ -265,27 +265,27 @@
     </tr></thead>
 <tbody>
 <tr>
-<td style="text-align: center"><strong><a href="apiPlacement#list">GET /networks/advs/campaigns/:campaign/placements</a></strong></td>
+<td style="text-align: center"><strong><a href="apiPlacement#list">GET /networks/advertisers/campaigns/:campaign_id/placements</a></strong></td>
       <td>获取指定项目下指定媒体的广告位列表</td>
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiPlacement#one">GET /networks/advs/campaigns/placements/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiPlacement#one">GET /networks/advertisers/campaigns/placements/:id</a></strong></td>
       <td>获取指定广告位信息</td>
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiPlacement#add">POST /networks/advs/campaigns/:campaign/placements</a></strong></td>
+<td style="text-align: center"><strong><a href="apiPlacement#add">POST /networks/advertisers/campaigns/:campaign_id/placements</a></strong></td>
       <td>添加一个广告位在指定项目下</td>
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiPlacement#del">DELETE /networks/advs/campaigns/placements/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiPlacement#del">DELETE /networks/advertisers/campaigns/placements/:id</a></strong></td>
       <td>删除指定的广告位</td>
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiPlacement#modify">PATCH /networks/advs/campaigns/placements/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiPlacement#modify">PATCH /networks/advertisers/campaigns/placements/:id</a></strong></td>
       <td>修改指定的广告位属性</td>
       <td style="text-align: center">1</td>
     </tr>
@@ -300,27 +300,27 @@
     </tr></thead>
 <tbody>
 <tr>
-<td style="text-align: center"><strong><a href="apiCreative#cpAll">GET /networks/advs/campaigns/:campaign/creatives</a></strong></td>
+<td style="text-align: center"><strong><a href="apiCreative#cpAll">GET /networks/advertisers/campaigns/:campaign_id/creatives</a></strong></td>
       <td>获取指定项目所有创意</td>
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiCreative#cpOne">GET /networks/advs/campaigns/creatives/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiCreative#cpOne">GET /networks/advertisers/campaigns/creatives/:id</a></strong></td>
       <td>获取项目下指定创意信息</td>
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiCreative#cpAdd">POST /networks/advs/campaigns/:campaign/creatives</a></strong></td>
+<td style="text-align: center"><strong><a href="apiCreative#cpAdd">POST /networks/advertisers/campaigns/:campaign_id/creatives</a></strong></td>
       <td>在指定项目下添加创意</td>
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiCreative#del">DELETE /networks/advs/campaigns/creatives/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiCreative#del">DELETE /networks/advertisers/campaigns/creatives/:id</a></strong></td>
       <td>删除指定的创意</td>
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiCreative#modify">PATCH /networks/advs/campaigns/creatives/:id</a></strong></td>
+<td style="text-align: center"><strong><a href="apiCreative#modify">PATCH /networks/advertisers/campaigns/creatives/:id</a></strong></td>
       <td>修改指定的创意属性</td>
       <td style="text-align: center">1</td>
     </tr>
@@ -335,12 +335,12 @@
     </tr></thead>
 <tbody>
 <tr>
-<td style="text-align: center"><strong><a href="apiSpot#all">GET /networks/advs/campaigns/:campaign/spotss</a></strong></td>
+<td style="text-align: center"><strong><a href="apiSpot#all">GET /networks/advertisers/campaigns/:campaign_id/spotss</a></strong></td>
       <td>获取指定项目下指定时间段内的点位</td>
       <td style="text-align: center">1</td>
     </tr>
 <tr>
-<td style="text-align: center"><strong><a href="apiSpot#modify">PATCH /networks/advs/campaigns/spots/:placement/:date</a></strong></td>
+<td style="text-align: center"><strong><a href="apiSpot#modify">PATCH /networks/advertisers/campaigns/spots/:placement_id/:date</a></strong></td>
       <td>修改指定点位</td>
       <td style="text-align: center">2</td>
     </tr>
@@ -420,6 +420,16 @@
               <li><a href="/trackmaster/v1/apiMedia/#p11">删除指定项目下某个媒体</a></li>
             </ul>
           </li>
+
+<li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiChannel/">频道</a></h3>
+            <ul class="js-guides">
+              <li><a href="/trackmaster/v1/apiChannel/#p1">获取指定媒体频道列表</a></li>
+              <li><a href="/trackmaster/v1/apiChannel/#p2">获取指定频道详细信息</a></li>
+              <li><a href="/trackmaster/v1/apiChannel/#p3">为指定媒体新增频道</a></li>
+            </ul>
+          </li>
+
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiCampaign/">项目</a></h3>
             <ul class="js-guides">

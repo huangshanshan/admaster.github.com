@@ -35,15 +35,15 @@
 
 <h2 id="p1">获取指定项目所有创意</h2>
 
-<pre><code>GET /networks/advs/campaigns/:campaign/creatives
+<pre><code>GET /networks/advertisers/campaigns/:campaign_id/creatives
 </code></pre>
 
 <h3 id="section">响应</h3>
 
 <pre class="headers">
 <code>Status: 200 OK
-Link: &lt;http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/creatives?page=2&gt;; rel="next",
-      &lt;http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/creatives?page=10&gt;; rel="last"
+Link: &lt;http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/creatives?page=2&gt;; rel="next",
+      &lt;http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/creatives?page=10&gt;; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -53,7 +53,7 @@ X-RateLimit-Remaining: 4999
     <span class="c1">//创意ID，全局唯一</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="c1">//获取详情接口地址</span>
-    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/advs/campaigns/creatives/1"</span><span class="p">,</span>
+    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/advertisers/campaigns/creatives/1"</span><span class="p">,</span>
     <span class="c1">//创意名称</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"这是一个很不错的创意"</span><span class="p">,</span>
     <span class="c1">//创意名缩写</span>
@@ -86,7 +86,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p2">获取项目下指定创意信息</h2>
 
-<pre><code>GET /networks/advs/campaigns/creatives/:id
+<pre><code>GET /networks/advertisers/campaigns/creatives/:id
 </code></pre>
 
 <h3 id="section-2">响应</h3>
@@ -101,7 +101,7 @@ X-RateLimit-Remaining: 4999
     <span class="c1">//创意ID，全局唯一</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="c1">//获取详情接口地址</span>
-    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/advs/campaigns/creatives/1"</span><span class="p">,</span>
+    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/advertisers/campaigns/creatives/1"</span><span class="p">,</span>
     <span class="c1">//创意名称</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"这是一个很不错的创意"</span><span class="p">,</span>
     <span class="c1">//创意名缩写</span>
@@ -132,7 +132,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">在指定项目下添加创意</h2>
 
-<pre><code>POST /networks/advs/campaigns/:campaign/creatives
+<pre><code>POST /networks/advertisers/campaigns/:campaign_id/creatives
 </code></pre>
 
 <h3 id="section-4">请求</h3>
@@ -175,7 +175,7 @@ X-RateLimit-Remaining: 4999
     <span class="c1">//创意ID，全局唯一</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="c1">//获取详情接口地址</span>
-    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/advs/campaigns/creatives/1"</span><span class="p">,</span>
+    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/advertisers/campaigns/creatives/1"</span><span class="p">,</span>
     <span class="c1">//创意名称</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"这是一个很不错的创意"</span><span class="p">,</span>
     <span class="c1">//创意名缩写</span>
@@ -205,20 +205,20 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p4">删除指定的创意</h2>
 
-<pre><code>DELETE /networks/advs/campaigns/creatives/:id
+<pre><code>DELETE /networks/advertisers/campaigns/creatives/:id
 </code></pre>
 
 <h3 id="section-7">响应</h3>
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/creatives
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/creatives
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
 <h2 id="p5">修改指定的创意属性</h2>
 
-<pre><code>PATCH /networks/advs/campaigns/creatives/:id
+<pre><code>PATCH /networks/advertisers/campaigns/creatives/:id
 </code></pre>
 
 <h3 id="section-8">请求</h3>
@@ -333,6 +333,16 @@ X-RateLimit-Remaining: 4999
               <li><a href="/trackmaster/v1/apiMedia/#p11">删除指定项目下某个媒体</a></li>
             </ul>
           </li>
+
+<li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiChannel/">频道</a></h3>
+            <ul class="js-guides">
+              <li><a href="/trackmaster/v1/apiChannel/#p1">获取指定媒体频道列表</a></li>
+              <li><a href="/trackmaster/v1/apiChannel/#p2">获取指定频道详细信息</a></li>
+              <li><a href="/trackmaster/v1/apiChannel/#p3">为指定媒体新增频道</a></li>
+            </ul>
+          </li>
+
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiCampaign/">项目</a></h3>
             <ul class="js-guides">
