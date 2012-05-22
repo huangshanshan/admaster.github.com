@@ -23,6 +23,9 @@ OAuth2.0 是从2006年开始设计 OAuth 协议的下一个版本，OAuth2.0 同
 client\_id
 : _必选_ **string** - 这个 client ID 是你在 TrackMaster™ [应用注册页面](http://open.admaster.com.cn/app/new)获得的。
 
+response\_type
+: _必选_ **Enum** - 返回类型，`code`, `token`
+
 redirect\_uri
 : _可选_ **string** - 在用户验证后，重定向到你的应用的地址。
 
