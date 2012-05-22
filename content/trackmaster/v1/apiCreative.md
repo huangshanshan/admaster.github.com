@@ -6,14 +6,14 @@ title: API - 创意接口
 
 <h2 id="p1">获取指定项目所有创意</h2>
 
-    GET /networks/advs/campaigns/:campaign/creatives
+    GET /networks/advertisers/campaigns/:campaign_id/creatives
 
 ###响应
 
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/creatives?page=2>; rel="next",
-      <http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/creatives?page=10>; rel="last"
+Link: <http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/creatives?page=2>; rel="next",
+      <http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/creatives?page=10>; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -24,7 +24,7 @@ X-RateLimit-Remaining: 4999
     //创意ID，全局唯一
     "id": 1,
     //获取详情接口地址
-    "url": "http://api.trackmaster.com.cn/networks/advs/campaigns/creatives/1",
+    "url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/creatives/1",
     //创意名称
     "name": "这是一个很不错的创意",
     //创意名缩写
@@ -58,7 +58,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p2">获取项目下指定创意信息</h2>
 
-    GET /networks/advs/campaigns/creatives/:id
+    GET /networks/advertisers/campaigns/creatives/:id
 
 ###响应
 
@@ -73,7 +73,7 @@ X-RateLimit-Remaining: 4999
     //创意ID，全局唯一
     "id": 1,
     //获取详情接口地址
-    "url": "http://api.trackmaster.com.cn/networks/advs/campaigns/creatives/1",
+    "url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/creatives/1",
     //创意名称
     "name": "这是一个很不错的创意",
     //创意名缩写
@@ -105,7 +105,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">在指定项目下添加创意</h2>
 
-    POST /networks/advs/campaigns/:campaign/creatives
+    POST /networks/advertisers/campaigns/:campaign_id/creatives
 
 ###请求
 
@@ -149,7 +149,7 @@ X-RateLimit-Remaining: 4999
     //创意ID，全局唯一
     "id": 1,
     //获取详情接口地址
-    "url": "http://api.trackmaster.com.cn/networks/advs/campaigns/creatives/1",
+    "url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/creatives/1",
     //创意名称
     "name": "这是一个很不错的创意",
     //创意名缩写
@@ -180,19 +180,19 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p4">删除指定的创意</h2>
 
-    DELETE /networks/advs/campaigns/creatives/:id
+    DELETE /networks/advertisers/campaigns/creatives/:id
 
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/advs/campaigns/:campaign/creatives
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/creatives
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
 <h2 id="p5">修改指定的创意属性</h2>
 
-    PATCH /networks/advs/campaigns/creatives/:id
+    PATCH /networks/advertisers/campaigns/creatives/:id
 
 ###请求
 

@@ -7,7 +7,7 @@ title: API - 品牌接口
 
 <h2 id="p1">获取指定网络下指定广告主下的所有品牌</h2>
 
-    GET /networks/:network/advs/:adv/brands
+    GET /networks/:network_id/advertisers/:advertiser_id/brands
 
 ###响应
 <pre class="headers">
@@ -33,7 +33,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p2">获取指定 ID 品牌详细信息</h2>
 
-    GET /networks/advs/brands/:id
+    GET /networks/advertisers/brands/:id
 
 ###响应
 <pre class="headers">
@@ -46,9 +46,9 @@ X-RateLimit-Remaining: 4999
 {
     "id": 1,
     "name": "巧乐兹",
-    "url": "http://api.trackmaster.com.cn/networks/advs/brands/1",
+    "url": "http://api.trackmaster.com.cn/networks/advertisers/brands/1",
     "network_id": 1,
-    "adv_id": 10231,
+    "advertiser_id": 10231,
     "created_at": "2012-09-06T20:39:23Z"
 }
 </code></pre>
@@ -60,7 +60,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">添加指定品牌到指定网络广告主下</h2>
 
-    POST /networks/:network/advs/:adv/brands
+    POST /networks/:network_id/advertisers/:advertiser_id/brands
 
 ###请求
 <pre class="highlight">
@@ -75,7 +75,7 @@ name
 ###响应
 <pre class="headers">
 <code>Status: 201 Created 
-Location: http://api.trackmaster.com.cn/networks/:network/advs/:adv/brands
+Location: http://api.trackmaster.com.cn/networks/:network_id/advertisers/:advertiser_id/brands
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -84,9 +84,9 @@ X-RateLimit-Remaining: 4999
 {
     "id": 1,
     "name": "巧乐兹",
-    "url": "http://api.trackmaster.com.cn/networks/advs/brands/1",
+    "url": "http://api.trackmaster.com.cn/networks/advertisers/brands/1",
     "network_id": 1,
-    "adv_id": 10231,
+    "advertiser_id": 10231,
     "created_at": "2012-09-06T20:39:23Z"
 }
 </code></pre>
@@ -98,7 +98,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p4">修改指定的网络广告主下品牌名称</h2>
 
-    PATCH /networks/advs/brands/:id
+    PATCH /networks/advertisers/brands/:id
 
 ###请求
 <pre class="highlight">
@@ -126,12 +126,12 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p5">删除指定的网络广告主下品牌</h2>
 
-    DELETE /networks/advs/brands/:id
+    DELETE /networks/advertisers/brands/:id
 
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content 
-Location: http://api.trackmaster.com.cn/networks/:network/advs/:adv/brands
+Location: http://api.trackmaster.com.cn/networks/:network_id/advertisers/:advertiser_id/brands
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>

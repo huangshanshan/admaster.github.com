@@ -27,7 +27,7 @@ title: API - 快速入门
 现在让我们真正开始一次 API 的调用，下面通过一个简单的示例来演示 TrackMaster™ API 的使用。这个示例中展示了...
 
 调用：请求的 URL 如下（注意将 source 参数的值设置为您的应用的 App ID）:
-http://api.admaster.com.cn/v1/advs
+http://api.admaster.com.cn/v1/advertisers
 
 返回：请求上面的 URL 之后，返回 JSON 数据。
 

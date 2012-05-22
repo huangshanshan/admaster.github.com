@@ -33,23 +33,23 @@
 
 **API**|说明|参数
 :-----:|----|:---:
-**[GET /advs][apiAdvLib]**|获取系统广告主列表|0
-**[GET /advs/:id][apiAdvLibOne]**|获取指定 ID 系统广告主信息|1
-**[GET /networks/:network/advs][apiAdvnw]**|获取指定 ID 工作网络下所有广告主信息|1
-**[GET /networks/:network/advs/:id][apiAdvnwModify]**|获取指定 ID 网络下的指定 ID 广告主信息|2
-**[PUT /networks/:network/advs/:id][apiAdvnwOne]**|添加指定 ID 系统广告主到指定 ID 工作网络下|2
-**[PATCH /networks/:network/advs/:id][apiAdvnwAdd]**|修改指定 ID 网络下的指定 ID 广告主|2
-**[DELETE /networks/:network/advs/:id][apiAdvnwDel]**|删除指定 ID 工作网络下的指定 ID 广告主|2
+**[GET /advertisers][apiAdvLib]**|获取系统广告主列表|0
+**[GET /advertisers/:id][apiAdvLibOne]**|获取指定 ID 系统广告主信息|1
+**[GET /networks/:network_id/advertisers][apiAdvnw]**|获取指定 ID 工作网络下所有广告主信息|1
+**[GET /networks/:network_id/advertisers/:id][apiAdvnwModify]**|获取指定 ID 网络下的指定 ID 广告主信息|2
+**[PUT /networks/:network_id/advertisers/:id][apiAdvnwOne]**|添加指定 ID 系统广告主到指定 ID 工作网络下|2
+**[PATCH /networks/:network_id/advertisers/:id][apiAdvnwAdd]**|修改指定 ID 网络下的指定 ID 广告主|2
+**[DELETE /networks/:network_id/advertisers/:id][apiAdvnwDel]**|删除指定 ID 工作网络下的指定 ID 广告主|2
 
 ###[品牌][apiBrand]
 
 **API**|说明|参数
 :-----:|----|:---:
-**[GET /networks/:network/advs/:adv/brands][apiBrandAdvAll]**|获取指定 ID 网络下指定 ID 广告主下的所有品牌|2
-**[GET /networks/advs/brands/:id][apiBrandAdvDetail]**|获取指定 ID 品牌详细信息|1
-**[POST /networks/:network/advs/:adv/brands][apiBrandAdvAdd]**|添加指定 ID 品牌到指定 ID 网络广告主下|2
-**[PATCH /networks/advs/brands/:id][apiBrandAdvModify]**|修改特定 ID 的网络广告主下品牌名称|1
-**[DELETE /networks/advs/brands/:id][apiBrandAdvDel]**|删除指定 ID 的网络广告主下品牌|1
+**[GET /networks/:network_id/advertisers/:advertiser_id/brands][apiBrandAdvAll]**|获取指定 ID 网络下指定 ID 广告主下的所有品牌|2
+**[GET /networks/advertisers/brands/:id][apiBrandAdvDetail]**|获取指定 ID 品牌详细信息|1
+**[POST /networks/:network_id/advertisers/:advertiser_id/brands][apiBrandAdvAdd]**|添加指定 ID 品牌到指定 ID 网络广告主下|2
+**[PATCH /networks/advertisers/brands/:id][apiBrandAdvModify]**|修改特定 ID 的网络广告主下品牌名称|1
+**[DELETE /networks/advertisers/brands/:id][apiBrandAdvDel]**|删除指定 ID 的网络广告主下品牌|1
 
 ###[媒体][apiMedia]
 
@@ -57,37 +57,37 @@
 :-----:|----|:---:
 **[GET /medias][apiMediaLib]**|获取系统媒体库列表|0
 **[GET /medias/:id][apiMediaLibDet]**|获取指定系统媒体详细信息|1
-**[GET /networks/:network/medias][apiMediaNw]**|获取指定工作网络下媒体库列表|1
+**[GET /networks/:network_id/medias][apiMediaNw]**|获取指定工作网络下媒体库列表|1
 **[GET /networks/medias/:id][apiMediaNwOne]**|获取指定工作网络下指定媒体信息|1
-**[POST /networks/:network/medias][apiMediaNwAdd]**|给指定工作网络添加一个媒体|1
+**[POST /networks/:network_id/medias][apiMediaNwAdd]**|给指定工作网络添加一个媒体|1
 **[DELETE /networks/medias/:id][apiMediaNwDel]**|删除指定工作网络下的媒体|1
 **[PATCH /networks/medias/:id][apiMediaNwModify]**|修改指定工作网络下指定媒体属性|1
-**[GET /networks/adv/campaigns/:campaign/medias][apiMediaCp]**|获取指定项目下已添加的媒体|1
-**[GET /networks/advs/campaigns/:campaign/medias/:id][apiMediaNwOne]**|获取指定项目下指定媒体详细信息|2
-**[PUT /networks/advs/campaigns/:campaign/medias/:id][apiMediaNwPro]**|为指定项目添加指定媒体|2
-**[DELETE /networks/advs/campaigns/:campaign/medias/:id][apiMediaNwDel]**|删除指定项目下某个媒体|2
+**[GET /networks/advertisers/campaigns/:campaign_id/medias][apiMediaCp]**|获取指定项目下已添加的媒体|1
+**[GET /networks/advertisers/campaigns/:campaign_id/medias/:id][apiMediaNwOne]**|获取指定项目下指定媒体详细信息|2
+**[PUT /networks/advertisers/campaigns/:campaign_id/medias/:id][apiMediaNwPro]**|为指定项目添加指定媒体|2
+**[DELETE /networks/advertisers/campaigns/:campaign_id/medias/:id][apiMediaNwDel]**|删除指定项目下某个媒体|2
 
 
 ###[项目][apiCampaign]
 
 **API**|说明|参数
 :-----:|----|:---:
-**[GET /networks/:network/advs/:adv/campaigns][apiCampaignList]**|获取指定网络下某个广告主有操作权限的项目列表|2
-**[GET /networks/advs/campaigns/:id][apiCampaignOne]**|获取指定项目信息|1
-**[POST /networks/:network/advs/:adv/campaigns][apiCampaignAdd]**|添加指定项目到指定广告主下|2
-**[DELETE /networks/advs/campaigns/:id][apiCampaignDel]**|删除指定项目|1
-**[PATCH /networks/advs/campaigns/:id][apiCampaignModify]**|修改指定项目属性|1
+**[GET /networks/:network_id/advertisers/:advertiser_id/campaigns][apiCampaignList]**|获取指定网络下某个广告主有操作权限的项目列表|2
+**[GET /networks/advertisers/campaigns/:id][apiCampaignOne]**|获取指定项目信息|1
+**[POST /networks/:network_id/advertisers/:advertiser_id/campaigns][apiCampaignAdd]**|添加指定项目到指定广告主下|2
+**[DELETE /networks/advertisers/campaigns/:id][apiCampaignDel]**|删除指定项目|1
+**[PATCH /networks/advertisers/campaigns/:id][apiCampaignModify]**|修改指定项目属性|1
 
 
 ###[广告位][apiPlacement]
 
 **API**|说明|参数
 :-----:|----|:---:
-**[GET /networks/advs/campaigns/:campaign/placements][apiPlacementList]**|获取指定项目下指定媒体的广告位列表|1
-**[GET /networks/advs/campaigns/placements/:id][apiPlacementOne]**|获取指定广告位信息|1
-**[POST /networks/advs/campaigns/:campaign/placements][apiPlacementAdd]**|添加一个广告位在指定项目下|1
-**[DELETE /networks/advs/campaigns/placements/:id][apiPlacementDel]**|删除指定的广告位|1
-**[PATCH /networks/advs/campaigns/placements/:id][apiPlacementModify]**|修改指定的广告位属性|1
+**[GET /networks/advertisers/campaigns/:campaign_id/placements][apiPlacementList]**|获取指定项目下指定媒体的广告位列表|1
+**[GET /networks/advertisers/campaigns/placements/:id][apiPlacementOne]**|获取指定广告位信息|1
+**[POST /networks/advertisers/campaigns/:campaign_id/placements][apiPlacementAdd]**|添加一个广告位在指定项目下|1
+**[DELETE /networks/advertisers/campaigns/placements/:id][apiPlacementDel]**|删除指定的广告位|1
+**[PATCH /networks/advertisers/campaigns/placements/:id][apiPlacementModify]**|修改指定的广告位属性|1
 
 
 
@@ -95,11 +95,11 @@
 
 **API**|说明|参数
 :-----:|----|:---:
-**[GET /networks/advs/campaigns/:campaign/creatives][apiCreativeCpAll]**|获取指定项目所有创意|1
-**[GET /networks/advs/campaigns/creatives/:id][apiCreativeCpOne]**|获取项目下指定创意信息|1
-**[POST /networks/advs/campaigns/:campaign/creatives][apiCreativeCpAdd]**|在指定项目下添加创意|1
-**[DELETE /networks/advs/campaigns/creatives/:id][apiCreativeDel]**|删除指定的创意|1
-**[PATCH /networks/advs/campaigns/creatives/:id][apiCreativeModify]**|修改指定的创意属性|1
+**[GET /networks/advertisers/campaigns/:campaign_id/creatives][apiCreativeCpAll]**|获取指定项目所有创意|1
+**[GET /networks/advertisers/campaigns/creatives/:id][apiCreativeCpOne]**|获取项目下指定创意信息|1
+**[POST /networks/advertisers/campaigns/:campaign_id/creatives][apiCreativeCpAdd]**|在指定项目下添加创意|1
+**[DELETE /networks/advertisers/campaigns/creatives/:id][apiCreativeDel]**|删除指定的创意|1
+**[PATCH /networks/advertisers/campaigns/creatives/:id][apiCreativeModify]**|修改指定的创意属性|1
 
 
 
@@ -107,8 +107,8 @@
 
 **API**|说明|参数
 :-----:|----|:---:
-**[GET /networks/advs/campaigns/:campaign/spotss][apiSpotAll]**|获取指定项目下指定时间段内的点位|1
-**[PATCH /networks/advs/campaigns/spots/:placement/:date][apiSpotModify]**|修改指定点位|2
+**[GET /networks/advertisers/campaigns/:campaign_id/spotss][apiSpotAll]**|获取指定项目下指定时间段内的点位|1
+**[PATCH /networks/advertisers/campaigns/spots/:placement_id/:date][apiSpotModify]**|修改指定点位|2
 
 
 

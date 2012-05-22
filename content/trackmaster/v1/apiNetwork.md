@@ -46,7 +46,7 @@ X-RateLimit-Remaining: 4999
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/1/advs>; rel="advs"
+Link: <http://api.trackmaster.com.cn/networks/1/advertisers>; rel="advs"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>

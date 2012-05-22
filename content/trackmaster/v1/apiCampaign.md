@@ -6,7 +6,7 @@ title: API - 项目接口
 
 <h2 id="p1">获取指定工作网络下某个广告主有操作权限的项目列表</h2>
 
-    GET /networks/:network/advs/:adv/campaigns
+    GET /networks/:network_id/advertisers/:advertiser_id/campaigns
 
 ###参数
 
@@ -56,8 +56,8 @@ direction
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/:network/advs/:adv/campaigns?page=2>; rel="next",
-      <http://api.trackmaster.com.cn/networks/:network/advs/:adv/campaigns?page=10>; rel="last"
+Link: <http://api.trackmaster.com.cn/networks/:network_id/advertisers/:advertiser_id/campaigns?page=2>; rel="next",
+      <http://api.trackmaster.com.cn/networks/:network_id/advertisers/:advertiser_id/campaigns?page=10>; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -66,7 +66,7 @@ X-RateLimit-Remaining: 4999
 [
   {
     "id": 1,
-    "url": "http://api.trackmaster.com.cn/networks/advs/campaigns/1",
+    "url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/1",
     "name": "这是一个测试项目",
     "brand_id": 10213,
     "cost_type": "CNY",
@@ -99,12 +99,12 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p2">获取指定项目信息</h2>
 
-    GET /networks/advs/campaigns/:id
+    GET /networks/advertisers/campaigns/:id
 
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/advs/campaigns/1/nwmedias>; rel="nwmedias" 
+Link: <http://api.trackmaster.com.cn/networks/advertisers/campaigns/1/nwmedias>; rel="nwmedias" 
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -112,7 +112,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 {
     "id": 1,
-    "url": "http://api.trackmaster.com.cn/networks/advs/campaigns/1",
+    "url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/1",
     "name": "这是一个测试项目",
     "brand_id": 10213,
     "cost_type": "CNY",
@@ -144,7 +144,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">添加指定项目到指定广告主下</h2>
 
-    POST /networks/:network/advs/:adv/campaigns
+    POST /networks/:network_id/advertisers/:advertiser_id/campaigns
 
 ###请求
 
@@ -210,7 +210,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 {
     "id": 1,
-    "url": "http://api.trackmaster.com.cn/networks/advs/campaigns/1",
+    "url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/1",
     "name": "这是一个测试项目",
     "brand_id": 10213,
     "cost_type": "CNY",
@@ -242,19 +242,19 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p4">删除指定项目</h2>
 
-    DELETE /networks/advs/campaigns/:id
+    DELETE /networks/advertisers/campaigns/:id
 
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/:network/advs/:adv/campaigns
+Location: http://api.trackmaster.com.cn/networks/:network_id/advertisers/:advertiser_id/campaigns
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
 <h2 id="p5">修改指定项目属性</h2>
 
-    PATCH /networks/advs/campaigns/:id
+    PATCH /networks/advertisers/campaigns/:id
 
 ###请求
 name
