@@ -44,14 +44,17 @@ scope
 client\_id
 : _必选_ **string** - 这个 client ID 是你在 TrackMaster™ [应用注册页面](http://open.admaster.com.cn/app/new)获得的。
 
-redirect\_uri
-: _可选_ **string**
-
 client\_secret
 : _必选_ **string** - 这个 client secret 是你在 TrackMaster™ [应用注册页面](http://open.admaster.com.cn/app/new)获得的。
 
 code
 : _必选_ **string** - 在第一步中重定向返回的参数。
+
+grant\_type
+: _必选_ **enum** - `authentication_code` 根据code获取token `password` 根据密码获取token `refresh_token` 刷新token
+
+redirect\_uri
+: _可选_ **string**
 
 ### 响应
 <pre class="highlight">
