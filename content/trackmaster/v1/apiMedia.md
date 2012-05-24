@@ -219,7 +219,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p8">获取指定项目下已添加的媒体</h2>
 
-    GET /networks/advertisers/campaigns/:campaign_id/medias
+    GET /networks/advertisers/campaigns/:campaign_id/networks/medias
 
 ###响应
 <pre class="headers">
