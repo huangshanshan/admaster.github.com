@@ -54,6 +54,10 @@
 <dt>client_id</dt>
   <dd>
 <em>必选</em> <strong>string</strong> - 这个 client ID 是你在 TrackMaster™ <a href="http://open.admaster.com.cn/app/new">应用注册页面</a>获得的。</dd>
+  <dt>response_type</dt>
+  <dd>
+<em>必选</em> <strong>Enum</strong> - 返回类型，<code>code</code>, <code>token</code>
+</dd>
   <dt>redirect_uri</dt>
   <dd>
 <em>可选</em> <strong>string</strong> - 在用户验证后，重定向到你的应用的地址。</dd>
@@ -74,16 +78,19 @@
 <dt>client_id</dt>
   <dd>
 <em>必选</em> <strong>string</strong> - 这个 client ID 是你在 TrackMaster™ <a href="http://open.admaster.com.cn/app/new">应用注册页面</a>获得的。</dd>
-  <dt>redirect_uri</dt>
-  <dd>
-<em>可选</em> <strong>string</strong>
-</dd>
   <dt>client_secret</dt>
   <dd>
 <em>必选</em> <strong>string</strong> - 这个 client secret 是你在 TrackMaster™ <a href="http://open.admaster.com.cn/app/new">应用注册页面</a>获得的。</dd>
   <dt>code</dt>
   <dd>
 <em>必选</em> <strong>string</strong> - 在第一步中重定向返回的参数。</dd>
+  <dt>grant_type</dt>
+  <dd>
+<em>必选</em> <strong>enum</strong> - <code>authentication_code</code> 根据code获取token <code>password</code> 根据密码获取token <code>refresh_token</code> 刷新token</dd>
+  <dt>redirect_uri</dt>
+  <dd>
+<em>可选</em> <strong>string</strong>
+</dd>
 </dl><h3 id="section-2">响应</h3>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
@@ -364,6 +371,7 @@ X-RateLimit-Remaining: 4999
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiCommon/">通用说明</a></h3>
             <ul class="js-guides">
+              <li><a href="/trackmaster/v1/apiVerbs/">协议及请求说明</a></li>
               <li><a href="/trackmaster/v1/apiCommon/#p1">全局名称定义</a></li>
               <li><a href="/trackmaster/v1/apiCommon/#p2">通用参数说明</a></li>
               <li><a href="/trackmaster/v1/apiCommon/#p3">通用元素说明</a></li>
