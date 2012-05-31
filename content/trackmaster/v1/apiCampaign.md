@@ -37,7 +37,7 @@ sort
 : _可选_ *String* - 列表排序以什么排序
 
 * `id` - 按照项目ID排序
-* `brand_id` - 按照品牌ID排序
+* `network_brand_id` - 按照品牌ID排序
 * `name` - 按照项目名称排序
 * `total_cost` - 按照总成本排序
 * `media_num` - 按照媒体数排序
@@ -68,7 +68,7 @@ X-RateLimit-Remaining: 4999
     "id": 1,
     "url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/1",
     "name": "这是一个测试项目",
-    "brand_id": 10213,
+    "network_brand_id": 10213,
     "cost_type": "CNY",
     "total_cost": 20000000,
     "start_date": "2012-01-03",
@@ -114,7 +114,7 @@ X-RateLimit-Remaining: 4999
     "id": 1,
     "url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/1",
     "name": "这是一个测试项目",
-    "brand_id": 10213,
+    "network_brand_id": 10213,
     "cost_type": "CNY",
     "total_cost": 20000000,
     "start_date": "2012-01-03",
@@ -187,7 +187,7 @@ target\_audience
 <code class="language-javascript">
 {
     "name": "这是一个测试项目",
-    "brand_id": 10021,
+    "network_brand_id": 10021,
     "start_date": "2012-01-31",
     "end_date": "2012-04-20",
     "default_target": "http://www.admaster.com.cn/",
@@ -212,7 +212,7 @@ X-RateLimit-Remaining: 4999
     "id": 1,
     "url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/1",
     "name": "这是一个测试项目",
-    "brand_id": 10213,
+    "network_brand_id": 10213,
     "cost_type": "CNY",
     "total_cost": 20000000,
     "start_date": "2012-01-03",
@@ -295,7 +295,7 @@ target\_audience
 
 {
     "name": "这是一个测试项目",
-    "brand_id": 10021,
+    "network_brand_id": 10021,
     "start_date": "2012-01-31",
     "end_date": "2012-04-20",
     "default_target": "http://www.admaster.com.cn/",
@@ -341,7 +341,7 @@ X-RateLimit-Remaining: 4999
     <td>项目名称</td>
   </tr>
   <tr>
-    <td>brand_id</td>
+    <td>network_brand_id</td>
     <td>int</td>
     <td>项目所属网络品牌 ID</td>
   </tr>
