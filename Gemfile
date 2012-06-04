@@ -8,6 +8,7 @@ gem 'yajl-ruby', '~> 0.8.2'
 gem 'pygmentize', '~> 0.0.3'
 gem 'mime-types', '~> 1.16'
 gem 'coderay'
+gem 'systemu'
 
 group :development do
   gem 'adsf'
