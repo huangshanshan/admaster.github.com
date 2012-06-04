@@ -44,7 +44,7 @@
 <dt>name</dt>
   <dd>
 <em>可选</em> <em>String</em> - 广告位名称，支持模糊搜索</dd>
-  <dt>media_id</dt>
+  <dt>network_media_id</dt>
   <dd>
 <em>可选</em> <em>Int</em> - 限定工作网络媒体ID</dd>
 </dl><h3 id="section-1">响应</h3>
@@ -65,7 +65,7 @@ X-RateLimit-Remaining: 4999
     <span class="c1">//广告位位置名称</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"这是一个测试广告位"</span><span class="p">,</span>
     <span class="c1">//工作网络下媒体ID</span>
-    <span class="s2">"media_id"</span><span class="o">:</span> <span class="mi">1314</span><span class="p">,</span>
+    <span class="s2">"network_media_id"</span><span class="o">:</span> <span class="mi">1314</span><span class="p">,</span>
     <span class="c1">//频道信息</span>
     <span class="s2">"channel"</span><span class="o">:</span> <span class="p">{</span>
         <span class="c1">//频道ID，全局唯一</span>
@@ -79,13 +79,13 @@ X-RateLimit-Remaining: 4999
         <span class="c1">//频道地址</span>
         <span class="s2">"home"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
         <span class="c1">//物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`</span>
-        <span class="s2">"materia_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
+        <span class="s2">"material_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
         <span class="c1">//物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px</span>
-        <span class="s2">"materia_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
-        <span class="c1">//物料文件大小，单位由 materia_size_unit 指定</span>
-        <span class="s2">"materia_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
+        <span class="c1">//物料文件大小，单位由 material_size_unit 指定</span>
+        <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
         <span class="c1">//物料文件大小单位，Byte KByte MByte</span>
-        <span class="s2">"materia_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
+        <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
     <span class="p">}</span>
     <span class="c1">//note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推</span>
     <span class="s2">"rotation"</span> <span class="o">:</span> <span class="s2">"1/4"</span><span class="p">,</span>
@@ -103,16 +103,6 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"est_clk_per_unit"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
     <span class="c1">//购买量</span>
     <span class="s2">"units"</span><span class="o">:</span> <span class="mi">58</span><span class="p">,</span>
-    <span class="c1">//物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`</span>
-    <span class="s2">"materia_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
-    <span class="c1">//物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px</span>
-    <span class="s2">"materia_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
-    <span class="c1">//物料文件大小，单位由 materia_size_unit 指定</span>
-    <span class="s2">"materia_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
-    <span class="c1">//物料文件大小单位，Byte KByte MByte</span>
-    <span class="s2">"materia_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span><span class="p">,</span>
-    <span class="c1">//广告位在第几屏幕</span>
-    <span class="s2">"screen"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
     <span class="c1">//其他要求</span>
     <span class="s2">"other_requirement"</span><span class="o">:</span> <span class="s2">"没有什么要求"</span><span class="p">,</span>
     <span class="c1">//预估曝光</span>
@@ -149,7 +139,7 @@ X-RateLimit-Remaining: 4999
 <span class="c1">//广告位位置名称</span>
 <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"这是一个测试广告位"</span><span class="p">,</span>
 <span class="c1">//工作网络下媒体ID</span>
-<span class="s2">"media_id"</span><span class="o">:</span> <span class="mi">1314</span><span class="p">,</span>
+<span class="s2">"network_media_id"</span><span class="o">:</span> <span class="mi">1314</span><span class="p">,</span>
 <span class="c1">//频道信息</span>
 <span class="s2">"channel"</span><span class="o">:</span> <span class="p">{</span>
     <span class="c1">//频道ID，全局唯一</span>
@@ -163,13 +153,13 @@ X-RateLimit-Remaining: 4999
     <span class="c1">//频道地址</span>
     <span class="s2">"home"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
     <span class="c1">//物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`</span>
-    <span class="s2">"materia_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
+    <span class="s2">"material_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
     <span class="c1">//物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px</span>
-    <span class="s2">"materia_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
-    <span class="c1">//物料文件大小，单位由 materia_size_unit 指定</span>
-    <span class="s2">"materia_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
+    <span class="c1">//物料文件大小，单位由 material_size_unit 指定</span>
+    <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
     <span class="c1">//物料文件大小单位，Byte KByte MByte</span>
-    <span class="s2">"materia_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
+    <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
 <span class="p">},</span>
 <span class="c1">//note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推</span>
 <span class="s2">"rotation"</span> <span class="o">:</span> <span class="s2">"1/4"</span><span class="p">,</span>
@@ -233,13 +223,13 @@ X-RateLimit-Remaining: 4999
     <span class="c1">//频道地址 _可选_</span>
     <span class="s2">"home"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
     <span class="c1">//物料类型 _可选_ `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`</span>
-    <span class="s2">"materia_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
+    <span class="s2">"material_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
     <span class="c1">//物料的显示尺寸 _可选_ 单位像素 格式如 400x300 宽度为400px 高度为300px</span>
-    <span class="s2">"materia_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
-    <span class="c1">//物料文件大小_可选_ 单位由 materia_size_unit 指定</span>
-    <span class="s2">"materia_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
+    <span class="c1">//物料文件大小_可选_ 单位由 material_size_unit 指定</span>
+    <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
     <span class="c1">//物料文件大小单位 _可选_ `B`, `K`, `M` 默认: K</span>
-    <span class="s2">"materia_size_unit"</span><span class="o">:</span> <span class="s2">"K"</span>
+    <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"K"</span>
 <span class="p">}</span></code></pre>
 
 <dl>
@@ -307,16 +297,16 @@ X-RateLimit-Remaining: 4999
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"这是一个测试广告位"</span><span class="p">,</span>
-    <span class="s2">"media_id"</span><span class="o">:</span> <span class="mi">1314</span><span class="p">,</span>
+    <span class="s2">"network_media_id"</span><span class="o">:</span> <span class="mi">1314</span><span class="p">,</span>
     <span class="s2">"channel"</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"体育新闻"</span><span class="p">,</span>
       <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"webpage"</span><span class="p">,</span>
       <span class="s2">"screen"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
       <span class="s2">"home"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
-      <span class="s2">"materia_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
-      <span class="s2">"materia_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
-      <span class="s2">"materia_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
-      <span class="s2">"materia_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
+      <span class="s2">"material_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
+      <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
+      <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+      <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
     <span class="p">},</span>
     <span class="s2">"rotation"</span> <span class="o">:</span> <span class="s2">"1/4"</span><span class="p">,</span>
     <span class="s2">"target_url"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
@@ -339,17 +329,17 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/advertisers/campaigns/placements/1"</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"这是一个测试广告位"</span><span class="p">,</span>
-    <span class="s2">"media_id"</span><span class="o">:</span> <span class="mi">1314</span><span class="p">,</span>
+    <span class="s2">"network_media_id"</span><span class="o">:</span> <span class="mi">1314</span><span class="p">,</span>
     <span class="s2">"channel"</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1025</span><span class="p">,</span>
         <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"体育新闻"</span><span class="p">,</span>
         <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"webpage"</span><span class="p">,</span>
         <span class="s2">"screen"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
         <span class="s2">"home"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
-        <span class="s2">"materia_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
-        <span class="s2">"materia_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
-        <span class="s2">"materia_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
-        <span class="s2">"materia_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
+        <span class="s2">"material_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
+        <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
+        <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
     <span class="p">},</span>
     <span class="s2">"rotation"</span> <span class="o">:</span> <span class="s2">"1/4"</span><span class="p">,</span>
     <span class="s2">"target_url"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
@@ -410,13 +400,13 @@ X-RateLimit-Remaining: 4999
     <span class="c1">//频道地址 _可选_</span>
     <span class="s2">"home"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
     <span class="c1">//物料类型 _可选_ `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`</span>
-    <span class="s2">"materia_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
+    <span class="s2">"material_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
     <span class="c1">//物料的显示尺寸 _可选_ 单位像素 格式如 400x300 宽度为400px 高度为300px</span>
-    <span class="s2">"materia_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
-    <span class="c1">//物料文件大小_可选_ 单位由 materia_size_unit 指定</span>
-    <span class="s2">"materia_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
+    <span class="c1">//物料文件大小_可选_ 单位由 material_size_unit 指定</span>
+    <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
     <span class="c1">//物料文件大小单位 _可选_ `B`, `K`, `M` 默认: K</span>
-    <span class="s2">"materia_size_unit"</span><span class="o">:</span> <span class="s2">"K"</span>
+    <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"K"</span>
 <span class="p">}</span></code></pre>
 
 <dl>
@@ -483,16 +473,16 @@ X-RateLimit-Remaining: 4999
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"这是一个测试广告位"</span><span class="p">,</span>
-    <span class="s2">"media_id"</span><span class="o">:</span> <span class="mi">1314</span><span class="p">,</span>
+    <span class="s2">"network_media_id"</span><span class="o">:</span> <span class="mi">1314</span><span class="p">,</span>
     <span class="s2">"channel"</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"体育新闻"</span><span class="p">,</span>
       <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"webpage"</span><span class="p">,</span>
       <span class="s2">"screen"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
       <span class="s2">"home"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
-      <span class="s2">"materia_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
-      <span class="s2">"materia_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
-      <span class="s2">"materia_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
-      <span class="s2">"materia_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
+      <span class="s2">"material_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
+      <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
+      <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+      <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
     <span class="p">},</span>
     <span class="s2">"rotation"</span> <span class="o">:</span> <span class="s2">"1/4"</span><span class="p">,</span>
     <span class="s2">"target_url"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
