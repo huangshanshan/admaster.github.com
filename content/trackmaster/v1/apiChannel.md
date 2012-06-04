@@ -7,7 +7,7 @@ title: API - 频道接口
 
 <h2 id="p1">获取指定媒体频道列表</h2>
 
-    GET /media/:media_id/channels
+    GET /medias/:media_id/channels
 
 ###响应
 <pre class="headers">
@@ -32,13 +32,13 @@ X-RateLimit-Remaining: 4999
         //频道地址
         "home": "http://www.admaster.com.cn/",
         //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-        "materia_type": 'flash',
+        "material_type": 'flash',
         //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
-        "materia_dimension": "400x300",
-        //物料文件大小，单位由 materia_size_unit 指定
-        "materia_size": 200,
+        "material_dimension": "400x300",
+        //物料文件大小，单位由 material_size_unit 指定
+        "material_size": 200,
         //物料文件大小单位，Byte KByte MByte
-        "materia_size_unit": "Byte"
+        "material_size_unit": "Byte"
     }
 ]
 </code></pre>
@@ -50,7 +50,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p2">获取指定频道详细信息</h2>
 
-    GET /media/channels/:media_id
+    GET /medias/channels/:id
 
 ###响应
 <pre class="headers">
@@ -72,13 +72,13 @@ X-RateLimit-Remaining: 4999
         //频道地址
         "home": "http://www.admaster.com.cn/",
         //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-        "materia_type": 'flash',
+        "material_type": 'flash',
         //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
-        "materia_dimension": "400x300",
-        //物料文件大小，单位由 materia_size_unit 指定
-        "materia_size": 200,
+        "material_dimension": "400x300",
+        //物料文件大小，单位由 material_size_unit 指定
+        "material_size": 200,
         //物料文件大小单位，Byte KByte MByte
-        "materia_size_unit": "Byte"
+        "material_size_unit": "Byte"
    
 }
 </code></pre>
@@ -90,7 +90,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">为指定媒体新增频道</h2>
 
-    POST /media/:media_id/medias
+    POST /medias/:media_id/channels
 
 ###请求
 
@@ -107,13 +107,13 @@ X-RateLimit-Remaining: 4999
     //频道地址
     "home": "http://www.admaster.com.cn/",
     //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-    "materia_type": 'flash',
+    "material_type": 'flash',
     //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
-    "materia_dimension": "400x300",
-    //物料文件大小，单位由 materia_size_unit 指定
-    "materia_size": 200,
+    "material_dimension": "400x300",
+    //物料文件大小，单位由 material_size_unit 指定
+    "material_size": 200,
     //物料文件大小单位，Byte KByte MByte
-    "materia_size_unit": "Byte"
+    "material_size_unit": "Byte"
 }
 
 </code></pre>
@@ -142,7 +142,7 @@ screen
 home
 : _可选_ *String* - 频道地址
 
-materia_type
+material_type
 : _可选_ *String* - 物料类型 
 
 * `flash`:flash (默认)
@@ -155,13 +155,13 @@ materia_type
 
 * `other`: 其他
 
-materia_dimension
+material_dimension
 : _可选_ *Enum* - 物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
 
-materia_size
-: _可选_ *Enum* - 物料文件大小，单位由 materia_size_unit 指定
+material_size
+: _可选_ *Enum* - 物料文件大小，单位由 material_size_unit 指定
 
-materia_size_unit
+material_size_unit
 : _可选_ *String* - 物料文件大小单位，Byte KByte MByte
 
 ###响应

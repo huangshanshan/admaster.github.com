@@ -13,7 +13,7 @@ title: API - 广告位接口
 name
 : _可选_ *String* - 广告位名称，支持模糊搜索
 
-media\_id
+network_media\_id
 : _可选_ *Int* - 限定工作网络媒体ID
 
 ###响应
@@ -35,7 +35,7 @@ X-RateLimit-Remaining: 4999
     //广告位位置名称
     "name": "这是一个测试广告位",
     //工作网络下媒体ID
-    "media_id": 1314,
+    "network_media_id": 1314,
     //频道信息
     "channel": {
         //频道ID，全局唯一
@@ -49,13 +49,13 @@ X-RateLimit-Remaining: 4999
         //频道地址
         "home": "http://www.admaster.com.cn/",
         //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-        "materia_type": 'flash',
+        "material_type": 'flash',
         //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
-        "materia_dimension": "400x300",
-        //物料文件大小，单位由 materia_size_unit 指定
-        "materia_size": 200,
+        "material_dimension": "400x300",
+        //物料文件大小，单位由 material_size_unit 指定
+        "material_size": 200,
         //物料文件大小单位，Byte KByte MByte
-        "materia_size_unit": "Byte"
+        "material_size_unit": "Byte"
     }
     //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推
     "rotation" : "1/4",
@@ -73,16 +73,6 @@ X-RateLimit-Remaining: 4999
     "est_clk_per_unit": 3,
     //购买量
     "units": 58,
-    //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-    "materia_type": 'flash',
-    //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
-    "materia_dimension": "400x300",
-    //物料文件大小，单位由 materia_size_unit 指定
-    "materia_size": 200,
-    //物料文件大小单位，Byte KByte MByte
-    "materia_size_unit": "Byte",
-    //广告位在第几屏幕
-    "screen": 3,
     //其他要求
     "other_requirement": "没有什么要求",
     //预估曝光
@@ -120,7 +110,7 @@ X-RateLimit-Remaining: 4999
 //广告位位置名称
 "name": "这是一个测试广告位",
 //工作网络下媒体ID
-"media_id": 1314,
+"network_media_id": 1314,
 //频道信息
 "channel": {
     //频道ID，全局唯一
@@ -134,13 +124,13 @@ X-RateLimit-Remaining: 4999
     //频道地址
     "home": "http://www.admaster.com.cn/",
     //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-    "materia_type": 'flash',
+    "material_type": 'flash',
     //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
-    "materia_dimension": "400x300",
-    //物料文件大小，单位由 materia_size_unit 指定
-    "materia_size": 200,
+    "material_dimension": "400x300",
+    //物料文件大小，单位由 material_size_unit 指定
+    "material_size": 200,
     //物料文件大小单位，Byte KByte MByte
-    "materia_size_unit": "Byte"
+    "material_size_unit": "Byte"
 },
 //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推
 "rotation" : "1/4",
@@ -204,13 +194,13 @@ channel
     //频道地址 _可选_
     "home": "http://www.admaster.com.cn/",
     //物料类型 _可选_ `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-    "materia_type": 'flash',
+    "material_type": 'flash',
     //物料的显示尺寸 _可选_ 单位像素 格式如 400x300 宽度为400px 高度为300px
-    "materia_dimension": "400x300",
-    //物料文件大小_可选_ 单位由 materia_size_unit 指定
-    "materia_size": 200,
+    "material_dimension": "400x300",
+    //物料文件大小_可选_ 单位由 material_size_unit 指定
+    "material_size": 200,
     //物料文件大小单位 _可选_ `B`, `K`, `M` 默认: K
-    "materia_size_unit": "K"
+    "material_size_unit": "K"
 }
 </code></pre>
 
@@ -260,16 +250,16 @@ other\_requirement
 <code class="language-javascript"> 
 {
     "name": "这是一个测试广告位",
-    "media_id": 1314,
+    "network_media_id": 1314,
     "channel": {
       "name": "体育新闻",
       "type": "webpage",
       "screen": 3,
       "home": "http://www.admaster.com.cn/",
-      "materia_type": 'flash',
-      "materia_dimension": "400x300",
-      "materia_size": 200,
-      "materia_size_unit": "Byte"
+      "material_type": 'flash',
+      "material_dimension": "400x300",
+      "material_size": 200,
+      "material_size_unit": "Byte"
     },
     "rotation" : "1/4",
     "target_url": "http://www.admaster.com.cn/",
@@ -294,17 +284,17 @@ X-RateLimit-Remaining: 4999
     "id": 1,
     "url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/placements/1",
     "name": "这是一个测试广告位",
-    "media_id": 1314,
+    "network_media_id": 1314,
     "channel": {
         "id": 1025,
         "name": "体育新闻",
         "type": "webpage",
         "screen": 3,
         "home": "http://www.admaster.com.cn/",
-        "materia_type": 'flash',
-        "materia_dimension": "400x300",
-        "materia_size": 200,
-        "materia_size_unit": "Byte"
+        "material_type": 'flash',
+        "material_dimension": "400x300",
+        "material_size": 200,
+        "material_size_unit": "Byte"
     },
     "rotation" : "1/4",
     "target_url": "http://www.admaster.com.cn/",
@@ -364,13 +354,13 @@ channel
     //频道地址 _可选_
     "home": "http://www.admaster.com.cn/",
     //物料类型 _可选_ `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-    "materia_type": 'flash',
+    "material_type": 'flash',
     //物料的显示尺寸 _可选_ 单位像素 格式如 400x300 宽度为400px 高度为300px
-    "materia_dimension": "400x300",
-    //物料文件大小_可选_ 单位由 materia_size_unit 指定
-    "materia_size": 200,
+    "material_dimension": "400x300",
+    //物料文件大小_可选_ 单位由 material_size_unit 指定
+    "material_size": 200,
     //物料文件大小单位 _可选_ `B`, `K`, `M` 默认: K
-    "materia_size_unit": "K"
+    "material_size_unit": "K"
 }
 </code></pre>
 
@@ -419,16 +409,16 @@ other\_requirement
 <code class="language-javascript">
 {
     "name": "这是一个测试广告位",
-    "media_id": 1314,
+    "network_media_id": 1314,
     "channel": {
       "name": "体育新闻",
       "type": "webpage",
       "screen": 3,
       "home": "http://www.admaster.com.cn/",
-      "materia_type": 'flash',
-      "materia_dimension": "400x300",
-      "materia_size": 200,
-      "materia_size_unit": "Byte"
+      "material_type": 'flash',
+      "material_dimension": "400x300",
+      "material_size": 200,
+      "material_size_unit": "Byte"
     },
     "rotation" : "1/4",
     "target_url": "http://www.admaster.com.cn/",

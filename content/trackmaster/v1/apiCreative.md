@@ -34,7 +34,7 @@ X-RateLimit-Remaining: 4999
     //创意颜色标识
     "color": "#ff00ff",
     //创意附属文件
-    file: {
+    "file": {
         "id": 293,
         "name": "创意.jpg",
         "type": "jpg",
@@ -83,7 +83,7 @@ X-RateLimit-Remaining: 4999
     //创意颜色标识
     "color": "#ff00ff",
     //创意附属文件
-    file: {
+    "file": {
         "id": 293,
         "name": "创意.jpg",
         "type": "jpg",
@@ -158,7 +158,7 @@ X-RateLimit-Remaining: 4999
     "description": "这个很不错的创意受到了全国人民的一致认可",
     //创意颜色标识
     "color": "#ff00ff",
-    file: {
+    "file": {
         "id": 293,
         "name": "创意.jpg",
         "type": "jpg",
