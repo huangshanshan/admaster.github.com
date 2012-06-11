@@ -65,6 +65,49 @@ X-RateLimit-Remaining: 4999
 ###适用版本
 [v1.0][version]
 
+<h2 id="p12">媒体用户获取iab数据</h2>
+
+    GET /medias/:id/iab
+
+###响应
+<pre class="headers">
+<code>Status: 200 OK
+Link: <http://api.trackmaster.com.cn/medias/:id/iab?page=2>; rel="next",
+      <http://api.trackmaster.com.cn/medias/:id/iab?page=10>; rel="last"
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+###参数
+
+pubid
+: _可选_ *String* - pubid 指定后只获取该pubid的数据
+
+date
+: _可选_ *Date* - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取头一天的数据
+
+
+<pre class="highlight">
+<code class="language-javascript">
+[
+  {
+    "date_hour": 2012061015,
+    "pubid": "IYK_IMloxnwepMEqlx",
+    "city": "北京",
+    "impression": 12039423,
+    "click": 43432,
+    "AAS_placement_id": 200020124
+    "AAS_placement_name": "优酷首页横幅"
+  }
+]
+</code></pre>
+
+关于错误返回值与错误代码，参见[错误代码说明][apiCommon]
+
+###适用版本
+[v1.0][version]
+
+
 <h2 id="p3">获取指定工作网络下媒体库列表</h2>
 
     GET /networks/:network_id/medias
