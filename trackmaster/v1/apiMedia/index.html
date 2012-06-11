@@ -91,12 +91,53 @@ X-RateLimit-Remaining: 4999
 <h3 id="section-3">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
+<h2 id="p12">媒体用户获取iab数据</h2>
+
+<pre><code>GET /medias/:id/iab
+</code></pre>
+
+<h3 id="section-4">响应</h3>
+<pre class="headers">
+<code>Status: 200 OK
+Link: &lt;http://api.trackmaster.com.cn/medias/:id/iab?page=2&gt;; rel="next",
+      &lt;http://api.trackmaster.com.cn/medias/:id/iab?page=10&gt;; rel="last"
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<h3 id="section-5">参数</h3>
+
+<dl>
+<dt>pubid</dt>
+  <dd>
+<em>可选</em> <em>String</em> - pubid 指定后只获取该pubid的数据</dd>
+  <dt>date</dt>
+  <dd>
+<em>可选</em> <em>Date</em> - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取头一天的数据</dd>
+</dl><pre class="highlight">
+<code class="language-javascript"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"date_hour"</span><span class="o">:</span> <span class="mi">2012061015</span><span class="p">,</span>
+    <span class="s2">"pubid"</span><span class="o">:</span> <span class="s2">"IYK_IMloxnwepMEqlx"</span><span class="p">,</span>
+    <span class="s2">"city"</span><span class="o">:</span> <span class="s2">"北京"</span><span class="p">,</span>
+    <span class="s2">"impression"</span><span class="o">:</span> <span class="mi">12039423</span><span class="p">,</span>
+    <span class="s2">"click"</span><span class="o">:</span> <span class="mi">43432</span><span class="p">,</span>
+    <span class="s2">"AAS_placement_id"</span><span class="o">:</span> <span class="mi">200020124</span>
+    <span class="s2">"AAS_placement_name"</span><span class="o">:</span> <span class="s2">"优酷首页横幅"</span>
+  <span class="p">}</span>
+<span class="p">]</span></code></pre>
+
+<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a></p>
+
+<h3 id="section-6">适用版本</h3>
+<p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
+
 <h2 id="p3">获取指定工作网络下媒体库列表</h2>
 
 <pre><code>GET /networks/:network_id/medias
 </code></pre>
 
-<h3 id="section-4">响应</h3>
+<h3 id="section-7">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
 Link: &lt;http://api.trackmaster.com.cn/networks/:network_id/medias?page=2&gt;; rel="next",
@@ -119,7 +160,7 @@ X-RateLimit-Remaining: 4999
 
 <p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a></p>
 
-<h3 id="section-5">适用版本</h3>
+<h3 id="section-8">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
 <h2 id="p4">获取指定工作网络下指定媒体信息</h2>
@@ -127,7 +168,7 @@ X-RateLimit-Remaining: 4999
 <pre><code>GET /networks/medias/:id
 </code></pre>
 
-<h3 id="section-6">响应</h3>
+<h3 id="section-9">响应</h3>
 
 <pre class="headers">
 <code>Status: 200 OK
@@ -147,7 +188,7 @@ X-RateLimit-Remaining: 4999
 
 <p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a></p>
 
-<h3 id="section-7">适用版本</h3>
+<h3 id="section-10">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
 <h2 id="p5">给指定工作网络添加一个媒体</h2>
@@ -155,7 +196,7 @@ X-RateLimit-Remaining: 4999
 <pre><code>POST /networks/:network_id/medias
 </code></pre>
 
-<h3 id="section-8">请求</h3>
+<h3 id="section-11">请求</h3>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
     <span class="s1">'media_id'</span><span class="o">:</span> <span class="mi">8982</span>
@@ -163,7 +204,7 @@ X-RateLimit-Remaining: 4999
 
 <p>media_id: <em>必选</em> <em>Int</em> - 系统媒体ID</p>
 
-<h3 id="section-9">响应</h3>
+<h3 id="section-12">响应</h3>
 <pre class="headers">
 <code>Status: 201 Created 
 X-RateLimit-Limit: 5000
@@ -184,7 +225,7 @@ X-RateLimit-Remaining: 4999
 
 <p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a></p>
 
-<h3 id="section-10">适用版本</h3>
+<h3 id="section-13">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
 <h2 id="p6">删除指定工作网络下的媒体</h2>
@@ -192,7 +233,7 @@ X-RateLimit-Remaining: 4999
 <pre><code>DELETE /networks/medias/:id
 </code></pre>
 
-<h3 id="section-11">响应</h3>
+<h3 id="section-14">响应</h3>
 <pre class="headers no-response">
 <code>
 Status: 204 No Content 
@@ -201,7 +242,7 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h3 id="section-12">适用版本</h3>
+<h3 id="section-15">适用版本</h3>
 
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
@@ -210,7 +251,7 @@ X-RateLimit-Remaining: 4999
 <pre><code>PATCH /networks/medias/:id
 </code></pre>
 
-<h3 id="section-13">请求</h3>
+<h3 id="section-16">请求</h3>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"新浪财经"</span><span class="p">,</span>
@@ -230,7 +271,7 @@ X-RateLimit-Remaining: 4999
   <dd>
 <em>可选</em> <em>Enum</em> - 状态 <code>enabled</code>, <code>disabled</code>
 </dd>
-</dl><h3 id="section-14">响应</h3>
+</dl><h3 id="section-17">响应</h3>
 <pre class="headers no-response">
 <code>Status: 204 No Content 
 Location: http://api.trackmaster.com.cn/networks/medias/1
@@ -238,7 +279,7 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h3 id="section-15">适用版本</h3>
+<h3 id="section-18">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
 <h2 id="p8">获取指定项目下已添加的媒体</h2>
@@ -246,7 +287,7 @@ X-RateLimit-Remaining: 4999
 <pre><code>GET /networks/advertisers/campaigns/:campaign_id/networks/medias
 </code></pre>
 
-<h3 id="section-16">响应</h3>
+<h3 id="section-19">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
 X-RateLimit-Limit: 5000
@@ -265,7 +306,7 @@ X-RateLimit-Remaining: 4999
 
 <p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a> </p>
 
-<h3 id="section-17">适用版本</h3>
+<h3 id="section-20">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
 <h2 id="p9">获取指定项目下指定媒体详细信息</h2>
@@ -273,7 +314,7 @@ X-RateLimit-Remaining: 4999
 <pre><code>GET /networks/advertisers/campaigns/:campaign_id/medias/:id
 </code></pre>
 
-<h3 id="section-18">响应</h3>
+<h3 id="section-21">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
 X-RateLimit-Limit: 5000
@@ -294,7 +335,7 @@ X-RateLimit-Remaining: 4999
 <pre><code>PUT /networks/advertisers/campaigns/:campaign_id/medias/:id
 </code></pre>
 
-<h3 id="section-19">响应</h3>
+<h3 id="section-22">响应</h3>
 <pre class="headers no-response">
 <code>Status: 204 No Content
 Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/medias
@@ -302,7 +343,7 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h3 id="section-20">适用版本</h3>
+<h3 id="section-23">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
 <h2 id="p11">删除指定项目下指定的媒体</h2>
@@ -310,7 +351,7 @@ X-RateLimit-Remaining: 4999
 <pre><code>DELETE /networks/advertisers/campaigns/:campaign_id/medias/:id
 </code></pre>
 
-<h3 id="section-21">响应</h3>
+<h3 id="section-24">响应</h3>
 <pre class="headers no-response">
 <code>Status: 204 No Content
 Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/medias
@@ -318,7 +359,7 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h3 id="section-22">适用版本</h3>
+<h3 id="section-25">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
       </div>
 
