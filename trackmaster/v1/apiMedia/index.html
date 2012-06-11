@@ -93,14 +93,14 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p12">媒体用户获取iab数据</h2>
 
-<pre><code>GET /medias/:id/iab
+<pre><code>GET /medias/:id/ies
 </code></pre>
 
 <h3 id="section-4">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
-Link: &lt;http://api.trackmaster.com.cn/medias/:id/iab?page=2&gt;; rel="next",
-      &lt;http://api.trackmaster.com.cn/medias/:id/iab?page=10&gt;; rel="last"
+Link: &lt;http://api.trackmaster.com.cn/medias/:id/ies?page=2&gt;; rel="next",
+      &lt;http://api.trackmaster.com.cn/medias/:id/ies?page=10&gt;; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -122,8 +122,6 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"city"</span><span class="o">:</span> <span class="s2">"北京"</span><span class="p">,</span>
     <span class="s2">"impression"</span><span class="o">:</span> <span class="mi">12039423</span><span class="p">,</span>
     <span class="s2">"click"</span><span class="o">:</span> <span class="mi">43432</span><span class="p">,</span>
-    <span class="s2">"AAS_placement_id"</span><span class="o">:</span> <span class="mi">200020124</span>
-    <span class="s2">"AAS_placement_name"</span><span class="o">:</span> <span class="s2">"优酷首页横幅"</span>
   <span class="p">}</span>
 <span class="p">]</span></code></pre>
 
