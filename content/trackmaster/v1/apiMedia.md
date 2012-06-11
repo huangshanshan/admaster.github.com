@@ -67,13 +67,13 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p12">媒体用户获取iab数据</h2>
 
-    GET /medias/:id/iab
+    GET /medias/:id/ies
 
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/medias/:id/iab?page=2>; rel="next",
-      <http://api.trackmaster.com.cn/medias/:id/iab?page=10>; rel="last"
+Link: <http://api.trackmaster.com.cn/medias/:id/ies?page=2>; rel="next",
+      <http://api.trackmaster.com.cn/medias/:id/ies?page=10>; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -96,8 +96,6 @@ date
     "city": "北京",
     "impression": 12039423,
     "click": 43432,
-    "AAS_placement_id": 200020124
-    "AAS_placement_name": "优酷首页横幅"
   }
 ]
 </code></pre>
