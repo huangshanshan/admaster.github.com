@@ -5,7 +5,7 @@ title: API - 工作网络
 
 <h2 id="p1">获取当前授权用户有权操作的所有工作网络</h2>
 
-    GET /networks
+    GET /user/networks
 
 ###响应
 <pre class="headers">
@@ -26,7 +26,7 @@ X-RateLimit-Remaining: 4999
         "created_at": "2012-01-10T02:30:59Z", //当前用户加入网络的时间
         "role": {
             "id": 1,
-            "name": "高丽管理员(super admin)"
+            "name": "高级管理员(super admin)"
         }
    }
 ]
