@@ -9,6 +9,7 @@ title: API - 广告主
 ### API
 
     GET /advertisers
+
 ###参数
 
 sort
@@ -128,14 +129,14 @@ X-RateLimit-Remaining: 4999
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/:network_id/advertisers/1/campaigns>; rel="campaigns"
+Link: <http://api.trackmaster.com.cn/networks/1/advertisers/1/campaigns>; rel="campaigns"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 <pre class="highlight">
 <code class="language-javascript">
 {
-    "id": 1,
+    "advertiser_id": 1,
     "url": "http://api.trackmaster.com.cn/networks/:network_id/advertisers/1",
     "name": "IBM",   //广告主名称
     "status": "enabled",
@@ -154,13 +155,13 @@ X-RateLimit-Remaining: 4999
 
 ###API
 
-    PUT /networks/:network_id/advertisers/:id
+    PUT /networks/:network_id/advertisers/:advertiser_id
 
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content 
-Link: <http://api.trackmaster.com.cn/networks/:network_id/advertisers/1/campaigns>; rel="campaigns"
-Location: http://api.trackmaster.com.cn/networks/:network_id/advertisers/1
+Link: <http://api.trackmaster.com.cn/networks/1/advertisers/1/campaigns>; rel="campaigns"
+Location: http://api.trackmaster.com.cn/networks/1/advertisers/1
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -174,7 +175,7 @@ X-RateLimit-Remaining: 4999
 
 ###API
 
-    PATCH /networks/:network_id/advertisers/:id
+    PATCH /networks/:network_id/advertisers/:advertiser_id
 
 ###请求
 <pre class="highlight">
@@ -193,14 +194,14 @@ status
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/:network_id/advertisers/1/campaigns>; rel="campaigns"
+Link: <http://api.trackmaster.com.cn/networks/1/advertisers/1/campaigns>; rel="campaigns"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 <pre class="highlight">
 <code class="language-javascript">
 {
-  "id": 1,
+  "advertiser_id": 1,
   "url": "http://api.trackmaster.com.cn/networks/:network_id/advertisers/1",
   "name": "IBM",
   "alias": "通用电器",
@@ -219,12 +220,12 @@ X-RateLimit-Remaining: 4999
 
 ###API
 
-    DELETE /networks/:network_id/advertisers/:id
+    DELETE /networks/:network_id/advertisers/:advertiser_id
 
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content 
-Link: <http://api.trackmaster.com.cn/networks/:network_id/advertisers>; rel="campaigns"
+Link: <http://api.trackmaster.com.cn/networks/1/advertisers>; rel="campaigns"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
