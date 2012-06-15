@@ -43,39 +43,6 @@
     <h4 id="accesstoken">access_token</h4>
     <p>oauth 验证串，通过授权验证可以得到，请求授权数据的时候需要携带，具体查看<a href="/trackmaster/v1/apiOauth/">oauth 验证</a></p>
   </li>
-</ul><h2 id="p3">通用元素说明</h2>
-
-<p><em> 通用元素是指请求数据返回的结果中的一些通用的含义 </em></p>
-
-<ul>
-<li>
-    <h4 id="id">id</h4>
-    <p>元素中的 id 为该元素的唯一标识，全局唯一，特例的话会特别说明</p>
-  </li>
-  <li>
-    <h4 id="total">_total</h4>
-    <p>获取列表数据时，total 为符合条件的记录总数，客户端程序用请求参数中的 start, count 和元素中的 total 来实现分页功能.</p>
-  </li>
-  <li>
-    <h4 id="list">_list</h4>
-    <p>获取列表数据时，具体的结果集和会放在 list 元素下，list 为数组格式，需要配合分页来呈现</p>
-  </li>
-  <li>
-    <h4 id="all">_all</h4>
-    <p>获取所有数据时，具体的结果集会放在 all 元素下，all 为数组格式，all 的结果不需要分页</p>
-  </li>
-  <li>
-    <h4 id="dateline">dateline</h4>
-    <p>dateline代表的是该数据产生的时间，用时间戳(int 型)来表示</p>
-  </li>
-  <li>
-    <h4 id="errorcode">error_code</h4>
-    <p>错误码，在调用接口的时候发生内部逻辑错误时，在得到的结果中会有 error_code，具体参考本页下方的错误码字典</p>
-  </li>
-  <li>
-    <h4 id="errormsg">error_msg</h4>
-    <p>同上，在内部错误的时候，会有 error_msg 记录这错误的信息</p>
-  </li>
 </ul><h2 id="p4">返回状态说明</h2>
 
 <p><strong>返回状态在请求返回的头部信息</strong></p>
