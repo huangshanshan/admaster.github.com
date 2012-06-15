@@ -43,18 +43,6 @@
     <h4 id="accesstoken">access_token</h4>
     <p>oauth 验证串，通过授权验证可以得到，请求授权数据的时候需要携带，具体查看<a href="/trackmaster/v1/apiOauth/">oauth 验证</a></p>
   </li>
-  <li>
-    <h4 id="start">start</h4>
-    <p>获取列表数据时，指定返回的结果开始位置，用来实现分页</p>
-  </li>
-  <li>
-    <h4 id="count">count</h4>
-    <p>获取列表数据是，指定返回的结果条目数，最大值为50</p>
-  </li>
-  <li>
-    <h4 id="q">q</h4>
-    <p>提供搜索功能的接口可以指定 q 来实现搜索，搜索一般为名称的部分或 id 的全部</p>
-  </li>
 </ul><h2 id="p3">通用元素说明</h2>
 
 <p><em> 通用元素是指请求数据返回的结果中的一些通用的含义 </em></p>
@@ -104,6 +92,10 @@
   <li>
     <h4 id="accepted">202 ACCEPTED</h4>
     <p>更新、修改成功</p>
+  </li>
+  <li>
+    <h4 id="no-content">204 NO CONTENT</h4>
+    <p>无返回内容</p>
   </li>
   <li>
     <h4 id="bad-request">400 BAD REQUEST</h4>

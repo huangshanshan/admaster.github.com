@@ -37,10 +37,37 @@
 
 <h3 id="api">API</h3>
 
-<pre><code>GET /advertisers
+<pre><code>GET /advertisers ###参数
 </code></pre>
 
-<h3 id="section">响应</h3>
+<dl>
+<dt>sort</dt>
+  <dd>
+<em>可选</em> <em>String</em> - 列表排序以什么排序</dd>
+</dl><ul>
+<li>
+<code>id</code> - 按照广告主ID排序</li>
+  <li>
+<code>customName</code> - 按照广告主名称排序</li>
+  <li>
+<code>create_time</code> - 按照创建日期排序</li>
+</ul><dl>
+<dt>direction</dt>
+  <dd>
+<em>可选</em> <em>String</em> - 排序方式</dd>
+</dl><ul>
+<li>
+<code>asc</code> 升序 (<em>默认</em>)</li>
+  <li>
+<code>desc</code> 降序</li>
+</ul><dl>
+<dt>page</dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 显示页码</dd>
+  <dt>per_page</dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 分页数量，默认每页30条</dd>
+</dl><h3 id="section">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
 Link: &lt;http://api.trackmaster.com.cn/advertisers?page=2&gt;; rel="next",
@@ -108,7 +135,7 @@ X-RateLimit-Remaining: 4999
 <pre class="highlight">
 <code class="language-javascript"><span class="p">[</span>
   <span class="p">{</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"advertiser_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/:network_id/advertisers/1"</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"IBM"</span><span class="p">,</span>   <span class="c1">//广告主名称</span>
     <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"enabled"</span><span class="p">,</span>
@@ -128,7 +155,7 @@ X-RateLimit-Remaining: 4999
 
 <h3 id="api-3">API</h3>
 
-<pre><code>GET /networks/:network_id/advertisers/:id
+<pre><code>GET /networks/:network_id/advertisers/:advertiser_id
 </code></pre>
 
 <h3 id="section-6">响应</h3>

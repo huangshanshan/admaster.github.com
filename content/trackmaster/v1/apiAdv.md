@@ -9,6 +9,26 @@ title: API - 广告主
 ### API
 
     GET /advertisers
+###参数
+
+sort
+: _可选_ *String* - 列表排序以什么排序
+
+* `id` - 按照广告主ID排序
+* `customName` - 按照广告主名称排序
+* `create_time` - 按照创建日期排序
+
+direction
+: _可选_ *String* - 排序方式
+
+* `asc` 升序 (_默认_)
+* `desc` 降序
+
+page
+: _可选_ *Int* - 显示页码
+
+per_page
+: _可选_ *Int* - 分页数量，默认每页30条
 
 ###响应
 <pre class="headers">
@@ -82,7 +102,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 [
   {
-    "id": 1,
+    "advertiser_id": 1,
     "url": "http://api.trackmaster.com.cn/networks/:network_id/advertisers/1",
     "name": "IBM",   //广告主名称
     "status": "enabled",
@@ -103,7 +123,7 @@ X-RateLimit-Remaining: 4999
 
 ###API
 
-    GET /networks/:network_id/advertisers/:id
+    GET /networks/:network_id/advertisers/:advertiser_id
 
 ###响应
 <pre class="headers">
