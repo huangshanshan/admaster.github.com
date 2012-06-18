@@ -82,7 +82,7 @@ X-RateLimit-Remaining: 4999
   <span class="p">{</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/advertisers/1"</span><span class="p">,</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"IBM"</span><span class="p">,</span>  <span class="c1">//广告主名称</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="p">{</span><span class="s2">"zh_cn"</span> <span class="o">=&gt;</span> <span class="s2">"腾讯"</span><span class="p">,</span> <span class="s2">"en_us"</span> <span class="o">=&gt;</span> <span class="s2">"tencent"</span><span class="p">},</span>   <span class="c1">//广告主名称</span>
     <span class="s2">"logo"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/advIcon/1.jpg"</span><span class="p">,</span>  <span class="c1">//Logo URL</span>
     <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span>  <span class="c1">//创建时间</span>
   <span class="p">}</span>
@@ -111,7 +111,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/advertisers/1"</span><span class="p">,</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"IBM"</span><span class="p">,</span>   <span class="c1">//广告主名称</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="p">{</span><span class="s2">"zh_cn"</span> <span class="o">=&gt;</span> <span class="s2">"腾讯"</span><span class="p">,</span> <span class="s2">"en_us"</span> <span class="o">=&gt;</span> <span class="s2">"tencent"</span><span class="p">},</span>   <span class="c1">//广告主名称</span>
     <span class="s2">"logo"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/advIcon/1.jpg"</span><span class="p">,</span>  <span class="c1">//Logo URL</span>
     <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span>  <span class="c1">//创建时间</span>
 <span class="p">}</span></code></pre>
@@ -139,7 +139,7 @@ X-RateLimit-Remaining: 4999
   <span class="p">{</span>
     <span class="s2">"advertiser_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/:network_id/advertisers/1"</span><span class="p">,</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"IBM"</span><span class="p">,</span>   <span class="c1">//广告主名称</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="p">{</span><span class="s2">"zh_cn"</span> <span class="o">=&gt;</span> <span class="s2">"腾讯"</span><span class="p">,</span> <span class="s2">"en_us"</span> <span class="o">=&gt;</span> <span class="s2">"tencent"</span><span class="p">},</span>   <span class="c1">//广告主名称</span>
     <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"enabled"</span><span class="p">,</span>
     <span class="s2">"alias"</span><span class="o">:</span> <span class="s2">"ibm"</span><span class="p">,</span>
     <span class="s2">"logo"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/advIcon/1.jpg"</span><span class="p">,</span>  <span class="c1">//Logo URL</span>
@@ -171,10 +171,11 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"advertiser_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/:network_id/advertisers/1"</span><span class="p">,</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"IBM"</span><span class="p">,</span>   <span class="c1">//广告主名称</span>
-    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"enabled"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="p">{</span><span class="s2">"zh_cn"</span> <span class="o">=&gt;</span> <span class="s2">"通用电器"</span><span class="p">,</span> <span class="s2">"en_us"</span> <span class="o">=&gt;</span> <span class="s2">"GM"</span><span class="p">},</span>   <span class="c1">//广告主名称</span>
+    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"enabled"</span>
+    <span class="s2">"alias"</span><span class="o">:</span> <span class="s2">"通用电器"</span><span class="p">,</span>
     <span class="s2">"logo"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/advIcon/1.jpg"</span><span class="p">,</span>  <span class="c1">//Logo URL</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span>  <span class="c1">//创建时间</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span> <span class="c1">//创建时间</span>
 <span class="p">}</span></code></pre>
 
 <p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a>。</p>
@@ -233,12 +234,13 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"advertiser_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/:network_id/advertisers/1"</span><span class="p">,</span>
-  <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"IBM"</span><span class="p">,</span>
-  <span class="s2">"alias"</span><span class="o">:</span> <span class="s2">"通用电器"</span><span class="p">,</span>
-  <span class="s2">"logo"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/advIcon/1.jpg"</span><span class="p">,</span>  <span class="c1">//Logo URL</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span> <span class="c1">//创建时间</span>
+    <span class="s2">"advertiser_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/:network_id/advertisers/1"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="p">{</span><span class="s2">"zh_cn"</span> <span class="o">=&gt;</span> <span class="s2">"通用电器"</span><span class="p">,</span> <span class="s2">"en_us"</span> <span class="o">=&gt;</span> <span class="s2">"GM"</span><span class="p">},</span>   <span class="c1">//广告主名称</span>
+    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"enabled"</span>
+    <span class="s2">"alias"</span><span class="o">:</span> <span class="s2">"通用电器"</span><span class="p">,</span>
+    <span class="s2">"logo"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/advIcon/1.jpg"</span><span class="p">,</span>  <span class="c1">//Logo URL</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span> <span class="c1">//创建时间</span>
 <span class="p">}</span></code></pre>
 
 <p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a>。</p>

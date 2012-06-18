@@ -45,7 +45,7 @@ X-RateLimit-Remaining: 4999
   {
     "id": 1,
     "url": "http://api.trackmaster.com.cn/advertisers/1",
-    "name": "IBM",  //广告主名称
+    "name": {"zh_cn" => "腾讯", "en_us" => "tencent"},   //广告主名称
     "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
     "created_at": "2012-09-06T20:39:23Z"  //创建时间
   }
@@ -76,7 +76,7 @@ X-RateLimit-Remaining: 4999
 {
     "id": 1,
     "url": "http://api.trackmaster.com.cn/advertisers/1",
-    "name": "IBM",   //广告主名称
+    "name": {"zh_cn" => "腾讯", "en_us" => "tencent"},   //广告主名称
     "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
     "created_at": "2012-09-06T20:39:23Z"  //创建时间
 }
@@ -105,7 +105,7 @@ X-RateLimit-Remaining: 4999
   {
     "advertiser_id": 1,
     "url": "http://api.trackmaster.com.cn/networks/:network_id/advertisers/1",
-    "name": "IBM",   //广告主名称
+    "name": {"zh_cn" => "腾讯", "en_us" => "tencent"},   //广告主名称
     "status": "enabled",
     "alias": "ibm",
     "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
@@ -138,10 +138,11 @@ X-RateLimit-Remaining: 4999
 {
     "advertiser_id": 1,
     "url": "http://api.trackmaster.com.cn/networks/:network_id/advertisers/1",
-    "name": "IBM",   //广告主名称
-    "status": "enabled",
+    "name": {"zh_cn" => "通用电器", "en_us" => "GM"},   //广告主名称
+    "status": "enabled"
+    "alias": "通用电器",
     "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
-    "created_at": "2012-09-06T20:39:23Z"  //创建时间
+    "created_at": "2012-09-06T20:39:23Z" //创建时间
 }
 </code></pre>
 
@@ -201,12 +202,13 @@ X-RateLimit-Remaining: 4999
 <pre class="highlight">
 <code class="language-javascript">
 {
-  "advertiser_id": 1,
-  "url": "http://api.trackmaster.com.cn/networks/:network_id/advertisers/1",
-  "name": "IBM",
-  "alias": "通用电器",
-  "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
-  "created_at": "2012-09-06T20:39:23Z" //创建时间
+    "advertiser_id": 1,
+    "url": "http://api.trackmaster.com.cn/networks/:network_id/advertisers/1",
+    "name": {"zh_cn" => "通用电器", "en_us" => "GM"},   //广告主名称
+    "status": "enabled"
+    "alias": "通用电器",
+    "logo": "http://www.trackmaster.com.cn/data/advIcon/1.jpg",  //Logo URL
+    "created_at": "2012-09-06T20:39:23Z" //创建时间
 }
 </code></pre>
 
