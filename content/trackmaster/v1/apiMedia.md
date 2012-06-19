@@ -94,6 +94,7 @@ date
     "date_hour": 2012061015,
     "pubid": "IYK_IMloxnwepMEqlx",
     "city": "北京",
+    "geoid": 110000,
     "impression": 12039423,
     "click": 43432,
   }
