@@ -115,9 +115,9 @@ X-RateLimit-Remaining: 4999
 
 [v1.0][version]
 
-<h2 id="p4">获取指定网络下的指定广告主信息</h2>
+<h2 id="p4">获取指定网络下的指定广告主属性信息</h2>
 
-    GET /networks/:network_id/advertisers/:advertiser_id
+    GET /networks/:network_id/advertisers/:advertiser_id/attributes
 
 ###响应
 <pre class="headers">
@@ -145,7 +145,28 @@ X-RateLimit-Remaining: 4999
 
 [v1.0][version]
 
-<h2 id="p5">添加指定系统广告主到指定工作网络下</h2>
+<h2 id="p5">判断指定网络下是否有指定广告主</h2>
+
+    GET /networks/:network_id/advertisers/:advertiser_id
+
+###指定广告主在指定网络下
+<pre class="headers no-response">
+<code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+###指定广告主不在指定网络下
+<pre class="headers no-response">
+<code>Status: 404 Not Found
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+###适用版本
+[v1.0][version]
+
+<h2 id="p6">添加指定系统广告主到指定工作网络下</h2>
 
     PUT /networks/:network_id/advertisers/:advertiser_id
 
@@ -153,7 +174,7 @@ X-RateLimit-Remaining: 4999
 <pre class="headers no-response">
 <code>Status: 204 No Content 
 Link: <http://api.trackmaster.com.cn/networks/1/advertisers/1/campaigns>; rel="campaigns"
-Location: http://api.trackmaster.com.cn/networks/1/advertisers/1
+Location: http://api.trackmaster.com.cn/networks/1/advertisers/1/attributes
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -163,7 +184,7 @@ X-RateLimit-Remaining: 4999
 [v1.0][version]
 
 
-<h2 id="p6">修改指定网络下的指定广告主</h2>
+<h2 id="p7">修改指定网络下的指定广告主</h2>
 
     PATCH /networks/:network_id/advertisers/:advertiser_id
 
@@ -207,7 +228,7 @@ X-RateLimit-Remaining: 4999
 
 [v1.0][version]
 
-<h2 id="p7">删除指定工作网络下的指定广告主</h2>
+<h2 id="p8">删除指定工作网络下的指定广告主</h2>
 
     DELETE /networks/:network_id/advertisers/:advertiser_id
 

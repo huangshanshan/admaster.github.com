@@ -355,9 +355,9 @@ X-RateLimit-Remaining: 4999
 ###适用版本
 [v1.0][version]
 
-<h2 id="p10">获取指定项目下指定媒体详细信息</h2>
+<h2 id="p10">获取指定项目下指定媒体属性信息</h2>
 
-    GET /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id
+    GET /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id/attributes
 
 ###响应
 <pre class="headers">
@@ -375,9 +375,31 @@ X-RateLimit-Remaining: 4999
     "created_at": "2012-09-06T20:39:23Z"
 }
 </code></pre>
+
 关于错误返回值与错误代码，参见[错误代码说明][apiCommon] 
 
-<h2 id="p11">为指定项目添加指定媒体</h2>
+<h2 id="p11">判断指定项目下是否有指定媒体</h2>
+
+    GET /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id
+
+###指定媒体在指定项目下
+<pre class="headers no-response">
+<code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+###指定媒体不在指定项目下
+<pre class="headers no-response">
+<code>Status: 404 Not Found
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+###适用版本
+[v1.0][version]
+
+<h2 id="p12">为指定项目添加指定媒体</h2>
 
     PUT /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id
 
@@ -392,7 +414,7 @@ X-RateLimit-Remaining: 4999
 ###适用版本
 [v1.0][version]
 
-<h2 id="p12">删除指定项目下指定的媒体</h2>
+<h2 id="p13">删除指定项目下指定的媒体</h2>
 
     DELETE /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id
 

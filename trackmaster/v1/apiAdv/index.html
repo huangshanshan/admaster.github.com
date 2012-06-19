@@ -147,9 +147,9 @@ X-RateLimit-Remaining: 4999
 
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
-<h2 id="p4">获取指定网络下的指定广告主信息</h2>
+<h2 id="p4">获取指定网络下的指定广告主属性信息</h2>
 
-<pre><code>GET /networks/:network_id/advertisers/:advertiser_id
+<pre><code>GET /networks/:network_id/advertisers/:advertiser_id/attributes
 </code></pre>
 
 <h3 id="section-7">响应</h3>
@@ -176,30 +176,52 @@ X-RateLimit-Remaining: 4999
 
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
-<h2 id="p5">添加指定系统广告主到指定工作网络下</h2>
+<h2 id="p5">判断指定网络下是否有指定广告主</h2>
 
-<pre><code>PUT /networks/:network_id/advertisers/:advertiser_id
+<pre><code>GET /networks/:network_id/advertisers/:advertiser_id
 </code></pre>
 
-<h3 id="section-9">响应</h3>
+<h3 id="section-9">指定广告主在指定网络下</h3>
 <pre class="headers no-response">
-<code>Status: 204 No Content 
-Link: &lt;http://api.trackmaster.com.cn/networks/1/advertisers/1/campaigns&gt;; rel="campaigns"
-Location: http://api.trackmaster.com.cn/networks/1/advertisers/1
+<code>Status: 204 No Content
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h3 id="section-10">适用版本</h3>
+<h3 id="section-10">指定广告主不在指定网络下</h3>
+<pre class="headers no-response">
+<code>Status: 404 Not Found
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<h3 id="section-11">适用版本</h3>
+<p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
+
+<h2 id="p6">添加指定系统广告主到指定工作网络下</h2>
+
+<pre><code>PUT /networks/:network_id/advertisers/:advertiser_id
+</code></pre>
+
+<h3 id="section-12">响应</h3>
+<pre class="headers no-response">
+<code>Status: 204 No Content 
+Link: &lt;http://api.trackmaster.com.cn/networks/1/advertisers/1/campaigns&gt;; rel="campaigns"
+Location: http://api.trackmaster.com.cn/networks/1/advertisers/1/attributes
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<h3 id="section-13">适用版本</h3>
 
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
-<h2 id="p6">修改指定网络下的指定广告主</h2>
+<h2 id="p7">修改指定网络下的指定广告主</h2>
 
 <pre><code>PATCH /networks/:network_id/advertisers/:advertiser_id
 </code></pre>
 
-<h3 id="section-11">请求</h3>
+<h3 id="section-14">请求</h3>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
     <span class="s1">'alias'</span><span class="o">:</span> <span class="s1">'通用电器'</span><span class="p">,</span>
@@ -213,7 +235,7 @@ X-RateLimit-Remaining: 4999
   <dd>
 <em>可选</em> <code>enabled</code>, <code>disabled</code>
 </dd>
-</dl><h3 id="section-12">响应</h3>
+</dl><h3 id="section-15">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
 Link: &lt;http://api.trackmaster.com.cn/networks/1/advertisers/1/campaigns&gt;; rel="campaigns"
@@ -233,16 +255,16 @@ X-RateLimit-Remaining: 4999
 
 <p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a>。</p>
 
-<h3 id="section-13">适用版本</h3>
+<h3 id="section-16">适用版本</h3>
 
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
-<h2 id="p7">删除指定工作网络下的指定广告主</h2>
+<h2 id="p8">删除指定工作网络下的指定广告主</h2>
 
 <pre><code>DELETE /networks/:network_id/advertisers/:advertiser_id
 </code></pre>
 
-<h3 id="section-14">响应</h3>
+<h3 id="section-17">响应</h3>
 <pre class="headers no-response">
 <code>Status: 204 No Content 
 Link: &lt;http://api.trackmaster.com.cn/networks/1/advertisers&gt;; rel="campaigns"
@@ -250,7 +272,7 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h3 id="section-15">适用版本</h3>
+<h3 id="section-18">适用版本</h3>
 
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
       </div>
@@ -297,9 +319,10 @@ X-RateLimit-Remaining: 4999
               <li><a href="/trackmaster/v1/apiAdv/#p2">获取指定系统广告主信息</a></li>
               <li><a href="/trackmaster/v1/apiAdv/#p3">获取指定工作网络下所有广告主信息</a></li>
               <li><a href="/trackmaster/v1/apiAdv/#p4">获取指定网络下的指定广告主信息</a></li>
-              <li><a href="/trackmaster/v1/apiAdv/#p5">添加指定系统广告主到指定工作网络下</a></li>
-              <li><a href="/trackmaster/v1/apiAdv/#p6">修改指定网络下的指定广告主</a></li>
-              <li><a href="/trackmaster/v1/apiAdv/#p7">删除指定工作网络下的指定广告主</a></li>
+              <li><a href="/trackmaster/v1/apiAdv/#p5">判断指定网络下是否有指定广告主</a></li>
+              <li><a href="/trackmaster/v1/apiAdv/#p6">添加指定系统广告主到指定工作网络下</a></li>
+              <li><a href="/trackmaster/v1/apiAdv/#p7">修改指定网络下的指定广告主</a></li>
+              <li><a href="/trackmaster/v1/apiAdv/#p8">删除指定工作网络下的指定广告主</a></li>
             </ul>
           </li>
           <li class="js-topic">
@@ -324,9 +347,10 @@ X-RateLimit-Remaining: 4999
               <li><a href="/trackmaster/v1/apiMedia/#p7">删除指定工作网络下的媒体</a></li>
               <li><a href="/trackmaster/v1/apiMedia/#p8">修改指定工作网络下指定媒体属性</a></li>
               <li><a href="/trackmaster/v1/apiMedia/#p9">获取指定项目下已添加的媒体</a></li>
-              <li><a href="/trackmaster/v1/apiMedia/#p10">获取指定项目下指定媒体详细信息</a></li>
-              <li><a href="/trackmaster/v1/apiMedia/#p11">为指定项目添加指定媒体</a></li>
-              <li><a href="/trackmaster/v1/apiMedia/#p12">删除指定项目下某个媒体</a></li>
+              <li><a href="/trackmaster/v1/apiMedia/#p10">获取指定项目下指定媒体属性信息</a></li>
+              <li><a href="/trackmaster/v1/apiMedia/#p11">判断指定项目下是否有指定媒体</a></li>
+              <li><a href="/trackmaster/v1/apiMedia/#p12">为指定项目添加指定媒体</a></li>
+              <li><a href="/trackmaster/v1/apiMedia/#p13">删除指定项目下某个媒体</a></li>
             </ul>
           </li>
 
