@@ -9,6 +9,27 @@ title: API - 媒体接口
 
     GET /medias
 
+###参数
+
+sort
+: _可选_ *String* - 列表排序以什么排序
+
+* `id` - 按照媒体ID排序
+* `name` - 按照媒体名称排序
+* `create_time` - 按照创建日期排序
+
+direction
+: _可选_ *String* - 排序方式
+
+* `asc` 升序 (_默认_)
+* `desc` 降序
+
+page
+: _可选_ *Int* - 显示页码
+
+per_page
+: _可选_ *Int* - 分页数量，默认每页30条
+
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
@@ -65,15 +86,15 @@ X-RateLimit-Remaining: 4999
 ###适用版本
 [v1.0][version]
 
-<h2 id="p12">媒体用户获取iab数据</h2>
+<h2 id="p3">媒体用户获取iab数据</h2>
 
     GET /medias/:id/ies
 
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/medias/:id/ies?page=2>; rel="next",
-      <http://api.trackmaster.com.cn/medias/:id/ies?page=10>; rel="last"
+Link: <http://api.trackmaster.com.cn/medias/1/ies?page=2>; rel="next",
+      <http://api.trackmaster.com.cn/medias/1/ies?page=10>; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -106,15 +127,37 @@ date
 [v1.0][version]
 
 
-<h2 id="p3">获取指定工作网络下媒体库列表</h2>
+<h2 id="p4">获取指定工作网络下媒体库列表</h2>
 
     GET /networks/:network_id/medias
+
+###参数
+
+sort
+: _可选_ *String* - 列表排序以什么排序
+
+* `id` - 按照网络媒体ID排序
+* `name` - 按照网络媒体名称排序
+* `status` - 按照状态排序
+* `framework` - 按照框架排序
+
+direction
+: _可选_ *String* - 排序方式
+
+* `asc` 升序 (_默认_)
+* `desc` 降序
+
+page
+: _可选_ *Int* - 显示页码
+
+per_page
+: _可选_ *Int* - 分页数量，默认每页30条
 
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/:network_id/medias?page=2>; rel="next",
-      <http://api.trackmaster.com.cn/networks/:network_id/medias?page=10>; rel="last"
+Link: <http://api.trackmaster.com.cn/networks/1/medias?page=2>; rel="next",
+      <http://api.trackmaster.com.cn/networks/1/medias?page=10>; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -128,7 +171,10 @@ X-RateLimit-Remaining: 4999
     "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
     "domain": "sina.com.cn",
     "tag": "综合其他",
+    "status": "enabled"
     "created_at": "2012-09-06T20:39:23Z"
+    "media_id": 150
+    "framework": "no"
   }
 ]
 </code></pre>
@@ -138,7 +184,7 @@ X-RateLimit-Remaining: 4999
 ###适用版本
 [v1.0][version]
 
-<h2 id="p4">获取指定工作网络下指定媒体信息</h2>
+<h2 id="p5">获取指定工作网络下指定媒体信息</h2>
 
     GET /networks/medias/:id
 
@@ -158,7 +204,10 @@ X-RateLimit-Remaining: 4999
     "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
     "domain": "sina.com.cn",
     "tag": "综合其他",
+    "status": "enabled"
     "created_at": "2012-09-06T20:39:23Z"
+    "media_id": 150
+    "framework": "no"
 }
 </code></pre>
 
@@ -167,7 +216,7 @@ X-RateLimit-Remaining: 4999
 ###适用版本
 [v1.0][version]
 
-<h2 id="p5">给指定工作网络添加一个媒体</h2>
+<h2 id="p6">给指定工作网络添加一个媒体</h2>
 
     POST /networks/:network_id/medias
 
@@ -184,11 +233,12 @@ media_id: _必选_ *Int* - 系统媒体ID
 ###响应
 <pre class="headers">
 <code>Status: 201 Created 
+Location: http://api.trackmaster.com.cn/networks/medias/1
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
-<pre class="language-javascript">
-<code>
+<pre class="highlight">
+<code class="language-javascript">
 {
     "id": 1,
     "url": "http://api.trackmaster.com.cn/networks/medias/1",
@@ -196,7 +246,10 @@ X-RateLimit-Remaining: 4999
     "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
     "domain": "sina.com.cn",
     "tag": "综合其他",
+    "status": "enabled"
     "created_at": "2012-09-06T20:39:23Z"
+    "media_id": 8982
+    "framework": "no"
 }
 </code></pre>
 
@@ -205,7 +258,7 @@ X-RateLimit-Remaining: 4999
 ###适用版本
 [v1.0][version]
 
-<h2 id="p6">删除指定工作网络下的媒体</h2>
+<h2 id="p7">删除指定工作网络下的媒体</h2>
 
     DELETE /networks/medias/:id
 
@@ -213,7 +266,7 @@ X-RateLimit-Remaining: 4999
 <pre class="headers no-response">
 <code>
 Status: 204 No Content 
-Location: http://api.trackmaster.com.cn/networks/:network_id/medias
+Location: http://api.trackmaster.com.cn/networks/1/medias
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -222,7 +275,7 @@ X-RateLimit-Remaining: 4999
 
 [v1.0][version]
 
-<h2 id="p7">修改指定工作网络下指定媒体属性</h2>
+<h2 id="p8">修改指定工作网络下指定媒体属性</h2>
 
     PATCH /networks/medias/:id
 
@@ -248,17 +301,32 @@ status
 
 ###响应
 <pre class="headers no-response">
-<code>Status: 204 No Content 
-Location: http://api.trackmaster.com.cn/networks/medias/1
+<code>Status: 200 OK
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
+<pre class="highlight">
+<code class="language-javascript">
+{
+    "id": 1,
+    "url": "http://api.trackmaster.com.cn/networks/medias/1",
+    "name": "新浪财经",
+    "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
+    "domain": "sina.com.cn",
+    "tag": "综合其他",
+    "status": "enabled"
+    "created_at": "2012-09-06T20:39:23Z"
+    "media_id": 8982
+    "framework": "no"
+}
+</code></pre>
+
 
 ###适用版本
 [v1.0][version]
 
 
-<h2 id="p8">获取指定项目下已添加的媒体</h2>
+<h2 id="p9">获取指定项目下已添加的媒体</h2>
 
     GET /networks/advertisers/campaigns/:campaign_id/networks/medias
 
@@ -286,9 +354,9 @@ X-RateLimit-Remaining: 4999
 ###适用版本
 [v1.0][version]
 
-<h2 id="p9">获取指定项目下指定媒体详细信息</h2>
+<h2 id="p10">获取指定项目下指定媒体详细信息</h2>
 
-    GET /networks/advertisers/campaigns/:campaign_id/medias/:id
+    GET /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id
 
 ###响应
 <pre class="headers">
@@ -308,7 +376,7 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 关于错误返回值与错误代码，参见[错误代码说明][apiCommon] 
 
-<h2 id="p10">为指定项目添加指定媒体</h2>
+<h2 id="p11">为指定项目添加指定媒体</h2>
 
     PUT /networks/advertisers/campaigns/:campaign_id/medias/:id
 
@@ -323,7 +391,7 @@ X-RateLimit-Remaining: 4999
 ###适用版本
 [v1.0][version]
 
-<h2 id="p11">删除指定项目下指定的媒体</h2>
+<h2 id="p12">删除指定项目下指定的媒体</h2>
 
     DELETE /networks/advertisers/campaigns/:campaign_id/medias/:id
 

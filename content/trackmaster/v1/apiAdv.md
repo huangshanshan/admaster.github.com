@@ -4,9 +4,8 @@ title: API - 广告主
 
 #API - 广告主
 
-<h2 id="p1">获取系统广告主列表</h2>
 
-### API
+<h2 id="p1">获取系统广告主列表</h2>
 
     GET /advertisers
 
@@ -61,8 +60,6 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p2">获取指定系统广告主信息</h2>
 
-###API
-
     GET /advertisers/:id
 
 ###响应
@@ -88,8 +85,6 @@ X-RateLimit-Remaining: 4999
 [v1.0][version]
 
 <h2 id="p3">获取指定工作网络下所有广告主信息</h2>
-
-###API
 
     GET /networks/:network_id/advertisers
 
@@ -122,8 +117,6 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p4">获取指定网络下的指定广告主信息</h2>
 
-###API
-
     GET /networks/:network_id/advertisers/:advertiser_id
 
 ###响应
@@ -154,8 +147,6 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p5">添加指定系统广告主到指定工作网络下</h2>
 
-###API
-
     PUT /networks/:network_id/advertisers/:advertiser_id
 
 ###响应
@@ -173,8 +164,6 @@ X-RateLimit-Remaining: 4999
 
 
 <h2 id="p6">修改指定网络下的指定广告主</h2>
-
-###API
 
     PATCH /networks/:network_id/advertisers/:advertiser_id
 
@@ -219,8 +208,6 @@ X-RateLimit-Remaining: 4999
 [v1.0][version]
 
 <h2 id="p7">删除指定工作网络下的指定广告主</h2>
-
-###API
 
     DELETE /networks/:network_id/advertisers/:advertiser_id
 

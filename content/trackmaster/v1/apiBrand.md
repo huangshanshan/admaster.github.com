@@ -75,7 +75,7 @@ name
 ###响应
 <pre class="headers">
 <code>Status: 201 Created 
-Location: http://api.trackmaster.com.cn/networks/:network_id/advertisers/:advertiser_id/brands
+Location: http://api.trackmaster.com.cn/networks/1/advertisers/10231/brands
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -131,7 +131,7 @@ X-RateLimit-Remaining: 4999
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content 
-Location: http://api.trackmaster.com.cn/networks/:network_id/advertisers/:advertiser_id/brands
+Location: http://api.trackmaster.com.cn/networks/1/advertisers/10231/brands
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
