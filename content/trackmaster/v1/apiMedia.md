@@ -327,9 +327,9 @@ X-RateLimit-Remaining: 4999
 [v1.0][version]
 
 
-<h2 id="p9">获取指定项目下已添加的媒体</h2>
+<h2 id="p9">获取指定项目下已添加的媒体属性列表</h2>
 
-    GET /networks/advertisers/campaigns/:campaign_id/networks/medias
+    GET /networks/advertisers/campaigns/:campaign_id/networks/medias/attributes
 
 ###响应
 <pre class="headers">
@@ -355,7 +355,7 @@ X-RateLimit-Remaining: 4999
 ###适用版本
 [v1.0][version]
 
-<h2 id="p10">获取指定项目下指定媒体属性信息</h2>
+<h2 id="p10">获取指定项目下指定媒体属性</h2>
 
     GET /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id/attributes
 
@@ -372,7 +372,7 @@ X-RateLimit-Remaining: 4999
     "url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/10092/medias/1314",
     "name": "新浪",
     "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
-    "created_at": "2012-09-06T20:39:23Z"
+    "created_at": "2012-09-06T20:39:2"
 }
 </code></pre>
 

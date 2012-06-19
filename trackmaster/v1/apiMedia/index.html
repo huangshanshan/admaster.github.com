@@ -361,9 +361,9 @@ X-RateLimit-Remaining: 4999
 <h3 id="section-20">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
-<h2 id="p9">获取指定项目下已添加的媒体</h2>
+<h2 id="p9">获取指定项目下已添加的媒体属性列表</h2>
 
-<pre><code>GET /networks/advertisers/campaigns/:campaign_id/networks/medias
+<pre><code>GET /networks/advertisers/campaigns/:campaign_id/networks/medias/attributes
 </code></pre>
 
 <h3 id="section-21">响应</h3>
@@ -388,7 +388,7 @@ X-RateLimit-Remaining: 4999
 <h3 id="section-22">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
-<h2 id="p10">获取指定项目下指定媒体属性信息</h2>
+<h2 id="p10">获取指定项目下指定媒体属性</h2>
 
 <pre><code>GET /networks/advertisers/campaigns/:campaign_id/medias/:network_media_id/attributes
 </code></pre>
@@ -405,7 +405,7 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/advertisers/campaigns/10092/medias/1314"</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"新浪"</span><span class="p">,</span>
     <span class="s2">"logo"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/mediaIcon/1.ico"</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:2"</span>
 <span class="p">}</span></code></pre>
 
 <p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a> </p>
@@ -505,11 +505,11 @@ X-RateLimit-Remaining: 4999
             <ul class="js-guides">
               <li><a href="/trackmaster/v1/apiAdv/#p1">获取系统广告主列表</a></li>
               <li><a href="/trackmaster/v1/apiAdv/#p2">获取指定系统广告主信息</a></li>
-              <li><a href="/trackmaster/v1/apiAdv/#p3">获取指定工作网络下所有广告主信息</a></li>
-              <li><a href="/trackmaster/v1/apiAdv/#p4">获取指定网络下的指定广告主信息</a></li>
+              <li><a href="/trackmaster/v1/apiAdv/#p3">获取指定工作网络下所有广告主属性列表</a></li>
+              <li><a href="/trackmaster/v1/apiAdv/#p4">获取指定网络下的指定广告主属性</a></li>
               <li><a href="/trackmaster/v1/apiAdv/#p5">判断指定网络下是否有指定广告主</a></li>
               <li><a href="/trackmaster/v1/apiAdv/#p6">添加指定系统广告主到指定工作网络下</a></li>
-              <li><a href="/trackmaster/v1/apiAdv/#p7">修改指定网络下的指定广告主</a></li>
+              <li><a href="/trackmaster/v1/apiAdv/#p7">修改指定网络下的指定广告主属性</a></li>
               <li><a href="/trackmaster/v1/apiAdv/#p8">删除指定工作网络下的指定广告主</a></li>
             </ul>
           </li>
@@ -534,8 +534,8 @@ X-RateLimit-Remaining: 4999
               <li><a href="/trackmaster/v1/apiMedia/#p6">给指定工作网络添加一个媒体</a></li>
               <li><a href="/trackmaster/v1/apiMedia/#p7">删除指定工作网络下的媒体</a></li>
               <li><a href="/trackmaster/v1/apiMedia/#p8">修改指定工作网络下指定媒体属性</a></li>
-              <li><a href="/trackmaster/v1/apiMedia/#p9">获取指定项目下已添加的媒体</a></li>
-              <li><a href="/trackmaster/v1/apiMedia/#p10">获取指定项目下指定媒体属性信息</a></li>
+              <li><a href="/trackmaster/v1/apiMedia/#p9">获取指定项目下已添加的媒体属性列表</a></li>
+              <li><a href="/trackmaster/v1/apiMedia/#p10">获取指定项目下指定媒体属性</a></li>
               <li><a href="/trackmaster/v1/apiMedia/#p11">判断指定项目下是否有指定媒体</a></li>
               <li><a href="/trackmaster/v1/apiMedia/#p12">为指定项目添加指定媒体</a></li>
               <li><a href="/trackmaster/v1/apiMedia/#p13">删除指定项目下某个媒体</a></li>

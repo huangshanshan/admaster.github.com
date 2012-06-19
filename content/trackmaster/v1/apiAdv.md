@@ -84,9 +84,9 @@ X-RateLimit-Remaining: 4999
 
 [v1.0][version]
 
-<h2 id="p3">获取指定工作网络下所有广告主信息</h2>
+<h2 id="p3">获取指定工作网络下所有广告主属性列表</h2>
 
-    GET /networks/:network_id/advertisers
+    GET /networks/:network_id/advertisers/attributes
 
 ###响应
 <pre class="headers">
@@ -115,7 +115,7 @@ X-RateLimit-Remaining: 4999
 
 [v1.0][version]
 
-<h2 id="p4">获取指定网络下的指定广告主属性信息</h2>
+<h2 id="p4">获取指定网络下的指定广告主属性</h2>
 
     GET /networks/:network_id/advertisers/:advertiser_id/attributes
 
@@ -184,9 +184,9 @@ X-RateLimit-Remaining: 4999
 [v1.0][version]
 
 
-<h2 id="p7">修改指定网络下的指定广告主</h2>
+<h2 id="p7">修改指定网络下的指定广告主属性</h2>
 
-    PATCH /networks/:network_id/advertisers/:advertiser_id
+    PATCH /networks/:network_id/advertisers/:advertiser_id/attributes
 
 ###请求
 <pre class="highlight">
