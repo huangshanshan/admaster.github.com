@@ -329,7 +329,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p9">获取指定项目下已添加的媒体属性列表</h2>
 
-    GET /networks/advertisers/campaigns/:campaign_id/networks/medias/attributes
+    GET /networks/advertisers/campaigns/:campaign_id/medias/attributes
 
 ###响应
 <pre class="headers">
@@ -406,7 +406,7 @@ X-RateLimit-Remaining: 4999
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/123/medias
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/12/medias/123/attributes
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -421,7 +421,7 @@ X-RateLimit-Remaining: 4999
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/123/medias
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/12/medias/attributes
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
