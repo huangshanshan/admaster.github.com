@@ -81,21 +81,28 @@
   <dt>client_secret</dt>
   <dd>
 <em>必选</em> <strong>string</strong> - 这个 client secret 是你在 TrackMaster™ <a href="http://open.admaster.com.cn/app/new">应用注册页面</a>获得的。</dd>
-  <dt>code</dt>
-  <dd>
-<em>必选</em> <strong>string</strong> - 在第一步中重定向返回的参数。</dd>
   <dt>grant_type</dt>
   <dd>
 <em>必选</em> <strong>enum</strong> - <code>authentication_code</code> 根据code获取token <code>password</code> 根据密码获取token <code>refresh_token</code> 刷新token</dd>
+  <dt>code</dt>
+  <dd>
+<em>可选</em> <strong>string</strong> - 在第一步中重定向返回的参数。</dd>
   <dt>redirect_uri</dt>
   <dd>
 <em>可选</em> <strong>string</strong>
 </dd>
+  <dt>email</dt>
+  <dd>
+<em>可选</em> <strong>string</strong> - 用户邮箱，当grant_type为password时传递该参数</dd>
+  <dt>password</dt>
+  <dd>
+<em>可选</em> <strong>string</strong> - 用户密码，当grant_type为password时传递该参数</dd>
 </dl><h3 id="section-2">响应</h3>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"token_type"</span><span class="o">:</span> <span class="s2">"bearer"</span><span class="p">,</span>
-  <span class="s2">"access_token"</span><span class="o">:</span> <span class="s2">"e72e16c7e42f292c6912e7710c838347ae178b4a"</span>
+  <span class="s2">"access_token"</span><span class="o">:</span> <span class="s2">"7a68b4d65ddd6a6191ef0cbf9cadb06528d92d67"</span><span class="p">,</span>
+  <span class="s2">"expires_in"</span><span class="o">:</span> <span class="s2">"1800000"</span><span class="p">,</span>
+  <span class="s2">"refresh_token"</span><span class="o">:</span> <span class="s2">"23a89c9944afc0525a25d15d180c6bce03efa331"</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="access-token--api">3. 使用 access token 访问 API</h3>

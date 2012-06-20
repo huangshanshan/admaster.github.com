@@ -47,21 +47,28 @@ client\_id
 client\_secret
 : _必选_ **string** - 这个 client secret 是你在 TrackMaster™ [应用注册页面](http://open.admaster.com.cn/app/new)获得的。
 
-code
-: _必选_ **string** - 在第一步中重定向返回的参数。
-
 grant\_type
 : _必选_ **enum** - `authentication_code` 根据code获取token `password` 根据密码获取token `refresh_token` 刷新token
 
+code
+: _可选_ **string** - 在第一步中重定向返回的参数。
+
 redirect\_uri
 : _可选_ **string**
+
+email
+: _可选_ **string** - 用户邮箱，当grant_type为password时传递该参数
+
+password
+: _可选_ **string** - 用户密码，当grant_type为password时传递该参数
 
 ### 响应
 <pre class="highlight">
 <code class="language-javascript">
 {
-  "token_type": "bearer",
-  "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a"
+  "access_token": "7a68b4d65ddd6a6191ef0cbf9cadb06528d92d67",
+  "expires_in": "1800000",
+  "refresh_token": "23a89c9944afc0525a25d15d180c6bce03efa331"
 }
 </code></pre>
 
