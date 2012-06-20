@@ -65,8 +65,8 @@ X-RateLimit-Remaining: 4999
         <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
         <span class="c1">//物料文件大小，单位由 material_size_unit 指定</span>
         <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
-        <span class="c1">//物料文件大小单位，Byte KByte MByte</span>
-        <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
+        <span class="c1">//物料文件大小单位，B K M 默认：`K`</span>
+        <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"B"</span>
     <span class="p">}</span>
 <span class="p">]</span></code></pre>
 
@@ -104,9 +104,8 @@ X-RateLimit-Remaining: 4999
         <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
         <span class="c1">//物料文件大小，单位由 material_size_unit 指定</span>
         <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
-        <span class="c1">//物料文件大小单位，Byte KByte MByte</span>
-        <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
-   
+        <span class="c1">//物料文件大小单位，B K M 默认：`K`</span>
+        <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"B"</span>
 <span class="p">}</span></code></pre>
 
 <p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a></p>
@@ -119,27 +118,7 @@ X-RateLimit-Remaining: 4999
 <pre><code>POST /medias/:media_id/channels
 </code></pre>
 
-<h3 id="section-4">请求</h3>
-
-<pre class="highlight">
-<code class="language-javascript"><span class="p">{</span>
-    <span class="c1">//频道名称</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"体育新闻"</span><span class="p">,</span>
-    <span class="c1">//`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他</span>
-    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"web"</span><span class="p">,</span>
-    <span class="c1">//广告位在第几屏幕</span>
-    <span class="s2">"screen"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="c1">//频道地址</span>
-    <span class="s2">"home"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
-    <span class="c1">//物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`</span>
-    <span class="s2">"material_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
-    <span class="c1">//物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px</span>
-    <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
-    <span class="c1">//物料文件大小，单位由 material_size_unit 指定</span>
-    <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
-    <span class="c1">//物料文件大小单位，Byte KByte MByte</span>
-    <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
-<span class="p">}</span></code></pre>
+<h3 id="section-4">参数</h3>
 
 <dl>
 <dt>name</dt>
@@ -196,14 +175,46 @@ X-RateLimit-Remaining: 4999
 </ul><dl>
 <dt>material_dimension</dt>
   <dd>
-<em>可选</em> <em>Enum</em> - 物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px</dd>
+<em>可选</em> <em>String</em> - 物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px</dd>
   <dt>material_size</dt>
   <dd>
 <em>可选</em> <em>Enum</em> - 物料文件大小，单位由 material_size_unit 指定</dd>
   <dt>material_size_unit</dt>
   <dd>
-<em>可选</em> <em>String</em> - 物料文件大小单位，Byte KByte MByte</dd>
-</dl><h3 id="section-5">响应</h3>
+<em>可选</em> <em>String</em> - 物料文件大小单位</dd>
+</dl><ul>
+<li>
+    <p><code>B</code>:Byte</p>
+  </li>
+  <li>
+    <p><code>K</code>:Kbyte (默认)</p>
+  </li>
+  <li>
+    <p><code>M</code>:Mbyte</p>
+  </li>
+</ul><h3 id="section-5">请求</h3>
+
+<pre class="highlight">
+<code class="language-javascript"><span class="p">{</span>
+    <span class="c1">//频道名称</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"体育新闻"</span><span class="p">,</span>
+    <span class="c1">//`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他</span>
+    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"web"</span><span class="p">,</span>
+    <span class="c1">//广告位在第几屏幕</span>
+    <span class="s2">"screen"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="c1">//频道地址</span>
+    <span class="s2">"home"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
+    <span class="c1">//物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`</span>
+    <span class="s2">"material_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
+    <span class="c1">//物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px</span>
+    <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
+    <span class="c1">//物料文件大小，单位由 material_size_unit 指定</span>
+    <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="c1">//物料文件大小单位，B K M</span>
+    <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"B"</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="section-6">响应</h3>
 <pre class="headers no-response">
 <code>Status: 204 No Content
 Location: http://api.trackmaster.com.cn/channel/:id
@@ -213,7 +224,7 @@ X-RateLimit-Remaining: 4999
 
 <p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a></p>
 
-<h3 id="section-6">适用版本</h3>
+<h3 id="section-7">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
       </div>
 
