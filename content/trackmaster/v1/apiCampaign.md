@@ -27,6 +27,7 @@ status
 * `teminal` - 项目末期
 * `finished` - 已结束
 
+
 start\_date
 : _可选_ *Date* - 项目开始时间，会列出项目开始日期小于等于此设定的项目
 
@@ -47,6 +48,7 @@ sort
 * `est_imp` - 按照总预计曝光排序
 * `est_clk` - 按照总预计点击排序
 
+
 direction
 : _可选_ *String* - 排序方式
 
@@ -56,8 +58,8 @@ direction
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/:network_id/advertisers/:advertiser_id/campaigns?page=2>; rel="next",
-      <http://api.trackmaster.com.cn/networks/:network_id/advertisers/:advertiser_id/campaigns?page=10>; rel="last"
+Link: <http://api.trackmaster.com.cn/networks/12/advertisers/122/campaigns?page=2>; rel="next",
+      <http://api.trackmaster.com.cn/networks/12/advertisers/122/campaigns?page=10>; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -73,13 +75,13 @@ X-RateLimit-Remaining: 4999
     "total_cost": 20000000,
     "start_date": "2012-01-03",
     "end_date": "2012-06-23",
-    "default_target": 
+    "default_target": "http://www.admaster.com.cn"
     "survey_id": 1024, 
     "media_num": 8,
     "placement_num": 258,
     "est_imp": 9183213,
     "est_clk": 12334,
-    "status": "online", 
+    "status": "typing", 
     "is_online": "yes",
     "created_at": "2012-09-06T20:39:23Z"
   }
@@ -119,16 +121,16 @@ X-RateLimit-Remaining: 4999
     "total_cost": 20000000,
     "start_date": "2012-01-03",
     "end_date": "2012-06-23",
-    "default_target": 
+    "default_target": "http://www.admaster.com.cn"
     "survey_id": 1024, 
     "media_num": 8,     
     "placement_num": 258,
     "target_audience":{
         "age": "19_25",
-        "sex": ["2"]
+        "sex": "male"
     }, 
-    "status": "online", 
-    "is_online": "yes",     
+    "status": "typing", 
+    "is_online": "yes", 
     "created_at": "2012-09-06T20:39:23Z"
 }
 </code></pre>
@@ -146,7 +148,7 @@ X-RateLimit-Remaining: 4999
 
     POST /networks/:network_id/advertisers/:advertiser_id/campaigns
 
-###请求
+###参数
 
 name
 : _必选_ *String* - 项目名称，长度范围 3 - 100 个字符
@@ -183,6 +185,9 @@ target\_audience
     "sex": "male"//性别设定，`male` 男, `female` 女
 }
 </code></pre>
+
+###请求
+
 <pre class="highlight">
 <code class="language-javascript">
 {
@@ -223,7 +228,7 @@ X-RateLimit-Remaining: 4999
     "placement_num": 258,
     "target_audience":{
         "age": "19_25",
-        "sex": ["2"]
+        "sex": "female"
     }, 
     "status": "online", 
     "is_online": "yes",     
@@ -240,23 +245,12 @@ X-RateLimit-Remaining: 4999
 ###适用版本
 [v1.0][version]
 
-<h2 id="p4">删除指定项目</h2>
-
-    DELETE /networks/advertisers/campaigns/:id
-
-###响应
-<pre class="headers no-response">
-<code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/:network_id/advertisers/:advertiser_id/campaigns
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<h2 id="p5">修改指定项目属性</h2>
+<h2 id="p4">修改指定项目属性</h2>
 
     PATCH /networks/advertisers/campaigns/:id
 
-###请求
+###参数
+
 name
 : _可选_ *String* - 项目名称，长度范围 3 - 100 个字符
 
@@ -291,8 +285,12 @@ target\_audience
     "age": "19_25",//年龄设定，例如: 16_20  16岁到20岁
     "sex": "male"//性别设定，`male` 男, `female` 女
 }
+</code></pre>
 
+###请求
 
+<pre class="highlight">
+<code class="language-javascript">
 {
     "name": "这是一个测试项目",
     "network_brand_id": 10021,
@@ -317,6 +315,19 @@ X-RateLimit-Remaining: 4999
 
 ###适用版本
 [v1.0][version]
+
+<h2 id="p5">删除指定项目</h2>
+
+    DELETE /networks/advertisers/campaigns/:id
+
+###响应
+<pre class="headers no-response">
+<code>Status: 204 No Content
+Location: http://api.trackmaster.com.cn/networks/12/advertisers/123/campaigns
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
 
 ##字段说明
 <table cellspacing="0" cellpadding="6" border="1">

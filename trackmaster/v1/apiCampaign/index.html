@@ -108,8 +108,8 @@
 </ul><h3 id="section-1">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
-Link: &lt;http://api.trackmaster.com.cn/networks/:network_id/advertisers/:advertiser_id/campaigns?page=2&gt;; rel="next",
-      &lt;http://api.trackmaster.com.cn/networks/:network_id/advertisers/:advertiser_id/campaigns?page=10&gt;; rel="last"
+Link: &lt;http://api.trackmaster.com.cn/networks/12/advertisers/122/campaigns?page=2&gt;; rel="next",
+      &lt;http://api.trackmaster.com.cn/networks/12/advertisers/122/campaigns?page=10&gt;; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -124,13 +124,13 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"total_cost"</span><span class="o">:</span> <span class="mi">20000000</span><span class="p">,</span>
     <span class="s2">"start_date"</span><span class="o">:</span> <span class="s2">"2012-01-03"</span><span class="p">,</span>
     <span class="s2">"end_date"</span><span class="o">:</span> <span class="s2">"2012-06-23"</span><span class="p">,</span>
-    <span class="s2">"default_target"</span><span class="o">:</span> 
+    <span class="s2">"default_target"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn"</span>
     <span class="s2">"survey_id"</span><span class="o">:</span> <span class="mi">1024</span><span class="p">,</span> 
     <span class="s2">"media_num"</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
     <span class="s2">"placement_num"</span><span class="o">:</span> <span class="mi">258</span><span class="p">,</span>
     <span class="s2">"est_imp"</span><span class="o">:</span> <span class="mi">9183213</span><span class="p">,</span>
     <span class="s2">"est_clk"</span><span class="o">:</span> <span class="mi">12334</span><span class="p">,</span>
-    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"online"</span><span class="p">,</span> 
+    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"typing"</span><span class="p">,</span> 
     <span class="s2">"is_online"</span><span class="o">:</span> <span class="s2">"yes"</span><span class="p">,</span>
     <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span>
   <span class="p">}</span>
@@ -167,16 +167,16 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"total_cost"</span><span class="o">:</span> <span class="mi">20000000</span><span class="p">,</span>
     <span class="s2">"start_date"</span><span class="o">:</span> <span class="s2">"2012-01-03"</span><span class="p">,</span>
     <span class="s2">"end_date"</span><span class="o">:</span> <span class="s2">"2012-06-23"</span><span class="p">,</span>
-    <span class="s2">"default_target"</span><span class="o">:</span> 
+    <span class="s2">"default_target"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn"</span>
     <span class="s2">"survey_id"</span><span class="o">:</span> <span class="mi">1024</span><span class="p">,</span> 
     <span class="s2">"media_num"</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>     
     <span class="s2">"placement_num"</span><span class="o">:</span> <span class="mi">258</span><span class="p">,</span>
     <span class="s2">"target_audience"</span><span class="o">:</span><span class="p">{</span>
         <span class="s2">"age"</span><span class="o">:</span> <span class="s2">"19_25"</span><span class="p">,</span>
-        <span class="s2">"sex"</span><span class="o">:</span> <span class="p">[</span><span class="s2">"2"</span><span class="p">]</span>
+        <span class="s2">"sex"</span><span class="o">:</span> <span class="s2">"male"</span>
     <span class="p">},</span> 
-    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"online"</span><span class="p">,</span> 
-    <span class="s2">"is_online"</span><span class="o">:</span> <span class="s2">"yes"</span><span class="p">,</span>     
+    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"typing"</span><span class="p">,</span> 
+    <span class="s2">"is_online"</span><span class="o">:</span> <span class="s2">"yes"</span><span class="p">,</span> 
     <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span>
 <span class="p">}</span></code></pre>
 
@@ -194,7 +194,7 @@ X-RateLimit-Remaining: 4999
 <pre><code>POST /networks/:network_id/advertisers/:advertiser_id/campaigns
 </code></pre>
 
-<h3 id="section-7">请求</h3>
+<h3 id="section-7">参数</h3>
 
 <dl>
 <dt>name</dt>
@@ -235,6 +235,9 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"age"</span><span class="o">:</span> <span class="s2">"19_25"</span><span class="p">,</span><span class="c1">//年龄设定，例如: 16_20  16岁到20岁</span>
     <span class="s2">"sex"</span><span class="o">:</span> <span class="s2">"male"</span><span class="c1">//性别设定，`male` 男, `female` 女</span>
 <span class="p">}</span></code></pre>
+
+<h3 id="section-8">请求</h3>
+
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"这是一个测试项目"</span><span class="p">,</span>
@@ -250,7 +253,7 @@ X-RateLimit-Remaining: 4999
     <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="section-8">响应</h3>
+<h3 id="section-9">响应</h3>
 <pre class="headers">
 <code>Status: 201 Created
 X-RateLimit-Limit: 5000
@@ -272,7 +275,7 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"placement_num"</span><span class="o">:</span> <span class="mi">258</span><span class="p">,</span>
     <span class="s2">"target_audience"</span><span class="o">:</span><span class="p">{</span>
         <span class="s2">"age"</span><span class="o">:</span> <span class="s2">"19_25"</span><span class="p">,</span>
-        <span class="s2">"sex"</span><span class="o">:</span> <span class="p">[</span><span class="s2">"2"</span><span class="p">]</span>
+        <span class="s2">"sex"</span><span class="o">:</span> <span class="s2">"female"</span>
     <span class="p">},</span> 
     <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"online"</span><span class="p">,</span> 
     <span class="s2">"is_online"</span><span class="o">:</span> <span class="s2">"yes"</span><span class="p">,</span>     
@@ -281,32 +284,20 @@ X-RateLimit-Remaining: 4999
 
 <p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a> </p>
 
-<h3 id="section-9">字段说明</h3>
+<h3 id="section-10">字段说明</h3>
 
 <p>参见页面底部说明</p>
 
-<h3 id="section-10">适用版本</h3>
+<h3 id="section-11">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
-<h2 id="p4">删除指定项目</h2>
-
-<pre><code>DELETE /networks/advertisers/campaigns/:id
-</code></pre>
-
-<h3 id="section-11">响应</h3>
-<pre class="headers no-response">
-<code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/:network_id/advertisers/:advertiser_id/campaigns
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<h2 id="p5">修改指定项目属性</h2>
+<h2 id="p4">修改指定项目属性</h2>
 
 <pre><code>PATCH /networks/advertisers/campaigns/:id
 </code></pre>
 
-<h3 id="section-12">请求</h3>
+<h3 id="section-12">参数</h3>
+
 <dl>
 <dt>name</dt>
   <dd>
@@ -345,10 +336,12 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"age"</span><span class="o">:</span> <span class="s2">"19_25"</span><span class="p">,</span><span class="c1">//年龄设定，例如: 16_20  16岁到20岁</span>
     <span class="s2">"sex"</span><span class="o">:</span> <span class="s2">"male"</span><span class="c1">//性别设定，`male` 男, `female` 女</span>
-<span class="p">}</span>
+<span class="p">}</span></code></pre>
 
+<h3 id="section-13">请求</h3>
 
-<span class="p">{</span>
+<pre class="highlight">
+<code class="language-javascript"><span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"这是一个测试项目"</span><span class="p">,</span>
     <span class="s2">"network_brand_id"</span><span class="o">:</span> <span class="mi">10021</span><span class="p">,</span>
     <span class="s2">"start_date"</span><span class="o">:</span> <span class="s2">"2012-01-31"</span><span class="p">,</span>
@@ -362,17 +355,30 @@ X-RateLimit-Remaining: 4999
     <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="section-13">响应</h3>
+<h3 id="section-14">响应</h3>
 <pre class="headers no-response">
 <code>Status: 204 No Content 
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h3 id="section-14">适用版本</h3>
+<h3 id="section-15">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
-<h2 id="section-15">字段说明</h2>
+<h2 id="p5">删除指定项目</h2>
+
+<pre><code>DELETE /networks/advertisers/campaigns/:id
+</code></pre>
+
+<h3 id="section-16">响应</h3>
+<pre class="headers no-response">
+<code>Status: 204 No Content
+Location: http://api.trackmaster.com.cn/networks/12/advertisers/123/campaigns
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<h2 id="section-17">字段说明</h2>
 <table cellspacing="0" cellpadding="6" border="1">
 <tr>
 <td> 返回值字段 </td>
@@ -549,8 +555,8 @@ X-RateLimit-Remaining: 4999
               <li><a href="/trackmaster/v1/apiCampaign/#p1">获取指定网络下某个广告主有操作权限的项目列表</a></li>
               <li><a href="/trackmaster/v1/apiCampaign/#p2">获取指定项目信息</a></li>
               <li><a href="/trackmaster/v1/apiCampaign/#p3">添加指定项目到指定广告主下</a></li>
-              <li><a href="/trackmaster/v1/apiCampaign/#p4">删除指定项目</a></li>
-              <li><a href="/trackmaster/v1/apiCampaign/#p5">修改指定项目属性</a></li>
+              <li><a href="/trackmaster/v1/apiCampaign/#p4">修改指定项目属性</a></li>
+              <li><a href="/trackmaster/v1/apiCampaign/#p5">删除指定项目</a></li>
             </ul>
           </li>
           <li class="js-topic">

@@ -174,7 +174,7 @@ material_size_unit
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/channel/:id
+Location: http://api.trackmaster.com.cn/channel/123
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>

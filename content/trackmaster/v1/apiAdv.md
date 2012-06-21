@@ -99,7 +99,7 @@ X-RateLimit-Remaining: 4999
 [
   {
     "advertiser_id": 1,
-    "url": "http://api.trackmaster.com.cn/networks/:network_id/advertisers/1",
+    "url": "http://api.trackmaster.com.cn/networks/1/advertisers/1",
     "name": {"zh_cn" => "腾讯", "en_us" => "tencent"},   //广告主名称
     "status": "enabled",
     "alias": "ibm",
@@ -130,7 +130,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 {
     "advertiser_id": 1,
-    "url": "http://api.trackmaster.com.cn/networks/:network_id/advertisers/1",
+    "url": "http://api.trackmaster.com.cn/networks/1/advertisers/1",
     "name": {"zh_cn" => "通用电器", "en_us" => "GM"},   //广告主名称
     "status": "enabled"
     "alias": "通用电器",
@@ -213,7 +213,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 {
     "advertiser_id": 1,
-    "url": "http://api.trackmaster.com.cn/networks/:network_id/advertisers/1",
+    "url": "http://api.trackmaster.com.cn/networks/1/advertisers/1",
     "name": {"zh_cn" => "通用电器", "en_us" => "GM"},   //广告主名称
     "status": "enabled"
     "alias": "通用电器",
