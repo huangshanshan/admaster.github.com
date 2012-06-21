@@ -126,7 +126,7 @@ X-RateLimit-Remaining: 4999
     "media_num": 8,     
     "placement_num": 258,
     "target_audience":{
-        "age": "19_25",
+        "age": "19-25",
         "sex": "male"
     }, 
     "status": "typing", 
@@ -181,7 +181,7 @@ target\_audience
 <pre class="highlight">
 <code class="language-javascript">
 {
-    "age": "19_25",//年龄设定，例如: 16_20  16岁到20岁
+    "age": "19-25",//年龄设定，例如: 16-20  16岁到20岁
     "sex": "male"//性别设定，`male` 男, `female` 女
 }
 </code></pre>
@@ -199,7 +199,7 @@ target\_audience
     "survey_id": 1002,
     "cost_type": "USD",
     "target_audience": {
-        "age": "16_30",
+        "age": "16-30",
         "sex": "female"
     }
 }
@@ -217,21 +217,21 @@ X-RateLimit-Remaining: 4999
     "id": 1,
     "url": "http://api.trackmaster.com.cn/networks/advertisers/campaigns/1",
     "name": "这是一个测试项目",
-    "network_brand_id": 10213,
-    "cost_type": "CNY",
-    "total_cost": 20000000,
-    "start_date": "2012-01-03",
-    "end_date": "2012-06-23",
-    "default_target": 
-    "survey_id": 1024, 
-    "media_num": 8,     
-    "placement_num": 258,
+    "network_brand_id": 10021,
+    "cost_type": "USD",
+    "total_cost": 0,
+    "start_date": "2012-01-31",
+    "end_date": "2012-04-20",
+    "default_target": "http://www.admaster.com.cn"
+    "survey_id": 10002, 
+    "media_num": 0,     
+    "placement_num": 0,
     "target_audience":{
-        "age": "19_25",
+        "age": "16-30",
         "sex": "female"
     }, 
-    "status": "online", 
-    "is_online": "yes",     
+    "status": "typing", 
+    "is_online": "no",     
     "created_at": "2012-09-06T20:39:23Z"
 }
 </code></pre>
@@ -282,7 +282,7 @@ target\_audience
 <pre class="highlight">
 <code class="language-javascript">
 {
-    "age": "19_25",//年龄设定，例如: 16_20  16岁到20岁
+    "age": "19-25",//年龄设定，例如: 16_20  16岁到20岁
     "sex": "male"//性别设定，`male` 男, `female` 女
 }
 </code></pre>
@@ -300,7 +300,7 @@ target\_audience
     "survey_id": 1002,
     "cost_type": "USD",
     "target_audience": {
-        "age": "16_30",
+        "age": "16-30",
         "sex": "female"
     }
 }
