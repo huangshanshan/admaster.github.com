@@ -83,20 +83,23 @@
 <em>必选</em> <strong>string</strong> - 这个 client secret 是你在 TrackMaster™ <a href="http://open.admaster.com.cn/app/new">应用注册页面</a>获得的。</dd>
   <dt>grant_type</dt>
   <dd>
-<em>必选</em> <strong>enum</strong> - <code>authentication_code</code> 根据code获取token <code>password</code> 根据密码获取token <code>refresh_token</code> 刷新token</dd>
-  <dt>code</dt>
-  <dd>
-<em>可选</em> <strong>string</strong> - 在第一步中重定向返回的参数。</dd>
+<em>必选</em> <strong>enum</strong> - <code>authorization_code</code> 根据code获取token <code>password</code> 根据密码获取token <code>refresh_token</code> 刷新token</dd>
   <dt>redirect_uri</dt>
   <dd>
 <em>可选</em> <strong>string</strong>
 </dd>
+  <dt>code</dt>
+  <dd>
+<em>可选</em> <strong>string</strong> - 在第一步中重定向返回的参数，当<code>grant_type</code>为<code>authorization_code</code>时传递该参数。</dd>
   <dt>email</dt>
   <dd>
-<em>可选</em> <strong>string</strong> - 用户邮箱，当grant_type为password时传递该参数</dd>
+<em>可选</em> <strong>string</strong> - 用户邮箱，当<code>grant_type</code>为<code>password</code>时传递该参数</dd>
   <dt>password</dt>
   <dd>
-<em>可选</em> <strong>string</strong> - 用户密码，当grant_type为password时传递该参数</dd>
+<em>可选</em> <strong>string</strong> - 用户密码，当<code>grant_type</code>为<code>password</code>时传递该参数</dd>
+  <dt>refresh_token</dt>
+  <dd>
+<em>可选</em> <strong>string</strong> - 刷新令牌，当<code>grant_type</code>为<code>refresh_token</code>时传递该参数</dd>
 </dl><h3 id="section-2">响应</h3>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
@@ -111,6 +114,16 @@
 
 <pre><code>GET http://open.admaster.com.cn/user?access_token=...
 </code></pre>
+
+<p><strong>响应</strong></p>
+
+<p><code>json
+    {
+      "id": 98,
+      "email": "hello@admaster.com.cn",
+      "username": "hello"
+    }
+</code></p>
 
 <h2 id="web">非Web应用请求流程</h2>
 

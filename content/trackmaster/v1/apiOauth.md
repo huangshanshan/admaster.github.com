@@ -48,19 +48,22 @@ client\_secret
 : _必选_ **string** - 这个 client secret 是你在 TrackMaster™ [应用注册页面](http://open.admaster.com.cn/app/new)获得的。
 
 grant\_type
-: _必选_ **enum** - `authentication_code` 根据code获取token `password` 根据密码获取token `refresh_token` 刷新token
-
-code
-: _可选_ **string** - 在第一步中重定向返回的参数。
+: _必选_ **enum** - `authorization_code` 根据code获取token `password` 根据密码获取token `refresh_token` 刷新token
 
 redirect\_uri
 : _可选_ **string**
 
+code
+: _可选_ **string** - 在第一步中重定向返回的参数，当`grant_type`为`authorization_code`时传递该参数。
+
 email
-: _可选_ **string** - 用户邮箱，当grant_type为password时传递该参数
+: _可选_ **string** - 用户邮箱，当`grant_type`为`password`时传递该参数
 
 password
-: _可选_ **string** - 用户密码，当grant_type为password时传递该参数
+: _可选_ **string** - 用户密码，当`grant_type`为`password`时传递该参数
+
+refresh\_token
+: _可选_ **string** - 刷新令牌，当`grant_type`为`refresh_token`时传递该参数
 
 ### 响应
 <pre class="highlight">
@@ -77,6 +80,16 @@ password
 使用 access token 允许你来请求用户的信息。
 
     GET http://open.admaster.com.cn/user?access_token=...
+
+**响应**
+
+```json
+    {
+      "id": 98,
+      "email": "hello@admaster.com.cn",
+      "username": "hello"
+    }
+```
 
 ## 非Web应用请求流程
 
