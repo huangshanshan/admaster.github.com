@@ -208,6 +208,7 @@ target\_audience
 ###响应
 <pre class="headers">
 <code>Status: 201 Created
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/1
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
