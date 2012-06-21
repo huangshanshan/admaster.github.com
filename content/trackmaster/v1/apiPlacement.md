@@ -16,11 +16,17 @@ name
 network_media\_id
 : _可选_ *Int* - 限定工作网络媒体ID
 
+page
+: _可选_ *Int* - 显示页码
+
+per_page
+: _可选_ *Int* - 分页数量，默认每页30条
+
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/placements?page=2>; rel="next",
-      <http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/placements?page=10>; rel="last"
+Link: <http://api.trackmaster.com.cn/networks/advertisers/campaigns/123/placements?page=2>; rel="next",
+      <http://api.trackmaster.com.cn/networks/advertisers/campaigns/123/placements?page=10>; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -49,13 +55,13 @@ X-RateLimit-Remaining: 4999
         //频道地址
         "home": "http://www.admaster.com.cn/",
         //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-        "material_type": 'flash',
+        "material_type": "flash",
         //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
         "material_dimension": "400x300",
         //物料文件大小，单位由 material_size_unit 指定
         "material_size": 200,
-        //物料文件大小单位，Byte KByte MByte
-        "material_size_unit": "Byte"
+        //物料文件大小单位，B K M
+        "material_size_unit": "B"
     }
     //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推
     "rotation" : "1/4",
@@ -124,13 +130,13 @@ X-RateLimit-Remaining: 4999
     //频道地址
     "home": "http://www.admaster.com.cn/",
     //物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-    "material_type": 'flash',
+    "material_type": "flash",
     //物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px
     "material_dimension": "400x300",
     //物料文件大小，单位由 material_size_unit 指定
     "material_size": 200,
-    //物料文件大小单位，Byte KByte MByte
-    "material_size_unit": "Byte"
+    //物料文件大小单位，B K M
+    "material_size_unit": "B"
 },
 //note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推
 "rotation" : "1/4",
@@ -169,7 +175,7 @@ X-RateLimit-Remaining: 4999
 
     POST /networks/advertisers/campaigns/:campaign_id/placements
 
-###请求
+###参数
 
 name
 : _必选_ *String* - 广告位位置名称，字符串，长度为 3 - 100个字符
@@ -177,32 +183,8 @@ name
 media\_id
 : _必选_ *String* - 广告位所属工作网络媒体ID,
 
-channel
-: _必选_ *Object* - 广告位频道信息
-
-###示例
-
-<pre class="highlight">
-<code class="language-javascript"> 
-{
-    //频道名称 _必选_
-    "name": "体育新闻",
-    //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他 _可选_ 默认 : webpage
-    "type": "webpage",
-    //广告位在第几屏幕 _可选_ 默认: 0
-    "screen": 3,
-    //频道地址 _可选_
-    "home": "http://www.admaster.com.cn/",
-    //物料类型 _可选_ `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-    "material_type": 'flash',
-    //物料的显示尺寸 _可选_ 单位像素 格式如 400x300 宽度为400px 高度为300px
-    "material_dimension": "400x300",
-    //物料文件大小_可选_ 单位由 material_size_unit 指定
-    "material_size": 200,
-    //物料文件大小单位 _可选_ `B`, `K`, `M` 默认: K
-    "material_size_unit": "K"
-}
-</code></pre>
+channel\_id
+: _必选_ *Int* - 广告位频道ID
 
 rotation
 : _可选_ *String* 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推，默认: `1/1`
@@ -211,7 +193,7 @@ target\_url
 : _可选_ *Url* 点击目标地址, 默认为空，继承项目的点击目标地址
 
 payment\_type
-: _可选_ *Enum* - 支付类型
+: _可选_ *String* - 支付类型
 
 * `purchase` 购买 _默认值_
 * `offering` 配送
@@ -220,7 +202,7 @@ payment\_type
 * `other` 其他
 
 cost\_type
-: _可选_ *Enum* - 单位收费类型
+: _可选_ *String* - 单位收费类型
 
 * `day` 天 _默认值_
 * `week` 周
@@ -244,23 +226,14 @@ est\_clk\_per\_unit
 other\_requirement
 : _可选_ *String* - 其他要求
 
-###示例
+###请求
 
 <pre class="highlight">
 <code class="language-javascript"> 
 {
     "name": "这是一个测试广告位",
     "network_media_id": 1314,
-    "channel": {
-      "name": "体育新闻",
-      "type": "webpage",
-      "screen": 3,
-      "home": "http://www.admaster.com.cn/",
-      "material_type": 'flash',
-      "material_dimension": "400x300",
-      "material_size": 200,
-      "material_size_unit": "Byte"
-    },
+    "channel_id": 123,
     "rotation" : "1/4",
     "target_url": "http://www.admaster.com.cn/",
     "payment_type": "purchase",
@@ -275,6 +248,7 @@ other\_requirement
 ###响应
 <pre class="headers">
 <code>Status: 201 Created
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/placements/1
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -286,15 +260,15 @@ X-RateLimit-Remaining: 4999
     "name": "这是一个测试广告位",
     "network_media_id": 1314,
     "channel": {
-        "id": 1025,
+        "id": 123,
         "name": "体育新闻",
         "type": "webpage",
         "screen": 3,
         "home": "http://www.admaster.com.cn/",
-        "material_type": 'flash',
+        "material_type": "flash",
         "material_dimension": "400x300",
         "material_size": 200,
-        "material_size_unit": "Byte"
+        "material_size_unit": "B"
     },
     "rotation" : "1/4",
     "target_url": "http://www.admaster.com.cn/",
@@ -303,10 +277,10 @@ X-RateLimit-Remaining: 4999
     "cost_per_unit": 873.12,
     "est_imp_per_unit": 239,
     "est_clk_per_unit": 3,
-    "units": 58,
+    "units": 0,
     "other_requirement": "没有什么要求",
-    "est_imp": 871821,
-    "est_clk": 1231,
+    "est_imp": 0,
+    "est_clk": 0,
     "created_at": "2012-09-06T20:39:23Z"
 }
 </code></pre>
@@ -324,7 +298,7 @@ X-RateLimit-Remaining: 4999
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/placements
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/123/placements
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -338,31 +312,8 @@ X-RateLimit-Remaining: 4999
 name
 : _可选_ *String* - 广告位位置名称，字符串，长度为 3 - 100个字符
 
-channel
-: _可选_ *Object* - 广告位频道信息
-
-###示例
-<pre class="highlight">
-<code class="language-javascript"> 
-{
-    //频道名称 _可选_
-    "name": "体育新闻",
-    //`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他 _可选_ 默认 : webpage
-    "type": "webpage",
-    //广告位在第几屏幕 _可选_ 默认: 0
-    "screen": 3,
-    //频道地址 _可选_
-    "home": "http://www.admaster.com.cn/",
-    //物料类型 _可选_ `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`
-    "material_type": 'flash',
-    //物料的显示尺寸 _可选_ 单位像素 格式如 400x300 宽度为400px 高度为300px
-    "material_dimension": "400x300",
-    //物料文件大小_可选_ 单位由 material_size_unit 指定
-    "material_size": 200,
-    //物料文件大小单位 _可选_ `B`, `K`, `M` 默认: K
-    "material_size_unit": "K"
-}
-</code></pre>
+channel_id
+: _可选_ *Int* - 广告位频道ID
 
 rotation
 : _可选_ *String* 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推，默认: `1/1`
@@ -371,7 +322,7 @@ target\_url
 : _可选_ *Url* 点击目标地址, 默认为空，继承项目的点击目标地址
 
 payment\_type
-: _可选_ *Enum* - 支付类型
+: _可选_ *String* - 支付类型
 
 * `purchase` 购买 _默认_
 * `offering` 配送
@@ -380,7 +331,7 @@ payment\_type
 * `other` 其他 
 
 cost\_type
-: _可选_ *Enum* - 单位收费类型 
+: _可选_ *String* - 单位收费类型 
 
 * `day` 天 _默认_
 * `week` 周
@@ -404,22 +355,13 @@ est\_clk\_per\_unit
 other\_requirement
 : _可选_ *String* - 其他要求
 
-###示例    
+###请求
+
 <pre class="highlight">
 <code class="language-javascript">
 {
     "name": "这是一个测试广告位",
-    "network_media_id": 1314,
-    "channel": {
-      "name": "体育新闻",
-      "type": "webpage",
-      "screen": 3,
-      "home": "http://www.admaster.com.cn/",
-      "material_type": 'flash',
-      "material_dimension": "400x300",
-      "material_size": 200,
-      "material_size_unit": "Byte"
-    },
+    "channel_id": 123,
     "rotation" : "1/4",
     "target_url": "http://www.admaster.com.cn/",
     "payment_type": "purchase",

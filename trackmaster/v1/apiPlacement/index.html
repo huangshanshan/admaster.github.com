@@ -47,11 +47,17 @@
   <dt>network_media_id</dt>
   <dd>
 <em>可选</em> <em>Int</em> - 限定工作网络媒体ID</dd>
+  <dt>page</dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 显示页码</dd>
+  <dt>per_page</dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 分页数量，默认每页30条</dd>
 </dl><h3 id="section-1">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
-Link: &lt;http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/placements?page=2&gt;; rel="next",
-      &lt;http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/placements?page=10&gt;; rel="last"
+Link: &lt;http://api.trackmaster.com.cn/networks/advertisers/campaigns/123/placements?page=2&gt;; rel="next",
+      &lt;http://api.trackmaster.com.cn/networks/advertisers/campaigns/123/placements?page=10&gt;; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -79,13 +85,13 @@ X-RateLimit-Remaining: 4999
         <span class="c1">//频道地址</span>
         <span class="s2">"home"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
         <span class="c1">//物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`</span>
-        <span class="s2">"material_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
+        <span class="s2">"material_type"</span><span class="o">:</span> <span class="s2">"flash"</span><span class="p">,</span>
         <span class="c1">//物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px</span>
         <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
         <span class="c1">//物料文件大小，单位由 material_size_unit 指定</span>
         <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
-        <span class="c1">//物料文件大小单位，Byte KByte MByte</span>
-        <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
+        <span class="c1">//物料文件大小单位，B K M</span>
+        <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"B"</span>
     <span class="p">}</span>
     <span class="c1">//note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推</span>
     <span class="s2">"rotation"</span> <span class="o">:</span> <span class="s2">"1/4"</span><span class="p">,</span>
@@ -153,13 +159,13 @@ X-RateLimit-Remaining: 4999
     <span class="c1">//频道地址</span>
     <span class="s2">"home"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
     <span class="c1">//物料类型 `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`</span>
-    <span class="s2">"material_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
+    <span class="s2">"material_type"</span><span class="o">:</span> <span class="s2">"flash"</span><span class="p">,</span>
     <span class="c1">//物料的显示尺寸，单位像素 格式如 400x300 宽度为400px 高度为300px</span>
     <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
     <span class="c1">//物料文件大小，单位由 material_size_unit 指定</span>
     <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
-    <span class="c1">//物料文件大小单位，Byte KByte MByte</span>
-    <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
+    <span class="c1">//物料文件大小单位，B K M</span>
+    <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"B"</span>
 <span class="p">},</span>
 <span class="c1">//note 轮播属性, `1/1` 固定，`1/2` 二分之一轮播，一次类推</span>
 <span class="s2">"rotation"</span> <span class="o">:</span> <span class="s2">"1/4"</span><span class="p">,</span>
@@ -198,7 +204,7 @@ X-RateLimit-Remaining: 4999
 <pre><code>POST /networks/advertisers/campaigns/:campaign_id/placements
 </code></pre>
 
-<h3 id="section-5">请求</h3>
+<h3 id="section-5">参数</h3>
 
 <dl>
 <dt>name</dt>
@@ -207,33 +213,10 @@ X-RateLimit-Remaining: 4999
   <dt>media_id</dt>
   <dd>
 <em>必选</em> <em>String</em> - 广告位所属工作网络媒体ID,</dd>
-  <dt>channel</dt>
+  <dt>channel_id</dt>
   <dd>
-<em>必选</em> <em>Object</em> - 广告位频道信息</dd>
-</dl><h3 id="section-6">示例</h3>
-
-<pre class="highlight">
-<code class="language-javascript"><span class="p">{</span>
-    <span class="c1">//频道名称 _必选_</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"体育新闻"</span><span class="p">,</span>
-    <span class="c1">//`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他 _可选_ 默认 : webpage</span>
-    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"webpage"</span><span class="p">,</span>
-    <span class="c1">//广告位在第几屏幕 _可选_ 默认: 0</span>
-    <span class="s2">"screen"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="c1">//频道地址 _可选_</span>
-    <span class="s2">"home"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
-    <span class="c1">//物料类型 _可选_ `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`</span>
-    <span class="s2">"material_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
-    <span class="c1">//物料的显示尺寸 _可选_ 单位像素 格式如 400x300 宽度为400px 高度为300px</span>
-    <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
-    <span class="c1">//物料文件大小_可选_ 单位由 material_size_unit 指定</span>
-    <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
-    <span class="c1">//物料文件大小单位 _可选_ `B`, `K`, `M` 默认: K</span>
-    <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"K"</span>
-<span class="p">}</span></code></pre>
-
-<dl>
-<dt>rotation</dt>
+<em>必选</em> <em>Int</em> - 广告位频道ID</dd>
+  <dt>rotation</dt>
   <dd>
 <em>可选</em> <em>String</em> 轮播属性, <code>1/1</code> 固定，<code>1/2</code> 二分之一轮播，一次类推，默认: <code>1/1</code>
 </dd>
@@ -242,7 +225,7 @@ X-RateLimit-Remaining: 4999
 <em>可选</em> <em>Url</em> 点击目标地址, 默认为空，继承项目的点击目标地址</dd>
   <dt>payment_type</dt>
   <dd>
-<em>可选</em> <em>Enum</em> - 支付类型</dd>
+<em>可选</em> <em>String</em> - 支付类型</dd>
 </dl><ul>
 <li>
 <code>purchase</code> 购买 <em>默认值</em>
@@ -258,7 +241,7 @@ X-RateLimit-Remaining: 4999
 </ul><dl>
 <dt>cost_type</dt>
   <dd>
-<em>可选</em> <em>Enum</em> - 单位收费类型</dd>
+<em>可选</em> <em>String</em> - 单位收费类型</dd>
 </dl><ul>
 <li>
 <code>day</code> 天 <em>默认值</em>
@@ -292,22 +275,13 @@ X-RateLimit-Remaining: 4999
   <dt>other_requirement</dt>
   <dd>
 <em>可选</em> <em>String</em> - 其他要求</dd>
-</dl><h3 id="section-7">示例</h3>
+</dl><h3 id="section-6">请求</h3>
 
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"这是一个测试广告位"</span><span class="p">,</span>
     <span class="s2">"network_media_id"</span><span class="o">:</span> <span class="mi">1314</span><span class="p">,</span>
-    <span class="s2">"channel"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"体育新闻"</span><span class="p">,</span>
-      <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"webpage"</span><span class="p">,</span>
-      <span class="s2">"screen"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-      <span class="s2">"home"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
-      <span class="s2">"material_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
-      <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
-      <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
-      <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
-    <span class="p">},</span>
+    <span class="s2">"channel_id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
     <span class="s2">"rotation"</span> <span class="o">:</span> <span class="s2">"1/4"</span><span class="p">,</span>
     <span class="s2">"target_url"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
     <span class="s2">"payment_type"</span><span class="o">:</span> <span class="s2">"purchase"</span><span class="p">,</span>
@@ -318,9 +292,10 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"other_requirement"</span><span class="o">:</span> <span class="s2">"没有什么要求"</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="section-8">响应</h3>
+<h3 id="section-7">响应</h3>
 <pre class="headers">
 <code>Status: 201 Created
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/placements/1
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -331,15 +306,15 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"这是一个测试广告位"</span><span class="p">,</span>
     <span class="s2">"network_media_id"</span><span class="o">:</span> <span class="mi">1314</span><span class="p">,</span>
     <span class="s2">"channel"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1025</span><span class="p">,</span>
+        <span class="s2">"id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
         <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"体育新闻"</span><span class="p">,</span>
         <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"webpage"</span><span class="p">,</span>
         <span class="s2">"screen"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
         <span class="s2">"home"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
-        <span class="s2">"material_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
+        <span class="s2">"material_type"</span><span class="o">:</span> <span class="s2">"flash"</span><span class="p">,</span>
         <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
         <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
-        <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
+        <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"B"</span>
     <span class="p">},</span>
     <span class="s2">"rotation"</span> <span class="o">:</span> <span class="s2">"1/4"</span><span class="p">,</span>
     <span class="s2">"target_url"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
@@ -348,16 +323,16 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"cost_per_unit"</span><span class="o">:</span> <span class="mf">873.12</span><span class="p">,</span>
     <span class="s2">"est_imp_per_unit"</span><span class="o">:</span> <span class="mi">239</span><span class="p">,</span>
     <span class="s2">"est_clk_per_unit"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="s2">"units"</span><span class="o">:</span> <span class="mi">58</span><span class="p">,</span>
+    <span class="s2">"units"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"other_requirement"</span><span class="o">:</span> <span class="s2">"没有什么要求"</span><span class="p">,</span>
-    <span class="s2">"est_imp"</span><span class="o">:</span> <span class="mi">871821</span><span class="p">,</span>
-    <span class="s2">"est_clk"</span><span class="o">:</span> <span class="mi">1231</span><span class="p">,</span>
+    <span class="s2">"est_imp"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"est_clk"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span>
 <span class="p">}</span></code></pre>
 
 <p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a></p>
 
-<h3 id="section-9">适用版本</h3>
+<h3 id="section-8">适用版本</h3>
 
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
@@ -366,10 +341,10 @@ X-RateLimit-Remaining: 4999
 <pre><code>DELETE /networks/advertisers/campaigns/placements/:id
 </code></pre>
 
-<h3 id="section-10">响应</h3>
+<h3 id="section-9">响应</h3>
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/placements
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/123/placements
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -379,38 +354,16 @@ X-RateLimit-Remaining: 4999
 <pre><code>PATCH /networks/advertisers/campaigns/placements/:id
 </code></pre>
 
-<h3 id="section-11">请求</h3>
+<h3 id="section-10">请求</h3>
 
 <dl>
 <dt>name</dt>
   <dd>
 <em>可选</em> <em>String</em> - 广告位位置名称，字符串，长度为 3 - 100个字符</dd>
-  <dt>channel</dt>
+  <dt>channel_id</dt>
   <dd>
-<em>可选</em> <em>Object</em> - 广告位频道信息</dd>
-</dl><h3 id="section-12">示例</h3>
-<pre class="highlight">
-<code class="language-javascript"><span class="p">{</span>
-    <span class="c1">//频道名称 _可选_</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"体育新闻"</span><span class="p">,</span>
-    <span class="c1">//`webpage` 网页, `video` 视频广告, `client` 客户端, `se` 搜索引擎, `email` 邮件, `other` 其他 _可选_ 默认 : webpage</span>
-    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"webpage"</span><span class="p">,</span>
-    <span class="c1">//广告位在第几屏幕 _可选_ 默认: 0</span>
-    <span class="s2">"screen"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="c1">//频道地址 _可选_</span>
-    <span class="s2">"home"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
-    <span class="c1">//物料类型 _可选_ `flash`，`image`，`video`, `textlink`, `other` 默认：`flash`</span>
-    <span class="s2">"material_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
-    <span class="c1">//物料的显示尺寸 _可选_ 单位像素 格式如 400x300 宽度为400px 高度为300px</span>
-    <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
-    <span class="c1">//物料文件大小_可选_ 单位由 material_size_unit 指定</span>
-    <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
-    <span class="c1">//物料文件大小单位 _可选_ `B`, `K`, `M` 默认: K</span>
-    <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"K"</span>
-<span class="p">}</span></code></pre>
-
-<dl>
-<dt>rotation</dt>
+<em>可选</em> <em>Int</em> - 广告位频道ID</dd>
+  <dt>rotation</dt>
   <dd>
 <em>可选</em> <em>String</em> 轮播属性, <code>1/1</code> 固定，<code>1/2</code> 二分之一轮播，一次类推，默认: <code>1/1</code>
 </dd>
@@ -419,7 +372,7 @@ X-RateLimit-Remaining: 4999
 <em>可选</em> <em>Url</em> 点击目标地址, 默认为空，继承项目的点击目标地址</dd>
   <dt>payment_type</dt>
   <dd>
-<em>可选</em> <em>Enum</em> - 支付类型</dd>
+<em>可选</em> <em>String</em> - 支付类型</dd>
 </dl><ul>
 <li>
 <code>purchase</code> 购买 <em>默认</em>
@@ -435,7 +388,7 @@ X-RateLimit-Remaining: 4999
 </ul><dl>
 <dt>cost_type</dt>
   <dd>
-<em>可选</em> <em>Enum</em> - 单位收费类型 </dd>
+<em>可选</em> <em>String</em> - 单位收费类型 </dd>
 </dl><ul>
 <li>
 <code>day</code> 天 <em>默认</em>
@@ -469,21 +422,12 @@ X-RateLimit-Remaining: 4999
   <dt>other_requirement</dt>
   <dd>
 <em>可选</em> <em>String</em> - 其他要求</dd>
-</dl><h3 id="section-13">示例</h3>
+</dl><h3 id="section-11">请求</h3>
+
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"这是一个测试广告位"</span><span class="p">,</span>
-    <span class="s2">"network_media_id"</span><span class="o">:</span> <span class="mi">1314</span><span class="p">,</span>
-    <span class="s2">"channel"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"体育新闻"</span><span class="p">,</span>
-      <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"webpage"</span><span class="p">,</span>
-      <span class="s2">"screen"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-      <span class="s2">"home"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
-      <span class="s2">"material_type"</span><span class="o">:</span> <span class="s1">'flash'</span><span class="p">,</span>
-      <span class="s2">"material_dimension"</span><span class="o">:</span> <span class="s2">"400x300"</span><span class="p">,</span>
-      <span class="s2">"material_size"</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
-      <span class="s2">"material_size_unit"</span><span class="o">:</span> <span class="s2">"Byte"</span>
-    <span class="p">},</span>
+    <span class="s2">"channel_id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
     <span class="s2">"rotation"</span> <span class="o">:</span> <span class="s2">"1/4"</span><span class="p">,</span>
     <span class="s2">"target_url"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
     <span class="s2">"payment_type"</span><span class="o">:</span> <span class="s2">"purchase"</span><span class="p">,</span>
@@ -494,7 +438,7 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"other_requirement"</span><span class="o">:</span> <span class="s2">"没有什么要求"</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="section-14">响应</h3>
+<h3 id="section-12">响应</h3>
 <pre class="headers no-response">
 <code>Status: 204 No Content
 X-RateLimit-Limit: 5000
@@ -503,7 +447,7 @@ X-RateLimit-Remaining: 4999
 
 <p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a></p>
 
-<h3 id="section-15">适用版本</h3>
+<h3 id="section-13">适用版本</h3>
 
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
       </div>
