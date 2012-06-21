@@ -169,7 +169,7 @@ survey\_id
 : _可选_ *Int* - 项目关联的 SurveyMaster 系统下的问卷ID, 
 
 cost\_type
-: _可选_ *Int* - 媒体预算货币类型 
+: _可选_ *String* - 媒体预算货币类型 
 
 * `None` 不设置媒体预算 _默认值_
 * `CNY` 人民币
@@ -224,7 +224,7 @@ X-RateLimit-Remaining: 4999
     "start_date": "2012-01-31",
     "end_date": "2012-04-20",
     "default_target": "http://www.admaster.com.cn"
-    "survey_id": 10002, 
+    "survey_id": 1002, 
     "media_num": 0,     
     "placement_num": 0,
     "target_audience":{
@@ -271,7 +271,7 @@ survey\_id
 : _可选_ *Int* - 项目关联的 SurveyMaster 系统下的问卷ID, 
 
 cost\_type
-: _可选_ *Int* - 媒体预算货币类型 
+: _可选_ *String* - 媒体预算货币类型 
 
 * `None` 不设置媒体预算 _默认值_
 * `CNY` 人民币
