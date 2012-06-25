@@ -13,7 +13,7 @@ title: API - 项目接口
 name
 : _可选_ *String* - 项目名称，支持模糊搜索，例如：名称为 “这是一个测试项目” 搜索 “一个”即可找到改项目
 
-brand\_id
+network\_brand\_id
 : _可选_ *Int* - 项目所属网络品牌ID
 
 status
@@ -153,7 +153,7 @@ X-RateLimit-Remaining: 4999
 name
 : _必选_ *String* - 项目名称，长度范围 3 - 100 个字符
 
-brand\_id
+network\_brand\_id
 : _必选_ *Int* - 所属网络品牌ID
 
 start\_date
@@ -255,7 +255,7 @@ X-RateLimit-Remaining: 4999
 name
 : _可选_ *String* - 项目名称，长度范围 3 - 100 个字符
 
-brand\_id
+network\_brand\_id
 : _可选_ *Int* - 所属网络品牌ID
 
 start\_date
