@@ -12,8 +12,8 @@ title: API - 创意接口
 
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/creatives?page=2>; rel="next",
-      <http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/creatives?page=10>; rel="last"
+Link: <http://api.trackmaster.com.cn/networks/advertisers/campaigns/123/creatives?page=2>; rel="next",
+      <http://api.trackmaster.com.cn/networks/advertisers/campaigns/123/creatives?page=10>; rel="last"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -107,7 +107,7 @@ X-RateLimit-Remaining: 4999
 
     POST /networks/advertisers/campaigns/:campaign_id/creatives
 
-###请求
+###参数
 
 name
 : _必选_ *String* - 创意名称 长度为 3 - 100个字符
@@ -117,13 +117,29 @@ shortname
 : _必选_ *String* - 创意短名称 长度为2个字节，字母数字类型
 
 color
-: _可选_ *String* - 创意颜色 标准颜色代码 例如：\#ff00ff
+: _必选_ *String* - 创意颜色 标准颜色代码 例如：\#ff00ff
 
 description
 : _可选_ *String* - 创意描述 最大长度为 1000个字符
 
+file
+: _可选_ *Object* - 创意物料
+
+<pre class="highlight">
+<code class="language-javascript">
+{
+    "name": "创意.jpg",//物料名称
+    "type": "jpg"//物料类型
+    "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",//物料地址
+    "width": 400
+    "height": 300
+}
+</code></pre>
+
 target\_url
 : _可选_ *Url* - 创意点击目标地址
+
+###请求
 
 <pre class="highlight">
 <code class="language-javascript">
@@ -132,6 +148,13 @@ target\_url
     "shortname": "GO",
     "description": "这个很不错的创意受到了全国人民的一致认可",
     "color": "#ff00ff",
+    "file": {
+        "name": "创意.jpg",//物料名称
+        "type": "jpg"//物料类型
+        "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",//物料地址
+        "width": 400
+        "height": 300
+    }
     "target_url": "http://www.admaster.com.cn/",
 }
 </code></pre>
@@ -140,6 +163,7 @@ target\_url
 
 <pre class="headers">
 <code>Status: 201 Created
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/creatives/1
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -185,7 +209,7 @@ X-RateLimit-Remaining: 4999
 ###响应
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/:campaign_id/creatives
+Location: http://api.trackmaster.com.cn/networks/advertisers/campaigns/123/creatives
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -194,7 +218,7 @@ X-RateLimit-Remaining: 4999
 
     PATCH /networks/advertisers/campaigns/creatives/:id
 
-###请求
+###参数
 
 name
 : _必选_ *String* - 创意名称 长度为 3 - 100个字符
@@ -209,8 +233,24 @@ color
 description
 : _可选_ *String* - 创意描述 最大长度为 1000个字符
 
+file
+: _可选_ *Object* - 创意物料
+
+<pre class="highlight">
+<code class="language-javascript">
+{
+    "name": "创意.jpg",//物料名称
+    "type": "jpg"//物料类型
+    "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",//物料地址
+    "width": 400
+    "height": 300
+}
+</code></pre>
+
 target\_url
 : _可选_ *Url* - 创意点击目标地址
+
+###请求
 
 <pre class="highlight">
 <code class="language-javascript">
