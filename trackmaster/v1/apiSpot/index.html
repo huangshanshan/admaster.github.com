@@ -47,6 +47,12 @@
   <dt>end_date</dt>
   <dd>
 <em>必选</em> <em>Date</em> - 结束日期 格式为: yyyy-mm-dd 例如: 2012-04-30</dd>
+  <dt>page</dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 显示页码</dd>
+  <dt>per_page</dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 分页数量，默认每页30条</dd>
 </dl><h3 id="section-1">响应</h3>
 
 <pre class="headers">
@@ -72,7 +78,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p2">修改指定点位</h2>
 
-<pre><code>PATCH /networks/advertisers/campaigns/spots/:placement_id/:date
+<pre><code>PUT /networks/advertisers/campaigns/placements/:placement_id/spots/:date
 </code></pre>
 
 <h3 id="section-2">请求</h3>

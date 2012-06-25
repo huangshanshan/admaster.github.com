@@ -12,6 +12,12 @@ start\_date
 end\_date
 : _必选_ *Date* - 结束日期 格式为: yyyy-mm-dd 例如: 2012-04-30
 
+page
+: _可选_ *Int* - 显示页码
+
+per_page
+: _可选_ *Int* - 分页数量，默认每页30条
+
 ###响应
 
 <pre class="headers">
@@ -39,7 +45,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p2">修改指定点位</h2>
 
-    PATCH /networks/advertisers/campaigns/spots/:placement_id/:date
+    PUT /networks/advertisers/campaigns/placements/:placement_id/spots/:date
 
 ###请求
 
@@ -56,5 +62,4 @@ creative\_id
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
-
 
