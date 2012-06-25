@@ -122,19 +122,8 @@ color
 description
 : _可选_ *String* - 创意描述 最大长度为 1000个字符
 
-file
-: _可选_ *Object* - 创意物料
-
-<pre class="highlight">
-<code class="language-javascript">
-{
-    "name": "创意.jpg",//物料名称
-    "type": "jpg"//物料类型
-    "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",//物料地址
-    "width": 400
-    "height": 300
-}
-</code></pre>
+file_id
+: _可选_ *Int* - 创意物料ID
 
 target\_url
 : _可选_ *Url* - 创意点击目标地址
@@ -148,13 +137,7 @@ target\_url
     "shortname": "GO",
     "description": "这个很不错的创意受到了全国人民的一致认可",
     "color": "#ff00ff",
-    "file": {
-        "name": "创意.jpg",//物料名称
-        "type": "jpg"//物料类型
-        "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",//物料地址
-        "width": 400
-        "height": 300
-    }
+    "file_id": 123,
     "target_url": "http://www.admaster.com.cn/",
 }
 </code></pre>
@@ -182,8 +165,9 @@ X-RateLimit-Remaining: 4999
     "description": "这个很不错的创意受到了全国人民的一致认可",
     //创意颜色标识
     "color": "#ff00ff",
+    //创意附属文件
     "file": {
-        "id": 293,
+        "id": 123,
         "name": "创意.jpg",
         "type": "jpg",
         "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",
@@ -233,19 +217,8 @@ color
 description
 : _可选_ *String* - 创意描述 最大长度为 1000个字符
 
-file
-: _可选_ *Object* - 创意物料
-
-<pre class="highlight">
-<code class="language-javascript">
-{
-    "name": "创意.jpg",//物料名称
-    "type": "jpg"//物料类型
-    "access_url": "http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg",//物料地址
-    "width": 400
-    "height": 300
-}
-</code></pre>
+file_id
+: _可选_ *Int* - 创意物料ID
 
 target\_url
 : _可选_ *Url* - 创意点击目标地址
@@ -259,6 +232,7 @@ target\_url
     "shortname": "GO",
     "description": "这个很不错的创意受到了全国人民的一致认可",
     "color": "#ff00ff",
+    "file_id": 123,
     "target_url": "http://www.admaster.com.cn/",
 }
 </code></pre>

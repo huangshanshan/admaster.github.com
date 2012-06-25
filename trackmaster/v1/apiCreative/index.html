@@ -151,20 +151,10 @@ X-RateLimit-Remaining: 4999
   <dt>description</dt>
   <dd>
 <em>可选</em> <em>String</em> - 创意描述 最大长度为 1000个字符</dd>
-  <dt>file</dt>
+  <dt>file_id</dt>
   <dd>
-<em>可选</em> <em>Object</em> - 创意物料</dd>
-</dl><pre class="highlight">
-<code class="language-javascript"><span class="p">{</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"创意.jpg"</span><span class="p">,</span><span class="c1">//物料名称</span>
-    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"jpg"</span><span class="c1">//物料类型</span>
-    <span class="s2">"access_url"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg"</span><span class="p">,</span><span class="c1">//物料地址</span>
-    <span class="s2">"width"</span><span class="o">:</span> <span class="mi">400</span>
-    <span class="s2">"height"</span><span class="o">:</span> <span class="mi">300</span>
-<span class="p">}</span></code></pre>
-
-<dl>
-<dt>target_url</dt>
+<em>可选</em> <em>Int</em> - 创意物料ID</dd>
+  <dt>target_url</dt>
   <dd>
 <em>可选</em> <em>Url</em> - 创意点击目标地址</dd>
 </dl><h3 id="section-5">请求</h3>
@@ -175,13 +165,7 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"shortname"</span><span class="o">:</span> <span class="s2">"GO"</span><span class="p">,</span>
     <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"这个很不错的创意受到了全国人民的一致认可"</span><span class="p">,</span>
     <span class="s2">"color"</span><span class="o">:</span> <span class="s2">"#ff00ff"</span><span class="p">,</span>
-    <span class="s2">"file"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"创意.jpg"</span><span class="p">,</span><span class="c1">//物料名称</span>
-        <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"jpg"</span><span class="c1">//物料类型</span>
-        <span class="s2">"access_url"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg"</span><span class="p">,</span><span class="c1">//物料地址</span>
-        <span class="s2">"width"</span><span class="o">:</span> <span class="mi">400</span>
-        <span class="s2">"height"</span><span class="o">:</span> <span class="mi">300</span>
-    <span class="p">}</span>
+    <span class="s2">"file_id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
     <span class="s2">"target_url"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
@@ -207,8 +191,9 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"这个很不错的创意受到了全国人民的一致认可"</span><span class="p">,</span>
     <span class="c1">//创意颜色标识</span>
     <span class="s2">"color"</span><span class="o">:</span> <span class="s2">"#ff00ff"</span><span class="p">,</span>
+    <span class="c1">//创意附属文件</span>
     <span class="s2">"file"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"id"</span><span class="o">:</span> <span class="mi">293</span><span class="p">,</span>
+        <span class="s2">"id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
         <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"创意.jpg"</span><span class="p">,</span>
         <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"jpg"</span><span class="p">,</span>
         <span class="s2">"access_url"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg"</span><span class="p">,</span>
@@ -260,20 +245,10 @@ X-RateLimit-Remaining: 4999
   <dt>description</dt>
   <dd>
 <em>可选</em> <em>String</em> - 创意描述 最大长度为 1000个字符</dd>
-  <dt>file</dt>
+  <dt>file_id</dt>
   <dd>
-<em>可选</em> <em>Object</em> - 创意物料</dd>
-</dl><pre class="highlight">
-<code class="language-javascript"><span class="p">{</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"创意.jpg"</span><span class="p">,</span><span class="c1">//物料名称</span>
-    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"jpg"</span><span class="c1">//物料类型</span>
-    <span class="s2">"access_url"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/upload/2011/0608/0/1_3a35e4a11b.jpg"</span><span class="p">,</span><span class="c1">//物料地址</span>
-    <span class="s2">"width"</span><span class="o">:</span> <span class="mi">400</span>
-    <span class="s2">"height"</span><span class="o">:</span> <span class="mi">300</span>
-<span class="p">}</span></code></pre>
-
-<dl>
-<dt>target_url</dt>
+<em>可选</em> <em>Int</em> - 创意物料ID</dd>
+  <dt>target_url</dt>
   <dd>
 <em>可选</em> <em>Url</em> - 创意点击目标地址</dd>
 </dl><h3 id="section-10">请求</h3>
@@ -284,6 +259,7 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"shortname"</span><span class="o">:</span> <span class="s2">"GO"</span><span class="p">,</span>
     <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"这个很不错的创意受到了全国人民的一致认可"</span><span class="p">,</span>
     <span class="s2">"color"</span><span class="o">:</span> <span class="s2">"#ff00ff"</span><span class="p">,</span>
+    <span class="s2">"file_id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
     <span class="s2">"target_url"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn/"</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
