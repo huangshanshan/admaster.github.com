@@ -180,7 +180,7 @@ X-RateLimit-Remaining: 4999
 name
 : _必选_ *String* - 广告位位置名称，字符串，长度为 3 - 100个字符
 
-media\_id
+network\_media\_id
 : _必选_ *String* - 广告位所属工作网络媒体ID,
 
 channel\_id
