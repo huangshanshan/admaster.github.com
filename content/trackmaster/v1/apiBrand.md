@@ -66,7 +66,7 @@ X-RateLimit-Remaining: 4999
 <pre class="highlight">
 <code class="language-javascript">	
 {
-    'name': '巧乐兹'
+    "name": "巧乐兹"
 }
 </code></pre>
 name
