@@ -15,7 +15,7 @@ sort
 : _可选_ *String* - 列表排序以什么排序
 
 * `id` - 按照广告主ID排序
-* `customName` - 按照广告主名称排序
+* `name` - 按照广告主名称排序
 * `create_time` - 按照创建日期排序
 
 direction
@@ -192,8 +192,8 @@ X-RateLimit-Remaining: 4999
 <pre class="highlight">
 <code class="language-javascript">	
 {
-    'alias': '通用电器',
-    'status': 'enabled'
+    "alias": "通用电器",
+    "status": "enabled"
 }
 </code></pre>
 alias
