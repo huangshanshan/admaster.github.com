@@ -25,7 +25,7 @@ title: 前置逻辑
 				"question_id": "2",
 				"question_id": "3",
 			]		
-		}
+		},
 		{
 			"logic_id": "2",
 			"logic_type": "post_logic",//后置逻辑
