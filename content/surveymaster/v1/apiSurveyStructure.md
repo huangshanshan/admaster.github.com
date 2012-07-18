@@ -4,7 +4,7 @@ title: API - 问卷结构
 # API - 问卷结构
 
 <h2 id="p1">获取问卷所有问题</h2>
-	GET surveys/:id/pages/questions  
+	GET /surveys/:id/pages/questions  
 
 ###响应
 <pre class="headers">
@@ -45,7 +45,7 @@ title: API - 问卷结构
 
 <h2 id="p2">获取某个 page 下的所有问题内容（精简版结构，编辑时使用）</h2>
 
-    GET surveys/:survey_id/pages/questions
+    GET /surveys/:survey_id/pages/questions
 
 page 编号，按照传参标准
 
