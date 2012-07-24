@@ -8,7 +8,7 @@ SurveyMaster API - 问题相关接口（共5个）
 ### 参数
 
 page_id
-: _可选_ *int* - 页的id  获取指定问卷某一页的问题列表
+: _可选_ *int* - 页的id  (获取指定问卷某一页的问题列表)
   
 * `2`
 * `10`
@@ -22,11 +22,10 @@ page_id
 <pre class="highlight">
 <code class="language-javascript">
 {
-	"1" : {/* page_id为1的问题列表 */
+	"1" : [/* page_id为1的问题列表 */
 		{
 			"_id" : ObjectId("500916d3337d221abed72ac3"),
 			"id" : 1,/* 问题的id自增（全局唯一） */
-			"survey_id" : 1,
 			"type" : "radio",/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */
 			"title" : "我是一个单选",
 			"desc" : "我是一个单选题啊单选题",
@@ -60,7 +59,6 @@ page_id
 		{
 			"_id" : ObjectId("500926057e33b020d04a177f"),
 			"id" : 2,
-			"survey_id" : 1,
 			"type" : "checkbox",
 			"title" : "我是一个多选",
 			"desc" : "我是一个牛13的多选题",
@@ -99,7 +97,6 @@ page_id
 		{
 			"_id" : ObjectId("5009261b7e33b020d04a1780"),
 			"id" : 3,
-			"survey_id" : 1,
 			"type" : "text",
 			"title" : "我是一个单行文本",
 			"desc" : "我是一个单行文本",
@@ -119,7 +116,6 @@ page_id
 		{
 			"_id" : ObjectId("50091700337d221abed72ac4"),
 			"id" : 4,
-			"survey_id" : 1,
 			"type" : "textarea",
 			"title" : "我是一个多行文本",
 			"desc" : "我是一个多行文本",
@@ -134,7 +130,7 @@ page_id
 				"prompt" : "这一项是必填的噢！"
 			}
 		}
-	}
+	]
 }
 </code></pre>
 
