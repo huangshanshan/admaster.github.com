@@ -17,13 +17,19 @@ fields
 : _可选_ *String* - 字段列表
 
 sort
-: _可选_ *String* - 指定排序方式，例：created:-1 -> 按建立时间倒序排列，1为升序排列，-1为倒序排列，默认为升序排列
+: _可选_ *String* - 指定排序方式
+
+direction
+: _可选_ *String* - 排序方式，asc升序（默认），desc降序
 
 start_time/end_time
 : _可选_ *Int* - 指定提取问卷列表（created）的开始及结束时间，不指定start_time，则不限定开始时间，不指定end_time，则不限定结束时间
 
-start/limit（可选）
-: _可选_ *Int* - 指定返回结果集区间，不指定start，则从开始取limit条文档，不指定limit，则取从start开始的所有文档
+per_page
+: _可选_ *Int* - 每页显示记录数，默认30
+
+page
+: _可选_ *Int* - 页数
 
 ###响应
 
@@ -74,15 +80,21 @@ fields
 : _可选_ *String* - 字段列表
 
 sort
-: _可选_ *String* - 指定排序方式，例：created:-1 -> 按建立时间倒序排列，1为升序排列，-1为倒序排列，默认为升序排列
+: _可选_ *String* - 指定排序方式
+
+direction
+: _可选_ *String* - 排序方式，asc升序（默认），desc降序
 
 start_time/end_time
 : _可选_ *Int* - 指定提取问卷列表（created）的开始及结束时间，不指定start_time，则不限定开始时间，不指定end_time，则不限定结束时间
 
-start/limit（可选）
-: _可选_ *Int* - 指定返回结果集区间，不指定start，则从开始取limit条文档，不指定limit，则取从start开始的所有文档
+per_page
+: _可选_ *Int* - 每页显示记录数，默认30
 
-###响应
+page
+: _可选_ *Int* - 页数
+
+##响应
 <pre class="headers">
 <code>Status: 200 OK
 X-RateLimit-Limit: 5000
@@ -122,7 +134,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">创建问卷</h2>
 
-    POST /survey
+    POST /surveys
 
 ###参数
 
@@ -212,7 +224,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p4">获取指定问卷详情</h2>
 
-    GET /survey/:survey_id
+    GET /surveys/:survey_id
 
 ###参数
 
@@ -225,7 +237,7 @@ survey_id
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Location: http://api.surveymaster.com.cn/survey
+Location: http://api.surveymaster.com.cn/surveys
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -255,7 +267,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p5">修改指定问卷</h2>
 
-    PATCH /survey/:survey_id
+    PATCH /surveys/:survey_id
 
 ###参数
 
@@ -310,7 +322,7 @@ question_numbering
 ###响应
 <pre class="headers">
 <code>Status: 204 NO CONTENT
-Location: http://api.surveymaster.com.cn/survey
+Location: http://api.surveymaster.com.cn/surveys
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -320,7 +332,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p6">删除指定问卷（标记状态）</h2>
 
-    DELETE /survey/:survey_id
+    DELETE /surveys/:survey_id
 
 ###参数
 
@@ -343,7 +355,7 @@ survey_id
 ###响应
 <pre class="headers">
 <code>Status: 204 NO CONTENT
-Location: http://api.surveymaster.com.cn/survey
+Location: http://api.surveymaster.com.cn/surveys
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
