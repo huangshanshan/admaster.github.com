@@ -82,8 +82,24 @@ SurveyMaster API - 答案相关接口（共6个）
 }
 </code></pre>
 
-<h2 id="p2">2. 获取指定渠道、指定受访者的答案</h2>
-	GET /collectors/:collector_id/respondents/:respondent_id/answers
+<h2 id="p2">2. 获取指定问卷的答案列表</h2>
+	GET /surveys/:id/answers
+
+### 可选参数
+
+* collector_id		指定渠道id进行过滤
+* status		根据答题情况进行过滤（-1:被甄别 0:未答完 1:完成）
+* respondent_id		根据答题人进行过滤
+
+###请求
+<pre class="highlight">
+<code class="language-javascript">
+{
+	"collector_id" : 1,
+	"status" : 0,
+	"respondent_id" : 1
+}
+</code></pre>
 
 ###响应
 <pre class="headers">
@@ -93,73 +109,11 @@ SurveyMaster API - 答案相关接口（共6个）
 <code class="language-javascript">
 {
 	"id" : 1,/* 答案id */
-	"answers" : {
-		1 : {/* 键代表问题id */
-			"timestamp" : 123456789,/* 答题时间 */
-			"1" : 1/* 键代表选项id */
-		},
-		2 : {
-			"timestamp" : 123456789,/* 答题时间 */
-			"-1" : 1,/* 键-1代表"其他"选项 */
-			"other" : '篮球'
-		},
-		8 : {
-			"timestamp" : 123456789,/* 答题时间 */
-			"1" : 1,
-			"quote" : [/* 引用其他题 */
-				1 : {/* 键代表引用题的id */
-					"1" : 1/* 键代表引用题选项id */
-				}
-			]
-		},
-		3 : {/* 多选题 */
-			"timestamp" : 123456789,/* 答题时间 */
-			"1" : 1,
-			"3" : 1
-		},
-		9 : {
-			"timestamp" : 123456789,/* 答题时间 */
-			"1" : 1,
-			"3" : 1,
-			"quote" : [
-				3 : {
-					"1" : 1,
-					"3" : 1
-				}
-			]
-		},
-		4 : {
-			"timestamp" : 123456789,/* 答题时间 */
-			"4" : 1,
-			"-1" : 1,
-			"other" : "红酒"
-		},
-		5 : {
-			"-2" : 1/* 键-2代表选中了“排他”选项 */
-		},
-		10 : {
-			"timestamp" : 123456789,/* 答题时间 */
-			"1" : 1,
-			"3" : 1,
-			"quote" : [
-				3 : {
-					"1" : 1,
-					"3" : 1
-				},
-				4 : {
-					"4" : 1
-				}
-			]
-		},
-		6 : {
-			"timestamp" : 123456789,/* 答题时间 */
-			"1" : "单行输入"
-		},
-		7 : {
-			"timestamp" : 123456789,/* 答题时间 */
-			"1" : "多行输入"
-		}
-	}
+	"respondent_id" : "1",
+	"collector_id" : 1,
+	"collector_name" : "新浪汽车",
+	"created" : 123456789,// 开始答题时间
+	"status" : "-1/0/1"// -1:被甄别 0:未答完 1:完成
 }
 </code></pre>
 
