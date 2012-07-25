@@ -35,10 +35,10 @@ X-RateLimit-Remaining: 4999
   {/* 单选题 */
     "id" : 1,
     "survey_id" : 112,
+    "logic_id" : 0,             /* logic_id不为0表示此题有显示逻辑 */
     "type" : "radio",
     "title" : "请问您的性别是：",
     "desc" : "",
-    "logic" : 0,                /* logic不为0表示此题有显示逻辑 */
     "options" : ["男", "女"],
     "required" : {              /* 是否必填 */
       "status" : true,
@@ -63,10 +63,10 @@ X-RateLimit-Remaining: 4999
   {/* 多选题 */
     "id" : 2,
     "survey_id" : 112,
+    "logic_id" : 0,                /* logic_id不为0表示此题有显示逻辑 */
     "type" : "checkbox",
     "title" : "请问您喜欢的明星是：",
     "desc" : "",
-    "logic" : 0,                /* logic不为0表示此题有显示逻辑 */
     "options" : ["陈道明", "葛优"],
     "required" : {              /* 是否必填 */
       "status" : true,
@@ -94,10 +94,10 @@ X-RateLimit-Remaining: 4999
   {/* 单行文本 */
     "id" : 3,
     "survey_id" : 112,
+    "logic_id" : 0,                /* logic_id不为0表示此题有显示逻辑 */
     "type" : "text",
     "title" : "请输入您最喜欢的运动：",
     "desc" : "",
-    "logic" : 0,                /* logic不为0表示此题有显示逻辑 */
     "limit" : {
       "type" : "char",          /* 支持：char/number/email/url/date */
       "prompt" : "请输入2 - 20个字符",
@@ -112,10 +112,10 @@ X-RateLimit-Remaining: 4999
   {/* 多行文本 */
     "id" : 4,
     "survey_id" : 112,
+    "logic_id" : 0,                /* logic_id不为0表示此题有显示逻辑 */
     "type" : "textarea",
     "title" : "请输入您平时锻炼的方式：",
     "desc" : "",
-    "logic" : 0,                /* logic不为0表示此题有显示逻辑 */
     "limit" : {
       "type" : "char",          /* 支持：char/number/email/url/date */
       "prompt" : "请输入2 - 20个字符",
