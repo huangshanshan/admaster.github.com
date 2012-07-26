@@ -19,7 +19,6 @@ page_id
 <pre class="highlight">
 <code class="language-javascript">
 {
-	"page_id" : 1,
 }
 </code></pre>
 
@@ -233,7 +232,6 @@ page_id
 <pre class="highlight">
 <code class="language-javascript">
 {
-	"id" : 1,/* 问题的id（自增 全局唯一） */
 	"type" : "radio",/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本(注意：允许改题型) */
 	"title" : "我是一个单选",
 	"desc" : "我是一个单选题啊单选题",
