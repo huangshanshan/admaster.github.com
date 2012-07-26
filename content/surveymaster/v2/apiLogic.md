@@ -123,7 +123,6 @@ SurveyMaster API - 逻辑相关接口（共4个）
 <pre class="highlight">
 <code class="language-javascript">
 {
-	"id" : 1,/* 逻辑的id（自增 全局唯一） */
 	"conditions" : [/* 条件数组，数组顺序代表逻辑的优先级，也就是 OR 的关系 */
 		[/* 每一个数组元素就是一个条件，共同组成一组逻辑，组内各条件都是 AND 的关系 */
 			{/* 单选题 */
