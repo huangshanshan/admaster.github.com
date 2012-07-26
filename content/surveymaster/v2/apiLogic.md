@@ -234,7 +234,6 @@ SurveyMaster API - 逻辑相关接口（共4个）
 <pre class="highlight">
 <code class="language-javascript">
 {
-	"id" : 1/* 逻辑的id（自增 全局唯一） */
 }
 </code></pre>
 

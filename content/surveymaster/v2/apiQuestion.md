@@ -270,6 +270,5 @@ page_id
 <pre class="highlight">
 <code class="language-javascript">
 {
-	"id" : 1/* 问题的id（自增 全局唯一） */
 }
 </code></pre>
