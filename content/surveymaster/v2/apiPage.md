@@ -11,17 +11,17 @@ title: SurveyMaster API - 问卷页相关
 
 ###参数
 
-> survey_id
->> : _必选_ *Int* - 问卷ID
+	survey_id
+		: _必选_ *Int* - 问卷ID
 
-> page_id
->> : _必选_ *Int* - 页号
+	page_id
+		: _必选_ *Int* - 页号
 
-> sort
->> : _可选_ *String* - 指定排序字段
+	sort
+		: _可选_ *String* - 指定排序字段
 
-> direction
->> : _可选_ *String* - 排序方式，asc升序（默认），desc降序
+	direction
+		: _可选_ *String* - 排序方式，asc升序（默认），desc降序
 
 ###响应
 
@@ -138,11 +138,11 @@ title: SurveyMaster API - 问卷页相关
 
 ###参数
 
-> survey_id
->> : _必选_ *Int* - 问卷ID
+	survey_id
+		: _必选_ *Int* - 问卷ID
 
-> questions
->> : _可选_ *String* - 问题列表，以逗号分隔
+	questions
+		: _可选_ *String* - 问题列表，以逗号分隔
 
 ###请求
 
@@ -174,11 +174,11 @@ title: SurveyMaster API - 问卷页相关
 
 ###参数
 
-> survey_id
->> : _必选_ *Int* - 问卷ID
+	survey_id
+		: _必选_ *Int* - 问卷ID
 
-> page_id
->> : _必选_ *Int* - 页号
+	page_id
+		: _必选_ *Int* - 页号
 
 ###响应
 
@@ -203,14 +203,14 @@ title: SurveyMaster API - 问卷页相关
 
 ###参数
 
-> survey_id
->> : _必选_ *Int* - 问卷ID
+	survey_id
+		: _必选_ *Int* - 问卷ID
 
-> page_id
->> : _必选_ *Int* - 页号
+	page_id
+		: _必选_ *Int* - 页号
 
-> questions
->> : _必选_ *String* - 问题ID列表
+	questions
+		: _必选_ *String* - 问题ID列表
 
 ##请求
 
@@ -237,11 +237,11 @@ title: SurveyMaster API - 问卷页相关
 
 ###参数
 
-> survey_id
->> : _必选_ *Int* - 问卷ID
+	survey_id
+		: _必选_ *Int* - 问卷ID
 
-> page_id
->> : _必选_ *Int* - 页号
+	page_id
+		: _必选_ *Int* - 页号
 
 ###请求
 
