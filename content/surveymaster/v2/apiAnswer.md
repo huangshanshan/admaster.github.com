@@ -12,73 +12,82 @@ SurveyMaster API - 答案相关接口（共6个）
 {
 	"respondent_id" : 1,/* 答题人id */
 	"collector_id" : 1,/* 渠道id */
-	"answers" : {
-		1 : {/* 键代表问题id */
+	"answers" : [
+		{
+		  "question_id" : 1,/* 问题id */
 			"timestamp" : 123456789,/* 答题时间 */
-			"1" : 1/* 键代表选项id */
+			"selected" : [1]/* 数组里存放选项id */
 		},
-		2 : {
-			"timestamp" : 123456789,/* 答题时间 */
-			"-1" : 1,/* 键-1代表"其他"选项 */
+		{
+		  "question_id" : 2,
+			"timestamp" : 123456789,
+			"selected" : [-1],/* -1代表"其他"选项 */
 			"other" : '篮球'
 		},
-		8 : {
-			"timestamp" : 123456789,/* 答题时间 */
-			"1" : 1,
+		{
+		  "question_id" : 8,
+			"timestamp" : 123456789,
+			"selected" : [1],
 			"quote" : [/* 引用其他题 */
-				1 : {/* 键代表引用题的id */
-					"1" : 1/* 键代表引用题选项id */
-				}
+		    {
+		      "question_id" : 1,
+			    "selected" : [1]
+		    }
 			]
 		},
-		3 : {/* 多选题 */
-			"timestamp" : 123456789,/* 答题时间 */
-			"1" : 1,
-			"3" : 1
+		{/* 多选题 */
+		  "question_id" : 3,
+			"timestamp" : 123456789,
+			"selected" : [1,3]
 		},
-		9 : {
-			"timestamp" : 123456789,/* 答题时间 */
-			"1" : 1,
-			"3" : 1,
+		{
+		  "question_id" : 9,
+			"timestamp" : 123456789,
+			"selected" : [1,3],
 			"quote" : [
-				3 : {
-					"1" : 1,
-					"3" : 1
-				}
+		    {
+		      "question_id" : 3,
+			    "selected" : [1,3]
+		    }
 			]
 		},
-		4 : {
-			"timestamp" : 123456789,/* 答题时间 */
-			"4" : 1,
-			"-1" : 1,
+		{
+		  "question_id" : 4,
+			"timestamp" : 123456789,
+			"selected" : [4,-1],
 			"other" : "红酒"
 		},
-		5 : {
-			"-2" : 1/* 键-2代表选中了“排他”选项 */
+		{
+		  "question_id" : 5,
+		  "timestamp" : 123456789,
+			"selected" : [-2]/* -2代表选中了“排他”选项 */
 		},
-		10 : {
-			"timestamp" : 123456789,/* 答题时间 */
-			"1" : 1,
-			"3" : 1,
+		{
+		  "question_id" : 10,
+			"timestamp" : 123456789,
+			"selected" : [1,3],
 			"quote" : [
-				3 : {
-					"1" : 1,
-					"3" : 1
-				},
-				4 : {
-					"4" : 1
-				}
+		    {
+		      "question_id" : 3,
+			    "selected" : [1,3]
+		    },
+		    {
+		      "question_id" : 4,
+			    "selected" : [4]
+		    }
 			]
 		},
-		6 : {
-			"timestamp" : 123456789,/* 答题时间 */
-			"1" : "单行输入"
+		{
+		  "question_id" : 6,
+			"timestamp" : 123456789,
+			"content" : "单行输入"
 		},
-		7 : {
-			"timestamp" : 123456789,/* 答题时间 */
-			"1" : "多行输入"
+		{
+		  "question_id" : 7,
+			"timestamp" : 123456789,
+			"content" : "多行输入\n多行输入"
 		}
-	}
+	]
 }
 </code></pre>
 
@@ -122,64 +131,82 @@ SurveyMaster API - 答案相关接口（共6个）
 ###请求
 <pre class="highlight">
 <code class="language-javascript">
-{
-	1 : {/* 键代表问题id */
-		"1" : 1/* 键代表选项id */
+[
+	{
+	  "question_id" : 1,/* 问题id */
+		"timestamp" : 123456789,/* 答题时间 */
+		"selected" : [1]/* 数组里存放选项id */
 	},
-	2 : {
-		"-1" : 1,/* 键-1代表"其他"选项 */
+	{
+	  "question_id" : 2,
+		"timestamp" : 123456789,
+		"selected" : [-1],/* -1代表"其他"选项 */
 		"other" : '篮球'
 	},
-	8 : {
-		"1" : 1,
+	{
+	  "question_id" : 8,
+		"timestamp" : 123456789,
+		"selected" : [1],
 		"quote" : [/* 引用其他题 */
-			1 : {/* 键代表引用题的id */
-				"1" : 1/* 键代表引用题选项id */
-			}
+	    {
+	      "question_id" : 1,
+		    "selected" : [1]
+	    }
 		]
 	},
-	3 : {/* 多选题 */
-		"1" : 1,
-		"3" : 1
+	{/* 多选题 */
+	  "question_id" : 3,
+		"timestamp" : 123456789,
+		"selected" : [1,3]
 	},
-	9 : {
-		"1" : 1,
-		"3" : 1,
+	{
+	  "question_id" : 9,
+		"timestamp" : 123456789,
+		"selected" : [1,3],
 		"quote" : [
-			3 : {
-				"1" : 1,
-				"3" : 1
-			}
+	    {
+	      "question_id" : 3,
+		    "selected" : [1,3]
+	    }
 		]
 	},
-	4 : {
-		"4" : 1,
-		"-1" : 1,
+	{
+	  "question_id" : 4,
+		"timestamp" : 123456789,
+		"selected" : [4,-1],
 		"other" : "红酒"
 	},
-	5 : {
-		"-2" : 1/* 键-2代表选中了“排他”选项 */
+	{
+	  "question_id" : 5,
+	  "timestamp" : 123456789,
+		"selected" : [-2]/* -2代表选中了“排他”选项 */
 	},
-	10 : {
-		"1" : 1,
-		"3" : 1,
+	{
+	  "question_id" : 10,
+		"timestamp" : 123456789,
+		"selected" : [1,3],
 		"quote" : [
-			3 : {
-				"1" : 1,
-				"3" : 1
-			},
-			4 : {
-				"4" : 1
-			}
+	    {
+	      "question_id" : 3,
+		    "selected" : [1,3]
+	    },
+	    {
+	      "question_id" : 4,
+		    "selected" : [4]
+	    }
 		]
 	},
-	6 : {
-		"1" : "单行输入"
+	{
+	  "question_id" : 6,
+		"timestamp" : 123456789,
+		"content" : "单行输入"
 	},
-	7 : {
-		"1" : "多行输入"
+	{
+	  "question_id" : 7,
+		"timestamp" : 123456789,
+		"content" : "多行输入\n多行输入"
 	}
-}
+]
 </code></pre>
 
 <h2 id="p4">4. 删除指定答案</h2>

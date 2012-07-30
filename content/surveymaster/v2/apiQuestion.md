@@ -42,6 +42,7 @@ page_id
 				"option_3"
 			],
 			"logic_id" : 0,/* 逻辑id，0表示此题没有任何逻辑 */
+			"quotes" : [],/* 引用题的question_id数组（注意：引用题只能引用当前页之前的题） */
 			"other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
 				"status" : true,/* 是否显示其他选项 */
 				"text" : "其他",/* 自定义选项名称 */
@@ -75,6 +76,7 @@ page_id
 				"option_3"
 			],
 			"logic_id" : 0,/* 逻辑id，0表示此题没有任何逻辑 */
+			"quotes" : [],
 			"other" : {
 				"status" : true,
 				"text" : "其他",
@@ -108,6 +110,7 @@ page_id
 			"title" : "我是一个单行文本",
 			"desc" : "我是一个单行文本",
 			"logic_id" : 0,/* 逻辑id，0表示此题没有任何逻辑 */
+			"quotes" : [],
 			"limit" : {/* 输入限制 */
 				"type" : "char/number/email/url/date",/* ENUM char:字符串 number:数字 email:邮箱 url:链接 date:日期 */
 				"min" : 2,
@@ -127,6 +130,7 @@ page_id
 			"title" : "我是一个多行文本",
 			"desc" : "我是一个多行文本",
 			"logic_id" : 1,/* 逻辑id，0表示此题没有任何逻辑 */
+			"quotes" : [1,2],
 			"limit" : {
 				"min" : 2,
 				"max" : 20，
@@ -159,6 +163,7 @@ page_id
 		"option_3"
 	],
 	"logic_id" : 0,/* 逻辑id，0表示此题没有任何逻辑 */
+	"quotes" : [1],
 	"other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
 		"status" : true,/* 是否显示其他选项 */
 		"text" : "其他",/* 自定义选项名称 */
@@ -204,6 +209,7 @@ page_id
 		"option_3"
 	],
 	"logic_id" : 0,/* 逻辑id，0表示此题没有任何逻辑 */
+	"quotes" : [],
 	"other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
 		"status" : true,/* 是否显示其他选项 */
 		"text" : "其他",/* 自定义选项名称 */
@@ -240,6 +246,7 @@ page_id
 		"option_2",
 		"option_3"
 	],
+	"quotes" : [],
 	"other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
 		"status" : true,/* 是否显示其他选项 */
 		"text" : "其他",/* 自定义选项名称 */
