@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="en-us" />
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+  <title>SurveyMaster API - 问卷相关</title>
+  <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="/css/960.css" rel="stylesheet" type="text/css" />
+  <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
+  <link href="/shared/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="/shared/css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="/shared/js/jquery.js" type="text/javascript"></script>
+  <script src="/shared/js/documentation.js" type="text/javascript"></script>
+</head>
+<body class="api">
+
+    <div id="header-wrapper">
+      <div id="header">
+        <div>
+          <a class="logo" href="/"><img src="/images/logo_developer.png" width="255" height="45" /></a>
+          <ul class="nav">
+            <li><a href="/trackmaster/v1/apiIndex/">TrackMaster</a></li>
+            <li><a href="/weibomaster/v1/apiIndex/">WeiboMaster</a></li>
+            <li><a href="/surveymaster/v1/apiIndex/">SurveyMaster</a></li>
+          </ul>
+        </div>
+      </div><!-- #header -->
+    </div><!-- #header-wrapper -->
+
+    <div id="wrapper">
+      <div class="content">
+    <h1 id="api---">API - 问卷相关</h1>
+
+<h2 id="section">获取问卷列表</h2>
+
+<pre><code>GET /surveys
+</code></pre>
+
+<h3 id="section-1">参数</h3>
+
+<pre><code>owner
+	: _可选_ *Int* - 所有者ID
+
+fields
+	: _可选_ *String* - 字段列表
+
+sort
+	: _可选_ *String* - 指定排序方式
+
+direction
+	: _可选_ *String* - 排序方式，asc升序（默认），desc降序
+
+start_time/end_time
+	: _可选_ *Int* - 指定提取问卷列表（created）的开始及结束时间，不指定start_time，则不限定开始时间，不指定end_time，则不限定结束时间
+
+per_page
+	: _可选_ *Int* - 每页显示记录数，默认30
+
+page
+	: _可选_ *Int* - 页数
+</code></pre>
+
+<h3 id="section-2">响应</h3>
+
+<blockquote>
+  <p>Status: 200 OK</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Limit: 5000</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Remaining: 4999</p>
+</blockquote>
+
+<pre><code>[
+  {
+    "id" : 112,
+    "title" : "伊利8月新生活",
+    "label" : "第一波",
+    "owner" : 123,
+    "created" : "123456789",
+    "modified" : "123456789",
+    "landing" : 50000,
+    "answered" : 30000,
+    "finished" : 5000,
+    "head" : "首先感谢您参与我们的问卷调查。完成调查的每位用户均有机会参与抽奖,本次调查设置的奖项是：国际知名品牌提供的运动服及运动鞋。请根据您的实际情况逐项填写,您的意见或建议对我们很重要,完成问卷只需花费您短短五分钟",
+    "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
+    "progress" : true,
+    "logo" : "http://domain.com/img/logo.gif",
+    "lang" : "en",
+    "onepage" : false,
+    "page_numbering" : true,
+    "question_numbering" : "global",
+    "pages" : [1,2,3,4,5,6]
+  },
+  {
+    /* 另一文档数据 */
+  }
+]
+</code></pre>
+
+<p>错误错误及代码参见TrackMaster API[错误代码说明][apiCommon]</p>
+
+<h2 id="p3">创建问卷</h2>
+
+<pre><code>POST /surveys
+</code></pre>
+
+<h3 id="section-3">参数</h3>
+
+<pre><code>title
+	: _必选_ *String* - 问卷标题，长度范围2 - 100个字符
+
+label
+	: _可选_ *String* - 问卷说明
+
+owner
+	: _可选_ *Int* - 创建者ID
+
+head
+	: _可选_ *String* - 问卷头信息
+
+foot
+	: _可选_ *String* - 问卷尾信息
+
+progress
+	: _可选_ *Boolean* - 是否显示进度条
+
+logo
+	: _可选_ *String* - LOGO图标地址
+
+lang
+	: _可选_ *String* - 语言
+
+onepage
+	: _可选_ *Boolean* - 是否在一页显示
+
+page_numbering
+	: _可选_ *Boolean* - 是否在每一页显示问题重新编号
+
+question_numbering
+	: _可选_ *String* - 问题编号采用全局方式(global)或是页内方式(in_page)
+</code></pre>
+
+<h3 id="section-4">请求</h3>
+
+<pre><code>{
+  "title" : "伊利8月新生活",
+  "label" : "第一波",
+  "owner" : 123,
+  "head" : "首先感谢您参与我们的问卷调查。",
+  "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。",
+  "progress" : true,
+  "logo" : "http://domain.com/img/logo.gif",
+  "lang" : "en",
+  "onepage" : false,
+  "page_numbering" : true,
+  "question_numbering" : "global"
+}
+</code></pre>
+
+<h3 id="section-5">响应</h3>
+
+<blockquote>
+  <p>Status: 201 CREATED</p>
+</blockquote>
+
+<blockquote>
+  <p>Location: http://api.surveymaster.com.cn/survey</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Limit: 5000</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Remaining: 4999</p>
+</blockquote>
+
+<pre><code>{
+  "id" : 112,
+  "title" : "伊利8月新生活",
+  "label" : "第一波",
+  "owner" : 123,
+  "created" : "123456789",
+  "modified" : "123456789",
+  "landing" : 0,
+  "answered" : 0,
+  "finished" : 0,
+  "head" : "首先感谢您参与我们的问卷调查。完成调查的每位用户均有机会参与抽奖,本次调查设置的奖项是：国际知名品牌提供的运动服及运动鞋。请根据您的实际情况逐项填写,您的意见或建议对我们很重要,完成问卷只需花费您短短五分钟",
+  "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
+  "progress" : true,
+  "logo" : "http://domain.com/img/logo.gif",
+  "lang" : "en",
+  "onepage" : false,
+  "page_numbering" : true,
+  "question_numbering" : "global",
+  "pages" : []
+}
+</code></pre>
+
+<h2 id="p4">获取指定问卷详情</h2>
+
+<pre><code>GET /surveys/:survey_id
+</code></pre>
+
+<h3 id="section-6">参数</h3>
+
+<pre><code>owner
+	: _必选_ *Int* - 建立者ID
+
+survey_id
+	: _必选_ *Int* - 问卷ID
+</code></pre>
+
+<h3 id="section-7">响应</h3>
+
+<blockquote>
+  <p>Status: 200 OK</p>
+</blockquote>
+
+<blockquote>
+  <p>Location: http://api.surveymaster.com.cn/surveys</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Limit: 5000</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Remaining: 4999</p>
+</blockquote>
+
+<pre><code>{
+  "id" : 112,
+  "title" : "伊利8月新生活",
+  "label" : "第一波",
+  "owner" : 123,
+  "created" : "123456789",
+  "modified" : "123456789",
+  "landing" : 0,
+  "answered" : 0,
+  "finished" : 0,
+  "head" : "首先感谢您参与我们的问卷调查。完成调查的每位用户均有机会参与抽奖,本次调查设置的奖项是：国际知名品牌提供的运动服及运动鞋。请根据您的实际情况逐项填写,您的意见或建议对我们很重要,完成问卷只需花费您短短五分钟",
+  "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
+  "progress" : true,
+  "logo" : "http://domain.com/img/logo.gif",
+  "lang" : "en",
+  "onepage" : false,
+  "page_numbering" : true,
+  "question_numbering" : "global",
+  "pages" : []
+}
+</code></pre>
+
+<h2 id="p5">修改指定问卷</h2>
+
+<pre><code>PATCH /surveys/:survey_id
+</code></pre>
+
+<h3 id="section-8">参数</h3>
+
+<pre><code>title
+	: _可选_ *String* - 问卷标题，长度范围2 - 100个字符
+
+label
+	: _可选_ *String* - 问卷说明
+
+head
+	: _可选_ *String* - 问卷头信息
+
+foot
+	: _可选_ *String* - 问卷尾信息
+
+progress
+	: _可选_ *Boolean* - 是否显示进度条
+
+logo
+	: _可选_ *String* - LOGO图标地址
+
+lang
+	: _可选_ *String* - 语言
+
+onepage
+	: _可选_ *Boolean* - 是否在一页显示
+
+page_numbering
+	: _可选_ *Boolean* - 是否在每一页显示问题重新编号
+
+question_numbering
+	: _可选_ *String* - 问题编号采用全局方式(global)或是页内方式(in_page)
+</code></pre>
+
+<h3 id="section-9">请求</h3>
+
+<pre><code>{
+  "title" : "伊利8月新生活",
+  "label" : "第一波",
+  "head" : "首先感谢您参与我们的问卷调查。",
+  "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。",
+  "progress" : true,
+  "logo" : "http://domain.com/img/logo.gif",
+  "lang" : "en",
+  "onepage" : false,
+  "page_numbering" : true,
+  "question_numbering" : "global"
+}
+</code></pre>
+
+<h3 id="section-10">响应</h3>
+
+<blockquote>
+  <p>Status: 204 NO CONTENT</p>
+</blockquote>
+
+<blockquote>
+  <p>Location: http://api.surveymaster.com.cn/surveys</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Limit: 5000</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Remaining: 4999</p>
+</blockquote>
+
+<h2 id="p6">删除指定问卷（标记状态）</h2>
+
+<pre><code>DELETE /surveys/:survey_id
+</code></pre>
+
+<h3 id="section-11">参数</h3>
+
+<pre><code>owner
+	: _必选_ *Int* - 建立者ID
+
+survey_id
+	: _必选_ *Int* - 问卷ID
+</code></pre>
+
+<h3 id="section-12">请求</h3>
+
+<pre><code>{
+  "owner" : 123,
+  "survey_id" : 112
+}
+</code></pre>
+
+<h3 id="section-13">响应</h3>
+
+<blockquote>
+  <p>Status: 204 NO CONTENT</p>
+</blockquote>
+
+<blockquote>
+  <p>Location: http://api.surveymaster.com.cn/surveys</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Limit: 5000</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Remaining: 4999</p>
+</blockquote>
+      </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+      <div class="js-toggle-list sidebar-module expandable">
+        <ul>
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiGetStart/">Coming soon</a></h3>
+          </li>
+       </ul>
+      </div> <!-- /sidebar-module -->
+    </div><!-- /sidebar-shell -->
+
+    </div><!-- #wrapper -->
+
+    <div id="footer" >
+       <div class="lower_footer">
+        <div class="footer_inner clearfix">              
+          <div id="legal"> 
+              <ul id="legal_links">
+                <li><a href="http://www.admaster.com.cn/">AdMaster首页</a></li>
+                <li><a href="http://www.trackmaster.com.cn/?m=home&a=service">服务条款</a></li>
+                <li><a href="http://www.admaster.com.cn/?page_id=27">与我们联系</a></li>
+              </ul>
+
+              <p>&copy; <span id="year">year</span> AdMaster Inc. All rights reserved.</p>
+            </div><!-- /#legal or /#legal_ie-->
+        </div><!-- /.site -->
+      </div><!-- /.lower_footer -->
+    </div><!-- /#footer -->
+</body>
+</html>

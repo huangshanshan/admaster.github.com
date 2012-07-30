@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="en-us" />
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+  <title>问卷渠道 - 开放链接</title>
+  <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="/css/960.css" rel="stylesheet" type="text/css" />
+  <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
+  <link href="/shared/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="/shared/css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="/shared/js/jquery.js" type="text/javascript"></script>
+  <script src="/shared/js/documentation.js" type="text/javascript"></script>
+</head>
+<body class="api">
+
+    <div id="header-wrapper">
+      <div id="header">
+        <div>
+          <a class="logo" href="/"><img src="/images/logo_developer.png" width="255" height="45" /></a>
+          <ul class="nav">
+            <li><a href="/trackmaster/v1/apiIndex/">TrackMaster</a></li>
+            <li><a href="/weibomaster/v1/apiIndex/">WeiboMaster</a></li>
+            <li><a href="/surveymaster/v1/apiIndex/">SurveyMaster</a></li>
+          </ul>
+        </div>
+      </div><!-- #header -->
+    </div><!-- #header-wrapper -->
+
+    <div id="wrapper">
+      <div class="content">
+    <h1 id="section">问卷渠道 - 开放链接</h1>
+
+<h2 id="p1">获取指定问卷的所有渠道</h2>
+
+<pre><code>GET /survey/:survey_id/collectors
+</code></pre>
+
+<h3 id="section-1">响应</h3>
+<pre class="headers">
+<code>Status: 200 OK
+</code></pre>
+<pre class="highlight">
+<code class="language-javascript">	<span class="p">[</span>
+		<span class="p">{</span>
+			<span class="s2">"collector_id"</span><span class="o">:</span> <span class="s2">"1"</span><span class="p">,</span>
+			<span class="s2">"collector_type"</span><span class="o">:</span> <span class="s2">"open_link"</span><span class="p">,</span>
+			<span class="s2">"collector_name"</span><span class="o">:</span> <span class="s2">"abc"</span><span class="p">,</span>
+			<span class="s2">"status"</span><span class="o">:</span> <span class="s2">"open"</span><span class="p">,</span>
+			<span class="s2">"landing"</span><span class="o">:</span> <span class="mi">100000</span><span class="p">,</span>
+			<span class="s2">"answered"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+			<span class="s2">"finished"</span><span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
+		<span class="p">},</span>
+		<span class="p">{</span>
+			<span class="s2">"collector_id"</span><span class="o">:</span> <span class="s2">"2"</span><span class="p">,</span>
+			<span class="s2">"collector_type"</span><span class="o">:</span> <span class="s2">"EDN"</span><span class="p">,</span>
+			<span class="s2">"collector_name"</span><span class="o">:</span> <span class="s2">"abcd"</span><span class="p">,</span>
+			<span class="s2">"status"</span><span class="o">:</span> <span class="s2">"closed"</span><span class="p">,</span>
+			<span class="s2">"landing"</span><span class="o">:</span> <span class="mi">100000</span><span class="p">,</span>
+			<span class="s2">"answered"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+			<span class="s2">"finished"</span><span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
+			<span class="s2">"respondents"</span><span class="o">:</span> <span class="mi">200000</span>
+		<span class="p">}</span>
+	<span class="p">]</span></code></pre>
+
+<h2 id="p2">获取开放链接的渠道信息</h2>
+
+<pre><code>GET /collectors/:id
+</code></pre>
+
+<h3 id="section-2">响应</h3>
+<pre class="headers">
+<code>Status: 200 OK
+</code></pre>
+<pre class="highlight">
+<code class="language-javascript">	<span class="p">{</span>
+		<span class="c1">//basic info</span>
+		<span class="s2">"id"</span><span class="o">:</span> <span class="s2">"1"</span><span class="p">,</span>
+		<span class="s2">"name"</span><span class="o">:</span> <span class="s2">"abc..."</span>
+		<span class="s2">"type"</span><span class="o">:</span> <span class="s2">"open_link"</span><span class="p">,</span>
+		<span class="s2">"status"</span><span class="o">:</span> <span class="s2">"open"</span><span class="p">,</span>
+		<span class="s2">"landing"</span><span class="o">:</span> <span class="mi">100000</span><span class="p">,</span>
+		<span class="s2">"answered"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+		<span class="s2">"finished"</span><span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
+	
+		<span class="c1">//advanced</span>
+		<span class="s2">"password"</span><span class="o">:</span> <span class="s2">"123456"</span><span class="p">,</span>
+		<span class="s2">"dead_line"</span><span class="o">:</span> <span class="s2">"2012-12-23"</span><span class="p">,</span>
+		<span class="s2">"max_count"</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
+		<span class="s2">"freq_control"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+		
+		<span class="c1">//</span>
+		<span class="s2">"access_url"</span><span class="o">:</span> <span class="s2">"http://surveymaster.com.cn/s/7Qix84&amp;12"</span>
+		<span class="c1">//Based on api </span>
+		<span class="c1">//Frontstage required	</span>
+		<span class="c1">//</span>
+
+		
+		<span class="s2">"redirect"</span><span class="o">:</span> <span class="s2">"http://surveymaster.com.cn"</span><span class="p">,</span>
+		<span class="s2">"thanks_page"</span><span class="o">:</span> <span class="s2">"Thank you for your answering..."</span><span class="p">,</span>
+		
+		<span class="c1">//interface</span>
+		<span class="s2">"cross_status"</span><span class="o">:</span> <span class="s2">"active"</span>
+		<span class="s2">"cross_id_name"</span><span class="o">:</span> <span class="s2">"psid"</span><span class="p">,</span>
+		<span class="c1">//http://jisiba.html/?psid=i9u8y7t&amp;result=1</span>
+		<span class="s2">"cross_response"</span><span class="o">:</span> <span class="s2">"http://jisiba.html/"</span><span class="p">,</span>
+
+		<span class="c1">//screening</span>
+		<span class="s2">"judge_activity"</span><span class="o">:</span> <span class="s2">"2123,1394,200130"</span><span class="p">;</span>
+		<span class="s2">"expusred"</span><span class="o">:</span> <span class="s2">"http://www.surveymaster.com.cn/survey/zWGiMTT"</span>
+		<span class="s2">"control"</span><span class="o">:</span> <span class="s2">"http://www.surveymaster.com.cn/survey/zWGJhzW"</span>
+
+	<span class="p">}</span></code></pre>
+      </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+      <div class="js-toggle-list sidebar-module expandable">
+        <ul>
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiGetStart/">Coming soon</a></h3>
+          </li>
+       </ul>
+      </div> <!-- /sidebar-module -->
+    </div><!-- /sidebar-shell -->
+
+    </div><!-- #wrapper -->
+
+    <div id="footer" >
+       <div class="lower_footer">
+        <div class="footer_inner clearfix">              
+          <div id="legal"> 
+              <ul id="legal_links">
+                <li><a href="http://www.admaster.com.cn/">AdMaster首页</a></li>
+                <li><a href="http://www.trackmaster.com.cn/?m=home&a=service">服务条款</a></li>
+                <li><a href="http://www.admaster.com.cn/?page_id=27">与我们联系</a></li>
+              </ul>
+
+              <p>&copy; <span id="year">year</span> AdMaster Inc. All rights reserved.</p>
+            </div><!-- /#legal or /#legal_ie-->
+        </div><!-- /.site -->
+      </div><!-- /.lower_footer -->
+    </div><!-- /#footer -->
+</body>
+</html>
