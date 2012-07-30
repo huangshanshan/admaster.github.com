@@ -2,14 +2,15 @@
 SurveyMaster API - 逻辑相关接口（共4个）
 ---
 
-  
+
 <h2 id="p1">1. 创建逻辑</h2>
-	POST /logics 
+	POST /logics
 
 ###请求
 <pre class="highlight">
 <code class="language-javascript">
 {
+        "survey_id" : 1,
 	"target_type" : "page/question",/* ENUM page:为某一页面设置逻辑 question:为某一问题设置逻辑 */
 	"target_id" : 11,/* 根据上面的target_type : page_id / question_id */
 	"conditions" : [/* 条件数组，数组顺序代表逻辑的优先级，也就是 OR 的关系 */
@@ -248,6 +249,7 @@ SurveyMaster API - 逻辑相关接口（共4个）
 {
 	"_id" : ObjectId("500916d3337d221abed72ac3"),
 	"id" : 1,/* 逻辑的id（自增 全局唯一） */
+        "survey_id" : 1,
 	"target_type" : "page/question",/* ENUM page:为某一页面设置逻辑 question:为某一问题设置逻辑 */
 	"target_id" : 11,/* 根据上面的target_type : page_id / question_id */
 	"conditions" : [/* 条件数组，数组顺序代表逻辑的优先级，也就是 OR 的关系 */
