@@ -1,5 +1,5 @@
 ---
-SurveyMaster API - 问题相关接口（共4个）
+title: SurveyMaster API - 问题相关接口（共4个）
 ---
 
 <h2 id="p1">1. 创建页</h2>

@@ -1,5 +1,5 @@
 ---
-SurveyMaster API - 统计相关接口（共1个）
+title: SurveyMaster API - 统计相关接口（共1个）
 ---
 
   
