@@ -14,76 +14,76 @@ SurveyMaster API - 答案相关接口（共6个）
 	"collector_id" : 1,/* 渠道id */
 	"answers" : [
 		{
-		  "question_id" : 1,/* 问题id */
+			"question_id" : 1,/* 问题id */
 			"timestamp" : 123456789,/* 答题时间 */
 			"selected" : [1]/* 数组里存放选项id */
 		},
 		{
-		  "question_id" : 2,
+			"question_id" : 2,
 			"timestamp" : 123456789,
 			"selected" : [-1],/* -1代表"其他"选项 */
 			"other" : '篮球'
 		},
 		{
-		  "question_id" : 8,
+			"question_id" : 8,
 			"timestamp" : 123456789,
 			"selected" : [1],
 			"quote" : [/* 引用其他题 */
-		    {
-		      "question_id" : 1,
-			    "selected" : [1]
-		    }
+				{
+					"question_id" : 1,
+					"selected" : [1]
+				}
 			]
 		},
 		{/* 多选题 */
-		  "question_id" : 3,
+			"question_id" : 3,
 			"timestamp" : 123456789,
 			"selected" : [1,3]
 		},
 		{
-		  "question_id" : 9,
+			"question_id" : 9,
 			"timestamp" : 123456789,
 			"selected" : [1,3],
 			"quote" : [
-		    {
-		      "question_id" : 3,
-			    "selected" : [1,3]
+				{
+					"question_id" : 3,
+					"selected" : [1,3]
 		    }
 			]
 		},
 		{
-		  "question_id" : 4,
+			"question_id" : 4,
 			"timestamp" : 123456789,
 			"selected" : [4,-1],
 			"other" : "红酒"
 		},
 		{
-		  "question_id" : 5,
-		  "timestamp" : 123456789,
+			"question_id" : 5,
+			"timestamp" : 123456789,
 			"selected" : [-2]/* -2代表选中了“排他”选项 */
 		},
 		{
-		  "question_id" : 10,
+			"question_id" : 10,
 			"timestamp" : 123456789,
 			"selected" : [1,3],
 			"quote" : [
-		    {
-		      "question_id" : 3,
-			    "selected" : [1,3]
-		    },
-		    {
-		      "question_id" : 4,
-			    "selected" : [4]
-		    }
+				{
+					"question_id" : 3,
+					"selected" : [1,3]
+				},
+				{
+					"question_id" : 4,
+					"selected" : [4]
+				}
 			]
 		},
 		{
-		  "question_id" : 6,
+			"question_id" : 6,
 			"timestamp" : 123456789,
 			"content" : "单行输入"
 		},
 		{
-		  "question_id" : 7,
+			"question_id" : 7,
 			"timestamp" : 123456789,
 			"content" : "多行输入\n多行输入"
 		}
@@ -133,76 +133,76 @@ SurveyMaster API - 答案相关接口（共6个）
 <code class="language-javascript">
 [
 	{
-	  "question_id" : 1,/* 问题id */
+		"question_id" : 1,/* 问题id */
 		"timestamp" : 123456789,/* 答题时间 */
 		"selected" : [1]/* 数组里存放选项id */
 	},
 	{
-	  "question_id" : 2,
+		"question_id" : 2,
 		"timestamp" : 123456789,
 		"selected" : [-1],/* -1代表"其他"选项 */
 		"other" : '篮球'
 	},
 	{
-	  "question_id" : 8,
+		"question_id" : 8,
 		"timestamp" : 123456789,
 		"selected" : [1],
 		"quote" : [/* 引用其他题 */
-	    {
-	      "question_id" : 1,
-		    "selected" : [1]
-	    }
+			{
+				"question_id" : 1,
+				"selected" : [1]
+			}
 		]
 	},
 	{/* 多选题 */
-	  "question_id" : 3,
+		"question_id" : 3,
 		"timestamp" : 123456789,
 		"selected" : [1,3]
 	},
 	{
-	  "question_id" : 9,
+		"question_id" : 9,
 		"timestamp" : 123456789,
 		"selected" : [1,3],
 		"quote" : [
-	    {
-	      "question_id" : 3,
-		    "selected" : [1,3]
-	    }
+			{
+				"question_id" : 3,
+				"selected" : [1,3]
+			}
 		]
 	},
 	{
-	  "question_id" : 4,
+		"question_id" : 4,
 		"timestamp" : 123456789,
 		"selected" : [4,-1],
 		"other" : "红酒"
 	},
 	{
-	  "question_id" : 5,
-	  "timestamp" : 123456789,
+		"question_id" : 5,
+		"timestamp" : 123456789,
 		"selected" : [-2]/* -2代表选中了“排他”选项 */
 	},
 	{
-	  "question_id" : 10,
+		"question_id" : 10,
 		"timestamp" : 123456789,
 		"selected" : [1,3],
 		"quote" : [
-	    {
-	      "question_id" : 3,
-		    "selected" : [1,3]
+			{
+				"question_id" : 3,
+				"selected" : [1,3]
 	    },
 	    {
-	      "question_id" : 4,
-		    "selected" : [4]
+				"question_id" : 4,
+				"selected" : [4]
 	    }
 		]
 	},
 	{
-	  "question_id" : 6,
+		"question_id" : 6,
 		"timestamp" : 123456789,
 		"content" : "单行输入"
 	},
 	{
-	  "question_id" : 7,
+		"question_id" : 7,
 		"timestamp" : 123456789,
 		"content" : "多行输入\n多行输入"
 	}
@@ -249,47 +249,55 @@ SurveyMaster API - 答案相关接口（共6个）
 	"collector_name" : "youku_视频弹窗_开放链接_001",/* 渠道名称 */
 	"created" : 123456789,/* 开始答题时间 */
 	"modified" : 123456789,/* 最后活动时间 */
-	"answers" : {
-		1 : {/* 键代表问题id */
+	"answers" : [
+		{
+			"question_id" : 1,
 			"timestamp" : 123456789,/* 答题时间 */
 			"title" : "我是一只选择题，单选题啊单选题（单选）",
 			"answer" : ["《最炫民族风》"]
 		},
-		2 : {
+		{
+			"question_id" : 2,
 			"timestamp" : 123456789,/* 答题时间 */
 			"title" : "我是一只选择题，单选题啊单选题（单选）",
 			"answer" : ["其他(《离骚》)"]/* 答题人选择了“其他”选项，并且输入了“《离骚》” */
 		},
-		8 : {
+		{
+			"question_id" : 8,
 			"timestamp" : 123456789,/* 答题时间 */
 			"title" : "我是一只选择题，单选题啊单选题（单选）",
 			"answer" : ["第三题的第一个选项"]/* 答题人选择了引用题的一个选项 */
 		},
-		3 : {/* 多选题 */
+		{
+			"question_id" : 3,
 			"timestamp" : 123456789,/* 答题时间 */
 			"title" : "我也是一只选择题，不过是多选，多选题，霸气，不解释！（多选）",
 			"answer" : ["《最炫民族风》"]
 		},
-		9 : {
+		{
+			"question_id" : 9,
 			"timestamp" : 123456789,/* 答题时间 */
 			"title" : "我也是一只选择题，不过是多选，多选题，霸气，不解释！（多选）",
 			"answer" : ["《最炫民族风》", "第一题的第二个选项", "第三题的第一个选项"]
 		},
-		4 : {
+		{
+			"question_id" : 4,
 			"timestamp" : 123456789,/* 答题时间 */
 			"title" : "我也是一只选择题，不过是多选，多选题，霸气，不解释！（多选）",
 			"answer" : ["以上都不死是"]/* 答题人选择了排他选项 */
 		},
-		6 : {
+		{
+			"question_id" : 6,
 			"timestamp" : 123456789,/* 答题时间 */
 			"title" : "单行输入",
 			"answer" : ["资本主义"]
 		},
-		7 : {
+		{
+			"question_id" : 7,
 			"timestamp" : 123456789,/* 答题时间 */
 			"title" : "多行输入",
 			"answer" : ["第一，以人为本的发展观。\n  第二，全面发展观。\n  第三，协调发展观。\n  第四，可持续发展观。"]
 		}
-	}
+	]
 }
 </code></pre>
