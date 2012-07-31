@@ -4,14 +4,13 @@ title: SurveyMaster API - 答案相关接口（共6个）
 
   
 <h2 id="p1">1. 新增答案</h2>
-	POST /answers 
+	POST /surveys/:survey_id/collectors/:collector_id/pages/:page_id/answers 
 
 ###请求
 <pre class="highlight">
 <code class="language-javascript">
 {
 	"respondent_id" : 1,/* 答题人id */
-	"collector_id" : 1,/* 渠道id */
 	"answers" : [
 		{
 			"question_id" : 1,/* 问题id */
@@ -92,23 +91,13 @@ title: SurveyMaster API - 答案相关接口（共6个）
 </code></pre>
 
 <h2 id="p2">2. 获取指定问卷的答案列表</h2>
-	GET /surveys/:id/answers
+	GET /surveys/:survey_id/answers
 
 ### 可选参数
 
 * collector_id		指定渠道id进行过滤
 * status		根据答题情况进行过滤（-1:被甄别 0:未答完 1:完成）
 * respondent_id		根据答题人进行过滤
-
-###请求
-<pre class="highlight">
-<code class="language-javascript">
-{
-	"collector_id" : 1,
-	"status" : 0,
-	"respondent_id" : 1
-}
-</code></pre>
 
 ###响应
 <pre class="headers">
@@ -127,7 +116,7 @@ title: SurveyMaster API - 答案相关接口（共6个）
 </code></pre>
 
 <h2 id="p3">3. 编辑指定答案（注意：特殊功能，使用者非受访者本人）</h2>
-	PATCH /answers/:id
+	PATCH /surveys/:survey_id/answers/:id
 ###请求
 <pre class="highlight">
 <code class="language-javascript">
@@ -210,7 +199,7 @@ title: SurveyMaster API - 答案相关接口（共6个）
 </code></pre>
 
 <h2 id="p4">4. 删除指定答案</h2>
-	DELETE /answers/:id
+	DELETE /surveys/:survey_id/answers/:id
 ###请求
 <pre class="highlight">
 <code class="language-javascript">
@@ -220,7 +209,7 @@ title: SurveyMaster API - 答案相关接口（共6个）
 </code></pre>
 
 <h2 id="p5">5. 删除指定渠道的所有答案</h2>
-	DELETE /collectors/:collector_id/answers
+	DELETE /surveys/:survey_id/collectors/:collector_id/answers
 
 ###请求
 <pre class="highlight">
@@ -231,7 +220,7 @@ title: SurveyMaster API - 答案相关接口（共6个）
 </code></pre>
 
 <h2 id="p6">6. 获取指定答案的详情</h2>
-	GET /answers/:id
+	GET /surveys/:survey_id/answers/:id
 
 ###响应
 <pre class="headers">

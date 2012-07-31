@@ -3,8 +3,8 @@ title: SurveyMaster API - 统计相关接口（共1个）
 ---
 
   
-<h2 id="p1">1. 获取指定问卷的所有答案的统计信息</h2>
-	GET /surveys/:id/stats
+<h2 id="p1">1. 获取指定问卷的统计信息</h2>
+	GET /surveys/:survey_id/stats
 ### 参数
 
 collector_id
