@@ -22,13 +22,12 @@ collector_id
 <pre class="highlight">
 <code class="language-javascript">
 {
-	"landing" : 7788256,
-	"answered" : 4210000,
-	"finished" : 1950000,
-	"respondents" : 7788256,/* 答题人数量 */
-	"first" : 123456789,/* 第一个答题人的答题时间 */
-	"last" : 123456789,/* 最后一个答题人的答题时间 */
-	"opendays" : 65,/* 问卷开放时间(天) */
+	"landing_count" : 7788256,
+	"answered_count" : 4210000,
+	"finished_count" : 1950000,
+	"respondent_count" : 7788256,/* 答题人数量 */
+	"first_time" : 123456789,/* 第一个答题人的答题时间 */
+	"last_time" : 123456789,/* 最后一个答题人的答题时间 */
 	"questions" : [
 		{
 			"question_id" : 1,/* 问题id */
@@ -37,7 +36,7 @@ collector_id
 			"skiped" : 5555,/* 跳过此题的受访者数量 */
 			"answered" : 3167,/* 回答了此题的受访者数量 */
 			"options" : [
-				{/* 键代表选项id */
+				{
 					"option" : "《九歌》",/* 选项名称 */
 					"count" : 476,/* 选择了此选项的受访者数量 */
 					"percent" : "40%"/* 选择了此选项的受访者百分比(注意：分母是什么？) */

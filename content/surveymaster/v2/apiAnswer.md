@@ -14,18 +14,18 @@ title: SurveyMaster API - 答案相关接口（共6个）
 	"answers" : [
 		{
 			"question_id" : 1,/* 问题id */
-			"timestamp" : 123456789,/* 答题时间 */
+			"time" : 123456789,/* 答题时间 */
 			"selected" : [1]/* 数组里存放选项id */
 		},
 		{
 			"question_id" : 2,
-			"timestamp" : 123456789,
+			"time" : 123456789,
 			"selected" : [-1],/* -1代表"其他"选项 */
 			"other" : '篮球'
 		},
 		{
 			"question_id" : 8,
-			"timestamp" : 123456789,
+			"time" : 123456789,
 			"selected" : [1],
 			"quote" : [/* 引用其他题 */
 				{
@@ -36,12 +36,12 @@ title: SurveyMaster API - 答案相关接口（共6个）
 		},
 		{/* 多选题 */
 			"question_id" : 3,
-			"timestamp" : 123456789,
+			"time" : 123456789,
 			"selected" : [1,3]
 		},
 		{
 			"question_id" : 9,
-			"timestamp" : 123456789,
+			"time" : 123456789,
 			"selected" : [1,3],
 			"quote" : [
 				{
@@ -52,18 +52,18 @@ title: SurveyMaster API - 答案相关接口（共6个）
 		},
 		{
 			"question_id" : 4,
-			"timestamp" : 123456789,
+			"time" : 123456789,
 			"selected" : [4,-1],
 			"other" : "红酒"
 		},
 		{
 			"question_id" : 5,
-			"timestamp" : 123456789,
+			"time" : 123456789,
 			"selected" : [-2]/* -2代表选中了“排他”选项 */
 		},
 		{
 			"question_id" : 10,
-			"timestamp" : 123456789,
+			"time" : 123456789,
 			"selected" : [1,3],
 			"quote" : [
 				{
@@ -78,12 +78,12 @@ title: SurveyMaster API - 答案相关接口（共6个）
 		},
 		{
 			"question_id" : 6,
-			"timestamp" : 123456789,
+			"time" : 123456789,
 			"content" : "单行输入"
 		},
 		{
 			"question_id" : 7,
-			"timestamp" : 123456789,
+			"time" : 123456789,
 			"content" : "多行输入\n多行输入"
 		}
 	]
@@ -110,7 +110,7 @@ title: SurveyMaster API - 答案相关接口（共6个）
 	"respondent_id" : "1",
 	"collector_id" : 1,
 	"collector_name" : "新浪汽车",
-	"created" : 123456789,// 开始答题时间
+	"created_at" : 123456789,// 开始答题时间
 	"status" : "-1/0/1"// -1:被甄别 0:未答完 1:完成
 }
 </code></pre>
@@ -123,18 +123,18 @@ title: SurveyMaster API - 答案相关接口（共6个）
 [
 	{
 		"question_id" : 1,/* 问题id */
-		"timestamp" : 123456789,/* 答题时间 */
+		"time" : 123456789,/* 答题时间 */
 		"selected" : [1]/* 数组里存放选项id */
 	},
 	{
 		"question_id" : 2,
-		"timestamp" : 123456789,
+		"time" : 123456789,
 		"selected" : [-1],/* -1代表"其他"选项 */
 		"other" : '篮球'
 	},
 	{
 		"question_id" : 8,
-		"timestamp" : 123456789,
+		"time" : 123456789,
 		"selected" : [1],
 		"quote" : [/* 引用其他题 */
 			{
@@ -145,12 +145,12 @@ title: SurveyMaster API - 答案相关接口（共6个）
 	},
 	{/* 多选题 */
 		"question_id" : 3,
-		"timestamp" : 123456789,
+		"time" : 123456789,
 		"selected" : [1,3]
 	},
 	{
 		"question_id" : 9,
-		"timestamp" : 123456789,
+		"time" : 123456789,
 		"selected" : [1,3],
 		"quote" : [
 			{
@@ -161,18 +161,18 @@ title: SurveyMaster API - 答案相关接口（共6个）
 	},
 	{
 		"question_id" : 4,
-		"timestamp" : 123456789,
+		"time" : 123456789,
 		"selected" : [4,-1],
 		"other" : "红酒"
 	},
 	{
 		"question_id" : 5,
-		"timestamp" : 123456789,
+		"time" : 123456789,
 		"selected" : [-2]/* -2代表选中了“排他”选项 */
 	},
 	{
 		"question_id" : 10,
-		"timestamp" : 123456789,
+		"time" : 123456789,
 		"selected" : [1,3],
 		"quote" : [
 			{
@@ -187,12 +187,12 @@ title: SurveyMaster API - 答案相关接口（共6个）
 	},
 	{
 		"question_id" : 6,
-		"timestamp" : 123456789,
+		"time" : 123456789,
 		"content" : "单行输入"
 	},
 	{
 		"question_id" : 7,
-		"timestamp" : 123456789,
+		"time" : 123456789,
 		"content" : "多行输入\n多行输入"
 	}
 ]
@@ -200,24 +200,12 @@ title: SurveyMaster API - 答案相关接口（共6个）
 
 <h2 id="p4">4. 删除指定答案</h2>
 	DELETE /surveys/:survey_id/answers/:id
-###请求
-<pre class="highlight">
-<code class="language-javascript">
-{
 
-}
-</code></pre>
 
 <h2 id="p5">5. 删除指定渠道的所有答案</h2>
 	DELETE /surveys/:survey_id/collectors/:collector_id/answers
 
-###请求
-<pre class="highlight">
-<code class="language-javascript">
-{
 
-}
-</code></pre>
 
 <h2 id="p6">6. 获取指定答案的详情</h2>
 	GET /surveys/:survey_id/answers/:id
@@ -241,49 +229,49 @@ title: SurveyMaster API - 答案相关接口（共6个）
 	"answers" : [
 		{
 			"question_id" : 1,
-			"timestamp" : 123456789,/* 答题时间 */
+			"time" : 123456789,/* 答题时间 */
 			"title" : "我是一只选择题，单选题啊单选题（单选）",
 			"answer" : ["《最炫民族风》"]
 		},
 		{
 			"question_id" : 2,
-			"timestamp" : 123456789,/* 答题时间 */
+			"time" : 123456789,/* 答题时间 */
 			"title" : "我是一只选择题，单选题啊单选题（单选）",
 			"answer" : ["其他(《离骚》)"]/* 答题人选择了“其他”选项，并且输入了“《离骚》” */
 		},
 		{
 			"question_id" : 8,
-			"timestamp" : 123456789,/* 答题时间 */
+			"time" : 123456789,/* 答题时间 */
 			"title" : "我是一只选择题，单选题啊单选题（单选）",
 			"answer" : ["第三题的第一个选项"]/* 答题人选择了引用题的一个选项 */
 		},
 		{
 			"question_id" : 3,
-			"timestamp" : 123456789,/* 答题时间 */
+			"time" : 123456789,/* 答题时间 */
 			"title" : "我也是一只选择题，不过是多选，多选题，霸气，不解释！（多选）",
 			"answer" : ["《最炫民族风》"]
 		},
 		{
 			"question_id" : 9,
-			"timestamp" : 123456789,/* 答题时间 */
+			"time" : 123456789,/* 答题时间 */
 			"title" : "我也是一只选择题，不过是多选，多选题，霸气，不解释！（多选）",
 			"answer" : ["《最炫民族风》", "第一题的第二个选项", "第三题的第一个选项"]
 		},
 		{
 			"question_id" : 4,
-			"timestamp" : 123456789,/* 答题时间 */
+			"time" : 123456789,/* 答题时间 */
 			"title" : "我也是一只选择题，不过是多选，多选题，霸气，不解释！（多选）",
 			"answer" : ["以上都不死是"]/* 答题人选择了排他选项 */
 		},
 		{
 			"question_id" : 6,
-			"timestamp" : 123456789,/* 答题时间 */
+			"time" : 123456789,/* 答题时间 */
 			"title" : "单行输入",
 			"answer" : ["资本主义"]
 		},
 		{
 			"question_id" : 7,
-			"timestamp" : 123456789,/* 答题时间 */
+			"time" : 123456789,/* 答题时间 */
 			"title" : "多行输入",
 			"answer" : ["第一，以人为本的发展观。\n  第二，全面发展观。\n  第三，协调发展观。\n  第四，可持续发展观。"]
 		}
