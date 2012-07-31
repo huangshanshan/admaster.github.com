@@ -9,7 +9,7 @@ title: SurveyMaster API - 问题相关接口（共4个）
 ###请求
 
 <pre class="highlight">
-<code class="language-javascript">>
+<code class="language-javascript">
 {
   "survey_id" : 112,
 }

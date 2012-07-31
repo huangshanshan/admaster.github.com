@@ -17,11 +17,11 @@ sort
 : _可选_ *String* - 指定排序方式
 
 * `id` - 按问卷ID排序
-* `created\_at` - 建立时间
-* `modified\_at` - 最后更新时间
-* `landing\_count` - 查看问卷用户数
-* `answered\_count` - 回答问卷用户数
-* `finished\_count` - 完整回答问卷用户数
+* `created_at` - 建立时间
+* `modified_at` - 最后更新时间
+* `landing_count` - 查看问卷用户数
+* `answered_count` - 回答问卷用户数
+* `finished_count` - 完整回答问卷用户数
 
 direction
 : _可选_ *String* - 排序方式
