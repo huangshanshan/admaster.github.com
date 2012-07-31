@@ -199,16 +199,16 @@ title: SurveyMaster API - 答案相关接口（共6个）
 </code></pre>
 
 <h2 id="p4">4. 删除指定答案</h2>
-	DELETE /surveys/:survey_id/answers/:id
+	DELETE /surveys/answers/:id
 
 
 <h2 id="p5">5. 删除指定渠道的所有答案</h2>
-	DELETE /surveys/:survey_id/collectors/:collector_id/answers
+	DELETE /surveys/collectors/:collector_id/answers
 
 
 
 <h2 id="p6">6. 获取指定答案的详情</h2>
-	GET /surveys/:survey_id/answers/:id
+	GET /surveys/answers/:id
 
 ###响应
 <pre class="headers">
