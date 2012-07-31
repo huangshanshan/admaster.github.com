@@ -3,6 +3,7 @@ require 'nanoc3/tasks'
 desc "Compile the site"
 task :compile do
   `nanoc compile`
+  `cp -r output/* ./`
 end
 
 desc "Publish to http://dev.admaster.com.cn"

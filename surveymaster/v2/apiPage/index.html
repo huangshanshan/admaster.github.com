@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="en-us" />
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+  <title>SurveyMaster API - 问题相关接口（共4个）</title>
+  <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="/css/960.css" rel="stylesheet" type="text/css" />
+  <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
+  <link href="/shared/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="/shared/css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="/shared/js/jquery.js" type="text/javascript"></script>
+  <script src="/shared/js/documentation.js" type="text/javascript"></script>
+</head>
+<body class="api">
+
+    <div id="header-wrapper">
+      <div id="header">
+        <div>
+          <a class="logo" href="/"><img src="/images/logo_developer.png" width="255" height="45" /></a>
+          <ul class="nav">
+            <li><a href="/trackmaster/v1/apiIndex/">TrackMaster</a></li>
+            <li><a href="/weibomaster/v1/apiIndex/">WeiboMaster</a></li>
+            <li><a href="/surveymaster/v1/apiIndex/">SurveyMaster</a></li>
+          </ul>
+        </div>
+      </div><!-- #header -->
+    </div><!-- #header-wrapper -->
+
+    <div id="wrapper">
+      <div class="content">
+    <h2 id="p1">1. 创建页</h2>
+<pre><code>POST /surveys/:survey_id/pages
+</code></pre>
+
+<h3 id="section">参数</h3>
+
+<pre><code>survey_id
+	: _必选_ *Int* - 问卷ID
+
+questions
+	: _可选_ *Array* - 问题列表
+</code></pre>
+
+<h3 id="section-1">请求</h3>
+
+<pre><code>{
+  "survey_id" : 112,
+  "questions" : [1, 2, 3]
+}
+</code></pre>
+
+<h3 id="section-2">响应</h3>
+
+<blockquote>
+  <p>Status: 201 CREATED</p>
+</blockquote>
+
+<blockquote>
+  <p>Location: http://api.surveymaster.com.cn/survey</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Limit: 5000</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Remaining: 4999</p>
+</blockquote>
+
+<pre><code>{
+  "id" : 1,
+  "survey_id" : 112,
+  "questions" : [1, 2, 3],
+}
+</code></pre>
+
+<h2 id="p2">2. 获取指定页详情</h2>
+<pre><code>GET /surveys/:survey_id/pages/:page_id
+</code></pre>
+
+<h3 id="section-3">参数</h3>
+
+<pre><code>survey_id
+	: _必选_ *Int* - 问卷ID
+
+page_id
+	: _必选_ *Int* - 页号
+</code></pre>
+
+<h3 id="section-4">响应</h3>
+
+<blockquote>
+  <p>Status: 200 OK</p>
+</blockquote>
+
+<blockquote>
+  <p>Location: http://api.surveymaster.com.cn/surveys</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Limit: 5000</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Remaining: 4999</p>
+</blockquote>
+
+<pre><code>{
+  "survey_id" : 112,
+  "page_id" : 1,
+  "questions" : [
+	{
+		"_id" : ObjectId("500916d3337d221abed72ac3"),
+		"id" : 1,/* 问题的id（自增 全局唯一） */
+		"type" : "radio",/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */
+		"title" : "我是一个单选",
+		"desc" : "我是一个单选题啊单选题",
+		"options" : [/* 数组value为选项内容，数组key为选项的id，数组的顺序即是选项的显示顺序 */
+			"option_1",
+			"option_2",
+			"option_3"
+		],
+		"logic_id" : 0,/* 逻辑id，0表示此题没有任何逻辑 */
+		"quotes" : [],/* 引用题的question_id数组（注意：引用题只能引用当前页之前的题） */
+		"other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
+			"status" : true,/* 是否显示其他选项 */
+			"text" : "其他",/* 自定义选项名称 */
+			"box" : {/* 输入框 */
+				"status" : true,/* 是否出现输入框 */
+				"min" : 1,/* 允许输入的最少字符数 */
+				"max" : 10,/* 允许输入的最多字符数 */
+				"prompt" : "当输入值不合法时，出现提示"/* 当输入框中的字符数不符合要求时的提示信息 */
+			}
+		},
+		"required" : {/* 必答 */
+			"status" : true,/* 是否设为必答题 */
+			"prompt" : "这一项是必填的噢！"/* 没有回答时的提示信息 */
+		},
+		"display" : {/* 显示相关 */
+			"style" : "radio/select",/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为true时，other的前端实现要与此设置保持一致) */
+			"perline" : 2,/* 每行显示选项数（注意：当上面的display.style设置为select时此设置无意义） */
+			"random" : false/* 是否随机显示选项（注意：顺序打乱 id不能变） */
+		}
+	},
+            {
+                    /*另一问题*/
+            }
+        ]
+}
+</code></pre>
+
+<h2 id="p3">3. 修改指定页</h2>
+
+<pre><code>PATCH /surveys/:survey_id/pages/:page_id
+</code></pre>
+
+<h3 id="section-5">参数</h3>
+
+<pre><code>survey_id
+	: _必选_ *Int* - 问卷ID
+
+page_id
+	: _必选_ *Int* - 页号
+
+questions
+	: _必选_ *Array* - 问题ID列表
+</code></pre>
+
+<h2 id="section-6">请求</h2>
+
+<pre><code>{
+  "survey_id" : 112,
+  "page_id" : 1,
+  "questions" : [1, 2, 3]
+}
+</code></pre>
+
+<h3 id="section-7">响应</h3>
+
+<blockquote>
+  <p>Status: 204 NO CONTENT</p>
+</blockquote>
+
+<blockquote>
+  <p>Location: http://api.surveymaster.com.cn/surveys</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Limit: 5000</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Remaining: 4999</p>
+</blockquote>
+
+<h2 id="p4">4. 删除指定页（标记状态）</h2>
+<pre><code>DELETE /surveys/:survey_id/pages/:page_id
+</code></pre>
+
+<h3 id="section-8">参数</h3>
+
+<pre><code>survey_id
+	: _必选_ *Int* - 问卷ID
+
+page_id
+	: _必选_ *Int* - 页号
+</code></pre>
+
+<h3 id="section-9">请求</h3>
+
+<pre><code>{
+  "survey_id" : 112,
+  "page_id" : 1
+}
+</code></pre>
+
+<h3 id="section-10">响应</h3>
+
+<blockquote>
+  <p>Status: 204 NO CONTENT</p>
+</blockquote>
+
+<blockquote>
+  <p>Location: http://api.surveymaster.com.cn/surveys</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Limit: 5000</p>
+</blockquote>
+
+<blockquote>
+  <p>X-RateLimit-Remaining: 4999</p>
+</blockquote>
+      </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+      <div class="js-toggle-list sidebar-module expandable">
+        <ul>
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiGetStart/">Coming soon</a></h3>
+          </li>
+       </ul>
+      </div> <!-- /sidebar-module -->
+    </div><!-- /sidebar-shell -->
+
+    </div><!-- #wrapper -->
+
+    <div id="footer" >
+       <div class="lower_footer">
+        <div class="footer_inner clearfix">              
+          <div id="legal"> 
+              <ul id="legal_links">
+                <li><a href="http://www.admaster.com.cn/">AdMaster首页</a></li>
+                <li><a href="http://www.trackmaster.com.cn/?m=home&a=service">服务条款</a></li>
+                <li><a href="http://www.admaster.com.cn/?page_id=27">与我们联系</a></li>
+              </ul>
+
+              <p>&copy; <span id="year">year</span> AdMaster Inc. All rights reserved.</p>
+            </div><!-- /#legal or /#legal_ie-->
+        </div><!-- /.site -->
+      </div><!-- /.lower_footer -->
+    </div><!-- /#footer -->
+</body>
+</html>

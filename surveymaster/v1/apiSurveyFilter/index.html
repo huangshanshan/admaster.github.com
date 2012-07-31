@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="en-us" />
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+  <title>监控 - 筛选功能</title>
+  <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="/css/960.css" rel="stylesheet" type="text/css" />
+  <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
+  <link href="/shared/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="/shared/css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="/shared/js/jquery.js" type="text/javascript"></script>
+  <script src="/shared/js/documentation.js" type="text/javascript"></script>
+</head>
+<body class="api">
+
+    <div id="header-wrapper">
+      <div id="header">
+        <div>
+          <a class="logo" href="/"><img src="/images/logo_developer.png" width="255" height="45" /></a>
+          <ul class="nav">
+            <li><a href="/trackmaster/v1/apiIndex/">TrackMaster</a></li>
+            <li><a href="/weibomaster/v1/apiIndex/">WeiboMaster</a></li>
+            <li><a href="/surveymaster/v1/apiIndex/">SurveyMaster</a></li>
+          </ul>
+        </div>
+      </div><!-- #header -->
+    </div><!-- #header-wrapper -->
+
+    <div id="wrapper">
+      <div class="content">
+    <p>//Lastest Data Report Board <br>
+//Lastest not means realtime
+# 监控 - 筛选功能</p>
+
+<h2 id="p1">获取指定筛选条件下的问卷内容</h2>
+
+<pre><code>GET /surveys/:survey_id/collectors
+</code></pre>
+
+<h3 id="section">参数</h3>
+
+<p>survey _ id<br>
+:<em>可选</em> <em>int</em> - 所要筛选的问卷ID</p>
+
+<p>collector _ id<br>
+:<em>可选</em> <em>int</em> - 所要筛选的渠道ID  </p>
+
+<p>start _ date
+:<em>可选</em> <em>date</em> - 筛选的开始时间</p>
+
+<p>end _ date
+:<em>可选</em> <em>date</em> - 筛选的结束时间</p>
+
+<h3 id="section-1">响应</h3>
+<pre class="headers">
+<code>Status: 200 OK
+</code></pre>
+<pre class="highlight">
+<code class="language-javascript">	<span class="p">{</span>
+		<span class="s2">"landing"</span><span class="o">:</span> <span class="mi">100000</span><span class="p">,</span>
+		<span class="s2">"answered"</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+		<span class="s2">"finished"</span><span class="o">:</span>  <span class="mi">1000</span><span class="p">,</span>
+		<span class="s2">"first_come"</span><span class="o">:</span> <span class="s2">"2012-01-01 12:34"</span>
+		<span class="s2">"latest_come"</span><span class="o">:</span> <span class="s2">"2012-04-01 03:34"</span>
+        <span class="s2">"average_time"</span><span class="o">:</span> <span class="mi">10</span><span class="err">分</span><span class="mi">20</span><span class="err">秒</span>
+        <span class="s2">"avg_amount"</span><span class="o">:</span><span class="mi">998</span>
+    <span class="p">}</span></code></pre>
+
+<h2 id="p2">添加board</h2>
+
+<pre><code>POST /boards
+</code></pre>
+
+<h3 id="section-2">请求</h3>
+<pre class="highlight">
+<code class="language-javascript"><span class="p">[</span>
+	<span class="p">{</span>
+		<span class="nx">num</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span><span class="c1">//最多5个</span>
+	<span class="p">}</span>
+
+<span class="p">]</span></code></pre>
+
+<h2 id="p3">编辑board</h2>
+
+<pre><code>PATCH /boards
+</code></pre>
+
+<h2 id="p4">删除board</h2>
+
+<pre><code>DELETE /board/:id
+</code></pre>
+
+<h3 id="section-3">响应</h3>
+<pre class="headers">
+<code>Status: 204 No Content
+</code></pre>
+      </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+      <div class="js-toggle-list sidebar-module expandable">
+        <ul>
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/trackmaster/v1/apiGetStart/">Coming soon</a></h3>
+          </li>
+       </ul>
+      </div> <!-- /sidebar-module -->
+    </div><!-- /sidebar-shell -->
+
+    </div><!-- #wrapper -->
+
+    <div id="footer" >
+       <div class="lower_footer">
+        <div class="footer_inner clearfix">              
+          <div id="legal"> 
+              <ul id="legal_links">
+                <li><a href="http://www.admaster.com.cn/">AdMaster首页</a></li>
+                <li><a href="http://www.trackmaster.com.cn/?m=home&a=service">服务条款</a></li>
+                <li><a href="http://www.admaster.com.cn/?page_id=27">与我们联系</a></li>
+              </ul>
+
+              <p>&copy; <span id="year">year</span> AdMaster Inc. All rights reserved.</p>
+            </div><!-- /#legal or /#legal_ie-->
+        </div><!-- /.site -->
+      </div><!-- /.lower_footer -->
+    </div><!-- /#footer -->
+</body>
+</html>
