@@ -13,6 +13,7 @@ title: SurveyMaster API - 前置逻辑相关接口（共5个）
 <code class="language-javascript">
 [/* 每一个数组元素就是一条逻辑，按先后顺序依次检查组内各逻辑，一旦存在符合条件的逻辑，检查即终止 */
 	{
+		"id" : 1,
 		"visible" : true,/* 此问题是否显示 */
 		"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 			{
@@ -28,6 +29,7 @@ title: SurveyMaster API - 前置逻辑相关接口（共5个）
 	},
 
 	{
+		"id" : 2,
 		"visible" : true,/* 此问题是否显示 */
 		"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 			{
