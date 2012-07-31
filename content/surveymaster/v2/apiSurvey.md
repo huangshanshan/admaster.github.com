@@ -135,7 +135,7 @@ question\_numbering
 ###响应
 
 <pre class="headers">
-<code>Status: 201 Created~
+<code>Status: 201 Created
 Location: http://api.surveymaster.com.cn/users/123/surveys
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
