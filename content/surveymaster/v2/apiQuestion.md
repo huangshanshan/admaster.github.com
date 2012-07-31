@@ -106,7 +106,7 @@ X-RateLimit-Remaining: 4999
             "option_2",
             "option_3"
         ],
-        "logic_id" : 0,/* 逻辑id，0表示此题没有任何逻辑 */
+        "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
         "quotes" : [],/* 引用题的question_id数组（注意：引用题只能引用当前页之前的题） */
         "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
             "status" : true,/* 是否显示其他选项 */
@@ -141,7 +141,7 @@ X-RateLimit-Remaining: 4999
             "option_2",
             "option_3"
         ],
-        "logic_id" : 0,/* 逻辑id，0表示此题没有任何逻辑 */
+        "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
         "quotes" : [],
         "other" : {
             "status" : true,
@@ -176,7 +176,7 @@ X-RateLimit-Remaining: 4999
         "type" : "text",
         "title" : "我是一个单行文本",
         "desc" : "我是一个单行文本",
-        "logic_id" : 0,/* 逻辑id，0表示此题没有任何逻辑 */
+        "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
         "quotes" : [],
         "limit" : {/* 输入限制 */
             "type" : "char/number/email/url/date",/* ENUM char:字符串 number:数字 email:邮箱 url:链接 date:日期 */
@@ -229,7 +229,7 @@ X-RateLimit-Remaining: 4999
         "option_2",
         "option_3"
     ],
-    "logic_id" : 0,/* 逻辑id，0表示此题没有任何逻辑 */
+    "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
     "quotes" : [1],
     "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
         "status" : true,/* 是否显示其他选项 */
@@ -278,7 +278,7 @@ X-RateLimit-Remaining: 4999
         "option_2",
         "option_3"
     ],
-    "logic_id" : 0,/* 逻辑id，0表示此题没有任何逻辑 */
+    "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
     "quotes" : [],
     "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
         "status" : true,/* 是否显示其他选项 */

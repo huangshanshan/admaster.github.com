@@ -63,7 +63,7 @@ X-RateLimit-Remaining: 4999
                 "option_2",
                 "option_3"
             ],
-            "logic_id" : 0,/* 逻辑id，0表示此题没有任何逻辑 */
+            "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
             "quotes" : [],/* 引用题的question_id数组（注意：引用题只能引用当前页之前的题） */
             "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
                 "status" : true,/* 是否显示其他选项 */
