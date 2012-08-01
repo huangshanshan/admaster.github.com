@@ -87,7 +87,7 @@ X-RateLimit-Remaining: 4999
 ##请求
 
 <pre class="highlight">
-<code class="language-javascript">>
+<code class="language-javascript">
 {
   "title" : "伊利8月新生活",
   "label" : "第一波",
@@ -268,7 +268,7 @@ X-RateLimit-Remaining: 4999
 
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Link: <http://api.surveymaster.com.cn/users/surveys>; rel="surveys"
+Location: http://api.surveymaster.com.cn/users/surveys
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
