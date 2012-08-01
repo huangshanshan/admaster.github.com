@@ -5,15 +5,9 @@ title: SurveyMaster API - 统计相关接口（共1个）
   
 <h2 id="p1">1. 获取指定问卷的统计信息</h2>
 	GET /surveys/:survey_id/stats
-### 参数
+### 可选参数
 
-collector_id
-: _可选_ *int* - 渠道id  (获取指定问卷指定渠道的所有答案的统计信息)
-  
-* `2`
-* `5`
-* `16`
-* `31`
+* collector\_id	渠道id
 
 ###响应
 <pre class="headers">
