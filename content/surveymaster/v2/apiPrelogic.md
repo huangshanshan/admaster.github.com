@@ -49,7 +49,7 @@ title: SurveyMaster API - 前置逻辑相关接口（共5个）
 ]
 </code></pre>
 
-<h2 id="p2">2. 获取指定的问题逻辑</h2>
+<h2 id="p2">2. 获取指定的前置逻辑</h2>
 	GET /surveys/questions/prelogics/:id
 
 ###响应
@@ -97,7 +97,7 @@ title: SurveyMaster API - 前置逻辑相关接口（共5个）
 }
 </code></pre>
 
-<h2 id="p3">3. 添加问题逻辑</h2>
+<h2 id="p3">3. 添加前置逻辑</h2>
 	POST /surveys/questions/:question_id/prelogics
 
 ###请求
@@ -139,7 +139,18 @@ title: SurveyMaster API - 前置逻辑相关接口（共5个）
 }
 </code></pre>
 
-<h2 id="p4">4. 修改指定的问题逻辑</h2>
+<pre class="headers no-response">
+<code>Status: 201 No Content
+Location: http://api.surveymaster.com.cn/surveys/questions/1/prelogics
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+{
+	"id" : 1,/* 前置逻辑id(自增) */
+	/* 前置逻辑详情 */
+}
+</code></pre>
+
+<h2 id="p4">4. 修改指定的前置逻辑</h2>
 	PATCH /surveys/questions/prelogics/:id
 ###请求
 <pre class="highlight">
@@ -180,6 +191,26 @@ title: SurveyMaster API - 前置逻辑相关接口（共5个）
 }
 </code></pre>
 
-<h2 id="p5">5. 删除指定的问题逻辑</h2>
+###响应
+
+<pre class="headers no-response">
+<code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+{
+/* 修改后的前置逻辑 */
+}
+</code></pre>
+
+<h2 id="p5">5. 删除指定的前置逻辑</h2>
 	DELETE /surveys/questions/prelogics/:id
+
+###响应
+
+<pre class="headers no-response">
+<code>Status: 204 No Content
+Link: http://api.surveymaster.com.cn/surveys/questions/1/prelogics; rel="prelogics"
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
 

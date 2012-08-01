@@ -141,6 +141,17 @@ title: SurveyMaster API - 后置逻辑相关接口（共5个）
 }
 </code></pre>
 
+<pre class="headers no-response">
+<code>Status: 201 No Content
+Location: http://api.surveymaster.com.cn/surveys/pages/1/postlogics
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+{
+	"id" : 1,/* 后置逻辑id(自增) */
+	/* 后置逻辑详情 */
+}
+</code></pre>
+
 <h2 id="p4">4. 修改指定的后置逻辑</h2>
 	PATCH /surveys/pages/postlogics/:id
 ###请求
@@ -181,6 +192,26 @@ title: SurveyMaster API - 后置逻辑相关接口（共5个）
 }
 </code></pre>
 
+###响应
+
+<pre class="headers no-response">
+<code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+{
+/* 修改后的后置逻辑 */
+}
+</code></pre>
+
 <h2 id="p5">5. 删除指定的后置逻辑</h2>
 	DELETE /surveys/pages/postlogics/:id
+
+###响应
+
+<pre class="headers no-response">
+<code>Status: 204 No Content
+Link: http://api.surveymaster.com.cn/surveys/pages/1/postlogics; rel="postlogics"
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
 

@@ -90,6 +90,16 @@ title: SurveyMaster API - 答案相关接口（共6个）
 }
 </code></pre>
 
+<pre class="headers no-response">
+<code>Status: 201 No Content
+Location: http://api.surveymaster.com.cn/surveys/1/pages/2/questions
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+{
+	/* 下一页的问题列表 */
+}
+</code></pre>
+
 <h2 id="p2">2. 获取指定问卷的答案列表</h2>
 	GET /surveys/:survey_id/answers
 
@@ -201,14 +211,41 @@ title: SurveyMaster API - 答案相关接口（共6个）
 ]
 </code></pre>
 
+###响应
+
+<pre class="headers no-response">
+<code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+{
+/* 修改后的答案 */
+}
+</code></pre>
+
 <h2 id="p4">4. 删除指定答案</h2>
 	DELETE /surveys/answers/:id
+
+###响应
+
+<pre class="headers no-response">
+<code>Status: 204 No Content
+Link: http://api.surveymaster.com.cn/surveys/1/answers; rel="answers"
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
 
 
 <h2 id="p5">5. 删除指定渠道的所有答案</h2>
 	DELETE /surveys/collectors/:collector_id/answers
 
+###响应
 
+<pre class="headers no-response">
+<code>Status: 204 No Content
+Link: http://api.surveymaster.com.cn/surveys/1/answers; rel="answers"
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
 
 <h2 id="p6">6. 获取指定答案的详情</h2>
 	GET /surveys/answers/:id

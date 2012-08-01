@@ -253,6 +253,19 @@ X-RateLimit-Remaining: 4999
 }
 </code></pre>
 
+###响应
+
+<pre class="headers no-response">
+<code>Status: 201 No Content
+Location: http://api.surveymaster.com.cn/surveys/1/questions
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+{
+	"id" : 1,/* 问题id(自增) */
+	/* 问题详情 */
+}
+</code></pre>
+
 <h2 id="p4">4. 获取指定问题详情</h2>
 
     GET /surveys/pages/questions/:id
@@ -347,6 +360,9 @@ X-RateLimit-Remaining: 4999
 <code>Status: 204 No Content
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
+{
+/* 修改后的问题详情 */
+}
 </code></pre>
 
 <h2 id="p6">6. 删除指定的问题</h2>
