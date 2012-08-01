@@ -136,7 +136,7 @@ question\_numbering
 
 <pre class="headers">
 <code>Status: 201 Created
-Location: http://api.surveymaster.com.cn/users/123/surveys
+Location: http://api.surveymaster.com.cn/users/surveys
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>

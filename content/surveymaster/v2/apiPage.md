@@ -1,19 +1,12 @@
 ---
-title: SurveyMaster API - 问题相关接口（共4个）
+title: SurveyMaster API - 页相关
 ---
+
+#API - 页相关（共4个）
 
 <h2 id="p1">1. 创建页</h2>
 
     POST /surveys/:survey_id/pages
-
-###请求
-
-<pre class="highlight">
-<code class="language-javascript">
-{
-  "survey_id" : 112,
-}
-</code></pre>
 
 ###响应
 
@@ -35,7 +28,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p2">2. 获取指定页详情</h2>
 
-    GET /surveys/:survey_id/pages/:id
+    GET /surveys/pages/:id
 
 ###响应
 
@@ -48,7 +41,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 {
     "id" : 1,
-    "url" : 'http://api.surveymaster.com.cn/surveys/112/pages/1',
+    "url" : 'http://api.surveymaster.com.cn/surveys/pages/1',
     "survey_id" : 112,
     "questions" :
     [
@@ -94,7 +87,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">3. 修改指定页</h2>
 
-    PATCH /surveys/:survey_id/pages/:id
+    PATCH /surveys/pages/:id
 
 ##请求
 
@@ -115,13 +108,13 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p4">4. 删除指定页（标记状态）</h2>
 
-    DELETE /surveys/:survey_id/pages/:id
+    DELETE /surveys/pages/:id
 
 ###响应
 
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Link: http://api.surveymaster.com.cn/surveys/112/pages; rel="pages"
+Location: http://api.surveymaster.com.cn/surveys/112/pages
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>

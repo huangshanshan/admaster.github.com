@@ -214,13 +214,14 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">3. 创建问题</h2>
 
-    POST /surveys/:survey_id/pages/:page_id/questions
+    POST /surveys/pages/questions
 
 ###请求
 <pre class="highlight">
 <code class="language-javascript">
 {
     "survey_id" : 1,
+    "page_id" : 1,
     "type" : "radio",/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */
     "title" : "我是一个单选",
     "desc" : "我是一个单选题啊单选题",
@@ -373,7 +374,7 @@ X-RateLimit-Remaining: 4999
 
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Link: http://api.surveymaster.com.cn/surveys/pages/1/questions; rel="questions"
+Location: http://api.surveymaster.com.cn/surveys/pages/1/questions
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
