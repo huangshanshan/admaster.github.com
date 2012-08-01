@@ -19,7 +19,8 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 [
     {
-        "page" : 1,
+        "page_id" : 1,
+        "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
         "questions" : [
             {
                 "id" : 1,/* 问题的id（自增 全局唯一） */
@@ -28,6 +29,7 @@ X-RateLimit-Remaining: 4999
                 "type" : 'radio',
                 "title" : "我是一个单选",
                 "desc" : "我是一个单选题啊单选题",
+                "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
                 "required" : {/* 必答 */
                     "status" : true,/* 是否设为必答题 */
                     "prompt" : "这一项是必填的噢！"/* 没有回答时的提示信息 */
@@ -40,6 +42,7 @@ X-RateLimit-Remaining: 4999
                 "type" : "checkbox",
                 "title" : "我是一个多选",
                 "desc" : "我是一个牛13的多选题",
+                "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
                 "required" : {
                     "status" : true,
                     "min" : 1,/* 必须选择至少required.min个选项 */
@@ -54,6 +57,7 @@ X-RateLimit-Remaining: 4999
                 "type" : "text",
                 "title" : "我是一个单行文本",
                 "desc" : "我是一个单行文本",
+                "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
                 "required" : {
                     "status" : true,
                     "prompt" : "这一项是必填的噢！"
@@ -66,6 +70,7 @@ X-RateLimit-Remaining: 4999
                 "type" : "textarea",
                 "title" : "我是一个多行文本",
                 "desc" : "我是一个多行文本",
+                "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
                 "required" : {
                     "status" : true,
                     "prompt" : "这一项是必填的噢！"
@@ -74,7 +79,8 @@ X-RateLimit-Remaining: 4999
         ]
     },
     {
-        "page" : 2,
+        "page_id" : 2,
+        "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
         "questions" : [
         ]
     }

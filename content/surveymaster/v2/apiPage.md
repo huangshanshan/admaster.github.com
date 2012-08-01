@@ -43,6 +43,7 @@ X-RateLimit-Remaining: 4999
     "id" : 1,
     "url" : 'http://api.surveymaster.com.cn/surveys/pages/1',
     "survey_id" : 112,
+    "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
     "questions" :
     [
         {
