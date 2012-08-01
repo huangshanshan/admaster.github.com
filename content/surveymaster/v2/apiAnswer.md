@@ -4,12 +4,13 @@ title: SurveyMaster API - 答案相关接口（共6个）
 
   
 <h2 id="p1">1. 新增答案</h2>
-	POST /surveys/:survey_id/collectors/:collector_id/pages/:page_id/answers 
+	POST /surveys/collectors/:collector_id/answers 
 
 ###请求
 <pre class="highlight">
 <code class="language-javascript">
 {
+	"survey_id" : 1,
 	"respondent_id" : 1,/* 答题人id */
 	"answers" : [
 		{
@@ -105,9 +106,11 @@ X-RateLimit-Remaining: 4999
 
 ### 可选参数
 
-* collector_id		指定渠道id进行过滤
+* collector\_id		指定渠道id进行过滤
 * status		根据答题情况进行过滤（-1:被甄别 0:未答完 1:完成）
-* respondent_id		根据答题人进行过滤
+* respondent\_id		根据答题人进行过滤
+* per\_page				每页显示记录数，默认30
+* page						页数
 
 ###响应
 <pre class="headers">
@@ -118,7 +121,7 @@ X-RateLimit-Remaining: 4999
 [
 	{
 		"id" : 1,/* 答案id */
-		"url" : 'http://api.surveymaster.com.cn/surveys/answers/1',
+		"url" : 'http://api.surveymaster.com.cn/surveys/collectors/answers/1',
 		"respondent_id" : "1",
 		"collector_id" : 1,
 		"collector_name" : "新浪汽车",
@@ -129,7 +132,7 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <h2 id="p3">3. 编辑指定答案（注意：特殊功能，使用者非受访者本人）</h2>
-	PATCH /surveys/:survey_id/answers/:id
+	PATCH /surveys/collectors/answers/:id
 ###请求
 <pre class="highlight">
 <code class="language-javascript">
@@ -223,7 +226,7 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <h2 id="p4">4. 删除指定答案</h2>
-	DELETE /surveys/answers/:id
+	DELETE /surveys/collectors/answers/:id
 
 ###响应
 
@@ -248,7 +251,7 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <h2 id="p6">6. 获取指定答案的详情</h2>
-	GET /surveys/answers/:id
+	GET /surveys/collectors/answers/:id
 
 ###响应
 <pre class="headers">
