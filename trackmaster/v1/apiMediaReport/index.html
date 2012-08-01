@@ -33,12 +33,13 @@
       <div class="content">
     <h1 id="api---">API - 媒体报告</h1>
 
-<h2 id="p1">获取当前授权用户有权操作的所有媒体项目</h2>
+<h2 id="p1">获取指定媒体下的项目</h2>
 
-<pre><code>GET /user/medias/campaigns
+<pre><code>GET /medias/:media_id/campaigns
 </code></pre>
 
 <h3 id="section">响应</h3>
+
 <pre class="headers">
 <code>Status: 200 OK
 </code></pre>
@@ -69,9 +70,9 @@
 <h3 id="section-1">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
-<h2 id="p2">获取指定项目日报告</h2>
+<h2 id="p2">获取指定项目下的日报告</h2>
 
-<pre><code>GET /medias/campaigns/:campaign_id/daily_reports
+<pre><code>GET /medias/:media_id/campaigns/:campaign_id/daily_reports
 </code></pre>
 
 <h3 id="section-2">参数</h3>
@@ -107,6 +108,7 @@
   <li>
 <code>desc</code> 降序</li>
 </ul><h3 id="section-3">响应</h3>
+
 <pre class="headers">
 <code>Status: 200 OK
 </code></pre>

@@ -3,11 +3,12 @@ title: API - 媒体报告
 ---
 #API - 媒体报告
 
-<h2 id="p1">获取当前授权用户有权操作的所有媒体项目</h2>
+<h2 id="p1">获取指定媒体下的项目</h2>
 
-    GET /user/medias/campaigns
+    GET /medias/:media_id/campaigns
 
 ###响应
+
 <pre class="headers">
 <code>Status: 200 OK
 </code></pre>
@@ -42,9 +43,9 @@ title: API - 媒体报告
 [v1.0][version]
 
 
-<h2 id="p2">获取指定项目日报告</h2>
+<h2 id="p2">获取指定项目下的日报告</h2>
 
-    GET /medias/campaigns/:campaign_id/daily_reports
+    GET /medias/:media_id/campaigns/:campaign_id/daily_reports
 
 ###参数
 
@@ -70,6 +71,7 @@ direction
 * `desc` 降序
 
 ###响应
+
 <pre class="headers">
 <code>Status: 200 OK
 </code></pre>
