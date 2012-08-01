@@ -69,12 +69,12 @@
 <h3 id="section-1">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
 
-<h2 id="p2">获取指定项目ID日报告</h2>
+<h2 id="p2">获取指定项目日报告</h2>
 
 <pre><code>GET /medias/campaigns/:campaign_id/daily_reports
 </code></pre>
 
-<h3 id="section-2">列表参数</h3>
+<h3 id="section-2">参数</h3>
 
 <dl>
 <dt>start_time</dt>
@@ -111,12 +111,15 @@
 <code>Status: 200 OK
 </code></pre>
 <pre class="highlight">
-<code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"imp"</span><span class="o">:</span> <span class="mi">23</span><span class="p">,</span> <span class="c1">//曝光</span>
-  <span class="s2">"uimp"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="c1">//独立曝光</span>
-  <span class="s2">"clk"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="c1">//点击</span>
-  <span class="s2">"uclk"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="c1">//独立点击</span>
-<span class="p">}</span></code></pre>
+<code class="language-javascript"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"time"</span><span class="o">:</span> <span class="s2">"2012-08-01"</span><span class="p">,</span> <span class="c1">// 时间</span>
+    <span class="s2">"imp"</span><span class="o">:</span> <span class="mi">23</span><span class="p">,</span> <span class="c1">//曝光</span>
+    <span class="s2">"uimp"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="c1">//独立曝光</span>
+    <span class="s2">"clk"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="c1">//点击</span>
+    <span class="s2">"uclk"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="c1">//独立点击</span>
+  <span class="p">}</span>
+<span class="p">]</span></code></pre>
 
 <p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a>。</p>
 
