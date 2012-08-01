@@ -31,8 +31,8 @@
 
     <div id="wrapper">
       <div class="content">
-    <h2 id="p1">1. 获取指定问卷的所有答案的统计信息</h2>
-<pre><code>GET /surveys/:id/stats ### 参数
+    <h2 id="p1">1. 获取指定问卷的统计信息</h2>
+<pre><code>GET /surveys/:survey_id/stats ### 参数
 </code></pre>
 
 <dl>
@@ -50,13 +50,12 @@
 </code></pre>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
-	<span class="s2">"landing"</span> <span class="o">:</span> <span class="mi">7788256</span><span class="p">,</span>
-	<span class="s2">"answered"</span> <span class="o">:</span> <span class="mi">4210000</span><span class="p">,</span>
-	<span class="s2">"finished"</span> <span class="o">:</span> <span class="mi">1950000</span><span class="p">,</span>
-	<span class="s2">"respondents"</span> <span class="o">:</span> <span class="mi">7788256</span><span class="p">,</span><span class="cm">/* 答题人数量 */</span>
-	<span class="s2">"first"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span><span class="cm">/* 第一个答题人的答题时间 */</span>
-	<span class="s2">"last"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span><span class="cm">/* 最后一个答题人的答题时间 */</span>
-	<span class="s2">"opendays"</span> <span class="o">:</span> <span class="mi">65</span><span class="p">,</span><span class="cm">/* 问卷开放时间(天) */</span>
+	<span class="s2">"landing_count"</span> <span class="o">:</span> <span class="mi">7788256</span><span class="p">,</span>
+	<span class="s2">"answered_count"</span> <span class="o">:</span> <span class="mi">4210000</span><span class="p">,</span>
+	<span class="s2">"finished_count"</span> <span class="o">:</span> <span class="mi">1950000</span><span class="p">,</span>
+	<span class="s2">"respondent_count"</span> <span class="o">:</span> <span class="mi">7788256</span><span class="p">,</span><span class="cm">/* 答题人数量 */</span>
+	<span class="s2">"first_time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span><span class="cm">/* 第一个答题人的答题时间 */</span>
+	<span class="s2">"last_time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span><span class="cm">/* 最后一个答题人的答题时间 */</span>
 	<span class="s2">"questions"</span> <span class="o">:</span> <span class="p">[</span>
 		<span class="p">{</span>
 			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 问题id */</span>
@@ -65,7 +64,7 @@
 			<span class="s2">"skiped"</span> <span class="o">:</span> <span class="mi">5555</span><span class="p">,</span><span class="cm">/* 跳过此题的受访者数量 */</span>
 			<span class="s2">"answered"</span> <span class="o">:</span> <span class="mi">3167</span><span class="p">,</span><span class="cm">/* 回答了此题的受访者数量 */</span>
 			<span class="s2">"options"</span> <span class="o">:</span> <span class="p">[</span>
-				<span class="p">{</span><span class="cm">/* 键代表选项id */</span>
+				<span class="p">{</span>
 					<span class="s2">"option"</span> <span class="o">:</span> <span class="s2">"《九歌》"</span><span class="p">,</span><span class="cm">/* 选项名称 */</span>
 					<span class="s2">"count"</span> <span class="o">:</span> <span class="mi">476</span><span class="p">,</span><span class="cm">/* 选择了此选项的受访者数量 */</span>
 					<span class="s2">"percent"</span> <span class="o">:</span> <span class="s2">"40%"</span><span class="cm">/* 选择了此选项的受访者百分比(注意：分母是什么？) */</span>

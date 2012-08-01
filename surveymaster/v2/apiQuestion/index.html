@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>SurveyMaster API - 问题相关接口（共5个）</title>
+  <title>SurveyMaster API - 问题相关</title>
   <link href="/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -31,262 +31,376 @@
 
     <div id="wrapper">
       <div class="content">
-    <h2 id="p1">1. 获取指定问卷的问题列表</h2>
-<pre><code>GET /surveys/:id/questions ### 可选参数
+    <h1 id="api---6">API - 问题相关（共6个）</h1>
+
+<h2 id="p1">1. 获取指定问卷的问题列表（用于后台管理）</h2>
+
+<pre><code>GET /surveys/:survey_id/pages/questions
 </code></pre>
 
-<dl>
-<dt>page_id</dt>
-  <dd>
-<em>可选</em> <em>int</em> - 页的id  (获取指定问卷某一页的问题列表)</dd>
-</dl><ul>
-<li><code>2</code></li>
-  <li><code>10</code></li>
-  <li><code>16</code></li>
-  <li><code>101</code></li>
-</ul><h3 id="section">请求</h3>
+<h3 id="section">响应</h3>
+
+<pre class="headers">
+<code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
 <pre class="highlight">
-<code class="language-javascript"><span class="p">{</span>
-<span class="p">}</span></code></pre>
+<code class="language-javascript"><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">"page"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"questions"</span> <span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 问题的id（自增 全局唯一） */</span>
+                <span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/questions/1'</span><span class="p">,</span>
+                <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
+                <span class="s2">"type"</span> <span class="o">:</span> <span class="s1">'radio'</span><span class="p">,</span>
+                <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个单选"</span><span class="p">,</span>
+                <span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个单选题啊单选题"</span><span class="p">,</span>
+                <span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 必答 */</span>
+                    <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否设为必答题 */</span>
+                    <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span><span class="cm">/* 没有回答时的提示信息 */</span>
+                <span class="p">},</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/questions/2'</span><span class="p">,</span>
+                <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
+                <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"checkbox"</span><span class="p">,</span>
+                <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个多选"</span><span class="p">,</span>
+                <span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个牛13的多选题"</span><span class="p">,</span>
+                <span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 必须选择至少required.min个选项 */</span>
+                    <span class="s2">"max"</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span><span class="cm">/* 必须选择不超过required.max个选项 */</span>
+                    <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span>
+                <span class="p">},</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/questions/3'</span><span class="p">,</span>
+                <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
+                <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"text"</span><span class="p">,</span>
+                <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个单行文本"</span><span class="p">,</span>
+                <span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个单行文本"</span><span class="p">,</span>
+                <span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/questions/4'</span><span class="p">,</span>
+                <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
+                <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"textarea"</span><span class="p">,</span>
+                <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个多行文本"</span><span class="p">,</span>
+                <span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个多行文本"</span><span class="p">,</span>
+                <span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">"page"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">"questions"</span> <span class="o">:</span> <span class="p">[</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span></code></pre>
+
+<h2 id="p2">2. 获取指定页的问题列表</h2>
+
+<pre><code>GET /surveys/pages/:page_id/questions
+</code></pre>
 
 <h3 id="section-1">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
 </code></pre>
 <pre class="highlight">
-<code class="language-javascript"><span class="p">{</span>
-	<span class="s2">"1"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* page_id为1的问题列表 */</span>
-		<span class="p">{</span>
-			<span class="s2">"_id"</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">"500916d3337d221abed72ac3"</span><span class="p">),</span>
-			<span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 问题的id（自增 全局唯一） */</span>
-			<span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"radio"</span><span class="p">,</span><span class="cm">/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */</span>
-			<span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个单选"</span><span class="p">,</span>
-			<span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个单选题啊单选题"</span><span class="p">,</span>
-			<span class="s2">"options"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 数组value为选项内容，数组key为选项的id，数组的顺序即是选项的显示顺序 */</span>
-				<span class="s2">"option_1"</span><span class="p">,</span>
-				<span class="s2">"option_2"</span><span class="p">,</span>
-				<span class="s2">"option_3"</span>
-			<span class="p">],</span>
-			<span class="s2">"logic_id"</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span><span class="cm">/* 逻辑id，0表示此题没有任何逻辑 */</span>
-			<span class="s2">"quotes"</span> <span class="o">:</span> <span class="p">[],</span><span class="cm">/* 引用题的question_id数组（注意：引用题只能引用当前页之前的题） */</span>
-			<span class="s2">"other"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 其他选项（注意：这是一个特殊选项，其id为-1） */</span>
-				<span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否显示其他选项 */</span>
-				<span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span><span class="cm">/* 自定义选项名称 */</span>
-				<span class="s2">"box"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入框 */</span>
-					<span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否出现输入框 */</span>
-					<span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 允许输入的最少字符数 */</span>
-					<span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span><span class="cm">/* 允许输入的最多字符数 */</span>
-					<span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"当输入值不合法时，出现提示"</span><span class="cm">/* 当输入框中的字符数不符合要求时的提示信息 */</span>
-				<span class="p">}</span>
-			<span class="p">},</span>
-			<span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 必答 */</span>
-				<span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否设为必答题 */</span>
-				<span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span><span class="cm">/* 没有回答时的提示信息 */</span>
-			<span class="p">},</span>
-			<span class="s2">"display"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 显示相关 */</span>
-				<span class="s2">"style"</span> <span class="o">:</span> <span class="s2">"radio/select"</span><span class="p">,</span><span class="cm">/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为true时，other的前端实现要与此设置保持一致) */</span>
-				<span class="s2">"perline"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span><span class="cm">/* 每行显示选项数（注意：当上面的display.style设置为select时此设置无意义） */</span>
-				<span class="s2">"random"</span> <span class="o">:</span> <span class="kc">false</span><span class="cm">/* 是否随机显示选项（注意：顺序打乱 id不能变） */</span>
-			<span class="p">}</span>
-		<span class="p">},</span>
+<code class="language-javascript"><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 问题的id（自增 全局唯一） */</span>
+        <span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/questions/1'</span><span class="p">,</span>
+        <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
+        <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"radio"</span><span class="p">,</span><span class="cm">/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */</span>
+        <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个单选"</span><span class="p">,</span>
+        <span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个单选题啊单选题"</span><span class="p">,</span>
+        <span class="s2">"options"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 数组value为选项内容，数组key为选项的id，数组的顺序即是选项的显示顺序 */</span>
+            <span class="s2">"option_1"</span><span class="p">,</span>
+            <span class="s2">"option_2"</span><span class="p">,</span>
+            <span class="s2">"option_3"</span>
+        <span class="p">],</span>
+        <span class="s2">"logics"</span> <span class="o">:</span> <span class="p">[],</span><span class="cm">/* 逻辑id数组，顺序表示逻辑的优先级 */</span>
+        <span class="s2">"quotes"</span> <span class="o">:</span> <span class="p">[],</span><span class="cm">/* 引用题的question_id数组（注意：引用题只能引用当前页之前的题） */</span>
+        <span class="s2">"other"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 其他选项（注意：这是一个特殊选项，其id为-1） */</span>
+            <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否显示其他选项 */</span>
+            <span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span><span class="cm">/* 自定义选项名称 */</span>
+            <span class="s2">"box"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入框 */</span>
+                <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否出现输入框 */</span>
+                <span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 允许输入的最少字符数 */</span>
+                <span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span><span class="cm">/* 允许输入的最多字符数 */</span>
+                <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"当输入值不合法时，出现提示"</span><span class="cm">/* 当输入框中的字符数不符合要求时的提示信息 */</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 必答 */</span>
+            <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否设为必答题 */</span>
+            <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span><span class="cm">/* 没有回答时的提示信息 */</span>
+        <span class="p">},</span>
+        <span class="s2">"display"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 显示相关 */</span>
+            <span class="s2">"style"</span> <span class="o">:</span> <span class="s2">"radio/select"</span><span class="p">,</span><span class="cm">/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为true时，other的前端实现要与此设置保持一致) */</span>
+            <span class="s2">"perline"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span><span class="cm">/* 每行显示选项数（注意：当上面的display.style设置为select时此设置无意义） */</span>
+            <span class="s2">"random"</span> <span class="o">:</span> <span class="kc">false</span><span class="cm">/* 是否随机显示选项（注意：顺序打乱 id不能变） */</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
 
-		<span class="p">{</span>
-			<span class="s2">"_id"</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">"500926057e33b020d04a177f"</span><span class="p">),</span>
-			<span class="s2">"id"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-			<span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"checkbox"</span><span class="p">,</span>
-			<span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个多选"</span><span class="p">,</span>
-			<span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个牛13的多选题"</span><span class="p">,</span>
-			<span class="s2">"options"</span> <span class="o">:</span> <span class="p">[</span>
-				<span class="s2">"option_1"</span><span class="p">,</span>
-				<span class="s2">"option_2"</span><span class="p">,</span>
-				<span class="s2">"option_3"</span>
-			<span class="p">],</span>
-			<span class="s2">"logic_id"</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span><span class="cm">/* 逻辑id，0表示此题没有任何逻辑 */</span>
-			<span class="s2">"quotes"</span> <span class="o">:</span> <span class="p">[],</span>
-			<span class="s2">"other"</span> <span class="o">:</span> <span class="p">{</span>
-				<span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-				<span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span>
-				<span class="s2">"box"</span> <span class="o">:</span> <span class="p">{</span>
-					<span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-					<span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-					<span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-					<span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"当输入值不合法时，出现提示"</span>
-				<span class="p">}</span>
-			<span class="p">},</span>
-			<span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span>
-				<span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-				<span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 必须选择至少required.min个选项 */</span>
-				<span class="s2">"max"</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span><span class="cm">/* 必须选择不超过required.max个选项 */</span>
-				<span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span>
-			<span class="p">},</span>
-			<span class="s2">"display"</span> <span class="o">:</span> <span class="p">{</span>
-				<span class="s2">"perline"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-				<span class="s2">"random"</span> <span class="o">:</span> <span class="kc">false</span>
-			<span class="p">},</span>
-			<span class="s2">"exclusive"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 排他选项（注意：这是一个特殊选项，其id为-2） */</span>
-				<span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否出现排他选项 */</span>
-				<span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"以上都不是"</span><span class="cm">/* 自定义选项名称 */</span>
-			<span class="p">}</span>
-		<span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/questions/2'</span><span class="p">,</span>
+        <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
+        <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"checkbox"</span><span class="p">,</span>
+        <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个多选"</span><span class="p">,</span>
+        <span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个牛13的多选题"</span><span class="p">,</span>
+        <span class="s2">"options"</span> <span class="o">:</span> <span class="p">[</span>
+            <span class="s2">"option_1"</span><span class="p">,</span>
+            <span class="s2">"option_2"</span><span class="p">,</span>
+            <span class="s2">"option_3"</span>
+        <span class="p">],</span>
+        <span class="s2">"logics"</span> <span class="o">:</span> <span class="p">[],</span><span class="cm">/* 逻辑id数组，顺序表示逻辑的优先级 */</span>
+        <span class="s2">"quotes"</span> <span class="o">:</span> <span class="p">[],</span>
+        <span class="s2">"other"</span> <span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span>
+            <span class="s2">"box"</span> <span class="o">:</span> <span class="p">{</span>
+                <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+                <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"当输入值不合法时，出现提示"</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 必须选择至少required.min个选项 */</span>
+            <span class="s2">"max"</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span><span class="cm">/* 必须选择不超过required.max个选项 */</span>
+            <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span>
+        <span class="p">},</span>
+        <span class="s2">"display"</span> <span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"perline"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">"random"</span> <span class="o">:</span> <span class="kc">false</span>
+        <span class="p">},</span>
+        <span class="s2">"exclusive"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 排他选项（注意：这是一个特殊选项，其id为-2） */</span>
+            <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否出现排他选项 */</span>
+            <span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"以上都不是"</span><span class="cm">/* 自定义选项名称 */</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
 
-		<span class="p">{</span>
-			<span class="s2">"_id"</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">"5009261b7e33b020d04a1780"</span><span class="p">),</span>
-			<span class="s2">"id"</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-			<span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"text"</span><span class="p">,</span>
-			<span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个单行文本"</span><span class="p">,</span>
-			<span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个单行文本"</span><span class="p">,</span>
-			<span class="s2">"logic_id"</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span><span class="cm">/* 逻辑id，0表示此题没有任何逻辑 */</span>
-			<span class="s2">"quotes"</span> <span class="o">:</span> <span class="p">[],</span>
-			<span class="s2">"limit"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入限制 */</span>
-				<span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"char/number/email/url/date"</span><span class="p">,</span><span class="cm">/* ENUM char:字符串 number:数字 email:邮箱 url:链接 date:日期 */</span>
-				<span class="s2">"min"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-				<span class="s2">"max"</span> <span class="o">:</span> <span class="mi">20</span><span class="err">，</span>
-				<span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"请输入2～20个字符"</span>
-			<span class="p">},</span>
-			<span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span>
-				<span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-				<span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span>
-			<span class="p">}</span>
-		<span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/questions/3'</span><span class="p">,</span>
+        <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
+        <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"text"</span><span class="p">,</span>
+        <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个单行文本"</span><span class="p">,</span>
+        <span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个单行文本"</span><span class="p">,</span>
+        <span class="s2">"logics"</span> <span class="o">:</span> <span class="p">[],</span><span class="cm">/* 逻辑id数组，顺序表示逻辑的优先级 */</span>
+        <span class="s2">"quotes"</span> <span class="o">:</span> <span class="p">[],</span>
+        <span class="s2">"limit"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入限制 */</span>
+            <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"char/number/email/url/date"</span><span class="p">,</span><span class="cm">/* ENUM char:字符串 number:数字 email:邮箱 url:链接 date:日期 */</span>
+            <span class="s2">"min"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">"max"</span> <span class="o">:</span> <span class="mi">20</span><span class="err">，</span>
+            <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"请输入2～20个字符"</span>
+        <span class="p">},</span>
+        <span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
 
-		<span class="p">{</span>
-			<span class="s2">"_id"</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">"50091700337d221abed72ac4"</span><span class="p">),</span>
-			<span class="s2">"id"</span> <span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
-			<span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"textarea"</span><span class="p">,</span>
-			<span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个多行文本"</span><span class="p">,</span>
-			<span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个多行文本"</span><span class="p">,</span>
-			<span class="s2">"logic_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 逻辑id，0表示此题没有任何逻辑 */</span>
-			<span class="s2">"quotes"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
-			<span class="s2">"limit"</span> <span class="o">:</span> <span class="p">{</span>
-				<span class="s2">"min"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-				<span class="s2">"max"</span> <span class="o">:</span> <span class="mi">20</span><span class="err">，</span>
-				<span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"请输入2～20个字符"</span>
-			<span class="p">},</span>
-			<span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span>
-				<span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-				<span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">]</span>
-<span class="p">}</span></code></pre>
+    <span class="p">{</span>
+        <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/questions/4'</span><span class="p">,</span>
+        <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
+        <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"textarea"</span><span class="p">,</span>
+        <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个多行文本"</span><span class="p">,</span>
+        <span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个多行文本"</span><span class="p">,</span>
+        <span class="s2">"logic_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 逻辑id，0表示此题没有任何逻辑 */</span>
+        <span class="s2">"quotes"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+        <span class="s2">"limit"</span> <span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"min"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">"max"</span> <span class="o">:</span> <span class="mi">20</span><span class="err">，</span>
+            <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"请输入2～20个字符"</span>
+        <span class="p">},</span>
+        <span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">]</span></code></pre>
 
-<h2 id="p2">2. 创建问题</h2>
-<pre><code>POST /question 
+<h2 id="p3">3. 创建问题</h2>
+
+<pre><code>POST /surveys/:survey_id/pages/:page_id/questions
 </code></pre>
 
 <h3 id="section-2">请求</h3>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
-	<span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-	<span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"radio"</span><span class="p">,</span><span class="cm">/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */</span>
-	<span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个单选"</span><span class="p">,</span>
-	<span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个单选题啊单选题"</span><span class="p">,</span>
-	<span class="s2">"options"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 数组value为选项内容，数组key为选项的id，数组的顺序即是选项的显示顺序 */</span>
-		<span class="s2">"option_1"</span><span class="p">,</span>
-		<span class="s2">"option_2"</span><span class="p">,</span>
-		<span class="s2">"option_3"</span>
-	<span class="p">],</span>
-	<span class="s2">"logic_id"</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span><span class="cm">/* 逻辑id，0表示此题没有任何逻辑 */</span>
-	<span class="s2">"quotes"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-	<span class="s2">"other"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 其他选项（注意：这是一个特殊选项，其id为-1） */</span>
-		<span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否显示其他选项 */</span>
-		<span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span><span class="cm">/* 自定义选项名称 */</span>
-		<span class="s2">"box"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入框 */</span>
-			<span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否出现输入框 */</span>
-			<span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 允许输入的最少字符数 */</span>
-			<span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span><span class="cm">/* 允许输入的最多字符数 */</span>
-			<span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"当输入值不合法时，出现提示"</span><span class="cm">/* 当输入框中的字符数不符合要求时的提示信息 */</span>
-		<span class="p">}</span>
-	<span class="p">},</span>
-	<span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 必答 */</span>
-		<span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否设为必答题 */</span>
-		<span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span><span class="cm">/* 没有回答时的提示信息 */</span>
-	<span class="p">},</span>
-	<span class="s2">"display"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 显示相关 */</span>
-		<span class="s2">"style"</span> <span class="o">:</span> <span class="s2">"radio/select"</span><span class="p">,</span><span class="cm">/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为true时，other的前端实现要与此设置保持一致) */</span>
-		<span class="s2">"perline"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span><span class="cm">/* 每行显示选项数（注意：当上面的display.style设置为select时此设置无意义） */</span>
-		<span class="s2">"random"</span> <span class="o">:</span> <span class="kc">false</span><span class="cm">/* 是否随机显示选项（注意：顺序打乱 id不能变） */</span>
-	<span class="p">}</span>
+    <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"radio"</span><span class="p">,</span><span class="cm">/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */</span>
+    <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个单选"</span><span class="p">,</span>
+    <span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个单选题啊单选题"</span><span class="p">,</span>
+    <span class="s2">"options"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 数组value为选项内容，数组key为选项的id，数组的顺序即是选项的显示顺序 */</span>
+        <span class="s2">"option_1"</span><span class="p">,</span>
+        <span class="s2">"option_2"</span><span class="p">,</span>
+        <span class="s2">"option_3"</span>
+    <span class="p">],</span>
+    <span class="s2">"logics"</span> <span class="o">:</span> <span class="p">[],</span><span class="cm">/* 逻辑id数组，顺序表示逻辑的优先级 */</span>
+    <span class="s2">"quotes"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="s2">"other"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 其他选项（注意：这是一个特殊选项，其id为-1） */</span>
+        <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否显示其他选项 */</span>
+        <span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span><span class="cm">/* 自定义选项名称 */</span>
+        <span class="s2">"box"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入框 */</span>
+            <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否出现输入框 */</span>
+            <span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 允许输入的最少字符数 */</span>
+            <span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span><span class="cm">/* 允许输入的最多字符数 */</span>
+            <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"当输入值不合法时，出现提示"</span><span class="cm">/* 当输入框中的字符数不符合要求时的提示信息 */</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 必答 */</span>
+        <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否设为必答题 */</span>
+        <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span><span class="cm">/* 没有回答时的提示信息 */</span>
+    <span class="p">},</span>
+    <span class="s2">"display"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 显示相关 */</span>
+        <span class="s2">"style"</span> <span class="o">:</span> <span class="s2">"radio/select"</span><span class="p">,</span><span class="cm">/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为true时，other的前端实现要与此设置保持一致) */</span>
+        <span class="s2">"perline"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span><span class="cm">/* 每行显示选项数（注意：当上面的display.style设置为select时此设置无意义） */</span>
+        <span class="s2">"random"</span> <span class="o">:</span> <span class="kc">false</span><span class="cm">/* 是否随机显示选项（注意：顺序打乱 id不能变） */</span>
+    <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="p3">3. 获取指定问题详情</h2>
-<pre><code>GET /questions/:id
+<h3 id="section-3">响应</h3>
+
+<pre class="headers no-response">
+<code>Status: 201 No Content
+Location: http://api.surveymaster.com.cn/surveys/1/questions
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+{
+	"id" : 1,/* 问题id(自增) */
+	/* 问题详情 */
+}
 </code></pre>
 
-<h3 id="section-3">响应</h3>
+<h2 id="p4">4. 获取指定问题详情</h2>
+
+<pre><code>GET /surveys/pages/questions/:id
+</code></pre>
+
+<h3 id="section-4">响应</h3>
+
 <pre class="headers">
 <code>Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
 </code></pre>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
-	<span class="s2">"_id"</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">"500916d3337d221abed72ac3"</span><span class="p">),</span>
-	<span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 问题的id（自增 全局唯一） */</span>
-	<span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-	<span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"radio"</span><span class="p">,</span><span class="cm">/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */</span>
-	<span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个单选"</span><span class="p">,</span>
-	<span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个单选题啊单选题"</span><span class="p">,</span>
-	<span class="s2">"options"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 数组value为选项内容，数组key为选项的id，数组的顺序即是选项的显示顺序 */</span>
-		<span class="s2">"option_1"</span><span class="p">,</span>
-		<span class="s2">"option_2"</span><span class="p">,</span>
-		<span class="s2">"option_3"</span>
-	<span class="p">],</span>
-	<span class="s2">"logic_id"</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span><span class="cm">/* 逻辑id，0表示此题没有任何逻辑 */</span>
-	<span class="s2">"quotes"</span> <span class="o">:</span> <span class="p">[],</span>
-	<span class="s2">"other"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 其他选项（注意：这是一个特殊选项，其id为-1） */</span>
-		<span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否显示其他选项 */</span>
-		<span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span><span class="cm">/* 自定义选项名称 */</span>
-		<span class="s2">"box"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入框 */</span>
-			<span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否出现输入框 */</span>
-			<span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 允许输入的最少字符数 */</span>
-			<span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span><span class="cm">/* 允许输入的最多字符数 */</span>
-			<span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"当输入值不合法时，出现提示"</span><span class="cm">/* 当输入框中的字符数不符合要求时的提示信息 */</span>
-		<span class="p">}</span>
-	<span class="p">},</span>
-	<span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 必答 */</span>
-		<span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否设为必答题 */</span>
-		<span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span><span class="cm">/* 没有回答时的提示信息 */</span>
-	<span class="p">},</span>
-	<span class="s2">"display"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 显示相关 */</span>
-		<span class="s2">"style"</span> <span class="o">:</span> <span class="s2">"radio/select"</span><span class="p">,</span><span class="cm">/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为true时，other的前端实现要与此设置保持一致) */</span>
-		<span class="s2">"perline"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span><span class="cm">/* 每行显示选项数（注意：当上面的display.style设置为select时此设置无意义） */</span>
-		<span class="s2">"random"</span> <span class="o">:</span> <span class="kc">false</span><span class="cm">/* 是否随机显示选项（注意：顺序打乱 id不能变） */</span>
-	<span class="p">}</span>
+    <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 问题的id（自增 全局唯一） */</span>
+    <span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/questions/1'</span><span class="p">,</span>
+    <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"radio"</span><span class="p">,</span><span class="cm">/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */</span>
+    <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个单选"</span><span class="p">,</span>
+    <span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个单选题啊单选题"</span><span class="p">,</span>
+    <span class="s2">"options"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 数组value为选项内容，数组key为选项的id，数组的顺序即是选项的显示顺序 */</span>
+        <span class="s2">"option_1"</span><span class="p">,</span>
+        <span class="s2">"option_2"</span><span class="p">,</span>
+        <span class="s2">"option_3"</span>
+    <span class="p">],</span>
+    <span class="s2">"logics"</span> <span class="o">:</span> <span class="p">[],</span><span class="cm">/* 逻辑id数组，顺序表示逻辑的优先级 */</span>
+    <span class="s2">"quotes"</span> <span class="o">:</span> <span class="p">[],</span>
+    <span class="s2">"other"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 其他选项（注意：这是一个特殊选项，其id为-1） */</span>
+        <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否显示其他选项 */</span>
+        <span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span><span class="cm">/* 自定义选项名称 */</span>
+        <span class="s2">"box"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入框 */</span>
+            <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否出现输入框 */</span>
+            <span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 允许输入的最少字符数 */</span>
+            <span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span><span class="cm">/* 允许输入的最多字符数 */</span>
+            <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"当输入值不合法时，出现提示"</span><span class="cm">/* 当输入框中的字符数不符合要求时的提示信息 */</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 必答 */</span>
+        <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否设为必答题 */</span>
+        <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span><span class="cm">/* 没有回答时的提示信息 */</span>
+    <span class="p">},</span>
+    <span class="s2">"display"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 显示相关 */</span>
+        <span class="s2">"style"</span> <span class="o">:</span> <span class="s2">"radio/select"</span><span class="p">,</span><span class="cm">/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为true时，other的前端实现要与此设置保持一致) */</span>
+        <span class="s2">"perline"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span><span class="cm">/* 每行显示选项数（注意：当上面的display.style设置为select时此设置无意义） */</span>
+        <span class="s2">"random"</span> <span class="o">:</span> <span class="kc">false</span><span class="cm">/* 是否随机显示选项（注意：顺序打乱 id不能变） */</span>
+    <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="p4">4. 修改指定的问题</h2>
-<pre><code>PATCH /questions/:id ###请求 &lt;pre class="highlight"&gt; &lt;code class="language-javascript"&gt; {
-"type" : "radio",/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本(注意：允许改题型) */
-"title" : "我是一个单选",
-"desc" : "我是一个单选题啊单选题",
-"options" : [/* 数组value为选项内容，数组key为选项的id，数组的顺序即是选项的显示顺序 */
-	"option_1",
-	"option_2",
-	"option_3"
-],
-"quotes" : [],
-"other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
-	"status" : true,/* 是否显示其他选项 */
-	"text" : "其他",/* 自定义选项名称 */
-	"box" : {/* 输入框 */
-		"status" : true,/* 是否出现输入框 */
-		"min" : 1,/* 允许输入的最少字符数 */
-		"max" : 10,/* 允许输入的最多字符数 */
-		"prompt" : "当输入值不合法时，出现提示"/* 当输入框中的字符数不符合要求时的提示信息 */
-	}
-},
-"required" : {/* 必答 */
-	"status" : true,/* 是否设为必答题 */
-	"prompt" : "这一项是必填的噢！"/* 没有回答时的提示信息 */
-},
-"display" : {/* 显示相关 */
-	"style" : "radio/select",/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为true时，other的前端实现要与此设置保持一致) */
-	"perline" : 2,/* 每行显示选项数（注意：当上面的display.style设置为select时此设置无意义） */
-	"random" : false/* 是否随机显示选项（注意：顺序打乱 id不能变） */
-} } &lt;/code&gt;&lt;/pre&gt;
+<h2 id="p5">5. 修改指定的问题</h2>
+
+<pre><code>PATCH /surveys/pages/questions/:id
 </code></pre>
 
-<h2 id="p5">5. 删除指定的问题</h2>
-<pre><code>DELETE /questions/:id ###请求 &lt;pre class="highlight"&gt; &lt;code class="language-javascript"&gt; { } &lt;/code&gt;&lt;/pre&gt;
+<h3 id="section-5">请求</h3>
+<pre class="highlight">
+<code class="language-javascript"><span class="p">{</span>
+    <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"radio"</span><span class="p">,</span><span class="cm">/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本(注意：允许改题型) */</span>
+    <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个单选"</span><span class="p">,</span>
+    <span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个单选题啊单选题"</span><span class="p">,</span>
+    <span class="s2">"options"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 数组value为选项内容，数组key为选项的id，数组的顺序即是选项的显示顺序 */</span>
+        <span class="s2">"option_1"</span><span class="p">,</span>
+        <span class="s2">"option_2"</span><span class="p">,</span>
+        <span class="s2">"option_3"</span>
+    <span class="p">],</span>
+    <span class="s2">"quotes"</span> <span class="o">:</span> <span class="p">[],</span>
+    <span class="s2">"other"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 其他选项（注意：这是一个特殊选项，其id为-1） */</span>
+        <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否显示其他选项 */</span>
+        <span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span><span class="cm">/* 自定义选项名称 */</span>
+        <span class="s2">"box"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入框 */</span>
+            <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否出现输入框 */</span>
+            <span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 允许输入的最少字符数 */</span>
+            <span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span><span class="cm">/* 允许输入的最多字符数 */</span>
+            <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"当输入值不合法时，出现提示"</span><span class="cm">/* 当输入框中的字符数不符合要求时的提示信息 */</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 必答 */</span>
+        <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否设为必答题 */</span>
+        <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span><span class="cm">/* 没有回答时的提示信息 */</span>
+    <span class="p">},</span>
+    <span class="s2">"display"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 显示相关 */</span>
+        <span class="s2">"style"</span> <span class="o">:</span> <span class="s2">"radio/select"</span><span class="p">,</span><span class="cm">/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为true时，other的前端实现要与此设置保持一致) */</span>
+        <span class="s2">"perline"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span><span class="cm">/* 每行显示选项数（注意：当上面的display.style设置为select时此设置无意义） */</span>
+        <span class="s2">"random"</span> <span class="o">:</span> <span class="kc">false</span><span class="cm">/* 是否随机显示选项（注意：顺序打乱 id不能变） */</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="section-6">响应</h3>
+
+<pre class="headers no-response">
+<code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+{
+/* 修改后的问题详情 */
+}
+</code></pre>
+
+<h2 id="p6">6. 删除指定的问题</h2>
+
+<pre><code>DELETE /surveys/pages/questions/:id
+</code></pre>
+
+<h3 id="section-7">响应</h3>
+
+<pre class="headers no-response">
+<code>Status: 204 No Content
+Link: http://api.surveymaster.com.cn/surveys/pages/1/questions; rel="questions"
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
 </code></pre>
       </div>
 
