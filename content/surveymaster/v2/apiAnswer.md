@@ -105,14 +105,17 @@ title: SurveyMaster API - 答案相关接口（共6个）
 </code></pre>
 <pre class="highlight">
 <code class="language-javascript">
-{
-	"id" : 1,/* 答案id */
-	"respondent_id" : "1",
-	"collector_id" : 1,
-	"collector_name" : "新浪汽车",
-	"created_at" : 123456789,// 开始答题时间
-	"status" : "-1/0/1"// -1:被甄别 0:未答完 1:完成
-}
+[
+	{
+		"id" : 1,/* 答案id */
+		"url" : 'http://api.surveymaster.com.cn/surveys/answers/1',
+		"respondent_id" : "1",
+		"collector_id" : 1,
+		"collector_name" : "新浪汽车",
+		"created_at" : 123456789,// 开始答题时间
+		"status" : "-1/0/1"// -1:被甄别 0:未答完 1:完成
+	}
+]
 </code></pre>
 
 <h2 id="p3">3. 编辑指定答案（注意：特殊功能，使用者非受访者本人）</h2>

@@ -23,7 +23,7 @@ X-RateLimit-Remaining: 4999
         "questions" : [
             {
                 "id" : 1,/* 问题的id（自增 全局唯一） */
-                "url" : 'http://api.surveymaster.com.cn/surveys/112/pages/1/questions/1',
+                "url" : 'http://api.surveymaster.com.cn/surveys/pages/questions/1',
                 "survey_id" : 112,
                 "type" : 'radio',
                 "title" : "我是一个单选",
@@ -35,7 +35,7 @@ X-RateLimit-Remaining: 4999
             },
             {
                 "id" : 2,
-                "url" : 'http://api.surveymaster.com.cn/surveys/112/pages/1/questions/2',
+                "url" : 'http://api.surveymaster.com.cn/surveys/pages/questions/2',
                 "survey_id" : 112,
                 "type" : "checkbox",
                 "title" : "我是一个多选",
@@ -49,7 +49,7 @@ X-RateLimit-Remaining: 4999
             },
             {
                 "id" : 3,
-                "url" : 'http://api.surveymaster.com.cn/surveys/112/pages/1/questions/3',
+                "url" : 'http://api.surveymaster.com.cn/surveys/pages/questions/3',
                 "survey_id" : 112,
                 "type" : "text",
                 "title" : "我是一个单行文本",
@@ -61,7 +61,7 @@ X-RateLimit-Remaining: 4999
             },
             {
                 "id" : 4,
-                "url" : 'http://api.surveymaster.com.cn/surveys/112/pages/1/questions/4',
+                "url" : 'http://api.surveymaster.com.cn/surveys/pages/questions/4',
                 "survey_id" : 112,
                 "type" : "textarea",
                 "title" : "我是一个多行文本",
@@ -81,9 +81,9 @@ X-RateLimit-Remaining: 4999
 ]
 </code></pre>
 
-<h2 id="p2">2. 获取指定问卷某一页的问题列表</h2>
+<h2 id="p2">2. 获取指定页的问题列表</h2>
 
-    GET /surveys/:survey_id/pages/:page_id/questions
+    GET /surveys/pages/:page_id/questions
 
 ###响应
 <pre class="headers">
@@ -96,7 +96,7 @@ X-RateLimit-Remaining: 4999
 [
     {
         "id" : 1,/* 问题的id（自增 全局唯一） */
-        "url" : 'http://api.surveymaster.com.cn/surveys/112/pages/1/questions/1',
+        "url" : 'http://api.surveymaster.com.cn/surveys/pages/questions/1',
         "survey_id" : 112,
         "type" : "radio",/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */
         "title" : "我是一个单选",
@@ -131,7 +131,7 @@ X-RateLimit-Remaining: 4999
 
     {
         "id" : 2,
-        "url" : 'http://api.surveymaster.com.cn/surveys/112/pages/1/questions/2',
+        "url" : 'http://api.surveymaster.com.cn/surveys/pages/questions/2',
         "survey_id" : 112,
         "type" : "checkbox",
         "title" : "我是一个多选",
@@ -171,7 +171,7 @@ X-RateLimit-Remaining: 4999
 
     {
         "id" : 3,
-        "url" : 'http://api.surveymaster.com.cn/surveys/112/pages/1/questions/3',
+        "url" : 'http://api.surveymaster.com.cn/surveys/pages/questions/3',
         "survey_id" : 112,
         "type" : "text",
         "title" : "我是一个单行文本",
@@ -192,7 +192,7 @@ X-RateLimit-Remaining: 4999
 
     {
         "id" : 4,
-        "url" : 'http://api.surveymaster.com.cn/surveys/112/pages/1/questions/4',
+        "url" : 'http://api.surveymaster.com.cn/surveys/pages/questions/4',
         "survey_id" : 112,
         "type" : "textarea",
         "title" : "我是一个多行文本",
@@ -255,7 +255,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p4">4. 获取指定问题详情</h2>
 
-    GET /surveys/:survey_id/pages/:page_id/questions/:id
+    GET /surveys/pages/questions/:id
 
 ###响应
 
@@ -268,7 +268,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 {
     "id" : 1,/* 问题的id（自增 全局唯一） */
-    "url" : 'http://api.surveymaster.com.cn/surveys/112/pages/1/questions/1',
+    "url" : 'http://api.surveymaster.com.cn/surveys/pages/questions/1',
     "survey_id" : 1,
     "type" : "radio",/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */
     "title" : "我是一个单选",
@@ -304,7 +304,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p5">5. 修改指定的问题</h2>
 
-    PATCH /surveys/:survey_id/pages/:page_id/questions/:id
+    PATCH /surveys/pages/questions/:id
 
 ###请求
 <pre class="highlight">
@@ -351,13 +351,13 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p6">6. 删除指定的问题</h2>
 
-    DELETE /surveys/:survey_id/pages/:page_id/questions/:id
+    DELETE /surveys/pages/questions/:id
 
 ###响应
 
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Link: http://api.surveymaster.com.cn/surveys/112/pages/1/questions; rel="questions"
+Link: http://api.surveymaster.com.cn/surveys/pages/1/questions; rel="questions"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>

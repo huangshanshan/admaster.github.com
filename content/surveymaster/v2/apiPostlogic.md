@@ -3,7 +3,7 @@ title: SurveyMaster API - 后置逻辑相关接口（共5个）
 ---
 
 <h2 id="p1">1. 获取指定页的后置逻辑列表</h2>
-	GET /surveys/:survey_id/pages/:page_id/postlogics
+	GET /surveys/pages/:page_id/postlogics
 
 ###响应
 <pre class="headers">
@@ -14,6 +14,7 @@ title: SurveyMaster API - 后置逻辑相关接口（共5个）
 [/* 每一个数组元素就是一条逻辑，按先后顺序依次检查组内各逻辑，一旦存在符合条件的逻辑，检查即终止 */
 	{
 		"id" : 1,
+		"url" : 'http://api.surveymaster.com.cn/surveys/pages/postlogics/1',
 		"goto" : 8,/* 跳转到第几页 */
 		"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 			{/* 单选题 */
@@ -30,6 +31,7 @@ title: SurveyMaster API - 后置逻辑相关接口（共5个）
 
 	{
 		"id" : 2,
+		"url" : 'http://api.surveymaster.com.cn/surveys/pages/postlogics/2',
 		"goto" : 10,/* 跳转到第几页 */
 		"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 			{/* 单行文本 */
@@ -52,7 +54,7 @@ title: SurveyMaster API - 后置逻辑相关接口（共5个）
 </code></pre>
 
 <h2 id="p2">2. 获取指定的后置逻辑（页逻辑）</h2>
-	GET /surveys/:survey_id/pages/:page_id/postlogics/:id
+	GET /surveys/pages/postlogics/:id
 
 ###响应
 <pre class="headers">
@@ -61,6 +63,9 @@ title: SurveyMaster API - 后置逻辑相关接口（共5个）
 <pre class="highlight">
 <code class="language-javascript">
 {
+	"id" : 1,/* 后置逻辑的id（自增 全局唯一） */
+	"url" : 'http://api.surveymaster.com.cn/surveys/pages/postlogics/1',
+	"page_id" : 1,
 	"goto" : 10,/* 跳转到第几页 */
 	"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 		{/* 单选题 */
@@ -96,7 +101,7 @@ title: SurveyMaster API - 后置逻辑相关接口（共5个）
 </code></pre>
 
 <h2 id="p3">3. 添加后置逻辑</h2>
-	POST /surveys/:survey_id/pages/:page_id/postlogics
+	POST /surveys/pages/:page_id/postlogics
 
 ###请求
 <pre class="highlight">
@@ -137,7 +142,7 @@ title: SurveyMaster API - 后置逻辑相关接口（共5个）
 </code></pre>
 
 <h2 id="p4">4. 修改指定的后置逻辑</h2>
-	PATCH /surveys/:survey_id/pages/:page_id/postlogics/:id
+	PATCH /surveys/pages/postlogics/:id
 ###请求
 <pre class="highlight">
 <code class="language-javascript">
@@ -177,5 +182,5 @@ title: SurveyMaster API - 后置逻辑相关接口（共5个）
 </code></pre>
 
 <h2 id="p5">5. 删除指定的后置逻辑</h2>
-	DELETE /surveys/:survey_id/pages/:page_id/postlogics/:id
+	DELETE /surveys/pages/postlogics/:id
 
