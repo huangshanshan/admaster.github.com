@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>SurveyMaster API - 问题相关接口（共4个）</title>
+  <title>SurveyMaster API - 页相关</title>
   <link href="/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -31,19 +31,14 @@
 
     <div id="wrapper">
       <div class="content">
-    <h2 id="p1">1. 创建页</h2>
+    <h1 id="api---4">API - 页相关（共4个）</h1>
+
+<h2 id="p1">1. 创建页</h2>
 
 <pre><code>POST /surveys/:survey_id/pages
 </code></pre>
 
-<h3 id="section">请求</h3>
-
-<pre class="highlight">
-<code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
-<span class="p">}</span></code></pre>
-
-<h3 id="section-1">响应</h3>
+<h3 id="section">响应</h3>
 
 <pre class="headers">
 <code>Status: 201 Created
@@ -61,10 +56,10 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p2">2. 获取指定页详情</h2>
 
-<pre><code>GET /surveys/:survey_id/pages/:id
+<pre><code>GET /surveys/pages/:id
 </code></pre>
 
-<h3 id="section-2">响应</h3>
+<h3 id="section-1">响应</h3>
 
 <pre class="headers">
 <code>Status: 200 OK
@@ -74,7 +69,7 @@ X-RateLimit-Remaining: 4999
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/112/pages/1'</span><span class="p">,</span>
+    <span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/1'</span><span class="p">,</span>
     <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
     <span class="s2">"questions"</span> <span class="o">:</span>
     <span class="p">[</span>
@@ -119,17 +114,17 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">3. 修改指定页</h2>
 
-<pre><code>PATCH /surveys/:survey_id/pages/:id
+<pre><code>PATCH /surveys/pages/:id
 </code></pre>
 
-<h2 id="section-3">请求</h2>
+<h2 id="section-2">请求</h2>
 
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
   <span class="s2">"questions"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="section-4">响应</h3>
+<h3 id="section-3">响应</h3>
 
 <pre class="headers no-response">
 <code>Status: 204 No Content
@@ -139,14 +134,14 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p4">4. 删除指定页（标记状态）</h2>
 
-<pre><code>DELETE /surveys/:survey_id/pages/:id
+<pre><code>DELETE /surveys/pages/:id
 </code></pre>
 
-<h3 id="section-5">响应</h3>
+<h3 id="section-4">响应</h3>
 
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Link: http://api.surveymaster.com.cn/surveys/112/pages; rel="pages"
+Location: http://api.surveymaster.com.cn/surveys/112/pages
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
