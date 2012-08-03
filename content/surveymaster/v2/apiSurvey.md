@@ -77,10 +77,11 @@ page
     "head" : "感谢您参与我们的问卷调查。",
     "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
     "show_progressbar" : "no",
-    "is_onepage" : "no",
     "show_page_number" : "yes",
     "sequence_type" : "global",
     "page_ids" : [1,2,3,4,5,6],
+    "is_onepage" : "no",
+    "is_deleted" : "no",
     "landing_count" : 50000,
     "answered_count" : 30000,
     "finished_count" : 5000
@@ -162,10 +163,11 @@ page
     "head" : "感谢您参与我们的问卷调查。",
     "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
     "show_progressbar" : "no",
-    "is_onepage" : "no",
     "show_page_number" : "yes",
     "sequence_type" : "global",
     "page_ids" : [1,2,3,4,5,6],
+    "is_onepage" : "no",
+    "is_deleted" : "no",
     "landing_count" : 50000,
     "answered_count" : 30000,
     "finished_count" : 5000
@@ -182,7 +184,7 @@ page
 
 ##请求
 
-<logo
+logo
 : _可选_ *String* - LOGO图标地址
 
 title
@@ -212,7 +214,7 @@ sequence\_type
 * `global` - 全局编号方式
 * `in_page` - 页内编号方式
 
-pre class="highlight">
+<pre class="highlight">
 <code class="language-javascript">
 {
   "logo" : "http://domain.com/img/logo.gif",
@@ -247,10 +249,11 @@ Location: http://api.surveymaster.com.cn/surveys
   "head" : "感谢您参与我们的问卷调查。",
   "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
   "show_progressbar" : "no",
-  "is_onepage" : "no",
   "show_page_number" : "yes",
   "sequence_type" : "global",
   "page_ids" : [],
+  "is_onepage" : "no",
+  "is_deleted" : "no",
   "landing_count" : 0,
   "answered_count" : 0,
   "finished_count" : 0
@@ -280,10 +283,11 @@ Location: http://api.surveymaster.com.cn/surveys
   "head" : "感谢您参与我们的问卷调查。",
   "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
   "show_progressbar" : "no",
-  "is_onepage" : "no",
   "show_page_number" : "yes",
   "sequence_type" : "global",
   "page_ids" : [1,2,3,4,5],
+  "is_onepage" : "no",
+  "is_deleted" : "no",
   "landing_count" : 0,
   "answered_count" : 0,
   "finished_count" : 0
