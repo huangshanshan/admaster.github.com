@@ -198,9 +198,6 @@ X-RateLimit-Remaining: 4999
 <code>Status: 204 No Content
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
-{
-/* 修改后的后置逻辑 */
-}
 </code></pre>
 
 <h2 id="p5">5. 删除指定的后置逻辑</h2>
