@@ -2,23 +2,26 @@
 title: SurveyMaster API - 问卷相关
 ---
 
-#API - 问卷相关(共5个)
+#API - 问卷相关(共6个)
 
-<h2 id="p1">1. 获取当前登录用户的问卷列表</h2>
+<h2 id="p1">1. 获取问卷列表</h2>
 
-    GET /users/surveys
+    GET /surveys
+
+> 根据当前用户权限，获取此用户可查看的问卷列表
+
+> 普通用户仅查看自己建立的问卷
+
+> 管理员可查看所有问卷
 
 ###参数
-
-fields
-: _可选_ *String* - 字段列表
 
 sort
 : _可选_ *String* - 指定排序方式
 
-* `id` - 按问卷ID排序
+* `id` - 按问卷ID排序（_默认_）
 * `created_at` - 建立时间
-* `modified_at` - 最后更新时间
+* `updated_at` - 最后更新时间
 * `landing_count` - 查看问卷用户数
 * `answered_count` - 回答问卷用户数
 * `finished_count` - 完整回答问卷用户数
@@ -29,17 +32,29 @@ direction
 * `asc` 升序
 * `desc` 降序 (_默认_)
 
-start\_time/end\_time
-: _可选_ *Int* - 指定提取问卷列表（created\_at）的开始及结束时间，不指定start\_at，则不限定开始时间，不指定end\_at，则不限定结束时间
+created_start
+: _可选_ *Int* - 指定此参数，将获取建立时间在此范围之后的问卷
+
+* `2012-08-03` - 符合ISO 8601格式的日期形式
+* `2012-07-31T09:36:27Z` - 符合ISO 8601格式的时间格式
+
+created_end
+: _可选_ *Int* - 指定此参数，将获取建立时间在此范围之前的问卷
+
+* 同`created_start`
+
+updated_start
+: _可选_ *Int* - 指定此参数，将获取最后修改时间在此范围之后的问卷
+
+* 同`created_start`
+
+updated_end
+: _可选_ *Int* - 指定此参数，将获取最后修改时间在此范围之前的问卷
+
+* 同`created_start`
 
 per\_page
 : _可选_ *Int* - 每页显示记录数，默认30
-
-* `5`
-* `10`
-* `20`
-* `30` - 默认
-* `50`
 
 page
 : _可选_ *Int* - 页数，从1开始
@@ -48,31 +63,28 @@ page
 
 <pre class="headers">
 <code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
 </code></pre>
 <pre class="highlight">
 <code class="language-javascript">
 [
   {
     "id" : 112,
-    "url" : "http://api.surveymaster.com/users/surveys/112",
+    "url" : "http://api.surveymaster.com/surveys/112",
+    "logo" : "http://domain.com/img/logo.gif",
     "title" : "伊利8月新生活",
     "label" : "第一波",
-    "owner" : 123,
+    "owner_id" : 123,
     "created_at" : "2012-07-31T09:36:27Z",
-    "landing_count" : 50000,
-    "answered_count" : 30000,
-    "finished_count" : 5000,
     "head" : "首先感谢您参与我们的问卷调查。完成调查的每位用户均有机会参与抽奖,本次调查设置的奖项是：国际知名品牌提供的运动服及运动鞋。请根据您的实际情况逐项填写,您的意见或建议对我们很重要,完成问卷只需花费您短短五分钟",
     "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
-    "progress" : true,
-    "logo" : "http://domain.com/img/logo.gif",
-    "lang" : "en",
-    "onepage" : false,
-    "page_numbering" : true,
-    "question_numbering" : "global",
-    "pages" : [1,2,3,4,5,6]
+    "show_progressbar" : "no",
+    "is_onepage" : "no",
+    "show_page_number" : "yes",
+    "sequence_type" : "global",
+    "page_ids" : [1,2,3,4,5,6],
+    "landing_count" : 50000,
+    "answered_count" : 30000,
+    "finished_count" : 5000
   },
   {
     /* 另一文档数据 */
@@ -80,27 +92,98 @@ X-RateLimit-Remaining: 4999
 ]
 </code></pre>
 
-<h2 id="p3">2. 创建问卷</h2>
+<h2 id="p2">2. 获取某个用户问卷列表</h2>
 
-    POST /users/surveys
+    GET /users/:user_id/surveys
+
+> 仅管理员可获取指定用户的问卷列表
+
+###参数
+
+sort
+: _可选_ *String* - 指定排序方式
+
+* `id` - 按问卷ID排序（_默认_）
+* `created_at` - 建立时间
+* `updated_at` - 最后更新时间
+* `landing_count` - 查看问卷用户数
+* `answered_count` - 回答问卷用户数
+* `finished_count` - 完整回答问卷用户数
+
+direction
+: _可选_ *String* - 排序方式
+
+* `asc` 升序
+* `desc` 降序 (_默认_)
+
+created_start
+: _可选_ *Int* - 指定此参数，将获取建立时间在此范围之后的问卷
+
+* `2012-08-03` - 符合ISO 8601格式的日期形式
+* `2012-07-31T09:36:27Z` - 符合ISO 8601格式的时间格式
+
+created_end
+: _可选_ *Int* - 指定此参数，将获取建立时间在此范围之前的问卷
+
+* 同`created_start`
+
+updated_start
+: _可选_ *Int* - 指定此参数，将获取最后修改时间在此范围之后的问卷
+
+* 同`created_start`
+
+updated_end
+: _可选_ *Int* - 指定此参数，将获取最后修改时间在此范围之前的问卷
+
+* 同`created_start`
+
+per\_page
+: _可选_ *Int* - 每页显示记录数，默认30
+
+page
+: _可选_ *Int* - 页数，从1开始
+
+###响应
+
+<pre class="headers">
+<code>Status: 200 OK
+</code></pre>
+<pre class="highlight">
+<code class="language-javascript">
+[
+  {
+    "id" : 112,
+    "url" : "http://api.surveymaster.com/surveys/112",
+    "logo" : "http://domain.com/img/logo.gif",
+    "title" : "伊利8月新生活",
+    "label" : "第一波",
+    "owner_id" : 123,
+    "created_at" : "2012-07-31T09:36:27Z",
+    "head" : "首先感谢您参与我们的问卷调查。完成调查的每位用户均有机会参与抽奖,本次调查设置的奖项是：国际知名品牌提供的运动服及运动鞋。请根据您的实际情况逐项填写,您的意见或建议对我们很重要,完成问卷只需花费您短短五分钟",
+    "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
+    "show_progressbar" : "no",
+    "is_onepage" : "no",
+    "show_page_number" : "yes",
+    "sequence_type" : "global",
+    "page_ids" : [1,2,3,4,5,6],
+    "landing_count" : 50000,
+    "answered_count" : 30000,
+    "finished_count" : 5000
+  },
+  {
+    /* 另一文档数据 */
+  }
+]
+</code></pre>
+
+<h2 id="p3">3. 创建问卷</h2>
+
+    POST /surveys
 
 ##请求
 
-<pre class="highlight">
-<code class="language-javascript">
-{
-  "title" : "伊利8月新生活",
-  "label" : "第一波",
-  "head" : "首先感谢您参与我们的问卷调查。",
-  "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。",
-  "progress" : true,
-  "logo" : "http://domain.com/img/logo.gif",
-  "lang" : "en",
-  "onepage" : false,
-  "page_numbering" : true,
-  "question_numbering" : "global"
-}
-</code></pre>
+<logo
+: _可选_ *String* - LOGO图标地址
 
 title
 : _必选_ *String* - 问卷标题，长度范围2 - 100个字符
@@ -114,113 +197,107 @@ head
 foot
 : _可选_ *String* - 问卷尾信息
 
-progress
-: _可选_ *Boolean* - 是否显示进度条
+show\_progressbar
+: _可选_ *String* - 是否显示进度条
 
-logo
-: _可选_ *String* - LOGO图标地址
+is\_onepage
+: _可选_ *String* - 是否在一页显示
 
-lang
-: _可选_ *String* - 语言
+show\_page\_number
+: _可选_ *String* - 是否显示页号
 
-onepage
-: _可选_ *Boolean* - 是否在一页显示
+sequence\_type
+: _可选_ *String* - 问题编号方式
 
-page\_numbering
-: _可选_ *Boolean* - 是否在每一页显示问题重新编号
+* `global` - 全局编号方式
+* `in_page` - 页内编号方式
 
-question\_numbering
-: _可选_ *String* - 问题编号采用全局方式(global)或是页内方式(in_page)
+pre class="highlight">
+<code class="language-javascript">
+{
+  "logo" : "http://domain.com/img/logo.gif",
+  "title" : "伊利8月新生活",
+  "label" : "第一波",
+  "head" : "首先感谢您参与我们的问卷调查。",
+  "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。",
+  "show_progressbar" : "no",
+  "is_onepage" : "no",
+  "show_page_number" : "yes",
+  "sequence_type" : "global",
+}
+</code></pre>
 
 ###响应
 
 <pre class="headers">
 <code>Status: 201 Created
-Location: http://api.surveymaster.com.cn/users/surveys
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
+Location: http://api.surveymaster.com.cn/surveys
 </code></pre>
 <pre class="highlight">
 <code class="language-javascript">
 {
   "id" : 112,
-  "url" : "http://api.surveymaster.com.cn/users/surveys/112",
+  "url" : "http://api.surveymaster.com.cn/surveys/112",
+  "logo" : "http://domain.com/img/logo.gif",
   "title" : "伊利8月新生活",
   "label" : "第一波",
-  "owner" : 123,
+  "owner_id" : 123,
   "created_at" : "2012-07-31T09:36:27Z",
-  "modified_at" : "2012-07-31T09:46:27Z",
-  "landing_count" : 0,
-  "answered_count" : 0,
-  "finished_count" : 0,
+  "updated_at" : "2012-07-31T09:46:27Z",
   "head" : "首先感谢您参与我们的问卷调查。完成调查的每位用户均有机会参与抽奖,本次调查设置的奖项是：国际知名品牌提供的运动服及运动鞋。请根据您的实际情况逐项填写,您的意见或建议对我们很重要,完成问卷只需花费您短短五分钟",
   "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
-  "progress" : true,
-  "logo" : "http://domain.com/img/logo.gif",
-  "lang" : "en",
-  "onepage" : false,
-  "page_numbering" : true,
-  "question_numbering" : "global",
-  "pages" : []
+  "show_progressbar" : "no",
+  "is_onepage" : "no",
+  "show_page_number" : "yes",
+  "sequence_type" : "global",
+  "page_ids" : [],
+  "landing_count" : 0,
+  "answered_count" : 0,
+  "finished_count" : 0
 }
 </code></pre>
 
-<h2 id="p4">3. 获取指定问卷详情</h2>
+<h2 id="p4">4. 获取指定问卷详情</h2>
 
-    GET /users/surveys/:id
+    GET /surveys/:id
 
 ###响应
 
 <pre class="headers">
 <code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
 </code></pre>
 <pre class="highlight">
 <code class="language-javascript">
 {
   "id" : 112,
-  "url" : "http://api.surveymaster.com.cn/users/surveys/112",
+  "url" : "http://api.surveymaster.com.cn/surveys/112",
+  "logo" : "http://domain.com/img/logo.gif",
   "title" : "伊利8月新生活",
   "label" : "第一波",
-  "owner" : 123,
+  "owner_id" : 123,
   "created_at" : "2012-07-31T09:36:27Z",
-  "modified_at" : "2012-07-31T09:46:27Z",
-  "landing_count" : 0,
-  "answered_count" : 0,
-  "finished_count" : 0,
+  "updated_at" : "2012-07-31T09:46:27Z",
   "head" : "首先感谢您参与我们的问卷调查。完成调查的每位用户均有机会参与抽奖,本次调查设置的奖项是：国际知名品牌提供的运动服及运动鞋。请根据您的实际情况逐项填写,您的意见或建议对我们很重要,完成问卷只需花费您短短五分钟",
   "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
-  "progress" : true,
-  "logo" : "http://domain.com/img/logo.gif",
-  "lang" : "en",
-  "onepage" : false,
-  "page_numbering" : true,
-  "question_numbering" : "global",
-  "pages" : []
+  "show_progressbar" : "no",
+  "is_onepage" : "no",
+  "show_page_number" : "yes",
+  "sequence_type" : "global",
+  "page_ids" : [1,2,3,4,5],
+  "landing_count" : 0,
+  "answered_count" : 0,
+  "finished_count" : 0
 }
 </code></pre>
 
-<h2 id="p5">4. 修改指定问卷</h2>
+<h2 id="p5">5. 修改指定问卷</h2>
 
-    PATCH /users/surveys/:id
+    PATCH /surveys/:id
 
 ###请求
-<pre class="highlight">
-<code class="language-javascript">
-{
-  "title" : "伊利8月新生活",
-  "label" : "第一波",
-  "head" : "首先感谢您参与我们的问卷调查。",
-  "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。",
-  "progress" : true,
-  "logo" : "http://domain.com/img/logo.gif",
-  "lang" : "en",
-  "onepage" : false,
-  "page_numbering" : true,
-  "question_numbering" : "global"
-}
-</code></pre>
+
+logo
+: _可选_ *String* - LOGO图标地址
 
 title
 : _可选_ *String* - 问卷标题，长度范围2 ~ 100个字符
@@ -234,42 +311,50 @@ head
 foot
 : _可选_ *String* - 问卷尾信息
 
-progress
-: _可选_ *Boolean* - 是否显示进度条
+show\_progressbar
+: _可选_ *String* - 是否显示进度条
 
-logo
-: _可选_ *String* - LOGO图标地址
+is\_onepage
+: _可选_ *String* - 是否在一页显示
 
-lang
-: _可选_ *String* - 语言
+show\_page\_number
+: _可选_ *String* - 是否显示页号
 
-onepage
-: _可选_ *Boolean* - 是否在一页显示
+sequence\_type
+: _可选_ *String* - 问题编号方式
 
-page\_numbering
-: _可选_ *Boolean* - 是否在每一页显示问题重新编号
+* `global` - 全局编号方式
+* `in_page` - 页内编号方式
 
-question\_numbering
-: _可选_ *String* - 问题编号采用全局方式(global)或是页内方式(in_page)
-
-###响应
-
-<pre class="headers no-response">
-<code>Status: 204 No Content
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
+<pre class="highlight">
+<code class="language-javascript">
+{
+  "logo" : "http://domain.com/img/logo.gif",
+  "title" : "伊利8月新生活",
+  "label" : "第一波",
+  "head" : "首先感谢您参与我们的问卷调查。",
+  "foot" : "这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。",
+  "show_progressbar" : "no",
+  "is_onepage" : "no",
+  "show_page_number" : "yes",
+  "sequence_type" : "global"
+}
 </code></pre>
 
-<h2 id="p6">5. 删除指定问卷（标记状态）</h2>
+###响应
 
-    DELETE /users/surveys/:id
+<pre class="headers no-response">
+<code>Status: 204 No Content
+</code></pre>
+
+<h2 id="p6">6. 删除指定问卷（标记状态）</h2>
+
+    DELETE /surveys/:id
 
 ###响应
 
 <pre class="headers no-response">
 <code>Status: 204 No Content
-Location: http://api.surveymaster.com.cn/users/surveys
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
+Location: http://api.surveymaster.com.cn/surveys
 </code></pre>
 
