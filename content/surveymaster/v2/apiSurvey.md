@@ -30,23 +30,23 @@ direction
 * `asc` 升序
 * `desc` 降序 (_默认_)
 
-created_start
+created\_start
 : _可选_ *Int* - 指定此参数，将获取建立时间在此范围之后的问卷
 
 * `2012-08-03` - 符合ISO 8601格式的日期形式
 * `2012-07-31T09:36:27Z` - 符合ISO 8601格式的时间格式
 
-created_end
+created\_end
 : _可选_ *Int* - 指定此参数，将获取建立时间在此范围之前的问卷
 
 * 同`created_start`
 
-updated_start
+updated\_start
 : _可选_ *Int* - 指定此参数，将获取最后修改时间在此范围之后的问卷
 
 * 同`created_start`
 
-updated_end
+updated\_end
 : _可选_ *Int* - 指定此参数，将获取最后修改时间在此范围之前的问卷
 
 * 同`created_start`
@@ -95,7 +95,7 @@ page
 
     GET /users/:user_id/surveys
 
-> 仅管理员可获取指定用户的问卷列表
+* 仅管理员可获取指定用户的问卷列表
 
 ###参数
 
@@ -115,23 +115,23 @@ direction
 * `asc` 升序
 * `desc` 降序 (_默认_)
 
-created_start
+created\_start
 : _可选_ *Int* - 指定此参数，将获取建立时间在此范围之后的问卷
 
 * `2012-08-03` - 符合ISO 8601格式的日期形式
 * `2012-07-31T09:36:27Z` - 符合ISO 8601格式的时间格式
 
-created_end
+created\_end
 : _可选_ *Int* - 指定此参数，将获取建立时间在此范围之前的问卷
 
 * 同`created_start`
 
-updated_start
+updated\_start
 : _可选_ *Int* - 指定此参数，将获取最后修改时间在此范围之后的问卷
 
 * 同`created_start`
 
-updated_end
+updated\_end
 : _可选_ *Int* - 指定此参数，将获取最后修改时间在此范围之前的问卷
 
 * 同`created_start`
