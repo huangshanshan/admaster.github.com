@@ -31,7 +31,7 @@ X-RateLimit-Remaining: 4999
                 "desc" : "我是一个单选题啊单选题",
                 "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
                 "required" : {/* 必答 */
-                    "status" : on,/* 是否设为必答题 */
+                    "status" : "on",/* 是否设为必答题 */
                     "prompt" : "这一项是必填的噢！"/* 没有回答时的提示信息 */
                 },
             },
@@ -44,7 +44,7 @@ X-RateLimit-Remaining: 4999
                 "desc" : "我是一个牛13的多选题",
                 "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
                 "required" : {
-                    "status" : on,
+                    "status" : "on",
                     "min" : 1,/* 必须选择至少required.min个选项 */
                     "max" : 3,/* 必须选择不超过required.max个选项 */
                     "prompt" : "这一项是必填的噢！"
@@ -59,7 +59,7 @@ X-RateLimit-Remaining: 4999
                 "desc" : "我是一个单行文本",
                 "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
                 "required" : {
-                    "status" : on,
+                    "status" : "on",
                     "prompt" : "这一项是必填的噢！"
                 }
             },
@@ -72,7 +72,7 @@ X-RateLimit-Remaining: 4999
                 "desc" : "我是一个多行文本",
                 "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
                 "required" : {
-                    "status" : on,
+                    "status" : "on",
                     "prompt" : "这一项是必填的噢！"
                 }
             }
@@ -115,17 +115,17 @@ X-RateLimit-Remaining: 4999
         "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
         "quote_question_ids" : [],/* 引用题的question_id数组（注意：引用题只能引用当前页之前的题） */
         "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
-            "status" : on,/* 是否显示其他选项 */
+            "status" : "on",/* 是否显示其他选项 */
             "text" : "其他",/* 自定义选项名称 */
             "box" : {/* 输入框 */
-                "status" : on,/* 是否出现输入框 */
+                "status" : "on",/* 是否出现输入框 */
                 "min" : 1,/* 允许输入的最少字符数 */
                 "max" : 10,/* 允许输入的最多字符数 */
                 "prompt" : "当输入值不合法时，出现提示"/* 当输入框中的字符数不符合要求时的提示信息 */
             }
         },
         "required" : {/* 必答 */
-            "status" : on,/* 是否设为必答题 */
+            "status" : "on",/* 是否设为必答题 */
             "prompt" : "这一项是必填的噢！"/* 没有回答时的提示信息 */
         },
         "display" : {/* 显示相关 */
@@ -150,17 +150,17 @@ X-RateLimit-Remaining: 4999
         "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
         "quote_question_ids" : [],
         "other" : {
-            "status" : on,
+            "status" : "on",
             "text" : "其他",
             "box" : {
-                "status" : on,
+                "status" : "on",
                 "min" : 1,
                 "max" : 10,
                 "prompt" : "当输入值不合法时，出现提示"
             }
         },
         "required" : {
-            "status" : on,
+            "status" : "on",
             "min" : 1,/* 必须选择至少required.min个选项 */
             "max" : 3,/* 必须选择不超过required.max个选项 */
             "prompt" : "这一项是必填的噢！"
@@ -170,7 +170,7 @@ X-RateLimit-Remaining: 4999
             "random" : false
         },
         "exclusive" : {/* 排他选项（注意：这是一个特殊选项，其id为-2） */
-            "status" : on,/* 是否出现排他选项 */
+            "status" : "on",/* 是否出现排他选项 */
             "text" : "以上都不是"/* 自定义选项名称 */
         }
     },
@@ -191,7 +191,7 @@ X-RateLimit-Remaining: 4999
             "prompt" : "请输入2～20个字符"
         },
         "required" : {
-            "status" : on,
+            "status" : "on",
             "prompt" : "这一项是必填的噢！"
         }
     },
@@ -211,7 +211,7 @@ X-RateLimit-Remaining: 4999
             "prompt" : "请输入2～20个字符"
         },
         "required" : {
-            "status" : on,
+            "status" : "on",
             "prompt" : "这一项是必填的噢！"
         }
     }
@@ -239,17 +239,17 @@ X-RateLimit-Remaining: 4999
     "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
     "quote_question_ids" : [1],
     "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
-        "status" : on,/* 是否显示其他选项 */
+        "status" : "on",/* 是否显示其他选项 */
         "text" : "其他",/* 自定义选项名称 */
         "box" : {/* 输入框 */
-            "status" : on,/* 是否出现输入框 */
+            "status" : "on",/* 是否出现输入框 */
             "min" : 1,/* 允许输入的最少字符数 */
             "max" : 10,/* 允许输入的最多字符数 */
             "prompt" : "当输入值不合法时，出现提示"/* 当输入框中的字符数不符合要求时的提示信息 */
         }
     },
     "required" : {/* 必答 */
-        "status" : on,/* 是否设为必答题 */
+        "status" : "on",/* 是否设为必答题 */
         "prompt" : "这一项是必填的噢！"/* 没有回答时的提示信息 */
     },
     "display" : {/* 显示相关 */
@@ -301,17 +301,17 @@ X-RateLimit-Remaining: 4999
     "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
     "quote_question_ids" : [],
     "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
-        "status" : on,/* 是否显示其他选项 */
+        "status" : "on",/* 是否显示其他选项 */
         "text" : "其他",/* 自定义选项名称 */
         "box" : {/* 输入框 */
-            "status" : on,/* 是否出现输入框 */
+            "status" : "on",/* 是否出现输入框 */
             "min" : 1,/* 允许输入的最少字符数 */
             "max" : 10,/* 允许输入的最多字符数 */
             "prompt" : "当输入值不合法时，出现提示"/* 当输入框中的字符数不符合要求时的提示信息 */
         }
     },
     "required" : {/* 必答 */
-        "status" : on,/* 是否设为必答题 */
+        "status" : "on",/* 是否设为必答题 */
         "prompt" : "这一项是必填的噢！"/* 没有回答时的提示信息 */
     },
     "display" : {/* 显示相关 */
@@ -340,17 +340,17 @@ X-RateLimit-Remaining: 4999
     ],
     "quote_question_ids" : [],
     "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
-        "status" : on,/* 是否显示其他选项 */
+        "status" : "on",/* 是否显示其他选项 */
         "text" : "其他",/* 自定义选项名称 */
         "box" : {/* 输入框 */
-            "status" : on,/* 是否出现输入框 */
+            "status" : "on",/* 是否出现输入框 */
             "min" : 1,/* 允许输入的最少字符数 */
             "max" : 10,/* 允许输入的最多字符数 */
             "prompt" : "当输入值不合法时，出现提示"/* 当输入框中的字符数不符合要求时的提示信息 */
         }
     },
     "required" : {/* 必答 */
-        "status" : on,/* 是否设为必答题 */
+        "status" : "on",/* 是否设为必答题 */
         "prompt" : "这一项是必填的噢！"/* 没有回答时的提示信息 */
     },
     "display" : {/* 显示相关 */
