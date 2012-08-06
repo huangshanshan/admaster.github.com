@@ -148,6 +148,10 @@ title: SurveyMaster API - 前置逻辑相关接口（共6个）
 Location: http://api.surveymaster.com.cn/surveys/questions/1/prelogics
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
+{
+	"id" : 1,/* 前置逻辑id(自增) */
+	/* 前置逻辑详情 */
+}
 </code></pre>
 
 <h2 id="p4">4. 设置指定问题的前置逻辑效果</h2>
