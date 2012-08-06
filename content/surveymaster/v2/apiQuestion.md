@@ -19,7 +19,8 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 [
     {
-        "page" : 1,
+        "page_id" : 1,
+        "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
         "questions" : [
             {
                 "id" : 1,/* 问题的id（自增 全局唯一） */
@@ -28,8 +29,9 @@ X-RateLimit-Remaining: 4999
                 "type" : 'radio',
                 "title" : "我是一个单选",
                 "desc" : "我是一个单选题啊单选题",
+                "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
                 "required" : {/* 必答 */
-                    "status" : true,/* 是否设为必答题 */
+                    "status" : "on",/* 是否设为必答题 */
                     "prompt" : "这一项是必填的噢！"/* 没有回答时的提示信息 */
                 },
             },
@@ -40,8 +42,9 @@ X-RateLimit-Remaining: 4999
                 "type" : "checkbox",
                 "title" : "我是一个多选",
                 "desc" : "我是一个牛13的多选题",
+                "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
                 "required" : {
-                    "status" : true,
+                    "status" : "on",
                     "min" : 1,/* 必须选择至少required.min个选项 */
                     "max" : 3,/* 必须选择不超过required.max个选项 */
                     "prompt" : "这一项是必填的噢！"
@@ -54,8 +57,9 @@ X-RateLimit-Remaining: 4999
                 "type" : "text",
                 "title" : "我是一个单行文本",
                 "desc" : "我是一个单行文本",
+                "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
                 "required" : {
-                    "status" : true,
+                    "status" : "on",
                     "prompt" : "这一项是必填的噢！"
                 }
             },
@@ -66,15 +70,17 @@ X-RateLimit-Remaining: 4999
                 "type" : "textarea",
                 "title" : "我是一个多行文本",
                 "desc" : "我是一个多行文本",
+                "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
                 "required" : {
-                    "status" : true,
+                    "status" : "on",
                     "prompt" : "这一项是必填的噢！"
                 }
             }
         ]
     },
     {
-        "page" : 2,
+        "page_id" : 2,
+        "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
         "questions" : [
         ]
     }
@@ -106,24 +112,24 @@ X-RateLimit-Remaining: 4999
             "option_2",
             "option_3"
         ],
-        "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
-        "quotes" : [],/* 引用题的question_id数组（注意：引用题只能引用当前页之前的题） */
+        "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
+        "quote_question_ids" : [],/* 引用题的question_id数组（注意：引用题只能引用当前页之前的题） */
         "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
-            "status" : true,/* 是否显示其他选项 */
+            "status" : "on",/* 是否显示其他选项 */
             "text" : "其他",/* 自定义选项名称 */
             "box" : {/* 输入框 */
-                "status" : true,/* 是否出现输入框 */
+                "status" : "on",/* 是否出现输入框 */
                 "min" : 1,/* 允许输入的最少字符数 */
                 "max" : 10,/* 允许输入的最多字符数 */
                 "prompt" : "当输入值不合法时，出现提示"/* 当输入框中的字符数不符合要求时的提示信息 */
             }
         },
         "required" : {/* 必答 */
-            "status" : true,/* 是否设为必答题 */
+            "status" : "on",/* 是否设为必答题 */
             "prompt" : "这一项是必填的噢！"/* 没有回答时的提示信息 */
         },
         "display" : {/* 显示相关 */
-            "style" : "radio/select",/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为true时，other的前端实现要与此设置保持一致) */
+            "style" : "radio/select",/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为on时，other的前端实现要与此设置保持一致) */
             "perline" : 2,/* 每行显示选项数（注意：当上面的display.style设置为select时此设置无意义） */
             "random" : false/* 是否随机显示选项（注意：顺序打乱 id不能变） */
         }
@@ -141,20 +147,20 @@ X-RateLimit-Remaining: 4999
             "option_2",
             "option_3"
         ],
-        "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
-        "quotes" : [],
+        "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
+        "quote_question_ids" : [],
         "other" : {
-            "status" : true,
+            "status" : "on",
             "text" : "其他",
             "box" : {
-                "status" : true,
+                "status" : "on",
                 "min" : 1,
                 "max" : 10,
                 "prompt" : "当输入值不合法时，出现提示"
             }
         },
         "required" : {
-            "status" : true,
+            "status" : "on",
             "min" : 1,/* 必须选择至少required.min个选项 */
             "max" : 3,/* 必须选择不超过required.max个选项 */
             "prompt" : "这一项是必填的噢！"
@@ -164,7 +170,7 @@ X-RateLimit-Remaining: 4999
             "random" : false
         },
         "exclusive" : {/* 排他选项（注意：这是一个特殊选项，其id为-2） */
-            "status" : true,/* 是否出现排他选项 */
+            "status" : "on",/* 是否出现排他选项 */
             "text" : "以上都不是"/* 自定义选项名称 */
         }
     },
@@ -176,8 +182,8 @@ X-RateLimit-Remaining: 4999
         "type" : "text",
         "title" : "我是一个单行文本",
         "desc" : "我是一个单行文本",
-        "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
-        "quotes" : [],
+        "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
+        "quote_question_ids" : [],
         "limit" : {/* 输入限制 */
             "type" : "char/number/email/url/date",/* ENUM char:字符串 number:数字 email:邮箱 url:链接 date:日期 */
             "min" : 2,
@@ -185,7 +191,7 @@ X-RateLimit-Remaining: 4999
             "prompt" : "请输入2～20个字符"
         },
         "required" : {
-            "status" : true,
+            "status" : "on",
             "prompt" : "这一项是必填的噢！"
         }
     },
@@ -198,14 +204,14 @@ X-RateLimit-Remaining: 4999
         "title" : "我是一个多行文本",
         "desc" : "我是一个多行文本",
         "logic_id" : 1,/* 逻辑id，0表示此题没有任何逻辑 */
-        "quotes" : [1,2],
+        "quote_question_ids" : [1,2],
         "limit" : {
             "min" : 2,
             "max" : 20，
             "prompt" : "请输入2～20个字符"
         },
         "required" : {
-            "status" : true,
+            "status" : "on",
             "prompt" : "这一项是必填的噢！"
         }
     }
@@ -230,24 +236,24 @@ X-RateLimit-Remaining: 4999
         "option_2",
         "option_3"
     ],
-    "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
-    "quotes" : [1],
+    "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
+    "quote_question_ids" : [1],
     "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
-        "status" : true,/* 是否显示其他选项 */
+        "status" : "on",/* 是否显示其他选项 */
         "text" : "其他",/* 自定义选项名称 */
         "box" : {/* 输入框 */
-            "status" : true,/* 是否出现输入框 */
+            "status" : "on",/* 是否出现输入框 */
             "min" : 1,/* 允许输入的最少字符数 */
             "max" : 10,/* 允许输入的最多字符数 */
             "prompt" : "当输入值不合法时，出现提示"/* 当输入框中的字符数不符合要求时的提示信息 */
         }
     },
     "required" : {/* 必答 */
-        "status" : true,/* 是否设为必答题 */
+        "status" : "on",/* 是否设为必答题 */
         "prompt" : "这一项是必填的噢！"/* 没有回答时的提示信息 */
     },
     "display" : {/* 显示相关 */
-        "style" : "radio/select",/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为true时，other的前端实现要与此设置保持一致) */
+        "style" : "radio/select",/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为on时，other的前端实现要与此设置保持一致) */
         "perline" : 2,/* 每行显示选项数（注意：当上面的display.style设置为select时此设置无意义） */
         "random" : false/* 是否随机显示选项（注意：顺序打乱 id不能变） */
     }
@@ -292,24 +298,24 @@ X-RateLimit-Remaining: 4999
         "option_2",
         "option_3"
     ],
-    "logics" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
-    "quotes" : [],
+    "logic_ids" : [],/* 逻辑id数组，顺序表示逻辑的优先级 */
+    "quote_question_ids" : [],
     "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
-        "status" : true,/* 是否显示其他选项 */
+        "status" : "on",/* 是否显示其他选项 */
         "text" : "其他",/* 自定义选项名称 */
         "box" : {/* 输入框 */
-            "status" : true,/* 是否出现输入框 */
+            "status" : "on",/* 是否出现输入框 */
             "min" : 1,/* 允许输入的最少字符数 */
             "max" : 10,/* 允许输入的最多字符数 */
             "prompt" : "当输入值不合法时，出现提示"/* 当输入框中的字符数不符合要求时的提示信息 */
         }
     },
     "required" : {/* 必答 */
-        "status" : true,/* 是否设为必答题 */
+        "status" : "on",/* 是否设为必答题 */
         "prompt" : "这一项是必填的噢！"/* 没有回答时的提示信息 */
     },
     "display" : {/* 显示相关 */
-        "style" : "radio/select",/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为true时，other的前端实现要与此设置保持一致) */
+        "style" : "radio/select",/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为on时，other的前端实现要与此设置保持一致) */
         "perline" : 2,/* 每行显示选项数（注意：当上面的display.style设置为select时此设置无意义） */
         "random" : false/* 是否随机显示选项（注意：顺序打乱 id不能变） */
     }
@@ -332,23 +338,23 @@ X-RateLimit-Remaining: 4999
         "option_2",
         "option_3"
     ],
-    "quotes" : [],
+    "quote_question_ids" : [],
     "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
-        "status" : true,/* 是否显示其他选项 */
+        "status" : "on",/* 是否显示其他选项 */
         "text" : "其他",/* 自定义选项名称 */
         "box" : {/* 输入框 */
-            "status" : true,/* 是否出现输入框 */
+            "status" : "on",/* 是否出现输入框 */
             "min" : 1,/* 允许输入的最少字符数 */
             "max" : 10,/* 允许输入的最多字符数 */
             "prompt" : "当输入值不合法时，出现提示"/* 当输入框中的字符数不符合要求时的提示信息 */
         }
     },
     "required" : {/* 必答 */
-        "status" : true,/* 是否设为必答题 */
+        "status" : "on",/* 是否设为必答题 */
         "prompt" : "这一项是必填的噢！"/* 没有回答时的提示信息 */
     },
     "display" : {/* 显示相关 */
-        "style" : "radio/select",/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为true时，other的前端实现要与此设置保持一致) */
+        "style" : "radio/select",/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为on时，other的前端实现要与此设置保持一致) */
         "perline" : 2,/* 每行显示选项数（注意：当上面的display.style设置为select时此设置无意义） */
         "random" : false/* 是否随机显示选项（注意：顺序打乱 id不能变） */
     }
@@ -361,9 +367,6 @@ X-RateLimit-Remaining: 4999
 <code>Status: 204 No Content
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
-{
-/* 修改后的问题详情 */
-}
 </code></pre>
 
 <h2 id="p6">6. 删除指定的问题</h2>

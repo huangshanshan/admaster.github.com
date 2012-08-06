@@ -16,6 +16,7 @@ title: SurveyMaster API - 前置逻辑相关接口（共5个）
 		"id" : 1,
 		"url" : 'http://api.surveymaster.com.cn/surveys/questions/prelogics/1',
 		"visible" : true,/* 此问题是否显示 */
+		"order" : 1,
 		"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 			{
 				"question_id" : 7,
@@ -33,6 +34,7 @@ title: SurveyMaster API - 前置逻辑相关接口（共5个）
 		"id" : 2,
 		"url" : 'http://api.surveymaster.com.cn/surveys/questions/prelogics/2',
 		"visible" : true,/* 此问题是否显示 */
+		"order" : 2,
 		"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 			{
 				"question_id" : 11,
@@ -197,9 +199,6 @@ X-RateLimit-Remaining: 4999
 <code>Status: 204 No Content
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
-{
-/* 修改后的前置逻辑 */
-}
 </code></pre>
 
 <h2 id="p5">5. 删除指定的前置逻辑</h2>
