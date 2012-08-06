@@ -18,19 +18,8 @@ title: API - 媒体报告
   {
     "id": 1,
     "name": "这是一个测试项目",
-    "network_brand_id": 10213,
-    "cost_type": "CNY",
-    "total_cost": 20000000,
     "start_date": "2012-01-03",
     "end_date": "2012-06-23",
-    "default_target": "http://www.admaster.com.cn"
-    "survey_id": 1024,
-    "media_num": 8,
-    "placement_num": 258,
-    "est_imp": 9183213,
-    "est_clk": 12334,
-    "status": "typing",
-    "is_online": "yes",
     "created_at": "2012-09-06T20:39:23Z"
   }
 ]
