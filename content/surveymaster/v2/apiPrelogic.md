@@ -1,5 +1,5 @@
 ---
-title: SurveyMaster API - 前置逻辑相关接口（共5个）
+title: SurveyMaster API - 前置逻辑相关接口（共6个）
 ---
 
 <h2 id="p1">1. 获取指定问题的前置逻辑列表</h2>
@@ -11,44 +11,45 @@ title: SurveyMaster API - 前置逻辑相关接口（共5个）
 </code></pre>
 <pre class="highlight">
 <code class="language-javascript">
-[/* 每一个数组元素就是一条逻辑，按先后顺序依次检查组内各逻辑，一旦存在符合条件的逻辑，检查即终止 */
-	{
-		"id" : 1,
-		"url" : 'http://api.surveymaster.com.cn/surveys/questions/prelogics/1',
-		"visible" : true,/* 此问题是否显示 */
-		"order" : 1,
-		"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
-			{
-				"question_id" : 7,
-				"range" : [1,3]
-			},
-			{
-				"question_id" : 8,
-				"range" : [2,-1],
-				"type" : "all/any/none"
-			}
-		]
-	},
+{
+	"visible" : "yes",/* 此问题是否显示 */
+	"logics" : [/* 每一个数组元素就是一条逻辑，按先后顺序依次检查组内各逻辑，一旦存在符合条件的逻辑，逻辑判断即终止 */
+		{
+			"id" : 1,
+			"url" : 'http://api.surveymaster.com.cn/surveys/questions/prelogics/1',
+			"order_num" : 1,
+			"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
+				{
+					"question_id" : 7,
+					"range" : [1,3]
+				},
+				{
+					"question_id" : 8,
+					"range" : [2,-1],
+					"type" : "all/any/none"
+				}
+			]
+		},
 
-	{
-		"id" : 2,
-		"url" : 'http://api.surveymaster.com.cn/surveys/questions/prelogics/2',
-		"visible" : true,/* 此问题是否显示 */
-		"order" : 2,
-		"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
-			{
-				"question_id" : 11,
-				"min" : 6
-				"max" : 10
-			},
-			{
-				"question_id" : 12,
-				"include" : ["99click","好"],
-				"exclude" : ["不好"]
-			}
-		]
-	}
-]
+		{
+			"id" : 2,
+			"url" : 'http://api.surveymaster.com.cn/surveys/questions/prelogics/2',
+			"order_num" : 2,
+			"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
+				{
+					"question_id" : 11,
+					"min" : 6
+					"max" : 10
+				},
+				{
+					"question_id" : 12,
+					"include" : ["99click","好"],
+					"exclude" : ["不好"]
+				}
+			]
+		}
+	]
+}
 </code></pre>
 
 <h2 id="p2">2. 获取指定的前置逻辑</h2>
@@ -64,7 +65,8 @@ title: SurveyMaster API - 前置逻辑相关接口（共5个）
 	"id" : 1,/* 前置逻辑的id（自增 全局唯一） */
 	"url" : 'http://api.surveymaster.com.cn/surveys/questions/prelogics/1',
 	"question_id" : 1,
-	"visible" : true,/* 此问题是否显示 */
+	"visible" : "yes",/* 此问题是否显示 */
+	"order_num" : 1,
 	"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 		{
 			"question_id" : 7,
@@ -106,7 +108,7 @@ title: SurveyMaster API - 前置逻辑相关接口（共5个）
 <pre class="highlight">
 <code class="language-javascript">
 {
-	"visible" : true,/* 此问题是否显示 */
+	"order_num" : 1,
 	"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 		{
 			"question_id" : 7,
@@ -146,19 +148,33 @@ title: SurveyMaster API - 前置逻辑相关接口（共5个）
 Location: http://api.surveymaster.com.cn/surveys/questions/1/prelogics
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
+</code></pre>
+
+<h2 id="p4">4. 设置指定问题的前置逻辑效果</h2>
+	PATCH /surveys/questions/:question_id/prelogics/result
+###请求
+<pre class="highlight">
+<code class="language-javascript">
 {
-	"id" : 1,/* 前置逻辑id(自增) */
-	/* 前置逻辑详情 */
+	"visible" : "yes"
 }
 </code></pre>
 
-<h2 id="p4">4. 修改指定的前置逻辑</h2>
+###响应
+
+<pre class="headers no-response">
+<code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<h2 id="p5">5. 修改指定的前置逻辑</h2>
 	PATCH /surveys/questions/prelogics/:id
 ###请求
 <pre class="highlight">
 <code class="language-javascript">
 {
-	"visible" : true,/* 此问题是否显示 */
+	"order_num" : 1,
 	"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 		{
 			"question_id" : 7,
@@ -201,7 +217,7 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h2 id="p5">5. 删除指定的前置逻辑</h2>
+<h2 id="p6">6. 删除指定的前置逻辑</h2>
 	DELETE /surveys/questions/prelogics/:id
 
 ###响应
