@@ -2,7 +2,7 @@
 title: SurveyMaster API - 问卷相关
 ---
 
-#API - 问卷相关(共6个)
+#API - 问卷相关(共5个)
 
 <h2 id="p1">1. 获取问卷列表</h2>
 
@@ -78,7 +78,7 @@ page
     "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
     "show_progressbar" : "no",
     "show_page_number" : "yes",
-    "sequence_type" : "global",
+    "question_numbering" : "global",
     "is_onepage" : "no",
     "is_deleted" : "no",
     "landing_count" : 50000,
@@ -163,7 +163,7 @@ page
     "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
     "show_progressbar" : "no",
     "show_page_number" : "yes",
-    "sequence_type" : "global",
+    "question_numbering" : "global",
     "is_onepage" : "no",
     "is_deleted" : "no",
     "landing_count" : 50000,
@@ -206,7 +206,7 @@ is\_onepage
 show\_page\_number
 : _可选_ *String* - 是否显示页号
 
-sequence\_type
+question\_numbering
 : _可选_ *String* - 问题编号方式
 
 * `global` - 全局编号方式
@@ -223,7 +223,7 @@ sequence\_type
   "show_progressbar" : "no",
   "is_onepage" : "no",
   "show_page_number" : "yes",
-  "sequence_type" : "global",
+  "question_numbering" : "global",
 }
 </code></pre>
 
@@ -248,7 +248,7 @@ Location: http://api.surveymaster.com.cn/surveys
   "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
   "show_progressbar" : "no",
   "show_page_number" : "yes",
-  "sequence_type" : "global",
+  "question_numbering" : "global",
   "is_onepage" : "no",
   "is_deleted" : "no",
   "landing_count" : 0,
@@ -281,7 +281,7 @@ Location: http://api.surveymaster.com.cn/surveys
   "foot" : "AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护",
   "show_progressbar" : "no",
   "show_page_number" : "yes",
-  "sequence_type" : "global",
+  "question_numbering" : "global",
   "is_onepage" : "no",
   "is_deleted" : "no",
   "landing_count" : 0,
@@ -320,11 +320,14 @@ is\_onepage
 show\_page\_number
 : _可选_ *String* - 是否显示页号
 
-sequence\_type
+question\_numbering
 : _可选_ *String* - 问题编号方式
 
 * `global` - 全局编号方式
 * `in_page` - 页内编号方式
+
+is\_deleted
+: _可选_ *String* - 是否删除
 
 <pre class="highlight">
 <code class="language-javascript">
@@ -337,7 +340,8 @@ sequence\_type
   "show_progressbar" : "no",
   "is_onepage" : "no",
   "show_page_number" : "yes",
-  "sequence_type" : "global"
+  "question_numbering" : "global",
+  "is_deleted" : "no"
 }
 </code></pre>
 
@@ -345,16 +349,5 @@ sequence\_type
 
 <pre class="headers no-response">
 <code>Status: 204 No Content
-</code></pre>
-
-<h2 id="p6">6. 删除指定问卷（标记状态）</h2>
-
-    DELETE /surveys/:id
-
-###响应
-
-<pre class="headers no-response">
-<code>Status: 204 No Content
-Location: http://api.surveymaster.com.cn/surveys
 </code></pre>
 
