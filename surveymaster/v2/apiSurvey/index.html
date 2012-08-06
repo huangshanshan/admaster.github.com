@@ -33,27 +33,28 @@
       <div class="content">
     <h1 id="api---5">API - 问卷相关(共5个)</h1>
 
-<h2 id="p1">1. 获取当前登录用户的问卷列表</h2>
+<h2 id="p1">1. 获取问卷列表</h2>
 
-<pre><code>GET /users/surveys
+<pre><code>GET /surveys
 </code></pre>
 
-<h3 id="section">参数</h3>
+<ul>
+<li>根据当前用户权限，获取此用户可查看的问卷列表</li>
+  <li>普通用户仅查看自己建立的问卷</li>
+  <li>管理员可查看所有问卷</li>
+</ul><h3 id="section">参数</h3>
 
 <dl>
-<dt>fields</dt>
-  <dd>
-<em>可选</em> <em>String</em> - 字段列表</dd>
-  <dt>sort</dt>
+<dt>sort</dt>
   <dd>
 <em>可选</em> <em>String</em> - 指定排序方式</dd>
 </dl><ul>
 <li>
-<code>id</code> - 按问卷ID排序</li>
+<code>id</code> - 按问卷ID排序（<em>默认</em>）</li>
   <li>
 <code>created_at</code> - 建立时间</li>
   <li>
-<code>modified_at</code> - 最后更新时间</li>
+<code>updated_at</code> - 最后更新时间</li>
   <li>
 <code>landing_count</code> - 查看问卷用户数</li>
   <li>
@@ -70,80 +71,190 @@
   <li>
 <code>desc</code> 降序 (<em>默认</em>)</li>
 </ul><dl>
-<dt>start_time/end_time</dt>
+<dt>created_start</dt>
   <dd>
-<em>可选</em> <em>Int</em> - 指定提取问卷列表（created_at）的开始及结束时间，不指定start_at，则不限定开始时间，不指定end_at，则不限定结束时间</dd>
-  <dt>per_page</dt>
+<em>可选</em> <em>Int</em> - 指定此参数，将获取建立时间在此范围之后的问卷</dd>
+</dl><ul>
+<li>
+<code>2012-08-03</code> - 符合ISO 8601格式的日期形式</li>
+  <li>
+<code>2012-07-31T09:36:27Z</code> - 符合ISO 8601格式的时间格式</li>
+</ul><dl>
+<dt>created_end</dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 指定此参数，将获取建立时间在此范围之前的问卷</dd>
+</dl><ul>
+<li>同<code>created_start</code>
+</li>
+</ul><dl>
+<dt>updated_start</dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 指定此参数，将获取最后修改时间在此范围之后的问卷</dd>
+</dl><ul>
+<li>同<code>created_start</code>
+</li>
+</ul><dl>
+<dt>updated_end</dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 指定此参数，将获取最后修改时间在此范围之前的问卷</dd>
+</dl><ul>
+<li>同<code>created_start</code>
+</li>
+</ul><dl>
+<dt>per_page</dt>
   <dd>
 <em>可选</em> <em>Int</em> - 每页显示记录数，默认30</dd>
-</dl><ul>
-<li><code>5</code></li>
-  <li><code>10</code></li>
-  <li><code>20</code></li>
-  <li>
-<code>30</code> - 默认</li>
-  <li><code>50</code></li>
-</ul><dl>
-<dt>page</dt>
+  <dt>page</dt>
   <dd>
 <em>可选</em> <em>Int</em> - 页数，从1开始</dd>
 </dl><h3 id="section-1">响应</h3>
 
 <pre class="headers">
 <code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
 </code></pre>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">[</span>
   <span class="p">{</span>
     <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
-    <span class="s2">"url"</span> <span class="o">:</span> <span class="s2">"http://api.surveymaster.com/users/surveys/112"</span><span class="p">,</span>
+    <span class="s2">"url"</span> <span class="o">:</span> <span class="s2">"http://api.surveymaster.com/surveys/112"</span><span class="p">,</span>
+    <span class="s2">"logo"</span> <span class="o">:</span> <span class="s2">"http://domain.com/img/logo.gif"</span><span class="p">,</span>
     <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"伊利8月新生活"</span><span class="p">,</span>
     <span class="s2">"label"</span> <span class="o">:</span> <span class="s2">"第一波"</span><span class="p">,</span>
-    <span class="s2">"owner"</span> <span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">"owner_id"</span> <span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
     <span class="s2">"created_at"</span> <span class="o">:</span> <span class="s2">"2012-07-31T09:36:27Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span> <span class="o">:</span> <span class="s2">"2012-07-31T09:46:27Z"</span><span class="p">,</span>
+    <span class="s2">"head"</span> <span class="o">:</span> <span class="s2">"感谢您参与我们的问卷调查。"</span><span class="p">,</span>
+    <span class="s2">"foot"</span> <span class="o">:</span> <span class="s2">"AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护"</span><span class="p">,</span>
+    <span class="s2">"show_progressbar"</span> <span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
+    <span class="s2">"show_page_number"</span> <span class="o">:</span> <span class="s2">"yes"</span><span class="p">,</span>
+    <span class="s2">"question_numbering"</span> <span class="o">:</span> <span class="s2">"global"</span><span class="p">,</span>
+    <span class="s2">"is_onepage"</span> <span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
+    <span class="s2">"is_deleted"</span> <span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
     <span class="s2">"landing_count"</span> <span class="o">:</span> <span class="mi">50000</span><span class="p">,</span>
     <span class="s2">"answered_count"</span> <span class="o">:</span> <span class="mi">30000</span><span class="p">,</span>
-    <span class="s2">"finished_count"</span> <span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
-    <span class="s2">"head"</span> <span class="o">:</span> <span class="s2">"首先感谢您参与我们的问卷调查。完成调查的每位用户均有机会参与抽奖,本次调查设置的奖项是：国际知名品牌提供的运动服及运动鞋。请根据您的实际情况逐项填写,您的意见或建议对我们很重要,完成问卷只需花费您短短五分钟"</span><span class="p">,</span>
-    <span class="s2">"foot"</span> <span class="o">:</span> <span class="s2">"这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护"</span><span class="p">,</span>
-    <span class="s2">"progress"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"logo"</span> <span class="o">:</span> <span class="s2">"http://domain.com/img/logo.gif"</span><span class="p">,</span>
-    <span class="s2">"lang"</span> <span class="o">:</span> <span class="s2">"en"</span><span class="p">,</span>
-    <span class="s2">"onepage"</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"page_numbering"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"question_numbering"</span> <span class="o">:</span> <span class="s2">"global"</span><span class="p">,</span>
-    <span class="s2">"pages"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+    <span class="s2">"finished_count"</span> <span class="o">:</span> <span class="mi">5000</span>
   <span class="p">},</span>
   <span class="p">{</span>
     <span class="cm">/* 另一文档数据 */</span>
   <span class="p">}</span>
 <span class="p">]</span></code></pre>
 
-<h2 id="p3">2. 创建问卷</h2>
+<h2 id="p2">2. 获取某个用户问卷列表</h2>
 
-<pre><code>POST /users/surveys
+<pre><code>GET /users/:user_id/surveys
 </code></pre>
 
-<h2 id="section-2">请求</h2>
-
-<pre class="highlight">
-<code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"伊利8月新生活"</span><span class="p">,</span>
-  <span class="s2">"label"</span> <span class="o">:</span> <span class="s2">"第一波"</span><span class="p">,</span>
-  <span class="s2">"head"</span> <span class="o">:</span> <span class="s2">"首先感谢您参与我们的问卷调查。"</span><span class="p">,</span>
-  <span class="s2">"foot"</span> <span class="o">:</span> <span class="s2">"这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。"</span><span class="p">,</span>
-  <span class="s2">"progress"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"logo"</span> <span class="o">:</span> <span class="s2">"http://domain.com/img/logo.gif"</span><span class="p">,</span>
-  <span class="s2">"lang"</span> <span class="o">:</span> <span class="s2">"en"</span><span class="p">,</span>
-  <span class="s2">"onepage"</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"page_numbering"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"question_numbering"</span> <span class="o">:</span> <span class="s2">"global"</span>
-<span class="p">}</span></code></pre>
+<ul>
+<li>仅管理员可获取指定用户的问卷列表</li>
+</ul><h3 id="section-2">参数</h3>
 
 <dl>
-<dt>title</dt>
+<dt>sort</dt>
+  <dd>
+<em>可选</em> <em>String</em> - 指定排序方式</dd>
+</dl><ul>
+<li>
+<code>id</code> - 按问卷ID排序（<em>默认</em>）</li>
+  <li>
+<code>created_at</code> - 建立时间</li>
+  <li>
+<code>updated_at</code> - 最后更新时间</li>
+  <li>
+<code>landing_count</code> - 查看问卷用户数</li>
+  <li>
+<code>answered_count</code> - 回答问卷用户数</li>
+  <li>
+<code>finished_count</code> - 完整回答问卷用户数</li>
+</ul><dl>
+<dt>direction</dt>
+  <dd>
+<em>可选</em> <em>String</em> - 排序方式</dd>
+</dl><ul>
+<li>
+<code>asc</code> 升序</li>
+  <li>
+<code>desc</code> 降序 (<em>默认</em>)</li>
+</ul><dl>
+<dt>created_start</dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 指定此参数，将获取建立时间在此范围之后的问卷</dd>
+</dl><ul>
+<li>
+<code>2012-08-03</code> - 符合ISO 8601格式的日期形式</li>
+  <li>
+<code>2012-07-31T09:36:27Z</code> - 符合ISO 8601格式的时间格式</li>
+</ul><dl>
+<dt>created_end</dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 指定此参数，将获取建立时间在此范围之前的问卷</dd>
+</dl><ul>
+<li>同<code>created_start</code>
+</li>
+</ul><dl>
+<dt>updated_start</dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 指定此参数，将获取最后修改时间在此范围之后的问卷</dd>
+</dl><ul>
+<li>同<code>created_start</code>
+</li>
+</ul><dl>
+<dt>updated_end</dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 指定此参数，将获取最后修改时间在此范围之前的问卷</dd>
+</dl><ul>
+<li>同<code>created_start</code>
+</li>
+</ul><dl>
+<dt>per_page</dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 每页显示记录数，默认30</dd>
+  <dt>page</dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 页数，从1开始</dd>
+</dl><h3 id="section-3">响应</h3>
+
+<pre class="headers">
+<code>Status: 200 OK
+</code></pre>
+<pre class="highlight">
+<code class="language-javascript"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
+    <span class="s2">"url"</span> <span class="o">:</span> <span class="s2">"http://api.surveymaster.com/surveys/112"</span><span class="p">,</span>
+    <span class="s2">"logo"</span> <span class="o">:</span> <span class="s2">"http://domain.com/img/logo.gif"</span><span class="p">,</span>
+    <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"伊利8月新生活"</span><span class="p">,</span>
+    <span class="s2">"label"</span> <span class="o">:</span> <span class="s2">"第一波"</span><span class="p">,</span>
+    <span class="s2">"owner_id"</span> <span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">"created_at"</span> <span class="o">:</span> <span class="s2">"2012-07-31T09:36:27Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span> <span class="o">:</span> <span class="s2">"2012-07-31T09:46:27Z"</span><span class="p">,</span>
+    <span class="s2">"head"</span> <span class="o">:</span> <span class="s2">"感谢您参与我们的问卷调查。"</span><span class="p">,</span>
+    <span class="s2">"foot"</span> <span class="o">:</span> <span class="s2">"AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护"</span><span class="p">,</span>
+    <span class="s2">"show_progressbar"</span> <span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
+    <span class="s2">"show_page_number"</span> <span class="o">:</span> <span class="s2">"yes"</span><span class="p">,</span>
+    <span class="s2">"question_numbering"</span> <span class="o">:</span> <span class="s2">"global"</span><span class="p">,</span>
+    <span class="s2">"is_onepage"</span> <span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
+    <span class="s2">"is_deleted"</span> <span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
+    <span class="s2">"landing_count"</span> <span class="o">:</span> <span class="mi">50000</span><span class="p">,</span>
+    <span class="s2">"answered_count"</span> <span class="o">:</span> <span class="mi">30000</span><span class="p">,</span>
+    <span class="s2">"finished_count"</span> <span class="o">:</span> <span class="mi">5000</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="cm">/* 另一文档数据 */</span>
+  <span class="p">}</span>
+<span class="p">]</span></code></pre>
+
+<h2 id="p3">3. 创建问卷</h2>
+
+<pre><code>POST /surveys
+</code></pre>
+
+<h2 id="section-4">请求</h2>
+
+<dl>
+<dt>logo</dt>
+  <dd>
+<em>可选</em> <em>String</em> - LOGO图标地址</dd>
+  <dt>title</dt>
   <dd>
 <em>必选</em> <em>String</em> - 问卷标题，长度范围2 - 100个字符</dd>
   <dt>label</dt>
@@ -155,112 +266,108 @@ X-RateLimit-Remaining: 4999
   <dt>foot</dt>
   <dd>
 <em>可选</em> <em>String</em> - 问卷尾信息</dd>
-  <dt>progress</dt>
+  <dt>show_progressbar</dt>
   <dd>
-<em>可选</em> <em>Boolean</em> - 是否显示进度条</dd>
-  <dt>logo</dt>
+<em>可选</em> <em>String</em> - 是否显示进度条</dd>
+  <dt>is_onepage</dt>
   <dd>
-<em>可选</em> <em>String</em> - LOGO图标地址</dd>
-  <dt>lang</dt>
+<em>可选</em> <em>String</em> - 是否在一页显示</dd>
+  <dt>show_page_number</dt>
   <dd>
-<em>可选</em> <em>String</em> - 语言</dd>
-  <dt>onepage</dt>
-  <dd>
-<em>可选</em> <em>Boolean</em> - 是否在一页显示</dd>
-  <dt>page_numbering</dt>
-  <dd>
-<em>可选</em> <em>Boolean</em> - 是否在每一页显示问题重新编号</dd>
+<em>可选</em> <em>String</em> - 是否显示页号</dd>
   <dt>question_numbering</dt>
   <dd>
-<em>可选</em> <em>String</em> - 问题编号采用全局方式(global)或是页内方式(in_page)</dd>
-</dl><h3 id="section-3">响应</h3>
-
-<pre class="headers">
-<code>Status: 201 Created
-Location: http://api.surveymaster.com.cn/users/surveys
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-<pre class="highlight">
+<em>可选</em> <em>String</em> - 问题编号方式</dd>
+</dl><ul>
+<li>
+<code>global</code> - 全局编号方式</li>
+  <li>
+<code>in_page</code> - 页内编号方式</li>
+</ul><pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
-  <span class="s2">"url"</span> <span class="o">:</span> <span class="s2">"http://api.surveymaster.com.cn/users/surveys/112"</span><span class="p">,</span>
-  <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"伊利8月新生活"</span><span class="p">,</span>
-  <span class="s2">"label"</span> <span class="o">:</span> <span class="s2">"第一波"</span><span class="p">,</span>
-  <span class="s2">"owner"</span> <span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
-  <span class="s2">"created_at"</span> <span class="o">:</span> <span class="s2">"2012-07-31T09:36:27Z"</span><span class="p">,</span>
-  <span class="s2">"modified_at"</span> <span class="o">:</span> <span class="s2">"2012-07-31T09:46:27Z"</span><span class="p">,</span>
-  <span class="s2">"landing_count"</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s2">"answered_count"</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s2">"finished_count"</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s2">"head"</span> <span class="o">:</span> <span class="s2">"首先感谢您参与我们的问卷调查。完成调查的每位用户均有机会参与抽奖,本次调查设置的奖项是：国际知名品牌提供的运动服及运动鞋。请根据您的实际情况逐项填写,您的意见或建议对我们很重要,完成问卷只需花费您短短五分钟"</span><span class="p">,</span>
-  <span class="s2">"foot"</span> <span class="o">:</span> <span class="s2">"这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护"</span><span class="p">,</span>
-  <span class="s2">"progress"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">"logo"</span> <span class="o">:</span> <span class="s2">"http://domain.com/img/logo.gif"</span><span class="p">,</span>
-  <span class="s2">"lang"</span> <span class="o">:</span> <span class="s2">"en"</span><span class="p">,</span>
-  <span class="s2">"onepage"</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"page_numbering"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"question_numbering"</span> <span class="o">:</span> <span class="s2">"global"</span><span class="p">,</span>
-  <span class="s2">"pages"</span> <span class="o">:</span> <span class="p">[]</span>
-<span class="p">}</span></code></pre>
-
-<h2 id="p4">3. 获取指定问卷详情</h2>
-
-<pre><code>GET /users/surveys/:id
-</code></pre>
-
-<h3 id="section-4">响应</h3>
-
-<pre class="headers">
-<code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-<pre class="highlight">
-<code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
-  <span class="s2">"url"</span> <span class="o">:</span> <span class="s2">"http://api.surveymaster.com.cn/users/surveys/112"</span><span class="p">,</span>
-  <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"伊利8月新生活"</span><span class="p">,</span>
-  <span class="s2">"label"</span> <span class="o">:</span> <span class="s2">"第一波"</span><span class="p">,</span>
-  <span class="s2">"owner"</span> <span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
-  <span class="s2">"created_at"</span> <span class="o">:</span> <span class="s2">"2012-07-31T09:36:27Z"</span><span class="p">,</span>
-  <span class="s2">"modified_at"</span> <span class="o">:</span> <span class="s2">"2012-07-31T09:46:27Z"</span><span class="p">,</span>
-  <span class="s2">"landing_count"</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s2">"answered_count"</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s2">"finished_count"</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s2">"head"</span> <span class="o">:</span> <span class="s2">"首先感谢您参与我们的问卷调查。完成调查的每位用户均有机会参与抽奖,本次调查设置的奖项是：国际知名品牌提供的运动服及运动鞋。请根据您的实际情况逐项填写,您的意见或建议对我们很重要,完成问卷只需花费您短短五分钟"</span><span class="p">,</span>
-  <span class="s2">"foot"</span> <span class="o">:</span> <span class="s2">"这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护"</span><span class="p">,</span>
-  <span class="s2">"progress"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"logo"</span> <span class="o">:</span> <span class="s2">"http://domain.com/img/logo.gif"</span><span class="p">,</span>
-  <span class="s2">"lang"</span> <span class="o">:</span> <span class="s2">"en"</span><span class="p">,</span>
-  <span class="s2">"onepage"</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"page_numbering"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"question_numbering"</span> <span class="o">:</span> <span class="s2">"global"</span><span class="p">,</span>
-  <span class="s2">"pages"</span> <span class="o">:</span> <span class="p">[]</span>
-<span class="p">}</span></code></pre>
-
-<h2 id="p5">4. 修改指定问卷</h2>
-
-<pre><code>PATCH /users/surveys/:id
-</code></pre>
-
-<h3 id="section-5">请求</h3>
-<pre class="highlight">
-<code class="language-javascript"><span class="p">{</span>
   <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"伊利8月新生活"</span><span class="p">,</span>
   <span class="s2">"label"</span> <span class="o">:</span> <span class="s2">"第一波"</span><span class="p">,</span>
   <span class="s2">"head"</span> <span class="o">:</span> <span class="s2">"首先感谢您参与我们的问卷调查。"</span><span class="p">,</span>
   <span class="s2">"foot"</span> <span class="o">:</span> <span class="s2">"这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。"</span><span class="p">,</span>
-  <span class="s2">"progress"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"logo"</span> <span class="o">:</span> <span class="s2">"http://domain.com/img/logo.gif"</span><span class="p">,</span>
-  <span class="s2">"lang"</span> <span class="o">:</span> <span class="s2">"en"</span><span class="p">,</span>
-  <span class="s2">"onepage"</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"page_numbering"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"question_numbering"</span> <span class="o">:</span> <span class="s2">"global"</span>
+  <span class="s2">"show_progressbar"</span> <span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
+  <span class="s2">"is_onepage"</span> <span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
+  <span class="s2">"show_page_number"</span> <span class="o">:</span> <span class="s2">"yes"</span><span class="p">,</span>
+  <span class="s2">"question_numbering"</span> <span class="o">:</span> <span class="s2">"global"</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
+<h3 id="section-5">响应</h3>
+
+<pre class="headers">
+<code>Status: 201 Created
+Location: http://api.surveymaster.com.cn/surveys
+</code></pre>
+<pre class="highlight">
+<code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
+  <span class="s2">"url"</span> <span class="o">:</span> <span class="s2">"http://api.surveymaster.com.cn/surveys/112"</span><span class="p">,</span>
+  <span class="s2">"logo"</span> <span class="o">:</span> <span class="s2">"http://domain.com/img/logo.gif"</span><span class="p">,</span>
+  <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"伊利8月新生活"</span><span class="p">,</span>
+  <span class="s2">"label"</span> <span class="o">:</span> <span class="s2">"第一波"</span><span class="p">,</span>
+  <span class="s2">"owner_id"</span> <span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+  <span class="s2">"created_at"</span> <span class="o">:</span> <span class="s2">"2012-07-31T09:36:27Z"</span><span class="p">,</span>
+  <span class="s2">"updated_at"</span> <span class="o">:</span> <span class="s2">"2012-07-31T09:46:27Z"</span><span class="p">,</span>
+  <span class="s2">"head"</span> <span class="o">:</span> <span class="s2">"感谢您参与我们的问卷调查。"</span><span class="p">,</span>
+  <span class="s2">"foot"</span> <span class="o">:</span> <span class="s2">"AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护"</span><span class="p">,</span>
+  <span class="s2">"show_progressbar"</span> <span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
+  <span class="s2">"show_page_number"</span> <span class="o">:</span> <span class="s2">"yes"</span><span class="p">,</span>
+  <span class="s2">"question_numbering"</span> <span class="o">:</span> <span class="s2">"global"</span><span class="p">,</span>
+  <span class="s2">"is_onepage"</span> <span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
+  <span class="s2">"is_deleted"</span> <span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
+  <span class="s2">"landing_count"</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">"answered_count"</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">"finished_count"</span> <span class="o">:</span> <span class="mi">0</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="p4">4. 获取指定问卷详情</h2>
+
+<pre><code>GET /surveys/:id
+</code></pre>
+
+<h3 id="section-6">响应</h3>
+
+<pre class="headers">
+<code>Status: 200 OK
+</code></pre>
+<pre class="highlight">
+<code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
+  <span class="s2">"url"</span> <span class="o">:</span> <span class="s2">"http://api.surveymaster.com.cn/surveys/112"</span><span class="p">,</span>
+  <span class="s2">"logo"</span> <span class="o">:</span> <span class="s2">"http://domain.com/img/logo.gif"</span><span class="p">,</span>
+  <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"伊利8月新生活"</span><span class="p">,</span>
+  <span class="s2">"label"</span> <span class="o">:</span> <span class="s2">"第一波"</span><span class="p">,</span>
+  <span class="s2">"owner_id"</span> <span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+  <span class="s2">"created_at"</span> <span class="o">:</span> <span class="s2">"2012-07-31T09:36:27Z"</span><span class="p">,</span>
+  <span class="s2">"updated_at"</span> <span class="o">:</span> <span class="s2">"2012-07-31T09:46:27Z"</span><span class="p">,</span>
+  <span class="s2">"head"</span> <span class="o">:</span> <span class="s2">"感谢您参与我们的问卷调查。"</span><span class="p">,</span>
+  <span class="s2">"foot"</span> <span class="o">:</span> <span class="s2">"AdMaster是知名的专业第三方网络广告效果监测及调研公司,您的资料将得到可靠的保护"</span><span class="p">,</span>
+  <span class="s2">"show_progressbar"</span> <span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
+  <span class="s2">"show_page_number"</span> <span class="o">:</span> <span class="s2">"yes"</span><span class="p">,</span>
+  <span class="s2">"question_numbering"</span> <span class="o">:</span> <span class="s2">"global"</span><span class="p">,</span>
+  <span class="s2">"is_onepage"</span> <span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
+  <span class="s2">"is_deleted"</span> <span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
+  <span class="s2">"landing_count"</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">"answered_count"</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">"finished_count"</span> <span class="o">:</span> <span class="mi">0</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="p5">5. 修改指定问卷</h2>
+
+<pre><code>PATCH /surveys/:id
+</code></pre>
+
+<h3 id="section-7">请求</h3>
+
 <dl>
-<dt>title</dt>
+<dt>logo</dt>
+  <dd>
+<em>可选</em> <em>String</em> - LOGO图标地址</dd>
+  <dt>title</dt>
   <dd>
 <em>可选</em> <em>String</em> - 问卷标题，长度范围2 ~ 100个字符</dd>
   <dt>label</dt>
@@ -272,44 +379,45 @@ X-RateLimit-Remaining: 4999
   <dt>foot</dt>
   <dd>
 <em>可选</em> <em>String</em> - 问卷尾信息</dd>
-  <dt>progress</dt>
+  <dt>show_progressbar</dt>
   <dd>
-<em>可选</em> <em>Boolean</em> - 是否显示进度条</dd>
-  <dt>logo</dt>
+<em>可选</em> <em>String</em> - 是否显示进度条</dd>
+  <dt>is_onepage</dt>
   <dd>
-<em>可选</em> <em>String</em> - LOGO图标地址</dd>
-  <dt>lang</dt>
+<em>可选</em> <em>String</em> - 是否在一页显示</dd>
+  <dt>show_page_number</dt>
   <dd>
-<em>可选</em> <em>String</em> - 语言</dd>
-  <dt>onepage</dt>
-  <dd>
-<em>可选</em> <em>Boolean</em> - 是否在一页显示</dd>
-  <dt>page_numbering</dt>
-  <dd>
-<em>可选</em> <em>Boolean</em> - 是否在每一页显示问题重新编号</dd>
+<em>可选</em> <em>String</em> - 是否显示页号</dd>
   <dt>question_numbering</dt>
   <dd>
-<em>可选</em> <em>String</em> - 问题编号采用全局方式(global)或是页内方式(in_page)</dd>
-</dl><h3 id="section-6">响应</h3>
+<em>可选</em> <em>String</em> - 问题编号方式</dd>
+</dl><ul>
+<li>
+<code>global</code> - 全局编号方式</li>
+  <li>
+<code>in_page</code> - 页内编号方式</li>
+</ul><dl>
+<dt>is_deleted</dt>
+  <dd>
+<em>可选</em> <em>String</em> - 是否删除</dd>
+</dl><pre class="highlight">
+<code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"logo"</span> <span class="o">:</span> <span class="s2">"http://domain.com/img/logo.gif"</span><span class="p">,</span>
+  <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"伊利8月新生活"</span><span class="p">,</span>
+  <span class="s2">"label"</span> <span class="o">:</span> <span class="s2">"第一波"</span><span class="p">,</span>
+  <span class="s2">"head"</span> <span class="o">:</span> <span class="s2">"首先感谢您参与我们的问卷调查。"</span><span class="p">,</span>
+  <span class="s2">"foot"</span> <span class="o">:</span> <span class="s2">"这项调查是由AdMaster精硕科技公司携手伊利集团共同执行。"</span><span class="p">,</span>
+  <span class="s2">"show_progressbar"</span> <span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
+  <span class="s2">"is_onepage"</span> <span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
+  <span class="s2">"show_page_number"</span> <span class="o">:</span> <span class="s2">"yes"</span><span class="p">,</span>
+  <span class="s2">"question_numbering"</span> <span class="o">:</span> <span class="s2">"global"</span><span class="p">,</span>
+  <span class="s2">"is_deleted"</span> <span class="o">:</span> <span class="s2">"no"</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="section-8">响应</h3>
 
 <pre class="headers no-response">
 <code>Status: 204 No Content
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<h2 id="p6">5. 删除指定问卷（标记状态）</h2>
-
-<pre><code>DELETE /users/surveys/:id
-</code></pre>
-
-<h3 id="section-7">响应</h3>
-
-<pre class="headers no-response">
-<code>Status: 204 No Content
-Location: http://api.surveymaster.com.cn/users/surveys
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
 </code></pre>
       </div>
 
