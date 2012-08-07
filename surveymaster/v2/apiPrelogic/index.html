@@ -45,6 +45,7 @@
 		<span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 		<span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/questions/prelogics/1'</span><span class="p">,</span>
 		<span class="s2">"visible"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 此问题是否显示 */</span>
+		<span class="s2">"order"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 		<span class="s2">"conditions"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */</span>
 			<span class="p">{</span>
 				<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
@@ -62,6 +63,7 @@
 		<span class="s2">"id"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
 		<span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/questions/prelogics/2'</span><span class="p">,</span>
 		<span class="s2">"visible"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 此问题是否显示 */</span>
+		<span class="s2">"order"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
 		<span class="s2">"conditions"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */</span>
 			<span class="p">{</span>
 				<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
@@ -218,9 +220,6 @@ X-RateLimit-Remaining: 4999
 <code>Status: 204 No Content
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
-{
-/* 修改后的前置逻辑 */
-}
 </code></pre>
 
 <h2 id="p5">5. 删除指定的前置逻辑</h2>

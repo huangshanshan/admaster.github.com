@@ -31,7 +31,7 @@
 
     <div id="wrapper">
       <div class="content">
-    <h1 id="api---4">API - 页相关（共4个）</h1>
+    <h1 id="api---3">API - 页相关（共3个）</h1>
 
 <h2 id="p1">1. 创建页</h2>
 
@@ -43,15 +43,14 @@
 <pre class="headers">
 <code>Status: 201 Created
 Location: http://api.surveymaster.com.cn/surveys/123/pages
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
 </code></pre>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
   <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/112/pages/1'</span><span class="p">,</span>
-  <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
-  <span class="s2">"questions"</span> <span class="o">:</span> <span class="p">[]</span>
+  <span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/1'</span><span class="p">,</span>
+  <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>    <span class="cm">/* 问卷ID */</span>
+  <span class="s2">"sequence_num"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>   <span class="cm">/* 显示顺序 */</span>
+  <span class="s2">"is_deleted"</span> <span class="o">:</span> <span class="s2">"no"</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="p2">2. 获取指定页详情</h2>
@@ -63,53 +62,14 @@ X-RateLimit-Remaining: 4999
 
 <pre class="headers">
 <code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
 </code></pre>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/1'</span><span class="p">,</span>
     <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
-    <span class="s2">"questions"</span> <span class="o">:</span>
-    <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s2">"_id"</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">"500916d3337d221abed72ac3"</span><span class="p">),</span>
-            <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 问题的id（自增 全局唯一） */</span>
-            <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"radio"</span><span class="p">,</span><span class="cm">/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */</span>
-            <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个单选"</span><span class="p">,</span>
-            <span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个单选题啊单选题"</span><span class="p">,</span>
-            <span class="s2">"options"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 数组value为选项内容，数组key为选项的id，数组的顺序即是选项的显示顺序 */</span>
-                <span class="s2">"option_1"</span><span class="p">,</span>
-                <span class="s2">"option_2"</span><span class="p">,</span>
-                <span class="s2">"option_3"</span>
-            <span class="p">],</span>
-            <span class="s2">"logics"</span> <span class="o">:</span> <span class="p">[],</span><span class="cm">/* 逻辑id数组，顺序表示逻辑的优先级 */</span>
-            <span class="s2">"quotes"</span> <span class="o">:</span> <span class="p">[],</span><span class="cm">/* 引用题的question_id数组（注意：引用题只能引用当前页之前的题） */</span>
-            <span class="s2">"other"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 其他选项（注意：这是一个特殊选项，其id为-1） */</span>
-                <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否显示其他选项 */</span>
-                <span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span><span class="cm">/* 自定义选项名称 */</span>
-                <span class="s2">"box"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入框 */</span>
-                    <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否出现输入框 */</span>
-                    <span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 允许输入的最少字符数 */</span>
-                    <span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span><span class="cm">/* 允许输入的最多字符数 */</span>
-                    <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"当输入值不合法时，出现提示"</span><span class="cm">/* 当输入框中的字符数不符合要求时的提示信息 */</span>
-                <span class="p">}</span>
-            <span class="p">},</span>
-            <span class="s2">"required"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 必答 */</span>
-                <span class="s2">"status"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 是否设为必答题 */</span>
-                <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"这一项是必填的噢！"</span><span class="cm">/* 没有回答时的提示信息 */</span>
-            <span class="p">},</span>
-            <span class="s2">"display"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 显示相关 */</span>
-                <span class="s2">"style"</span> <span class="o">:</span> <span class="s2">"radio/select"</span><span class="p">,</span><span class="cm">/* ENUM radio:单选按钮 select:单选下拉列表(注意：上面的other.status为true时，other的前端实现要与此设置保持一致) */</span>
-                <span class="s2">"perline"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span><span class="cm">/* 每行显示选项数（注意：当上面的display.style设置为select时此设置无意义） */</span>
-                <span class="s2">"random"</span> <span class="o">:</span> <span class="kc">false</span><span class="cm">/* 是否随机显示选项（注意：顺序打乱 id不能变） */</span>
-            <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-                <span class="cm">/*另一问题*/</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
+    <span class="s2">"sequence_num"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>   <span class="cm">/* 显示顺序 */</span>
+    <span class="s2">"is_deleted"</span> <span class="o">:</span> <span class="s2">"no"</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="p3">3. 修改指定页</h2>
@@ -121,29 +81,14 @@ X-RateLimit-Remaining: 4999
 
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"questions"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="s2">"sequence_num"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>   <span class="cm">/* 显示顺序 */</span>
+    <span class="s2">"is_deleted"</span> <span class="o">:</span> <span class="s2">"no"</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="section-3">响应</h3>
 
 <pre class="headers no-response">
 <code>Status: 204 No Content
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<h2 id="p4">4. 删除指定页（标记状态）</h2>
-
-<pre><code>DELETE /surveys/pages/:id
-</code></pre>
-
-<h3 id="section-4">响应</h3>
-
-<pre class="headers no-response">
-<code>Status: 204 No Content
-Location: http://api.surveymaster.com.cn/surveys/112/pages
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
 </code></pre>
       </div>
 
