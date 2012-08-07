@@ -116,9 +116,10 @@ X-RateLimit-Remaining: 4999
         "quote_question_ids" : [],/* 引用题的question_id数组（注意：引用题只能引用当前页之前的题） */
         "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
             "status" : "on",/* 是否显示其他选项 */
-            "text" : "其他",/* 自定义选项名称 */
-            "box" : {/* 输入框 */
+            "label" : "其他",/* 自定义选项名称 */
+            "input" : {/* 输入框 */
                 "status" : "on",/* 是否出现输入框 */
+                "type" : "char/number/email/url/date",/* ENUM char:字符串 number:数字 email:邮箱 url:链接 date:日期 */
                 "min" : 1,/* 允许输入的最少字符数 */
                 "max" : 10,/* 允许输入的最多字符数 */
                 "prompt" : "当输入值不合法时，出现提示"/* 当输入框中的字符数不符合要求时的提示信息 */
@@ -151,9 +152,10 @@ X-RateLimit-Remaining: 4999
         "quote_question_ids" : [],
         "other" : {
             "status" : "on",
-            "text" : "其他",
-            "box" : {
+            "label" : "其他",
+            "input" : {
                 "status" : "on",
+                "type" : "char/number/email/url/date",
                 "min" : 1,
                 "max" : 10,
                 "prompt" : "当输入值不合法时，出现提示"
@@ -220,14 +222,12 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">3. 创建问题</h2>
 
-    POST /surveys/pages/questions
+    POST /surveys/pages/:page_id/questions
 
 ###请求
 <pre class="highlight">
 <code class="language-javascript">
 {
-    "survey_id" : 1,
-    "page_id" : 1,
     "type" : "radio",/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */
     "title" : "我是一个单选",
     "desc" : "我是一个单选题啊单选题",
@@ -240,9 +240,10 @@ X-RateLimit-Remaining: 4999
     "quote_question_ids" : [1],
     "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
         "status" : "on",/* 是否显示其他选项 */
-        "text" : "其他",/* 自定义选项名称 */
-        "box" : {/* 输入框 */
+        "label" : "其他",/* 自定义选项名称 */
+        "input" : {/* 输入框 */
             "status" : "on",/* 是否出现输入框 */
+            "type" : "char/number/email/url/date",
             "min" : 1,/* 允许输入的最少字符数 */
             "max" : 10,/* 允许输入的最多字符数 */
             "prompt" : "当输入值不合法时，出现提示"/* 当输入框中的字符数不符合要求时的提示信息 */
@@ -302,9 +303,10 @@ X-RateLimit-Remaining: 4999
     "quote_question_ids" : [],
     "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
         "status" : "on",/* 是否显示其他选项 */
-        "text" : "其他",/* 自定义选项名称 */
-        "box" : {/* 输入框 */
+        "label" : "其他",/* 自定义选项名称 */
+        "input" : {/* 输入框 */
             "status" : "on",/* 是否出现输入框 */
+            "type" : "char/number/email/url/date",
             "min" : 1,/* 允许输入的最少字符数 */
             "max" : 10,/* 允许输入的最多字符数 */
             "prompt" : "当输入值不合法时，出现提示"/* 当输入框中的字符数不符合要求时的提示信息 */
@@ -341,9 +343,10 @@ X-RateLimit-Remaining: 4999
     "quote_question_ids" : [],
     "other" : {/* 其他选项（注意：这是一个特殊选项，其id为-1） */
         "status" : "on",/* 是否显示其他选项 */
-        "text" : "其他",/* 自定义选项名称 */
-        "box" : {/* 输入框 */
+        "label" : "其他",/* 自定义选项名称 */
+        "input" : {/* 输入框 */
             "status" : "on",/* 是否出现输入框 */
+            "type" : "char/number/email/url/date",
             "min" : 1,/* 允许输入的最少字符数 */
             "max" : 10,/* 允许输入的最多字符数 */
             "prompt" : "当输入值不合法时，出现提示"/* 当输入框中的字符数不符合要求时的提示信息 */

@@ -20,7 +20,7 @@ Location: http://api.surveymaster.com.cn/surveys/123/pages
   "id" : 1,
   "url" : 'http://api.surveymaster.com.cn/surveys/pages/1',
   "survey_id" : 112,    /* 问卷ID */
-  "sequence_num" : 1,   /* 显示顺序 */
+  "order_num" : 1,   /* 显示顺序 */
   "is_deleted" : "no"
 }
 </code></pre>
@@ -40,7 +40,7 @@ Location: http://api.surveymaster.com.cn/surveys/123/pages
     "id" : 1,
     "url" : 'http://api.surveymaster.com.cn/surveys/pages/1',
     "survey_id" : 112,
-    "sequence_num" : 1,   /* 显示顺序 */
+    "order_num" : 1,   /* 显示顺序 */
     "is_deleted" : "no"
 }
 </code></pre>
@@ -54,7 +54,7 @@ Location: http://api.surveymaster.com.cn/surveys/123/pages
 <pre class="highlight">
 <code class="language-javascript">
 {
-    "sequence_num" : 1,   /* 显示顺序 */
+    "order_num" : 1,   /* 显示顺序 */
     "is_deleted" : "no"
 }
 </code></pre>
