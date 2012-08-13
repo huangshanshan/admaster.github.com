@@ -53,7 +53,7 @@ X-RateLimit-Remaining: 4999
 ]
 </code></pre>
 
-关于错误返回值与错误代码，参见[错误代码说明][apiCommon]  
+关于错误返回值与错误代码，参见[错误代码说明][apiCommon]
 
 ###适用版本
 [v1.0][version]
@@ -107,6 +107,8 @@ pubid
 date
 : _可选_ *Date* - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取头一天的数据
 
+page
+: _可选_ *Int* - 显示页码
 
 <pre class="highlight">
 <code class="language-javascript">
@@ -167,7 +169,7 @@ X-RateLimit-Remaining: 4999
 [
   {
     "id": 1,
-    "url": "http://api.trackmaster.com.cn/networks/medias/1",
+    "url": "http://api.trackmaster.com.cn/networks/1/medias/2",
     "name": "新浪",
     "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
     "domain": "sina.com.cn",
@@ -187,7 +189,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p5">获取指定工作网络下指定媒体信息</h2>
 
-    GET /networks/medias/:id
+    GET /networks/:network_id/medias/:media_id
 
 ###响应
 
@@ -200,7 +202,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 {
     "id": 1,
-    "url": "http://api.trackmaster.com.cn/networks/medias/1",
+    "url": "http://api.trackmaster.com.cn/networks/1/medias/2",
     "name": "新浪",
     "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
     "domain": "sina.com.cn",
@@ -233,8 +235,8 @@ media_id: _必选_ *Int* - 系统媒体ID
 
 ###响应
 <pre class="headers">
-<code>Status: 201 Created 
-Location: http://api.trackmaster.com.cn/networks/medias/1
+<code>Status: 201 Created
+Location: http://api.trackmaster.com.cn/networks/1/medias/2
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -242,7 +244,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 {
     "id": 1,
-    "url": "http://api.trackmaster.com.cn/networks/medias/1",
+    "url": "http://api.trackmaster.com.cn/networks/1/medias/2",
     "name": "新浪",
     "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
     "domain": "sina.com.cn",
@@ -266,7 +268,7 @@ X-RateLimit-Remaining: 4999
 ###响应
 <pre class="headers no-response">
 <code>
-Status: 204 No Content 
+Status: 204 No Content
 Location: http://api.trackmaster.com.cn/networks/1/medias
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
@@ -278,7 +280,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p8">修改指定工作网络下指定媒体属性</h2>
 
-    PATCH /networks/medias/:id
+    PATCH /networks/:network_id/medias/:media_id
 
 ###请求
 <pre class="highlight">
@@ -310,7 +312,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 {
     "id": 1,
-    "url": "http://api.trackmaster.com.cn/networks/medias/1",
+    "url": "http://api.trackmaster.com.cn/networks/1/medias/2",
     "name": "新浪财经",
     "logo": "http://www.trackmaster.com.cn/data/mediaIcon/1.ico",
     "domain": "sina.com.cn",
@@ -350,7 +352,7 @@ X-RateLimit-Remaining: 4999
 ]
 </code></pre>
 
-关于错误返回值与错误代码，参见[错误代码说明][apiCommon] 
+关于错误返回值与错误代码，参见[错误代码说明][apiCommon]
 
 ###适用版本
 [v1.0][version]
@@ -376,7 +378,7 @@ X-RateLimit-Remaining: 4999
 }
 </code></pre>
 
-关于错误返回值与错误代码，参见[错误代码说明][apiCommon] 
+关于错误返回值与错误代码，参见[错误代码说明][apiCommon]
 
 <h2 id="p11">判断指定项目下是否有指定媒体</h2>
 

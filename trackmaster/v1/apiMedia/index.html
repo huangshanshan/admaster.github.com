@@ -88,7 +88,7 @@ X-RateLimit-Remaining: 4999
   <span class="p">}</span>
 <span class="p">]</span></code></pre>
 
-<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a>  </p>
+<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a></p>
 
 <h3 id="section-2">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
@@ -143,6 +143,9 @@ X-RateLimit-Remaining: 4999
   <dt>date</dt>
   <dd>
 <em>可选</em> <em>Date</em> - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取头一天的数据</dd>
+  <dt>page</dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 显示页码</dd>
 </dl><pre class="highlight">
 <code class="language-javascript"><span class="p">[</span>
   <span class="p">{</span>
@@ -208,7 +211,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript"><span class="p">[</span>
   <span class="p">{</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/medias/1"</span><span class="p">,</span>
+    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/1/medias/2"</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"新浪"</span><span class="p">,</span>
     <span class="s2">"logo"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/mediaIcon/1.ico"</span><span class="p">,</span>
     <span class="s2">"domain"</span><span class="o">:</span> <span class="s2">"sina.com.cn"</span><span class="p">,</span>
@@ -227,7 +230,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p5">获取指定工作网络下指定媒体信息</h2>
 
-<pre><code>GET /networks/medias/:id
+<pre><code>GET /networks/:network_id/medias/:media_id
 </code></pre>
 
 <h3 id="section-11">响应</h3>
@@ -240,7 +243,7 @@ X-RateLimit-Remaining: 4999
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/medias/1"</span><span class="p">,</span>
+    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/1/medias/2"</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"新浪"</span><span class="p">,</span>
     <span class="s2">"logo"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/mediaIcon/1.ico"</span><span class="p">,</span>
     <span class="s2">"domain"</span><span class="o">:</span> <span class="s2">"sina.com.cn"</span><span class="p">,</span>
@@ -271,15 +274,15 @@ X-RateLimit-Remaining: 4999
 
 <h3 id="section-14">响应</h3>
 <pre class="headers">
-<code>Status: 201 Created 
-Location: http://api.trackmaster.com.cn/networks/medias/1
+<code>Status: 201 Created
+Location: http://api.trackmaster.com.cn/networks/1/medias/2
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/medias/1"</span><span class="p">,</span>
+    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/1/medias/2"</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"新浪"</span><span class="p">,</span>
     <span class="s2">"logo"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/mediaIcon/1.ico"</span><span class="p">,</span>
     <span class="s2">"domain"</span><span class="o">:</span> <span class="s2">"sina.com.cn"</span><span class="p">,</span>
@@ -303,7 +306,7 @@ X-RateLimit-Remaining: 4999
 <h3 id="section-16">响应</h3>
 <pre class="headers no-response">
 <code>
-Status: 204 No Content 
+Status: 204 No Content
 Location: http://api.trackmaster.com.cn/networks/1/medias
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
@@ -315,7 +318,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p8">修改指定工作网络下指定媒体属性</h2>
 
-<pre><code>PATCH /networks/medias/:id
+<pre><code>PATCH /networks/:network_id/medias/:media_id
 </code></pre>
 
 <h3 id="section-18">请求</h3>
@@ -347,7 +350,7 @@ X-RateLimit-Remaining: 4999
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/medias/1"</span><span class="p">,</span>
+    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://api.trackmaster.com.cn/networks/1/medias/2"</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"新浪财经"</span><span class="p">,</span>
     <span class="s2">"logo"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/mediaIcon/1.ico"</span><span class="p">,</span>
     <span class="s2">"domain"</span><span class="o">:</span> <span class="s2">"sina.com.cn"</span><span class="p">,</span>
@@ -383,7 +386,7 @@ X-RateLimit-Remaining: 4999
   <span class="p">}</span>
 <span class="p">]</span></code></pre>
 
-<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a> </p>
+<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a></p>
 
 <h3 id="section-22">适用版本</h3>
 <p><a href="/trackmaster/v1/apiVersion/">v1.0</a></p>
@@ -408,7 +411,7 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:2"</span>
 <span class="p">}</span></code></pre>
 
-<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a> </p>
+<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a></p>
 
 <h2 id="p11">判断指定项目下是否有指定媒体</h2>
 
