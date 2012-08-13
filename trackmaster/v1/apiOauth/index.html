@@ -37,7 +37,7 @@
 
 <p>OAuth2.0 是从2006年开始设计 OAuth 协议的下一个版本，OAuth2.0 同时提供 Web，桌面和移动应用程序的支持，并较1.0相比整个授权验证流程更简单更安全。</p>
 
-<p>开发者需要先在<a href="http://api.admaster.com.cn/app/new">应用注册页面</a> 申请创建一个应用，填入应用的描述信息，从而获得Client ID和Client Secret，这个Client ID用于唯一标识你的应用，Client Secret应严格保密。创建完应用以后，使用 TrackMaster™ OAuth2.0 对用户进行验证，保障用户的隐私和安全性。</p>
+<p>开发者需要先在<a href="http://open.admaster.com.cn/app/new">应用注册页面</a> 申请创建一个应用，填入应用的描述信息，从而获得Client ID和Client Secret，这个Client ID用于唯一标识你的应用，Client Secret应严格保密。创建完应用以后，使用 TrackMaster™ OAuth2.0 对用户进行验证，保障用户的隐私和安全性。</p>
 
 <h2 id="web-">Web 应用开发流程</h2>
 
@@ -115,15 +115,13 @@
 <pre><code>GET http://open.admaster.com.cn/user?access_token=...
 </code></pre>
 
-<p><strong>响应</strong></p>
-
-<p><code>json
-    {
-      "id": 98,
-      "email": "hello@admaster.com.cn",
-      "username": "hello"
-    }
-</code></p>
+<h3 id="section-3">响应</h3>
+<pre class="highlight">
+<code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">98</span><span class="p">,</span>
+  <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"hello@admaster.com.cn"</span><span class="p">,</span>
+  <span class="s2">"username"</span><span class="o">:</span> <span class="s2">"hello"</span>
+<span class="p">}</span></code></pre>
 
 <h2 id="web">非Web应用请求流程</h2>
 
@@ -171,12 +169,12 @@ X-Accepted-OAuth-Scopes: user
 
 <p>这个接口可以让用户管理自己的token，你可以访问你自己的token，并且只能通过基础认证。</p>
 
-<h2 id="section-3">列出你的认证</h2>
+<h2 id="section-4">列出你的认证</h2>
 
 <pre><code>GET /authorizations
 </code></pre>
 
-<h3 id="section-4">响应</h3>
+<h3 id="section-5">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
 Link: &lt;http://open.admaster.com.cn/resource?page=2&gt;; rel="next",
@@ -204,12 +202,12 @@ X-RateLimit-Remaining: 4999
   <span class="p">}</span>
 <span class="p">]</span></code></pre>
 
-<h2 id="section-5">获取指定认证</h2>
+<h2 id="section-6">获取指定认证</h2>
 
 <pre><code>GET /authorizations/:id
 </code></pre>
 
-<h3 id="section-6">响应</h3>
+<h3 id="section-7">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
 X-RateLimit-Limit: 5000
@@ -233,14 +231,14 @@ X-RateLimit-Remaining: 4999
   <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T17:26:27Z"</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="section-7">创建新认证</h2>
+<h2 id="section-8">创建新认证</h2>
 
 <p>注意：从接口创建的认证将在应用中显示。</p>
 
 <pre><code>POST /authorizations
 </code></pre>
 
-<h3 id="section-8">请求</h3>
+<h3 id="section-9">请求</h3>
 
 <dl>
 <dt>scopes</dt>
@@ -252,7 +250,7 @@ X-RateLimit-Remaining: 4999
   <dt>note_url</dt>
   <dd>
 <em>可选</em> <strong>string</strong> - OAuth token将用于何处的提示信息URL。</dd>
-</dl><h3 id="section-9">示例</h3>
+</dl><h3 id="section-10">示例</h3>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
   <span class="s2">"scopes"</span><span class="o">:</span> <span class="p">[</span>
@@ -261,7 +259,7 @@ X-RateLimit-Remaining: 4999
   <span class="s2">"note"</span><span class="o">:</span> <span class="s2">"admin script"</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="section-10">响应</h3>
+<h3 id="section-11">响应</h3>
 
 <pre class="headers">
 <code>Status: 201 Created
@@ -287,12 +285,12 @@ X-RateLimit-Remaining: 4999
   <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T17:26:27Z"</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="section-11">更新已存在的认证</h2>
+<h2 id="section-12">更新已存在的认证</h2>
 
 <pre><code>PATCH /authorizations/:id
 </code></pre>
 
-<h3 id="section-12">请求</h3>
+<h3 id="section-13">请求</h3>
 
 <dl>
 <dt>scopes</dt>
@@ -310,7 +308,7 @@ X-RateLimit-Remaining: 4999
   <dt>note_url</dt>
   <dd>
 <em>可选</em> <strong>string</strong> - OAuth token将用于何处的提示信息URL。</dd>
-</dl><h3 id="section-13">示例</h3>
+</dl><h3 id="section-14">示例</h3>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
   <span class="s2">"add_scopes"</span><span class="o">:</span> <span class="p">[</span>
@@ -319,7 +317,7 @@ X-RateLimit-Remaining: 4999
   <span class="s2">"note"</span><span class="o">:</span> <span class="s2">"admin script"</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="section-14">响应</h3>
+<h3 id="section-15">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
 X-RateLimit-Limit: 5000
@@ -343,19 +341,19 @@ X-RateLimit-Remaining: 4999
   <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T17:26:27Z"</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="section-15">删除认证</h2>
+<h2 id="section-16">删除认证</h2>
 
 <pre><code>DELETE /authorizations/:id
 </code></pre>
 
-<h3 id="section-16">响应</h3>
+<h3 id="section-17">响应</h3>
 <pre class="headers no-response">
 <code>Status: 204 No Content
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h2 id="section-17">更多信息</h2>
+<h2 id="section-18">更多信息</h2>
 
 <p>你可能对使用 OAuth 有一些疑惑，或许下面的这些链接对你有帮助：</p>
 

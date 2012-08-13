@@ -8,7 +8,7 @@ OAuth（开放授权）是一个开放标准，允许用户让第三方应用访
 
 OAuth2.0 是从2006年开始设计 OAuth 协议的下一个版本，OAuth2.0 同时提供 Web，桌面和移动应用程序的支持，并较1.0相比整个授权验证流程更简单更安全。
 
-开发者需要先在[应用注册页面](http://api.admaster.com.cn/app/new) 申请创建一个应用，填入应用的描述信息，从而获得Client ID和Client Secret，这个Client ID用于唯一标识你的应用，Client Secret应严格保密。创建完应用以后，使用 TrackMaster™ OAuth2.0 对用户进行验证，保障用户的隐私和安全性。
+开发者需要先在[应用注册页面](http://open.admaster.com.cn/app/new) 申请创建一个应用，填入应用的描述信息，从而获得Client ID和Client Secret，这个Client ID用于唯一标识你的应用，Client Secret应严格保密。创建完应用以后，使用 TrackMaster™ OAuth2.0 对用户进行验证，保障用户的隐私和安全性。
 
 ## Web 应用开发流程
 
@@ -81,15 +81,15 @@ refresh\_token
 
     GET http://open.admaster.com.cn/user?access_token=...
 
-**响应**
-
-```json
-    {
-      "id": 98,
-      "email": "hello@admaster.com.cn",
-      "username": "hello"
-    }
-```
+### 响应
+<pre class="highlight">
+<code class="language-javascript">
+{
+  "id": 98,
+  "email": "hello@admaster.com.cn",
+  "username": "hello"
+}
+</code></pre>
 
 ## 非Web应用请求流程
 

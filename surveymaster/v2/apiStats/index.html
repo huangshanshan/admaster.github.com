@@ -32,18 +32,11 @@
     <div id="wrapper">
       <div class="content">
     <h2 id="p1">1. 获取指定问卷的统计信息</h2>
-<pre><code>GET /surveys/:survey_id/stats ### 参数
+<pre><code>GET /surveys/:survey_id/stats ### 可选参数
 </code></pre>
 
-<dl>
-<dt>collector_id</dt>
-  <dd>
-<em>可选</em> <em>int</em> - 渠道id  (获取指定问卷指定渠道的所有答案的统计信息)</dd>
-</dl><ul>
-<li><code>2</code></li>
-  <li><code>5</code></li>
-  <li><code>16</code></li>
-  <li><code>31</code></li>
+<ul>
+<li>collector_id	渠道id</li>
 </ul><h3 id="section">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
