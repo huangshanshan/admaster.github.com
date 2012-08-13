@@ -50,7 +50,7 @@ X-RateLimit-Remaining: 4999
 ]
 </code></pre>
 
-关于错误返回值与错误代码，参见[错误代码说明][apiCommon]。  
+关于错误返回值与错误代码，参见[错误代码说明][apiCommon]。
 
 
 ###适用版本
@@ -77,7 +77,7 @@ X-RateLimit-Remaining: 4999
     "created_at": "2012-09-06T20:39:23Z"  //创建时间
 }
 </code></pre>
-关于错误返回值与错误代码，参见[错误代码说明][apiCommon]。  
+关于错误返回值与错误代码，参见[错误代码说明][apiCommon]。
 
 ###适用版本
 
@@ -85,7 +85,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">获取指定工作网络下所有广告主属性列表</h2>
 
-    GET /networks/:network_id/advertisers/attributes
+    GET /networks/:network_id/advertisers
 
 ###响应
 <pre class="headers">
@@ -116,7 +116,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p4">获取指定网络下的指定广告主属性</h2>
 
-    GET /networks/:network_id/advertisers/:advertiser_id/attributes
+    GET /networks/:network_id/advertisers/:advertiser_id
 
 ###响应
 <pre class="headers">
@@ -171,9 +171,9 @@ X-RateLimit-Remaining: 4999
 
 ###响应
 <pre class="headers no-response">
-<code>Status: 204 No Content 
+<code>Status: 204 No Content
 Link: <http://api.trackmaster.com.cn/networks/1/advertisers/1/campaigns>; rel="campaigns"
-Location: http://api.trackmaster.com.cn/networks/1/advertisers/1/attributes
+Location: http://api.trackmaster.com.cn/networks/1/advertisers/1
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -185,11 +185,11 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p7">修改指定网络下的指定广告主属性</h2>
 
-    PATCH /networks/:network_id/advertisers/:advertiser_id/attributes
+    PATCH /networks/:network_id/advertisers/:advertiser_id
 
 ###请求
 <pre class="highlight">
-<code class="language-javascript">	
+<code class="language-javascript">
 {
     "alias": "通用电器",
     "status": "enabled"
@@ -233,7 +233,7 @@ X-RateLimit-Remaining: 4999
 
 ###响应
 <pre class="headers no-response">
-<code>Status: 204 No Content 
+<code>Status: 204 No Content
 Link: <http://api.trackmaster.com.cn/networks/1/advertisers>; rel="campaigns"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999

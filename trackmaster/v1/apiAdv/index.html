@@ -84,7 +84,7 @@ X-RateLimit-Remaining: 4999
   <span class="p">}</span>
 <span class="p">]</span></code></pre>
 
-<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a>。  </p>
+<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a>。</p>
 
 <h3 id="section-2">适用版本</h3>
 
@@ -109,7 +109,7 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"logo"</span><span class="o">:</span> <span class="s2">"http://www.trackmaster.com.cn/data/advIcon/1.jpg"</span><span class="p">,</span>  <span class="c1">//Logo URL</span>
     <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span>  <span class="c1">//创建时间</span>
 <span class="p">}</span></code></pre>
-<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a>。  </p>
+<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a>。</p>
 
 <h3 id="section-4">适用版本</h3>
 
@@ -117,7 +117,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">获取指定工作网络下所有广告主属性列表</h2>
 
-<pre><code>GET /networks/:network_id/advertisers/attributes
+<pre><code>GET /networks/:network_id/advertisers
 </code></pre>
 
 <h3 id="section-5">响应</h3>
@@ -147,7 +147,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p4">获取指定网络下的指定广告主属性</h2>
 
-<pre><code>GET /networks/:network_id/advertisers/:advertiser_id/attributes
+<pre><code>GET /networks/:network_id/advertisers/:advertiser_id
 </code></pre>
 
 <h3 id="section-7">响应</h3>
@@ -203,9 +203,9 @@ X-RateLimit-Remaining: 4999
 
 <h3 id="section-12">响应</h3>
 <pre class="headers no-response">
-<code>Status: 204 No Content 
+<code>Status: 204 No Content
 Link: &lt;http://api.trackmaster.com.cn/networks/1/advertisers/1/campaigns&gt;; rel="campaigns"
-Location: http://api.trackmaster.com.cn/networks/1/advertisers/1/attributes
+Location: http://api.trackmaster.com.cn/networks/1/advertisers/1
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -216,7 +216,7 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p7">修改指定网络下的指定广告主属性</h2>
 
-<pre><code>PATCH /networks/:network_id/advertisers/:advertiser_id/attributes
+<pre><code>PATCH /networks/:network_id/advertisers/:advertiser_id
 </code></pre>
 
 <h3 id="section-14">请求</h3>
@@ -264,7 +264,7 @@ X-RateLimit-Remaining: 4999
 
 <h3 id="section-17">响应</h3>
 <pre class="headers no-response">
-<code>Status: 204 No Content 
+<code>Status: 204 No Content
 Link: &lt;http://api.trackmaster.com.cn/networks/1/advertisers&gt;; rel="campaigns"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
