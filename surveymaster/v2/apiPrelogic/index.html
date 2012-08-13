@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>SurveyMaster API - 前置逻辑相关接口（共5个）</title>
+  <title>SurveyMaster API - 前置逻辑相关接口（共6个）</title>
   <link href="/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -40,44 +40,45 @@
 <code>Status: 200 OK
 </code></pre>
 <pre class="highlight">
-<code class="language-javascript"><span class="p">[</span><span class="cm">/* 每一个数组元素就是一条逻辑，按先后顺序依次检查组内各逻辑，一旦存在符合条件的逻辑，检查即终止 */</span>
-	<span class="p">{</span>
-		<span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-		<span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/questions/prelogics/1'</span><span class="p">,</span>
-		<span class="s2">"visible"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 此问题是否显示 */</span>
-		<span class="s2">"order"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-		<span class="s2">"conditions"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */</span>
-			<span class="p">{</span>
-				<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
-				<span class="s2">"range"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-			<span class="p">},</span>
-			<span class="p">{</span>
-				<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
-				<span class="s2">"range"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-				<span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"all/any/none"</span>
-			<span class="p">}</span>
-		<span class="p">]</span>
-	<span class="p">},</span>
+<code class="language-javascript"><span class="p">{</span>
+	<span class="s2">"visible"</span> <span class="o">:</span> <span class="s2">"yes"</span><span class="p">,</span><span class="cm">/* 此问题是否显示 */</span>
+	<span class="s2">"logics"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 每一个数组元素就是一条逻辑，按先后顺序依次检查组内各逻辑，一旦存在符合条件的逻辑，逻辑判断即终止 */</span>
+		<span class="p">{</span>
+			<span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+			<span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/questions/prelogics/1'</span><span class="p">,</span>
+			<span class="s2">"order_num"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+			<span class="s2">"conditions"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */</span>
+				<span class="p">{</span>
+					<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
+					<span class="s2">"range"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+				<span class="p">},</span>
+				<span class="p">{</span>
+					<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
+					<span class="s2">"range"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+					<span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"all/any/none"</span>
+				<span class="p">}</span>
+			<span class="p">]</span>
+		<span class="p">},</span>
 
-	<span class="p">{</span>
-		<span class="s2">"id"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-		<span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/questions/prelogics/2'</span><span class="p">,</span>
-		<span class="s2">"visible"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 此问题是否显示 */</span>
-		<span class="s2">"order"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-		<span class="s2">"conditions"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */</span>
-			<span class="p">{</span>
-				<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
-				<span class="s2">"min"</span> <span class="o">:</span> <span class="mi">6</span>
-				<span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span>
-			<span class="p">},</span>
-			<span class="p">{</span>
-				<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
-				<span class="s2">"include"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"99click"</span><span class="p">,</span><span class="s2">"好"</span><span class="p">],</span>
-				<span class="s2">"exclude"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"不好"</span><span class="p">]</span>
-			<span class="p">}</span>
-		<span class="p">]</span>
-	<span class="p">}</span>
-<span class="p">]</span></code></pre>
+		<span class="p">{</span>
+			<span class="s2">"id"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+			<span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/questions/prelogics/2'</span><span class="p">,</span>
+			<span class="s2">"order_num"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+			<span class="s2">"conditions"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */</span>
+				<span class="p">{</span>
+					<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
+					<span class="s2">"min"</span> <span class="o">:</span> <span class="mi">6</span>
+					<span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span>
+				<span class="p">},</span>
+				<span class="p">{</span>
+					<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+					<span class="s2">"include"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"99click"</span><span class="p">,</span><span class="s2">"好"</span><span class="p">],</span>
+					<span class="s2">"exclude"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"不好"</span><span class="p">]</span>
+				<span class="p">}</span>
+			<span class="p">]</span>
+		<span class="p">}</span>
+	<span class="p">]</span>
+<span class="p">}</span></code></pre>
 
 <h2 id="p2">2. 获取指定的前置逻辑</h2>
 <pre><code>GET /surveys/questions/prelogics/:id
@@ -92,7 +93,8 @@
 	<span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 前置逻辑的id（自增 全局唯一） */</span>
 	<span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/questions/prelogics/1'</span><span class="p">,</span>
 	<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-	<span class="s2">"visible"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 此问题是否显示 */</span>
+	<span class="s2">"visible"</span> <span class="o">:</span> <span class="s2">"yes"</span><span class="p">,</span><span class="cm">/* 此问题是否显示 */</span>
+	<span class="s2">"order_num"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 	<span class="s2">"conditions"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */</span>
 		<span class="p">{</span>
 			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
@@ -133,7 +135,7 @@
 <h3 id="section-2">请求</h3>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
-	<span class="s2">"visible"</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="cm">/* 此问题是否显示 */</span>
+	<span class="s2">"order_num"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 	<span class="s2">"conditions"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */</span>
 		<span class="p">{</span>
 			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
@@ -178,9 +180,22 @@ X-RateLimit-Remaining: 4999
 }
 </code></pre>
 
-<h2 id="p4">4. 修改指定的前置逻辑</h2>
+<h2 id="p4">4. 设置指定问题的前置逻辑效果</h2>
+<pre><code>PATCH /surveys/questions/:question_id/prelogics/result ###请求 &lt;pre class="highlight"&gt; &lt;code class="language-javascript"&gt; {
+"visible" : "yes" } &lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+
+<h3 id="section-3">响应</h3>
+
+<pre class="headers no-response">
+<code>Status: 204 No Content
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<h2 id="p5">5. 修改指定的前置逻辑</h2>
 <pre><code>PATCH /surveys/questions/prelogics/:id ###请求 &lt;pre class="highlight"&gt; &lt;code class="language-javascript"&gt; {
-"visible" : true,/* 此问题是否显示 */
+"order_num" : 1,
 "conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 	{
 		"question_id" : 7,
@@ -214,7 +229,7 @@ X-RateLimit-Remaining: 4999
 ] } &lt;/code&gt;&lt;/pre&gt;
 </code></pre>
 
-<h3 id="section-3">响应</h3>
+<h3 id="section-4">响应</h3>
 
 <pre class="headers no-response">
 <code>Status: 204 No Content
@@ -222,11 +237,11 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
-<h2 id="p5">5. 删除指定的前置逻辑</h2>
+<h2 id="p6">6. 删除指定的前置逻辑</h2>
 <pre><code>DELETE /surveys/questions/prelogics/:id
 </code></pre>
 
-<h3 id="section-4">响应</h3>
+<h3 id="section-5">响应</h3>
 
 <pre class="headers no-response">
 <code>Status: 204 No Content

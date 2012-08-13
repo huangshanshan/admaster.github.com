@@ -49,94 +49,90 @@
 	<span class="s2">"respondent_count"</span> <span class="o">:</span> <span class="mi">7788256</span><span class="p">,</span><span class="cm">/* 答题人数量 */</span>
 	<span class="s2">"first_time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span><span class="cm">/* 第一个答题人的答题时间 */</span>
 	<span class="s2">"last_time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span><span class="cm">/* 最后一个答题人的答题时间 */</span>
-	<span class="s2">"questions"</span> <span class="o">:</span> <span class="p">[</span>
-		<span class="p">{</span>
-			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 问题id */</span>
-			<span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"radio"</span><span class="p">,</span><span class="cm">/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */</span>
-			<span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个单选"</span><span class="p">,</span>
-			<span class="s2">"skiped"</span> <span class="o">:</span> <span class="mi">5555</span><span class="p">,</span><span class="cm">/* 跳过此题的受访者数量 */</span>
-			<span class="s2">"answered"</span> <span class="o">:</span> <span class="mi">3167</span><span class="p">,</span><span class="cm">/* 回答了此题的受访者数量 */</span>
-			<span class="s2">"options"</span> <span class="o">:</span> <span class="p">[</span>
-				<span class="p">{</span>
-					<span class="s2">"option"</span> <span class="o">:</span> <span class="s2">"《九歌》"</span><span class="p">,</span><span class="cm">/* 选项名称 */</span>
-					<span class="s2">"count"</span> <span class="o">:</span> <span class="mi">476</span><span class="p">,</span><span class="cm">/* 选择了此选项的受访者数量 */</span>
-					<span class="s2">"percent"</span> <span class="o">:</span> <span class="s2">"40%"</span><span class="cm">/* 选择了此选项的受访者百分比(注意：分母是什么？) */</span>
-				<span class="p">},</span>
-				<span class="p">{</span>
-					<span class="s2">"option"</span> <span class="o">:</span> <span class="s2">"《天问》"</span><span class="p">,</span>
-					<span class="s2">"count"</span> <span class="o">:</span> <span class="mi">140</span><span class="p">,</span>
-					<span class="s2">"percent"</span> <span class="o">:</span> <span class="s2">"15%"</span>
-				<span class="p">},</span>
-				<span class="p">{</span>
-					<span class="s2">"option"</span> <span class="o">:</span> <span class="s2">"《最炫民族风》"</span><span class="p">,</span>
-					<span class="s2">"count"</span> <span class="o">:</span> <span class="mi">48</span><span class="p">,</span>
-					<span class="s2">"percent"</span> <span class="o">:</span> <span class="s2">"5%"</span>
-				<span class="p">},</span>
-				<span class="p">{</span>
-					<span class="s2">"option"</span> <span class="o">:</span> <span class="s2">"《楚辞》"</span><span class="p">,</span>
-					<span class="s2">"count"</span> <span class="o">:</span> <span class="mi">194</span><span class="p">,</span>
-					<span class="s2">"percent"</span> <span class="o">:</span> <span class="s2">"20%"</span>
-				<span class="p">},</span>
-				<span class="p">{</span>
-					<span class="s2">"option"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span>
-					<span class="s2">"count"</span> <span class="o">:</span> <span class="mi">193</span><span class="p">,</span>
-					<span class="s2">"percent"</span> <span class="o">:</span> <span class="s2">"20%"</span>
-				<span class="p">}</span>
-			<span class="p">]</span>
-		<span class="p">},</span>
+	<span class="s2">"question_ids"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="p">}</span></code></pre>
 
-		<span class="p">{</span>
-			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-			<span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"checkbox"</span><span class="p">,</span>
-			<span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个多选"</span><span class="p">,</span>
-			<span class="s2">"skiped"</span> <span class="o">:</span> <span class="mi">5555</span><span class="p">,</span>
-			<span class="s2">"answered"</span> <span class="o">:</span> <span class="mi">3167</span><span class="p">,</span>
-			<span class="s2">"options"</span> <span class="o">:</span> <span class="p">[</span>
-				<span class="p">{</span>
-					<span class="s2">"option"</span> <span class="o">:</span> <span class="s2">"美利坚合众国"</span><span class="p">,</span>
-					<span class="s2">"count"</span> <span class="o">:</span> <span class="mi">476</span><span class="p">,</span>
-					<span class="s2">"percent"</span> <span class="o">:</span> <span class="s2">"40%"</span>
-				<span class="p">},</span>
-				<span class="p">{</span>
-					<span class="s2">"option"</span> <span class="o">:</span> <span class="s2">"黑齿国"</span><span class="p">,</span>
-					<span class="s2">"count"</span> <span class="o">:</span> <span class="mi">140</span><span class="p">,</span>
-					<span class="s2">"percent"</span> <span class="o">:</span> <span class="s2">"15%"</span>
-				<span class="p">},</span>
-				<span class="p">{</span>
-					<span class="s2">"option"</span> <span class="o">:</span> <span class="s2">"恐龙王国"</span><span class="p">,</span>
-					<span class="s2">"count"</span> <span class="o">:</span> <span class="mi">48</span><span class="p">,</span>
-					<span class="s2">"percent"</span> <span class="o">:</span> <span class="s2">"5%"</span>
-				<span class="p">},</span>
-				<span class="p">{</span>
-					<span class="s2">"option"</span> <span class="o">:</span> <span class="s2">"犬封国"</span><span class="p">,</span>
-					<span class="s2">"count"</span> <span class="o">:</span> <span class="mi">194</span><span class="p">,</span>
-					<span class="s2">"percent"</span> <span class="o">:</span> <span class="s2">"20%"</span>
-				<span class="p">},</span>
-				<span class="p">{</span>
-					<span class="s2">"option"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span>
-					<span class="s2">"count"</span> <span class="o">:</span> <span class="mi">193</span><span class="p">,</span>
-					<span class="s2">"percent"</span> <span class="o">:</span> <span class="s2">"20%"</span>
-				<span class="p">}</span>
-			<span class="p">]</span>
-		<span class="p">},</span>
+<h2 id="p2">2. 获取指定问题的统计信息</h2>
+<pre><code>GET /surveys/questions/:question_id/stats
+</code></pre>
 
+<h3 id="section-1">响应</h3>
+<pre class="headers">
+<code>Status: 200 OK
+</code></pre>
+<pre class="highlight">
+<code class="language-javascript"><span class="p">{</span>
+	<span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"radio"</span><span class="p">,</span><span class="cm">/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */</span>
+	<span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个单选"</span><span class="p">,</span>
+	<span class="s2">"skiped_count"</span> <span class="o">:</span> <span class="mi">5555</span><span class="p">,</span><span class="cm">/* 跳过此题的受访者数量 */</span>
+	<span class="s2">"answered_count"</span> <span class="o">:</span> <span class="mi">3167</span><span class="p">,</span><span class="cm">/* 回答了此题的受访者数量 */</span>
+	<span class="s2">"options"</span> <span class="o">:</span> <span class="p">[</span>
 		<span class="p">{</span>
-			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-			<span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"text"</span><span class="p">,</span>
-			<span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个单行文本"</span><span class="p">,</span>
-			<span class="s2">"skiped"</span> <span class="o">:</span> <span class="mi">5555</span><span class="p">,</span>
-			<span class="s2">"answered"</span> <span class="o">:</span> <span class="mi">3167</span>
+			<span class="s2">"option"</span> <span class="o">:</span> <span class="s2">"《九歌》"</span><span class="p">,</span><span class="cm">/* 选项名称 */</span>
+			<span class="s2">"count"</span> <span class="o">:</span> <span class="mi">476</span><span class="cm">/* 选择了此选项的受访者数量 */</span>
 		<span class="p">},</span>
-
 		<span class="p">{</span>
-			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
-			<span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"textarea"</span><span class="p">,</span>
-			<span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个多行文本"</span><span class="p">,</span>
-			<span class="s2">"skiped"</span> <span class="o">:</span> <span class="mi">5555</span><span class="p">,</span>
-			<span class="s2">"answered"</span> <span class="o">:</span> <span class="mi">3167</span>
+			<span class="s2">"option"</span> <span class="o">:</span> <span class="s2">"《天问》"</span><span class="p">,</span>
+			<span class="s2">"count"</span> <span class="o">:</span> <span class="mi">140</span>
+		<span class="p">},</span>
+		<span class="p">{</span>
+			<span class="s2">"option"</span> <span class="o">:</span> <span class="s2">"《最炫民族风》"</span><span class="p">,</span>
+			<span class="s2">"count"</span> <span class="o">:</span> <span class="mi">48</span>
+		<span class="p">},</span>
+		<span class="p">{</span>
+			<span class="s2">"option"</span> <span class="o">:</span> <span class="s2">"《楚辞》"</span><span class="p">,</span>
+			<span class="s2">"count"</span> <span class="o">:</span> <span class="mi">194</span>
+		<span class="p">},</span>
+		<span class="p">{</span>
+			<span class="s2">"option"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span>
+			<span class="s2">"count"</span> <span class="o">:</span> <span class="mi">193</span>
 		<span class="p">}</span>
 	<span class="p">]</span>
-<span class="p">}</span></code></pre>
+<span class="p">}</span>
+<span class="cm">/*</span>
+<span class="cm">{</span>
+<span class="cm">	"type" : "checkbox",</span>
+<span class="cm">	"title" : "我是一个多选",</span>
+<span class="cm">	"skiped_count" : 5555,</span>
+<span class="cm">	"answered_count" : 3167,</span>
+<span class="cm">	"options" : [</span>
+<span class="cm">		{</span>
+<span class="cm">			"option" : "美利坚合众国",</span>
+<span class="cm">			"count" : 476</span>
+<span class="cm">		},</span>
+<span class="cm">		{</span>
+<span class="cm">			"option" : "黑齿国",</span>
+<span class="cm">			"count" : 140</span>
+<span class="cm">		},</span>
+<span class="cm">		{</span>
+<span class="cm">			"option" : "恐龙王国",</span>
+<span class="cm">			"count" : 48</span>
+<span class="cm">		},</span>
+<span class="cm">		{</span>
+<span class="cm">			"option" : "犬封国",</span>
+<span class="cm">			"count" : 194</span>
+<span class="cm">		},</span>
+<span class="cm">		{</span>
+<span class="cm">			"option" : "其他",</span>
+<span class="cm">			"count" : 193</span>
+<span class="cm">		}</span>
+<span class="cm">	]</span>
+<span class="cm">}</span>
+
+<span class="cm">{</span>
+<span class="cm">	"type" : "text",</span>
+<span class="cm">	"title" : "我是一个单行文本",</span>
+<span class="cm">	"skiped_count" : 5555,</span>
+<span class="cm">	"answered_count" : 3167</span>
+<span class="cm">}</span>
+
+<span class="cm">{</span>
+<span class="cm">	"type" : "textarea",</span>
+<span class="cm">	"title" : "我是一个多行文本",</span>
+<span class="cm">	"skiped_count" : 5555,</span>
+<span class="cm">	"answered_count" : 3167</span>
+<span class="cm">}</span>
+<span class="cm">*/</span></code></pre>
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">

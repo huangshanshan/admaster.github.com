@@ -144,9 +144,10 @@ X-RateLimit-Remaining: 4999
         <span class="s2">"quote_question_ids"</span> <span class="o">:</span> <span class="p">[],</span><span class="cm">/* 引用题的question_id数组（注意：引用题只能引用当前页之前的题） */</span>
         <span class="s2">"other"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 其他选项（注意：这是一个特殊选项，其id为-1） */</span>
             <span class="s2">"status"</span> <span class="o">:</span> <span class="s2">"on"</span><span class="p">,</span><span class="cm">/* 是否显示其他选项 */</span>
-            <span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span><span class="cm">/* 自定义选项名称 */</span>
-            <span class="s2">"box"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入框 */</span>
+            <span class="s2">"label"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span><span class="cm">/* 自定义选项名称 */</span>
+            <span class="s2">"input"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入框 */</span>
                 <span class="s2">"status"</span> <span class="o">:</span> <span class="s2">"on"</span><span class="p">,</span><span class="cm">/* 是否出现输入框 */</span>
+                <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"char/number/email/url/date"</span><span class="p">,</span><span class="cm">/* ENUM char:字符串 number:数字 email:邮箱 url:链接 date:日期 */</span>
                 <span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 允许输入的最少字符数 */</span>
                 <span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span><span class="cm">/* 允许输入的最多字符数 */</span>
                 <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"当输入值不合法时，出现提示"</span><span class="cm">/* 当输入框中的字符数不符合要求时的提示信息 */</span>
@@ -179,9 +180,10 @@ X-RateLimit-Remaining: 4999
         <span class="s2">"quote_question_ids"</span> <span class="o">:</span> <span class="p">[],</span>
         <span class="s2">"other"</span> <span class="o">:</span> <span class="p">{</span>
             <span class="s2">"status"</span> <span class="o">:</span> <span class="s2">"on"</span><span class="p">,</span>
-            <span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span>
-            <span class="s2">"box"</span> <span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"label"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span>
+            <span class="s2">"input"</span> <span class="o">:</span> <span class="p">{</span>
                 <span class="s2">"status"</span> <span class="o">:</span> <span class="s2">"on"</span><span class="p">,</span>
+                <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"char/number/email/url/date"</span><span class="p">,</span>
                 <span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
                 <span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
                 <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"当输入值不合法时，出现提示"</span>
@@ -247,14 +249,12 @@ X-RateLimit-Remaining: 4999
 
 <h2 id="p3">3. 创建问题</h2>
 
-<pre><code>POST /surveys/pages/questions
+<pre><code>POST /surveys/pages/:page_id/questions
 </code></pre>
 
 <h3 id="section-2">请求</h3>
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
-    <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"page_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"radio"</span><span class="p">,</span><span class="cm">/* ENUM radion:单选 checkbox:多选 text:单行文本 textarea:多行文本 */</span>
     <span class="s2">"title"</span> <span class="o">:</span> <span class="s2">"我是一个单选"</span><span class="p">,</span>
     <span class="s2">"desc"</span> <span class="o">:</span> <span class="s2">"我是一个单选题啊单选题"</span><span class="p">,</span>
@@ -267,9 +267,10 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"quote_question_ids"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span>
     <span class="s2">"other"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 其他选项（注意：这是一个特殊选项，其id为-1） */</span>
         <span class="s2">"status"</span> <span class="o">:</span> <span class="s2">"on"</span><span class="p">,</span><span class="cm">/* 是否显示其他选项 */</span>
-        <span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span><span class="cm">/* 自定义选项名称 */</span>
-        <span class="s2">"box"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入框 */</span>
+        <span class="s2">"label"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span><span class="cm">/* 自定义选项名称 */</span>
+        <span class="s2">"input"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入框 */</span>
             <span class="s2">"status"</span> <span class="o">:</span> <span class="s2">"on"</span><span class="p">,</span><span class="cm">/* 是否出现输入框 */</span>
+            <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"char/number/email/url/date"</span><span class="p">,</span>
             <span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 允许输入的最少字符数 */</span>
             <span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span><span class="cm">/* 允许输入的最多字符数 */</span>
             <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"当输入值不合法时，出现提示"</span><span class="cm">/* 当输入框中的字符数不符合要求时的提示信息 */</span>
@@ -328,9 +329,10 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"quote_question_ids"</span> <span class="o">:</span> <span class="p">[],</span>
     <span class="s2">"other"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 其他选项（注意：这是一个特殊选项，其id为-1） */</span>
         <span class="s2">"status"</span> <span class="o">:</span> <span class="s2">"on"</span><span class="p">,</span><span class="cm">/* 是否显示其他选项 */</span>
-        <span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span><span class="cm">/* 自定义选项名称 */</span>
-        <span class="s2">"box"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入框 */</span>
+        <span class="s2">"label"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span><span class="cm">/* 自定义选项名称 */</span>
+        <span class="s2">"input"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入框 */</span>
             <span class="s2">"status"</span> <span class="o">:</span> <span class="s2">"on"</span><span class="p">,</span><span class="cm">/* 是否出现输入框 */</span>
+            <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"char/number/email/url/date"</span><span class="p">,</span>
             <span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 允许输入的最少字符数 */</span>
             <span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span><span class="cm">/* 允许输入的最多字符数 */</span>
             <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"当输入值不合法时，出现提示"</span><span class="cm">/* 当输入框中的字符数不符合要求时的提示信息 */</span>
@@ -366,9 +368,10 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"quote_question_ids"</span> <span class="o">:</span> <span class="p">[],</span>
     <span class="s2">"other"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 其他选项（注意：这是一个特殊选项，其id为-1） */</span>
         <span class="s2">"status"</span> <span class="o">:</span> <span class="s2">"on"</span><span class="p">,</span><span class="cm">/* 是否显示其他选项 */</span>
-        <span class="s2">"text"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span><span class="cm">/* 自定义选项名称 */</span>
-        <span class="s2">"box"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入框 */</span>
+        <span class="s2">"label"</span> <span class="o">:</span> <span class="s2">"其他"</span><span class="p">,</span><span class="cm">/* 自定义选项名称 */</span>
+        <span class="s2">"input"</span> <span class="o">:</span> <span class="p">{</span><span class="cm">/* 输入框 */</span>
             <span class="s2">"status"</span> <span class="o">:</span> <span class="s2">"on"</span><span class="p">,</span><span class="cm">/* 是否出现输入框 */</span>
+            <span class="s2">"type"</span> <span class="o">:</span> <span class="s2">"char/number/email/url/date"</span><span class="p">,</span>
             <span class="s2">"min"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 允许输入的最少字符数 */</span>
             <span class="s2">"max"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span><span class="cm">/* 允许输入的最多字符数 */</span>
             <span class="s2">"prompt"</span> <span class="o">:</span> <span class="s2">"当输入值不合法时，出现提示"</span><span class="cm">/* 当输入框中的字符数不符合要求时的提示信息 */</span>

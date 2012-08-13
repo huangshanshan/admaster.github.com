@@ -16,7 +16,7 @@ title: SurveyMaster API - 后置逻辑相关接口（共5个）
 		"id" : 1,
 		"url" : 'http://api.surveymaster.com.cn/surveys/pages/postlogics/1',
 		"goto" : 8,/* 跳转到第几页 */
-		"order" : 1,
+		"order_num" : 1,
 		"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 			{/* 单选题 */
 				"question_id" : 1,
@@ -34,7 +34,7 @@ title: SurveyMaster API - 后置逻辑相关接口（共5个）
 		"id" : 2,
 		"url" : 'http://api.surveymaster.com.cn/surveys/pages/postlogics/2',
 		"goto" : 10,/* 跳转到第几页 */
-		"order" : 2,
+		"order_num" : 2,
 		"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 			{/* 单行文本 */
 				"question_id" : 4,
@@ -69,6 +69,7 @@ title: SurveyMaster API - 后置逻辑相关接口（共5个）
 	"url" : 'http://api.surveymaster.com.cn/surveys/pages/postlogics/1',
 	"page_id" : 1,
 	"goto" : 10,/* 跳转到第几页 */
+	"order_num" : 1,
 	"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 		{/* 单选题 */
 			"question_id" : 1,
@@ -110,6 +111,7 @@ title: SurveyMaster API - 后置逻辑相关接口（共5个）
 <code class="language-javascript">
 {
 	"goto" : 10,/* 跳转到第几页 */
+	"order_num" : 1,
 	"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 		{/* 单选题 */
 			"question_id" : 1,
@@ -161,6 +163,7 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript">
 {
 	"goto" : 10,/* 跳转到第几页 */
+	"order_num" : 1,
 	"conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 		{/* 单选题 */
 			"question_id" : 1,

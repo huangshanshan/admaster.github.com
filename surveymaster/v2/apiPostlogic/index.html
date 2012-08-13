@@ -45,7 +45,7 @@
 		<span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 		<span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/postlogics/1'</span><span class="p">,</span>
 		<span class="s2">"goto"</span> <span class="o">:</span> <span class="mi">8</span><span class="p">,</span><span class="cm">/* 跳转到第几页 */</span>
-		<span class="s2">"order"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+		<span class="s2">"order_num"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 		<span class="s2">"conditions"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */</span>
 			<span class="p">{</span><span class="cm">/* 单选题 */</span>
 				<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -63,7 +63,7 @@
 		<span class="s2">"id"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
 		<span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/postlogics/2'</span><span class="p">,</span>
 		<span class="s2">"goto"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span><span class="cm">/* 跳转到第几页 */</span>
-		<span class="s2">"order"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+		<span class="s2">"order_num"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
 		<span class="s2">"conditions"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */</span>
 			<span class="p">{</span><span class="cm">/* 单行文本 */</span>
 				<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
@@ -97,6 +97,7 @@
 	<span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/postlogics/1'</span><span class="p">,</span>
 	<span class="s2">"page_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 	<span class="s2">"goto"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span><span class="cm">/* 跳转到第几页 */</span>
+	<span class="s2">"order_num"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 	<span class="s2">"conditions"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */</span>
 		<span class="p">{</span><span class="cm">/* 单选题 */</span>
 			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -137,6 +138,7 @@
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
 	<span class="s2">"goto"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span><span class="cm">/* 跳转到第几页 */</span>
+	<span class="s2">"order_num"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 	<span class="s2">"conditions"</span> <span class="o">:</span> <span class="p">[</span><span class="cm">/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */</span>
 		<span class="p">{</span><span class="cm">/* 单选题 */</span>
 			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -183,6 +185,7 @@ X-RateLimit-Remaining: 4999
 <h2 id="p4">4. 修改指定的后置逻辑</h2>
 <pre><code>PATCH /surveys/pages/postlogics/:id ###请求 &lt;pre class="highlight"&gt; &lt;code class="language-javascript"&gt; {
 "goto" : 10,/* 跳转到第几页 */
+"order_num" : 1,
 "conditions" : [/* 每一个数组元素就是一个条件，组内各条件都是 AND 的关系 */
 	{/* 单选题 */
 		"question_id" : 1,

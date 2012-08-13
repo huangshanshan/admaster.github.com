@@ -4,7 +4,7 @@ title: SurveyMaster API - 答案相关接口（共6个）
 
   
 <h2 id="p1">1. 新增答案</h2>
-	POST /surveys/collectors/:collector_id/pages/:page_id/answers
+	POST /surveys/collectors/:collector_id/answers
 	Set-Cookie: admaster_cookie_id=***
 
 ###请求
@@ -14,67 +14,64 @@ title: SurveyMaster API - 答案相关接口（共6个）
 [
 	{
 		"question_id" : 1,/* 问题id */
-		"time" : 123456789,/* 答题时间 */
-		"selected" : [1]/* 数组里存放选项id */
+		"duration" : 30,/* 答题所用时间(秒) */
+		"value" : ["1"]/* 数组里存放选项id */
 	},
 	{
 		"question_id" : 2,
-		"time" : 123456789,
-		"selected" : [-1],/* -1代表"其他"选项 */
+		"duration" : 30,
+		"value" : ["-1"],/* -1代表"其他"选项 */
 		"other" : '篮球'
 	},
 	{
 		"question_id" : 8,
-		"time" : 123456789,
-		"selected" : [1,1.1]
+		"duration" : 30,
+		"value" : ["1","1.1"]
 	},
 	{/* 多选题 */
 		"question_id" : 3,
-		"time" : 123456789,
-		"selected" : [1,3]
+		"duration" : 30,
+		"value" : ["1","3"]
 	},
 	{
 		"question_id" : 9,
-		"time" : 123456789,
-		"selected" : [1,3,3.2],
+		"duration" : 30,
+		"value" : ["1","3","3.2"],
 	},
 	{
 		"question_id" : 4,
-		"time" : 123456789,
-		"selected" : [4,-1],
+		"duration" : 30,
+		"value" : ["4","-1"],
 		"other" : "红酒"
 	},
 	{
 		"question_id" : 5,
-		"time" : 123456789,
-		"selected" : [-2]/* -2代表选中了“排他”选项 */
+		"duration" : 30,
+		"value" : ["-2"]/* -2代表选中了“排他”选项 */
 	},
 	{
 		"question_id" : 10,
-		"time" : 123456789,
-		"selected" : [1,3,3.2,4.4],
+		"duration" : 30,
+		"value" : ["1","3","3.2","4.4"],
 	},
 	{
 		"question_id" : 6,
-		"time" : 123456789,
-		"content" : "单行输入"
+		"duration" : 30,
+		"value" : "单行输入"
 	},
 	{
 		"question_id" : 7,
-		"time" : 123456789,
-		"content" : "多行输入\n多行输入"
+		"duration" : 30,
+		"value" : "多行输入\n多行输入"
 	}
 ]
 </code></pre>
 
 <pre class="headers no-response">
 <code>Status: 201 No Content
-Location: http://api.surveymaster.com.cn/surveys/1/pages/2/questions
+Location: http://api.surveymaster.com.cn/surveys/1/pages/next
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
-{
-	/* 下一页的问题列表 */
-}
 </code></pre>
 
 <h2 id="p2">2. 获取指定问卷的答案列表</h2>
@@ -98,17 +95,18 @@ X-RateLimit-Remaining: 4999
 	{
 		"id" : 1,/* 答案id */
 		"url" : 'http://api.surveymaster.com.cn/surveys/collectors/answers/1',
-		"respondent_id" : "1",
+		"respondent_id" : 1,
 		"collector_id" : 1,
 		"collector_name" : "新浪汽车",
 		"created_at" : 123456789,// 开始答题时间
-		"status" : "-1/0/1"// -1:被甄别 0:未答完 1:完成
+		"updated_at" : 123456789,// 最后答题时间
+		"status" : "finished"// ENUM filtered:提前结束 answering:未答完 finished:完成
 	}
 ]
 </code></pre>
 
 <h2 id="p3">3. 获取指定答案的详情</h2>
-	GET /surveys/collectors/answers/:id
+	GET /surveys/answers/:id
 
 ###响应
 <pre class="headers">
@@ -119,127 +117,77 @@ X-RateLimit-Remaining: 4999
 {
 	"survey_id" : 1,/* 问卷id */
 	"collector_id" : 1,/* 渠道id */
-	"respondent_id" : "1",
+	"respondent_id" : 1,
 	"collector_id" : 1,
 	"collector_name" : "新浪汽车",
 	"created_at" : 123456789,// 开始答题时间
-	"status" : "-1/0/1"// -1:被甄别 0:未答完 1:完成
+	"status" : "finished"// ENUM filtered:提前结束 answering:未答完 finished:完成
 	"answers" : [
 		{
 			"question_id" : 1,/* 问题id */
-			"time" : 123456789,/* 答题时间 */
-			"selected" : [1]/* 数组里存放选项id */
+			"duration" : 30,/* 答题时间 */
+			"value" : ["1"]/* 数组里存放选项id */
 		},
 		{
 			"question_id" : 2,
-			"time" : 123456789,
-			"selected" : [-1],/* -1代表"其他"选项 */
+			"duration" : 30,
+			"value" : ["-1"],/* -1代表"其他"选项 */
 			"other" : '篮球'
 		},
 		{
 			"question_id" : 8,
-			"time" : 123456789,
-			"selected" : [1,1.1]
+			"duration" : 30,
+			"value" : ["1","1.1"]
 		},
 		{/* 多选题 */
 			"question_id" : 3,
-			"time" : 123456789,
-			"selected" : [1,3]
+			"duration" : 30,
+			"value" : ["1","3"]
 		},
 		{
 			"question_id" : 9,
-			"time" : 123456789,
-			"selected" : [1,3,3.1,3.3]
+			"duration" : 30,
+			"value" : ["1","3","3.1","3.3"]
 		},
 		{
 			"question_id" : 4,
-			"time" : 123456789,
-			"selected" : [4,-1],
+			"duration" : 30,
+			"value" : ["4","-1"],
 			"other" : "红酒"
 		},
 		{
 			"question_id" : 5,
-			"time" : 123456789,
-			"selected" : [-2]/* -2代表选中了“排他”选项 */
+			"duration" : 30,
+			"value" : ["-2"]/* -2代表选中了“排他”选项 */
 		},
 		{
 			"question_id" : 10,
-			"time" : 123456789,
-			"selected" : [1,3,3.1,3.3,4.4]
+			"duration" : 30,
+			"value" : ["1","3","3.1","3.3","4.4"]
 		},
 		{
 			"question_id" : 6,
-			"time" : 123456789,
-			"content" : "单行输入"
+			"duration" : 30,
+			"value" : "单行输入"
 		},
 		{
 			"question_id" : 7,
-			"time" : 123456789,
-			"content" : "多行输入\n多行输入"
+			"duration" : 30,
+			"value" : "多行输入\n多行输入"
 		}
 	]
 }
 </code></pre>
 
-<h2 id="p4">4. 编辑指定答案（注意：特殊功能，使用者非受访者本人）</h2>
-	PATCH /surveys/collectors/answers/:id
+<h2 id="p4">4. 编辑指定答卷中某一个问题的答案（注意：特殊功能，使用者非受访者本人）</h2>
+	PATCH /surveys/answers/:answer_id/questions/:id
 ###请求
 <pre class="highlight">
 <code class="language-javascript">
-[
-	{
-		"question_id" : 1,/* 问题id */
-		"time" : 123456789,/* 答题时间 */
-		"selected" : [1]/* 数组里存放选项id */
-	},
-	{
-		"question_id" : 2,
-		"time" : 123456789,
-		"selected" : [-1],/* -1代表"其他"选项 */
-		"other" : '篮球'
-	},
-	{
-		"question_id" : 8,
-		"time" : 123456789,
-		"selected" : [1,1.1]
-	},
-	{/* 多选题 */
-		"question_id" : 3,
-		"time" : 123456789,
-		"selected" : [1,3]
-	},
-	{
-		"question_id" : 9,
-		"time" : 123456789,
-		"selected" : [1,3,3.1,3.2]
-	},
-	{
-		"question_id" : 4,
-		"time" : 123456789,
-		"selected" : [4,-1],
-		"other" : "红酒"
-	},
-	{
-		"question_id" : 5,
-		"time" : 123456789,
-		"selected" : [-2]/* -2代表选中了“排他”选项 */
-	},
-	{
-		"question_id" : 10,
-		"time" : 123456789,
-		"selected" : [1,3,3.1,3.3,4.4]
-	},
-	{
-		"question_id" : 6,
-		"time" : 123456789,
-		"content" : "单行输入"
-	},
-	{
-		"question_id" : 7,
-		"time" : 123456789,
-		"content" : "多行输入\n多行输入"
-	}
-]
+{
+	"value" : ["-1"],/* -1代表"其他"选项 */
+	"other" : "篮球"
+}
 </code></pre>
 
 ###响应
@@ -251,7 +199,7 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <h2 id="p5">5. 删除指定答案</h2>
-	DELETE /surveys/collectors/answers/:id
+	DELETE /surveys/answers/:id
 
 ###响应
 

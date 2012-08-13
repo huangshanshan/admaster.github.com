@@ -31,7 +31,7 @@
 
     <div id="wrapper">
       <div class="content">
-    <h1 id="api---5">API - 页相关（共5个）</h1>
+    <h1 id="api---3">API - 页相关（共3个）</h1>
 
 <h2 id="p1">1. 创建页</h2>
 
@@ -49,7 +49,7 @@ Location: http://api.surveymaster.com.cn/surveys/123/pages
   <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
   <span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/1'</span><span class="p">,</span>
   <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>    <span class="cm">/* 问卷ID */</span>
-  <span class="s2">"sequence_num"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>   <span class="cm">/* 显示顺序 */</span>
+  <span class="s2">"order_num"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>   <span class="cm">/* 显示顺序 */</span>
   <span class="s2">"is_deleted"</span> <span class="o">:</span> <span class="s2">"no"</span>
 <span class="p">}</span></code></pre>
 
@@ -68,7 +68,7 @@ Location: http://api.surveymaster.com.cn/surveys/123/pages
     <span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/pages/1'</span><span class="p">,</span>
     <span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">112</span><span class="p">,</span>
-    <span class="s2">"sequence_num"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>   <span class="cm">/* 显示顺序 */</span>
+    <span class="s2">"order_num"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>   <span class="cm">/* 显示顺序 */</span>
     <span class="s2">"is_deleted"</span> <span class="o">:</span> <span class="s2">"no"</span>
 <span class="p">}</span></code></pre>
 
@@ -81,47 +81,14 @@ Location: http://api.surveymaster.com.cn/surveys/123/pages
 
 <pre class="highlight">
 <code class="language-javascript"><span class="p">{</span>
+    <span class="s2">"order_num"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>   <span class="cm">/* 显示顺序 */</span>
+    <span class="s2">"is_deleted"</span> <span class="o">:</span> <span class="s2">"no"</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="section-3">响应</h3>
 
 <pre class="headers no-response">
 <code>Status: 204 No Content
-</code></pre>
-
-<h2 id="p4">4. 修改页顺序</h2>
-
-<pre><code>PATCH /surveys/:survey_id/pages/sequence
-</code></pre>
-
-<h2 id="section-4">请求</h2>
-
-<pre class="highlight">
-<code class="language-javascript"><span class="p">{</span>
-    <span class="mi">1</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="mi">10</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="mi">11</span><span class="o">:</span> <span class="mi">3</span>
-<span class="p">}</span></code></pre>
-
-<h3 id="section-5">响应</h3>
-
-<pre class="headers no-response">
-<code>Status: 204 No Content
-</code></pre>
-
-<h2 id="p5">5. 删除指定页（标记状态）</h2>
-
-<pre><code>DELETE /surveys/pages/:id
-</code></pre>
-
-<ul>
-<li>只有空页才允许删除</li>
-  <li>删除页时，会删除相关逻辑</li>
-</ul><h3 id="section-6">响应</h3>
-
-<pre class="headers no-response">
-<code>Status: 204 No Content
-Location: http://api.surveymaster.com.cn/surveys/112/pages
 </code></pre>
       </div>
 

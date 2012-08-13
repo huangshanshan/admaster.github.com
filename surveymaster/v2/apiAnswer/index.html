@@ -32,7 +32,7 @@
     <div id="wrapper">
       <div class="content">
     <h2 id="p1">1. 新增答案</h2>
-<pre><code>POST /surveys/collectors/:collector_id/pages/:page_id/answers
+<pre><code>POST /surveys/collectors/:collector_id/answers
 Set-Cookie: admaster_cookie_id=***
 </code></pre>
 
@@ -41,66 +41,63 @@ Set-Cookie: admaster_cookie_id=***
 <code class="language-javascript"><span class="p">[</span>
 	<span class="p">{</span>
 		<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 问题id */</span>
-		<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span><span class="cm">/* 答题时间 */</span>
-		<span class="s2">"selected"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="cm">/* 数组里存放选项id */</span>
+		<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span><span class="cm">/* 答题所用时间(秒) */</span>
+		<span class="s2">"value"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">]</span><span class="cm">/* 数组里存放选项id */</span>
 	<span class="p">},</span>
 	<span class="p">{</span>
 		<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-		<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-		<span class="s2">"selected"</span> <span class="o">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="cm">/* -1代表"其他"选项 */</span>
+		<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+		<span class="s2">"value"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"-1"</span><span class="p">],</span><span class="cm">/* -1代表"其他"选项 */</span>
 		<span class="s2">"other"</span> <span class="o">:</span> <span class="s1">'篮球'</span>
 	<span class="p">},</span>
 	<span class="p">{</span>
 		<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
-		<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-		<span class="s2">"selected"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">]</span>
+		<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+		<span class="s2">"value"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">,</span><span class="s2">"1.1"</span><span class="p">]</span>
 	<span class="p">},</span>
 	<span class="p">{</span><span class="cm">/* 多选题 */</span>
 		<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-		<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-		<span class="s2">"selected"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+		<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+		<span class="s2">"value"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">,</span><span class="s2">"3"</span><span class="p">]</span>
 	<span class="p">},</span>
 	<span class="p">{</span>
 		<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">9</span><span class="p">,</span>
-		<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-		<span class="s2">"selected"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">3.2</span><span class="p">],</span>
+		<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+		<span class="s2">"value"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">,</span><span class="s2">"3"</span><span class="p">,</span><span class="s2">"3.2"</span><span class="p">],</span>
 	<span class="p">},</span>
 	<span class="p">{</span>
 		<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
-		<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-		<span class="s2">"selected"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+		<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+		<span class="s2">"value"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"4"</span><span class="p">,</span><span class="s2">"-1"</span><span class="p">],</span>
 		<span class="s2">"other"</span> <span class="o">:</span> <span class="s2">"红酒"</span>
 	<span class="p">},</span>
 	<span class="p">{</span>
 		<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
-		<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-		<span class="s2">"selected"</span> <span class="o">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="cm">/* -2代表选中了“排他”选项 */</span>
+		<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+		<span class="s2">"value"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"-2"</span><span class="p">]</span><span class="cm">/* -2代表选中了“排他”选项 */</span>
 	<span class="p">},</span>
 	<span class="p">{</span>
 		<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-		<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-		<span class="s2">"selected"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">3.2</span><span class="p">,</span><span class="mf">4.4</span><span class="p">],</span>
+		<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+		<span class="s2">"value"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">,</span><span class="s2">"3"</span><span class="p">,</span><span class="s2">"3.2"</span><span class="p">,</span><span class="s2">"4.4"</span><span class="p">],</span>
 	<span class="p">},</span>
 	<span class="p">{</span>
 		<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">6</span><span class="p">,</span>
-		<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-		<span class="s2">"content"</span> <span class="o">:</span> <span class="s2">"单行输入"</span>
+		<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+		<span class="s2">"value"</span> <span class="o">:</span> <span class="s2">"单行输入"</span>
 	<span class="p">},</span>
 	<span class="p">{</span>
 		<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
-		<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-		<span class="s2">"content"</span> <span class="o">:</span> <span class="s2">"多行输入\n多行输入"</span>
+		<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+		<span class="s2">"value"</span> <span class="o">:</span> <span class="s2">"多行输入\n多行输入"</span>
 	<span class="p">}</span>
 <span class="p">]</span></code></pre>
 
 <pre class="headers no-response">
 <code>Status: 201 No Content
-Location: http://api.surveymaster.com.cn/surveys/1/pages/2/questions
+Location: http://api.surveymaster.com.cn/surveys/1/pages/next
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
-{
-	/* 下一页的问题列表 */
-}
 </code></pre>
 
 <h2 id="p2">2. 获取指定问卷的答案列表</h2>
@@ -124,16 +121,17 @@ X-RateLimit-Remaining: 4999
 	<span class="p">{</span>
 		<span class="s2">"id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 答案id */</span>
 		<span class="s2">"url"</span> <span class="o">:</span> <span class="s1">'http://api.surveymaster.com.cn/surveys/collectors/answers/1'</span><span class="p">,</span>
-		<span class="s2">"respondent_id"</span> <span class="o">:</span> <span class="s2">"1"</span><span class="p">,</span>
+		<span class="s2">"respondent_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 		<span class="s2">"collector_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 		<span class="s2">"collector_name"</span> <span class="o">:</span> <span class="s2">"新浪汽车"</span><span class="p">,</span>
 		<span class="s2">"created_at"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span><span class="c1">// 开始答题时间</span>
-		<span class="s2">"status"</span> <span class="o">:</span> <span class="s2">"-1/0/1"</span><span class="c1">// -1:被甄别 0:未答完 1:完成</span>
+		<span class="s2">"updated_at"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span><span class="c1">// 最后答题时间</span>
+		<span class="s2">"status"</span> <span class="o">:</span> <span class="s2">"finished"</span><span class="c1">// ENUM filtered:提前结束 answering:未答完 finished:完成</span>
 	<span class="p">}</span>
 <span class="p">]</span></code></pre>
 
 <h2 id="p3">3. 获取指定答案的详情</h2>
-<pre><code>GET /surveys/collectors/answers/:id
+<pre><code>GET /surveys/answers/:id
 </code></pre>
 
 <h3 id="section-3">响应</h3>
@@ -144,121 +142,71 @@ X-RateLimit-Remaining: 4999
 <code class="language-javascript"><span class="p">{</span>
 	<span class="s2">"survey_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 问卷id */</span>
 	<span class="s2">"collector_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 渠道id */</span>
-	<span class="s2">"respondent_id"</span> <span class="o">:</span> <span class="s2">"1"</span><span class="p">,</span>
+	<span class="s2">"respondent_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 	<span class="s2">"collector_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 	<span class="s2">"collector_name"</span> <span class="o">:</span> <span class="s2">"新浪汽车"</span><span class="p">,</span>
 	<span class="s2">"created_at"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span><span class="c1">// 开始答题时间</span>
-	<span class="s2">"status"</span> <span class="o">:</span> <span class="s2">"-1/0/1"</span><span class="c1">// -1:被甄别 0:未答完 1:完成</span>
+	<span class="s2">"status"</span> <span class="o">:</span> <span class="s2">"finished"</span><span class="c1">// ENUM filtered:提前结束 answering:未答完 finished:完成</span>
 	<span class="s2">"answers"</span> <span class="o">:</span> <span class="p">[</span>
 		<span class="p">{</span>
 			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span><span class="cm">/* 问题id */</span>
-			<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span><span class="cm">/* 答题时间 */</span>
-			<span class="s2">"selected"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="cm">/* 数组里存放选项id */</span>
+			<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span><span class="cm">/* 答题时间 */</span>
+			<span class="s2">"value"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">]</span><span class="cm">/* 数组里存放选项id */</span>
 		<span class="p">},</span>
 		<span class="p">{</span>
 			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-			<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-			<span class="s2">"selected"</span> <span class="o">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="cm">/* -1代表"其他"选项 */</span>
+			<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+			<span class="s2">"value"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"-1"</span><span class="p">],</span><span class="cm">/* -1代表"其他"选项 */</span>
 			<span class="s2">"other"</span> <span class="o">:</span> <span class="s1">'篮球'</span>
 		<span class="p">},</span>
 		<span class="p">{</span>
 			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
-			<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-			<span class="s2">"selected"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">]</span>
+			<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+			<span class="s2">"value"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">,</span><span class="s2">"1.1"</span><span class="p">]</span>
 		<span class="p">},</span>
 		<span class="p">{</span><span class="cm">/* 多选题 */</span>
 			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-			<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-			<span class="s2">"selected"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+			<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+			<span class="s2">"value"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">,</span><span class="s2">"3"</span><span class="p">]</span>
 		<span class="p">},</span>
 		<span class="p">{</span>
 			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">9</span><span class="p">,</span>
-			<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-			<span class="s2">"selected"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">3.1</span><span class="p">,</span><span class="mf">3.3</span><span class="p">]</span>
+			<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+			<span class="s2">"value"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">,</span><span class="s2">"3"</span><span class="p">,</span><span class="s2">"3.1"</span><span class="p">,</span><span class="s2">"3.3"</span><span class="p">]</span>
 		<span class="p">},</span>
 		<span class="p">{</span>
 			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
-			<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-			<span class="s2">"selected"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+			<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+			<span class="s2">"value"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"4"</span><span class="p">,</span><span class="s2">"-1"</span><span class="p">],</span>
 			<span class="s2">"other"</span> <span class="o">:</span> <span class="s2">"红酒"</span>
 		<span class="p">},</span>
 		<span class="p">{</span>
 			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
-			<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-			<span class="s2">"selected"</span> <span class="o">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="cm">/* -2代表选中了“排他”选项 */</span>
+			<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+			<span class="s2">"value"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"-2"</span><span class="p">]</span><span class="cm">/* -2代表选中了“排他”选项 */</span>
 		<span class="p">},</span>
 		<span class="p">{</span>
 			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-			<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-			<span class="s2">"selected"</span> <span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">3.1</span><span class="p">,</span><span class="mf">3.3</span><span class="p">,</span><span class="mf">4.4</span><span class="p">]</span>
+			<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+			<span class="s2">"value"</span> <span class="o">:</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">,</span><span class="s2">"3"</span><span class="p">,</span><span class="s2">"3.1"</span><span class="p">,</span><span class="s2">"3.3"</span><span class="p">,</span><span class="s2">"4.4"</span><span class="p">]</span>
 		<span class="p">},</span>
 		<span class="p">{</span>
 			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">6</span><span class="p">,</span>
-			<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-			<span class="s2">"content"</span> <span class="o">:</span> <span class="s2">"单行输入"</span>
+			<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+			<span class="s2">"value"</span> <span class="o">:</span> <span class="s2">"单行输入"</span>
 		<span class="p">},</span>
 		<span class="p">{</span>
 			<span class="s2">"question_id"</span> <span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
-			<span class="s2">"time"</span> <span class="o">:</span> <span class="mi">123456789</span><span class="p">,</span>
-			<span class="s2">"content"</span> <span class="o">:</span> <span class="s2">"多行输入\n多行输入"</span>
+			<span class="s2">"duration"</span> <span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+			<span class="s2">"value"</span> <span class="o">:</span> <span class="s2">"多行输入\n多行输入"</span>
 		<span class="p">}</span>
 	<span class="p">]</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="p4">4. 编辑指定答案（注意：特殊功能，使用者非受访者本人）</h2>
-<pre><code>PATCH /surveys/collectors/answers/:id ###请求 &lt;pre class="highlight"&gt; &lt;code class="language-javascript"&gt; [
-{
-	"question_id" : 1,/* 问题id */
-	"time" : 123456789,/* 答题时间 */
-	"selected" : [1]/* 数组里存放选项id */
-},
-{
-	"question_id" : 2,
-	"time" : 123456789,
-	"selected" : [-1],/* -1代表"其他"选项 */
-	"other" : '篮球'
-},
-{
-	"question_id" : 8,
-	"time" : 123456789,
-	"selected" : [1,1.1]
-},
-{/* 多选题 */
-	"question_id" : 3,
-	"time" : 123456789,
-	"selected" : [1,3]
-},
-{
-	"question_id" : 9,
-	"time" : 123456789,
-	"selected" : [1,3,3.1,3.2]
-},
-{
-	"question_id" : 4,
-	"time" : 123456789,
-	"selected" : [4,-1],
-	"other" : "红酒"
-},
-{
-	"question_id" : 5,
-	"time" : 123456789,
-	"selected" : [-2]/* -2代表选中了“排他”选项 */
-},
-{
-	"question_id" : 10,
-	"time" : 123456789,
-	"selected" : [1,3,3.1,3.3,4.4]
-},
-{
-	"question_id" : 6,
-	"time" : 123456789,
-	"content" : "单行输入"
-},
-{
-	"question_id" : 7,
-	"time" : 123456789,
-	"content" : "多行输入\n多行输入"
-} ] &lt;/code&gt;&lt;/pre&gt;
+<h2 id="p4">4. 编辑指定答卷中某一个问题的答案（注意：特殊功能，使用者非受访者本人）</h2>
+<pre><code>PATCH /surveys/answers/:answer_id/questions/:id ###请求 &lt;pre class="highlight"&gt; &lt;code class="language-javascript"&gt; {
+"value" : ["-1"],/* -1代表"其他"选项 */
+"other" : "篮球" } &lt;/code&gt;&lt;/pre&gt;
 </code></pre>
 
 <h3 id="section-4">响应</h3>
@@ -270,7 +218,7 @@ X-RateLimit-Remaining: 4999
 </code></pre>
 
 <h2 id="p5">5. 删除指定答案</h2>
-<pre><code>DELETE /surveys/collectors/answers/:id
+<pre><code>DELETE /surveys/answers/:id
 </code></pre>
 
 <h3 id="section-5">响应</h3>
