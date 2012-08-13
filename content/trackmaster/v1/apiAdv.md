@@ -144,26 +144,6 @@ X-RateLimit-Remaining: 4999
 
 [v1.0][version]
 
-<h2 id="p5">判断指定网络下是否有指定广告主</h2>
-
-    GET /networks/:network_id/advertisers/:advertiser_id
-
-###指定广告主在指定网络下
-<pre class="headers no-response">
-<code>Status: 204 No Content
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-###指定广告主不在指定网络下
-<pre class="headers no-response">
-<code>Status: 404 Not Found
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-###适用版本
-[v1.0][version]
 
 <h2 id="p6">添加指定系统广告主到指定工作网络下</h2>
 
