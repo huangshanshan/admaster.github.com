@@ -125,18 +125,18 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"start_date"</span><span class="o">:</span> <span class="s2">"2012-01-03"</span><span class="p">,</span>
     <span class="s2">"end_date"</span><span class="o">:</span> <span class="s2">"2012-06-23"</span><span class="p">,</span>
     <span class="s2">"default_target"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn"</span>
-    <span class="s2">"survey_id"</span><span class="o">:</span> <span class="mi">1024</span><span class="p">,</span> 
+    <span class="s2">"survey_id"</span><span class="o">:</span> <span class="mi">1024</span><span class="p">,</span>
     <span class="s2">"media_num"</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
     <span class="s2">"placement_num"</span><span class="o">:</span> <span class="mi">258</span><span class="p">,</span>
     <span class="s2">"est_imp"</span><span class="o">:</span> <span class="mi">9183213</span><span class="p">,</span>
     <span class="s2">"est_clk"</span><span class="o">:</span> <span class="mi">12334</span><span class="p">,</span>
-    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"typing"</span><span class="p">,</span> 
+    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"typing"</span><span class="p">,</span>
     <span class="s2">"is_online"</span><span class="o">:</span> <span class="s2">"yes"</span><span class="p">,</span>
     <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span>
   <span class="p">}</span>
 <span class="p">]</span></code></pre>
 
-<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a>  </p>
+<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a></p>
 
 <h3 id="section-2">字段说明</h3>
 
@@ -153,7 +153,7 @@ X-RateLimit-Remaining: 4999
 <h3 id="section-4">响应</h3>
 <pre class="headers">
 <code>Status: 200 OK
-Link: &lt;http://api.trackmaster.com.cn/networks/advertisers/campaigns/1/nwmedias&gt;; rel="nwmedias" 
+Link: &lt;http://api.trackmaster.com.cn/networks/advertisers/campaigns/1/medias/attributes&gt;; rel="nwmedias"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -168,19 +168,19 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"start_date"</span><span class="o">:</span> <span class="s2">"2012-01-03"</span><span class="p">,</span>
     <span class="s2">"end_date"</span><span class="o">:</span> <span class="s2">"2012-06-23"</span><span class="p">,</span>
     <span class="s2">"default_target"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn"</span>
-    <span class="s2">"survey_id"</span><span class="o">:</span> <span class="mi">1024</span><span class="p">,</span> 
-    <span class="s2">"media_num"</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>     
+    <span class="s2">"survey_id"</span><span class="o">:</span> <span class="mi">1024</span><span class="p">,</span>
+    <span class="s2">"media_num"</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
     <span class="s2">"placement_num"</span><span class="o">:</span> <span class="mi">258</span><span class="p">,</span>
     <span class="s2">"target_audience"</span><span class="o">:</span><span class="p">{</span>
         <span class="s2">"age"</span><span class="o">:</span> <span class="s2">"19-25"</span><span class="p">,</span>
         <span class="s2">"sex"</span><span class="o">:</span> <span class="s2">"male"</span>
-    <span class="p">},</span> 
-    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"typing"</span><span class="p">,</span> 
-    <span class="s2">"is_online"</span><span class="o">:</span> <span class="s2">"yes"</span><span class="p">,</span> 
+    <span class="p">},</span>
+    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"typing"</span><span class="p">,</span>
+    <span class="s2">"is_online"</span><span class="o">:</span> <span class="s2">"yes"</span><span class="p">,</span>
     <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span>
 <span class="p">}</span></code></pre>
 
-<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a> </p>
+<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a></p>
 
 <h3 id="section-5">字段说明</h3>
 
@@ -214,10 +214,10 @@ X-RateLimit-Remaining: 4999
 <em>必选</em> <em>URL</em> - 项目默认点击目标地址，例如: http://www.admaster.com.cn/</dd>
   <dt>survey_id</dt>
   <dd>
-<em>可选</em> <em>Int</em> - 项目关联的 SurveyMaster 系统下的问卷ID, </dd>
+<em>可选</em> <em>Int</em> - 项目关联的 SurveyMaster 系统下的问卷ID,</dd>
   <dt>cost_type</dt>
   <dd>
-<em>可选</em> <em>String</em> - 媒体预算货币类型 </dd>
+<em>可选</em> <em>String</em> - 媒体预算货币类型</dd>
 </dl><ul>
 <li>
 <code>None</code> 不设置媒体预算 <em>默认值</em>
@@ -271,19 +271,19 @@ X-RateLimit-Remaining: 4999
     <span class="s2">"start_date"</span><span class="o">:</span> <span class="s2">"2012-01-31"</span><span class="p">,</span>
     <span class="s2">"end_date"</span><span class="o">:</span> <span class="s2">"2012-04-20"</span><span class="p">,</span>
     <span class="s2">"default_target"</span><span class="o">:</span> <span class="s2">"http://www.admaster.com.cn"</span>
-    <span class="s2">"survey_id"</span><span class="o">:</span> <span class="mi">1002</span><span class="p">,</span> 
-    <span class="s2">"media_num"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>     
+    <span class="s2">"survey_id"</span><span class="o">:</span> <span class="mi">1002</span><span class="p">,</span>
+    <span class="s2">"media_num"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"placement_num"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"target_audience"</span><span class="o">:</span><span class="p">{</span>
         <span class="s2">"age"</span><span class="o">:</span> <span class="s2">"16-30"</span><span class="p">,</span>
         <span class="s2">"sex"</span><span class="o">:</span> <span class="s2">"female"</span>
-    <span class="p">},</span> 
-    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"typing"</span><span class="p">,</span> 
-    <span class="s2">"is_online"</span><span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>     
+    <span class="p">},</span>
+    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"typing"</span><span class="p">,</span>
+    <span class="s2">"is_online"</span><span class="o">:</span> <span class="s2">"no"</span><span class="p">,</span>
     <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-06T20:39:23Z"</span>
 <span class="p">}</span></code></pre>
 
-<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a> </p>
+<p>关于错误返回值与错误代码，参见<a href="/trackmaster/v1/apiCommon/#p5">错误代码说明</a></p>
 
 <h3 id="section-10">字段说明</h3>
 
@@ -317,10 +317,10 @@ X-RateLimit-Remaining: 4999
 <em>可选</em> <em>URL</em> - 项目默认点击目标地址，例如: http://www.admaster.com.cn/</dd>
   <dt>survey_id</dt>
   <dd>
-<em>可选</em> <em>Int</em> - 项目关联的 SurveyMaster 系统下的问卷ID, </dd>
+<em>可选</em> <em>Int</em> - 项目关联的 SurveyMaster 系统下的问卷ID,</dd>
   <dt>cost_type</dt>
   <dd>
-<em>可选</em> <em>String</em> - 媒体预算货币类型 </dd>
+<em>可选</em> <em>String</em> - 媒体预算货币类型</dd>
 </dl><ul>
 <li>
 <code>None</code> 不设置媒体预算 <em>默认值</em>
@@ -358,7 +358,7 @@ X-RateLimit-Remaining: 4999
 
 <h3 id="section-14">响应</h3>
 <pre class="headers no-response">
-<code>Status: 204 No Content 
+<code>Status: 204 No Content
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>

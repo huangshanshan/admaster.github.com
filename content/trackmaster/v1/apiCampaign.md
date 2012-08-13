@@ -76,19 +76,19 @@ X-RateLimit-Remaining: 4999
     "start_date": "2012-01-03",
     "end_date": "2012-06-23",
     "default_target": "http://www.admaster.com.cn"
-    "survey_id": 1024, 
+    "survey_id": 1024,
     "media_num": 8,
     "placement_num": 258,
     "est_imp": 9183213,
     "est_clk": 12334,
-    "status": "typing", 
+    "status": "typing",
     "is_online": "yes",
     "created_at": "2012-09-06T20:39:23Z"
   }
 ]
 </code></pre>
 
-关于错误返回值与错误代码，参见[错误代码说明][apiCommon]  
+关于错误返回值与错误代码，参见[错误代码说明][apiCommon]
 
 ###字段说明
 
@@ -106,7 +106,7 @@ X-RateLimit-Remaining: 4999
 ###响应
 <pre class="headers">
 <code>Status: 200 OK
-Link: <http://api.trackmaster.com.cn/networks/advertisers/campaigns/1/nwmedias>; rel="nwmedias" 
+Link: <http://api.trackmaster.com.cn/networks/advertisers/campaigns/1/medias/attributes>; rel="nwmedias"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
@@ -122,20 +122,20 @@ X-RateLimit-Remaining: 4999
     "start_date": "2012-01-03",
     "end_date": "2012-06-23",
     "default_target": "http://www.admaster.com.cn"
-    "survey_id": 1024, 
-    "media_num": 8,     
+    "survey_id": 1024,
+    "media_num": 8,
     "placement_num": 258,
     "target_audience":{
         "age": "19-25",
         "sex": "male"
-    }, 
-    "status": "typing", 
-    "is_online": "yes", 
+    },
+    "status": "typing",
+    "is_online": "yes",
     "created_at": "2012-09-06T20:39:23Z"
 }
 </code></pre>
 
-关于错误返回值与错误代码，参见[错误代码说明][apiCommon] 
+关于错误返回值与错误代码，参见[错误代码说明][apiCommon]
 
 ###字段说明
 
@@ -166,10 +166,10 @@ default\_target
 : _必选_ *URL* - 项目默认点击目标地址，例如: http://www.admaster.com.cn/
 
 survey\_id
-: _可选_ *Int* - 项目关联的 SurveyMaster 系统下的问卷ID, 
+: _可选_ *Int* - 项目关联的 SurveyMaster 系统下的问卷ID,
 
 cost\_type
-: _可选_ *String* - 媒体预算货币类型 
+: _可选_ *String* - 媒体预算货币类型
 
 * `None` 不设置媒体预算 _默认值_
 * `CNY` 人民币
@@ -224,20 +224,20 @@ X-RateLimit-Remaining: 4999
     "start_date": "2012-01-31",
     "end_date": "2012-04-20",
     "default_target": "http://www.admaster.com.cn"
-    "survey_id": 1002, 
-    "media_num": 0,     
+    "survey_id": 1002,
+    "media_num": 0,
     "placement_num": 0,
     "target_audience":{
         "age": "16-30",
         "sex": "female"
-    }, 
-    "status": "typing", 
-    "is_online": "no",     
+    },
+    "status": "typing",
+    "is_online": "no",
     "created_at": "2012-09-06T20:39:23Z"
 }
 </code></pre>
 
-关于错误返回值与错误代码，参见[错误代码说明][apiCommon] 
+关于错误返回值与错误代码，参见[错误代码说明][apiCommon]
 
 ###字段说明
 
@@ -268,10 +268,10 @@ default\_target
 : _可选_ *URL* - 项目默认点击目标地址，例如: http://www.admaster.com.cn/
 
 survey\_id
-: _可选_ *Int* - 项目关联的 SurveyMaster 系统下的问卷ID, 
+: _可选_ *Int* - 项目关联的 SurveyMaster 系统下的问卷ID,
 
 cost\_type
-: _可选_ *String* - 媒体预算货币类型 
+: _可选_ *String* - 媒体预算货币类型
 
 * `None` 不设置媒体预算 _默认值_
 * `CNY` 人民币
@@ -309,7 +309,7 @@ target\_audience
 
 ###响应
 <pre class="headers no-response">
-<code>Status: 204 No Content 
+<code>Status: 204 No Content
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
