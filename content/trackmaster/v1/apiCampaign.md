@@ -385,7 +385,7 @@ X-RateLimit-Remaining: 4999
  <tr>
     <td>survey_id</td>
     <td>int</td>
-    <td>结束日期</td>
+    <td>项目关联的 SurveyMaster 系统下的问卷ID</td>
   </tr>
  <tr>
     <td>media_num</td>
