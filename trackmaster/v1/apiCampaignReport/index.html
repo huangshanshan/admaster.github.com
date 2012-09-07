@@ -71,7 +71,22 @@
   <li>
 <code>time</code> 按时间维度聚合</li>
 </ul><dl>
-<dt><code>start_time</code></dt>
+<dt><code>network_media_id</code></dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 网络媒体ID</dd>
+  <dt><code>placement_id</code></dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 广告位ID</dd>
+  <dt><code>keyword_id</code></dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 关键字ID</dd>
+  <dt><code>creative_id</code></dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 创意ID</dd>
+  <dt><code>geo_id</code></dt>
+  <dd>
+<em>可选</em> <em>Int</em> - 地域ID</dd>
+  <dt><code>start_time</code></dt>
   <dd>
 <em>可选</em> <em>Hour</em> - 项目开始时间，会列出项目开始日期大于等于此设定的项目</dd>
   <dt><code>end_time</code></dt>
@@ -101,6 +116,7 @@
   <li>
 <code>desc</code> 降序</li>
 </ul><h3 id="section-1">列表响应</h3>
+
 <pre class="headers">
 <code>Status: 200 OK
 Link: &lt;http://api.trackmaster.com.cn/campaigns/12/reports?page=2&gt;; rel="next",

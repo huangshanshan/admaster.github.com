@@ -18,6 +18,7 @@ title: API - 项目报告接口
 * `weekly` 获取周数据
 * `monthly` 获取月数据
 
+
 `dims`
 : _必选_ *String* - 数据聚合维度,多个选项直接用`,`分开
 
@@ -27,6 +28,21 @@ title: API - 项目报告接口
 * `creative` 按创意维度聚合
 * `geo` 按地域维度聚合
 * `time` 按时间维度聚合
+
+`network_media_id`
+: _可选_ *Int* - 网络媒体ID
+
+`placement_id`
+: _可选_ *Int* - 广告位ID
+
+`keyword_id`
+: _可选_ *Int* - 关键字ID
+
+`creative_id`
+: _可选_ *Int* - 创意ID
+
+`geo_id`
+: _可选_ *Int* - 地域ID
 
 `start_time`
 : _可选_ *Hour* - 项目开始时间，会列出项目开始日期大于等于此设定的项目
@@ -43,13 +59,16 @@ title: API - 项目报告接口
 * `uimp` - 按照独立曝光排序
 * `uclk` - 按照独立点击排序
 
+
 `direction`
 : _可选_ *String* - 排序方式
 
 * `asc` 升序 (_默认_)
 * `desc` 降序
 
+
 ###列表响应
+
 <pre class="headers">
 <code>Status: 200 OK
 Link: <http://api.trackmaster.com.cn/campaigns/12/reports?page=2>; rel="next",
