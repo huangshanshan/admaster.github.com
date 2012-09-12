@@ -84,6 +84,20 @@ direction
 
 [v1.0][version]
 
+<h2 id="p1">获取指定监测代码下的项目日报告</h2>
+
+    GET /medias/campaigns/daily_reports/code/:code
+
+###响应
+<pre class="headers no-response">
+<code>Status: 204 No Content
+Link: <http://api.trackmaster.com.cn/medias/1308/campaigns/10256/daily_reports>; rel="campaigns"
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+###适用版本
+[v1.0][version]
 
 [version]: /trackmaster/v1/apiVersion/
 [apiCommon]:/trackmaster/v1/apiCommon/#p5
