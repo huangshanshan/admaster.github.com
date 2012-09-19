@@ -78,10 +78,15 @@ Link: <http://api.trackmaster.com.cn/campaigns/12/reports?page=2>; rel="next",
 <code class="language-javascript">
 [
   {
-    "imp": 9183213,
-    "uimp": 1183213,
-    "clk": 12334,
-    "uclk": 2334
+    "campaign_id": 10185,
+    "network_media_id": 1484,
+    "time": "2012-08-03",
+    "imp": 9,
+    "uimp": 6,
+    "ipuimp": 6,
+    "clk": 3,
+    "uclk": 3,
+    "ipuclk": 2
   }
 ]
 </code></pre>
@@ -107,6 +112,12 @@ Link: <http://api.trackmaster.com.cn/campaigns/12/reports?page=2>; rel="next",
     <td>独立曝光</td>
   </tr>
   <tr>
+    <td>ipuimp</td>
+    <td>int</td>
+    <td>IP独立曝光</td>
+  </tr>
+
+  <tr>
     <td>clk</td>
     <td>int</td>
     <td>点击</td>
@@ -116,6 +127,12 @@ Link: <http://api.trackmaster.com.cn/campaigns/12/reports?page=2>; rel="next",
     <td>int</td>
     <td>独立点击</td>
   </tr>
+  <tr>
+    <td>ipuclk</td>
+    <td>int</td>
+    <td>IP独立点击</td>
+  </tr>
+
 </table>
 
 ###适用版本
