@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="en-us" />
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+  <title>项目报告 - AdMaster API 文档中心</title>
+  <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
+  <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
+  <link href="/doc/assets/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="/doc/assets/js/prettify.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="/doc/assets/js/jquery.js" type="text/javascript"></script>
+  <script src="/doc/assets/js/documentation.js" type="text/javascript"></script>
+  <script src="/doc/assets/js/prettify.js" type="text/javascript"></script>
+  <script>
+    $(function() {
+      // make code pritty
+      window.prettyPrint && prettyPrint();
+    });
+  </script>
+</head>
+<body class="api">
+
+    <div id="header-wrapper">
+      <div id="header">
+        <div>
+          <a class="logo" href="/"><img src="/doc/assets/img/logo_developer.png" width="256" height="45"></a>
+          <ul class="nav">
+            <li><a href="/doc/openmaster/v1/cn/index.html">OpenMaster</a></li>
+            <li><a href="/doc/trackmaster/v1/cn/index.html">TrackMaster</a></li>
+            <li><a href="/doc/weibomaster/v1/cn/index.html">WeiboMaster</a></li>
+            <li><a href="/doc/surveymaster/v1/cn/index.html">SurveyMaster</a></li>
+          </ul>
+        </div>
+      </div><!-- #header -->
+    </div><!-- #header-wrapper -->
+
+    <div id="wrapper">
+      <div class="content">
+        <h1 id="api---">API - 项目报告</h1>
+
+<h2 id="p1">获取指定项目下有操作权限的项目报告列表</h2>
+
+<pre><code>GET /campaigns/:campaign_id/reports
+</code></pre>
+
+<h3 id="section">列表参数</h3>
+
+<dl>
+  <dt><code>time</code></dt>
+  <dd><em>必选</em> <em>String</em> - 数据时间类型
+
+    <ul>
+      <li><code>hourly</code> 获取小时数据</li>
+      <li><code>daily</code> 获取日数据</li>
+      <li><code>weekly</code> 获取周数据</li>
+      <li><code>monthly</code> 获取月数据</li>
+    </ul>
+  </dd>
+  <dt><code>dims</code></dt>
+  <dd><em>必选</em> <em>String</em> - 数据聚合维度,多个选项直接用<code>,</code>分开
+
+    <ul>
+      <li><code>media</code> 按媒体维度聚合</li>
+      <li><code>placement</code> 按广告位维度聚合</li>
+      <li><code>keyword</code> 按关键字维度聚合</li>
+      <li><code>creative</code> 按创意维度聚合</li>
+      <li><code>geo</code> 按地域维度聚合</li>
+      <li><code>time</code> 按时间维度聚合</li>
+    </ul>
+  </dd>
+  <dt><code>network_media_id</code></dt>
+  <dd><em>可选</em> <em>Int</em> - 网络媒体ID</dd>
+  <dt><code>placement_id</code></dt>
+  <dd><em>可选</em> <em>Int</em> - 广告位ID</dd>
+  <dt><code>keyword_id</code></dt>
+  <dd><em>可选</em> <em>Int</em> - 关键字ID</dd>
+  <dt><code>creative_id</code></dt>
+  <dd><em>可选</em> <em>Int</em> - 创意ID</dd>
+  <dt><code>geo_id</code></dt>
+  <dd><em>可选</em> <em>Int</em> - 地域ID</dd>
+  <dt><code>start_time</code></dt>
+  <dd><em>可选</em> <em>Hour</em> - 项目开始时间，会列出项目开始日期大于等于此设定的项目</dd>
+  <dt><code>end_time</code></dt>
+  <dd><em>可选</em> <em>Hour</em> - 项目结束时间，会列出项目结束日期小于等于此设定的项目</dd>
+  <dt><code>sort</code></dt>
+  <dd><em>可选</em> <em>String</em> - 列表排序以什么排序
+
+    <ul>
+      <li><code>time</code> - 按照时间排序</li>
+      <li><code>imp</code> - 按照曝光排序</li>
+      <li><code>clk</code> - 按照点击排序</li>
+      <li><code>uimp</code> - 按照独立曝光排序</li>
+      <li><code>uclk</code> - 按照独立点击排序</li>
+    </ul>
+  </dd>
+  <dt><code>direction</code></dt>
+  <dd><em>可选</em> <em>String</em> - 排序方式
+
+    <ul>
+      <li><code>asc</code> 升序 (<em>默认</em>)</li>
+      <li><code>desc</code> 降序</li>
+    </ul>
+  </dd>
+</dl>
+
+<h3 id="section-1">列表响应</h3>
+
+<pre class="headers">
+<code>Status: 200 OK
+Link: &lt;http://api.trackmaster.com.cn/campaigns/12/reports?page=2&gt;; rel="next",
+      &lt;http://api.trackmaster.com.cn/campaigns/12/reports?page=10&gt;; rel="last"
+</code></pre>
+<pre class="highlight">
+<code class="language-javascript">
+[
+  {
+    "campaign_id": 10185,
+    "network_media_id": 1484,
+    "time": "2012-08-03",
+    "imp": 9,
+    "uimp": 6,
+    "ipuimp": 6,
+    "clk": 3,
+    "uclk": 3,
+    "ipuclk": 2
+  }
+]
+</code></pre>
+
+<h3 id="section-2">字段说明</h3>
+
+<table cellspacing="0" cellpadding="6" border="1">
+  <tr>
+    <td> 返回值字段 </td>
+    <td> 字段类型 </td>
+    <td> 字段说明 </td>
+  </tr>
+  <tr>
+    <td>imp</td>
+    <td>int</td>
+    <td>曝光</td>
+  </tr>
+  <tr>
+    <td>uimp</td>
+    <td>int</td>
+    <td>独立曝光</td>
+  </tr>
+  <tr>
+    <td>ipuimp</td>
+    <td>int</td>
+    <td>IP独立曝光</td>
+  </tr>
+
+  <tr>
+    <td>clk</td>
+    <td>int</td>
+    <td>点击</td>
+  </tr>
+  <tr>
+    <td>uclk</td>
+    <td>int</td>
+    <td>独立点击</td>
+  </tr>
+  <tr>
+    <td>ipuclk</td>
+    <td>int</td>
+    <td>IP独立点击</td>
+  </tr>
+
+</table>
+
+      </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+      <div class="js-toggle-list sidebar-module expandable">
+        <ul>
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/trackmaster/v1/cn/index.html">
+                  TrackMaster首页
+                </a></h3>
+                <ul class="js-guides">
+                  <li style="display: none;"></li>
+                </ul>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/trackmaster/v1/cn/advertiser.html">
+                  广告主
+                </a></h3>
+                <ul class="js-guides">
+                  <li style="display: none;"></li>
+                </ul>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/trackmaster/v1/cn/media.html">
+                  媒体
+                </a></h3>
+                <ul class="js-guides">
+                  <li style="display: none;"></li>
+                </ul>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/trackmaster/v1/cn/network.html">
+                  工作网络
+                </a></h3>
+                <ul class="js-guides">
+                  <li style="display: none;"></li>
+                </ul>
+              </li>
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/trackmaster/v1/cn/brand.html">
+                  品牌
+                </a></h3>
+                <ul class="js-guides">
+                  <li style="display: none;"></li>
+                </ul>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/trackmaster/v1/cn/channel.html">
+                  频道
+                </a></h3>
+                <ul class="js-guides">
+                  <li style="display: none;"></li>
+                </ul>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/trackmaster/v1/cn/campaign.html">
+                  项目
+                </a></h3>
+                <ul class="js-guides">
+                  <li style="display: none;"></li>
+                </ul>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a class="active" href="/doc/trackmaster/v1/cn/campaign_report.html">
+                  项目报告
+                </a></h3>
+                <ul class="js-guides">
+                  <li style="display: none;"></li>
+                </ul>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/trackmaster/v1/cn/creative.html">
+                  创意
+                </a></h3>
+                <ul class="js-guides">
+                  <li style="display: none;"></li>
+                </ul>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/trackmaster/v1/cn/code.html">
+                  代码
+                </a></h3>
+                <ul class="js-guides">
+                  <li style="display: none;"></li>
+                </ul>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/trackmaster/v1/cn/media_report.html">
+                  媒体报告
+                </a></h3>
+                <ul class="js-guides">
+                  <li style="display: none;"></li>
+                </ul>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/trackmaster/v1/cn/placement.html">
+                  广告位
+                </a></h3>
+                <ul class="js-guides">
+                  <li style="display: none;"></li>
+                </ul>
+              </li>
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="js-topic">
+                <h3>
+                  <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
+                  <a  href="/doc/trackmaster/v1/cn/spot.html">
+                  点位
+                </a></h3>
+                <ul class="js-guides">
+                  <li style="display: none;"></li>
+                </ul>
+              </li>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+       </ul>
+      </div> <!-- /sidebar-module -->
+    </div><!-- /sidebar-shell -->
+
+    </div><!-- #wrapper -->
+
+    <div id="footer" >
+       <div class="lower_footer">
+        <div class="footer_inner clearfix">              
+          <div id="legal"> 
+              <ul id="legal_links">
+                <li><a href="http://www.admaster.com.cn/">AdMaster首页</a></li>
+                <li><a href="http://www.trackmaster.com.cn/?m=home&amp;a=service">服务条款</a></li>
+                <li><a href="http://www.admaster.com.cn/?page_id=27">与我们联系</a></li>
+              </ul>
+
+              <p>&copy; <span id="year">year</span> AdMaster Inc. All rights reserved.</p>
+              <p>&nbsp;</p>
+            </div><!-- /#legal or /#legal_ie-->
+        </div><!-- /.site -->
+      </div><!-- /.lower_footer -->
+    </div><!-- /#footer -->
+</body>
+</html>
