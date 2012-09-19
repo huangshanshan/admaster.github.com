@@ -86,7 +86,12 @@ direction
 
 <h2 id="p1">获取指定监测代码下的项目日报告</h2>
 
-    GET /medias/campaigns/daily_reports/code/:code
+    GET /medias/campaigns/daily_reports/codes
+
+###参数
+
+code
+: _必选_ *string* - 项目监测代码
 
 ###响应
 <pre class="headers no-response">
