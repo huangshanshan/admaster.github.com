@@ -5,3 +5,9 @@ markdown: kramdown
 
 kramdown:
   toc_levels: 2..3
+
+trackurl: http://track.admasterapi.com
+openurl: http://open.admaster.com.cn
+weibourl: http://weibo.admasterapi.com
+surveyurl: http://survey.admasterapi.com
+track_siteurl: http://www.trackmaster.com.cn
