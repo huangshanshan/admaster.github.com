@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>协议及请求方式 - AdMaster API 文档中心</title>
+  <title>协议及请求方式 - openmaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -50,7 +50,7 @@
   <li><a href="#section-3">认证</a></li>
   <li><a href="#section-4">分页</a></li>
   <li><a href="#section-5">速度限制</a></li>
-  <li><a href="#section-6">交叉资源共享</a></li>
+  <li><a href="#section-6">跨域资源共享</a></li>
   <li><a href="#json-p">JSON-P回调(暂未支持)</a></li>
 </ul>
 
@@ -84,26 +84,29 @@ Content-Length: 0
 
 <p>1.发送无效 JSON将导致400个错误请求响应。</p>
 
-<pre class="prettyprint"><code>HTTP/1.1 400 Bad Request
+<pre><code>HTTP/1.1 400 Bad Request
 Content-Length: 35
+</code></pre>
 
-{"message":"Problems parsing JSON"}
+<pre class="prettyprint"><code>{"message":"Problems parsing JSON"}
 </code></pre>
 
 <p>2.发送错误类型的JSON值将导致400错误请求响应</p>
 
-<pre class="prettyprint"><code>HTTP/1.1 400 Bad Request
+<pre><code>HTTP/1.1 400 Bad Request
 Content-Length: 40
+</code></pre>
 
-{"message":"Body should be a JSON Hash"}
+<pre class="prettyprint"><code>{"message":"Body should be a JSON Hash"}
 </code></pre>
 
 <p>3.发送无效文件将导致422无法处理的实体响应。</p>
 
-<pre class="prettyprint"><code>HTTP/1.1 422 Unprocessable Entity
+<pre><code>HTTP/1.1 422 Unprocessable Entity
 Content-Length: 149
+</code></pre>
 
-{
+<pre class="prettyprint"><code>{
   "message": "Validation Failed",
   "errors": [
     {
@@ -117,13 +120,12 @@ Content-Length: 149
 
 <p>所有的错误对象都有资源和字段属性，您的客户端可以说明问题所在。还有一个错误代码让您知道什么是错误区域，下面这些都是可能的验证错误代码：</p>
 
-<p><code>missing</code> 这意味着资源不存在。</p>
-
-<p><code>missing_field</code> 这意味着对资源所需的领域尚未确定。</p>
-
-<p><code>invalid</code> 这意味着领域格式不合法。资源文档应该给您提供更专业的信息。</p>
-
-<p><code>already_exists</code> 这意味着已经存在和该领域同样值的资源了。这就要求要有独立的key（如：标签名称）</p>
+<ul>
+  <li><code>missing</code> 这意味着资源不存在。</li>
+  <li><code>missing_field</code> 这意味着对资源所需的领域尚未确定。</li>
+  <li><code>invalid</code> 这意味着领域格式不合法。资源文档应该给您提供更专业的信息。</li>
+  <li><code>already_exists</code> 这意味着已经存在和该领域同样值的资源了。这就要求要有独立的key（如：标签名称）</li>
+</ul>
 
 <p>如果资源有自定义的验证错误，他们将用资源来记录。</p>
 
@@ -147,12 +149,12 @@ Content-Length: 149
 
 <p>OAuth2 Token (头部发送):</p>
 
-<pre><code>$ curl -H "Authorization: token OAUTH-TOKEN" https://track.admasterapi.com
+<pre><code>$ curl -H "Authorization: token OAUTH-TOKEN" http://track.admasterapi.com
 </code></pre>
 
 <p>OAuth2 Token (作为参数发送):</p>
 
-<pre><code>$ curl https://track.admasterapi.com/advertisers?access_token=OAUTH-TOKEN
+<pre><code>$ curl http://track.admasterapi.com/advertisers?access_token=OAUTH-TOKEN
 </code></pre>
 
 <p>在某些地方，对认证的需求将返回 404，而不是403。这是为了防止意外泄漏给未经授权的用户的私人资料。</p>
@@ -161,30 +163,30 @@ Content-Length: 149
 
 <p>默认情况下，多项目请求将会被分页成30项。您可以利用参数<code>?page</code>指定进一步页，您也可以利用参数<code>?per_page</code>自定义页大小到100.</p>
 
-<pre><code>$ curl https://track.admasterapi.com/advertisers?page=2&amp;amp;per_page=100
+<pre><code>$ curl http://track.admasterapi.com/advertisers?page=2&amp;amp;per_page=100
 </code></pre>
 
 <p>分页信息包含在 the link header：</p>
 
-<pre class="prettyprint"><code>Link: &lt;https://track.admasterapi.com/advertisers?page=3&amp;per_page=100&gt;; rel=”next”, 
-  https://track.admasterapi.com/advertisers?page=50&amp;per_page=100&gt;; rel=”last”
+<pre class="prettyprint"><code>Link: &lt;http://track.admasterapi.com/advertisers?page=3&amp;per_page=100&gt;; rel=”next”, 
+  &lt;http://track.admasterapi.com/advertisers?page=50&amp;per_page=100&gt;; rel=”last”
 </code></pre>
 
-<p>包括换行以提高可读性。</p>
+<p>换行仅做显示用。</p>
 
 <p><code>rel</code> 的可能值有：</p>
 
-<p><code>next</code> 立即显示下页结果的URL。</p>
-
-<p><code>last</code> 显示上页结果的URL。</p>
-
-<p><code>first</code> 显示第一页结果的URL。</p>
-
-<p><code>prev</code> 立即显示前页结果的URL。</p>
+<ul>
+  <li><code>next</code> 立即显示下页结果的URL。</li>
+  <li><code>last</code> 显示上页结果的URL。</li>
+  <li><code>first</code> 显示第一页结果的URL。</li>
+  <li><code>prev</code> 立即显示前页结果的URL。</li>
+</ul>
 
 <h2 id="section-5">速度限制</h2>
 
-<p>我们以每小时5000限制的API v3的要求。这是键入了您的登录，您的OAuth的令牌，或请求的IP。您可以检查返回的API请求的HTTP头，查看您当前的状态：</p>
+<p>我们以每小时5000限制的API 的请求。这是记录了您的登录，您的OAuth的令牌，或请求的IP。
+您可以检查返回的API请求的HTTP头，查看您当前的状态：</p>
 
 <pre class="prettyprint"><code>$ curl -i https://track.admasterapi.com/users/whatever
 
@@ -194,11 +196,11 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4966
 </code></pre>
 
-<p>你可以联系我们要求进行您应用程序白名单访问，我们更喜欢为用户设置OAuth 应用。</p>
+<p>你可以联系我们要求进行您应用程序白名单访问，我们更推荐为用户设置OAuth应用。</p>
 
-<h2 id="section-6">交叉资源共享</h2>
+<h2 id="section-6">跨域资源共享</h2>
 
-<p>对于AJAX需求的，API支持交叉资源共享。你可以从HTML5安全指南中阅读CORS W3C working draft, 或者 this intro。</p>
+<p>对于AJAX需求的，API支持跨域资源共享。你可以从HTML5安全指南中阅读CORS W3C working draft, 或者 this intro。</p>
 
 <p>下面是一个发自浏览器的示例需求<code>http://some-site.com</code>：</p>
 
@@ -217,7 +219,7 @@ Access-Control-Expose-Headers: Link, X-RateLimit-Limit, X-RateLimit-Remaining, X
 Access-Control-Allow-Credentials: true
 </code></pre>
 
-<p>下面是CORS系统预检请求看起来的样子：</p>
+<p>下面是CORS系统预检请求：</p>
 
 <pre><code>$ curl -i https://track.admasterapi.com -H "Origin: http://calendaraboutnothing.com" -X OPTIONS   
 </code></pre>
@@ -733,11 +735,11 @@ Access-Control-Allow-Credentials: true
        <div class="lower_footer">
         <div class="footer_inner clearfix">              
           <div id="legal"> 
-              <ul id="legal_links">
+              <!--<ul id="legal_links">
                 <li><a href="http://www.admaster.com.cn/">AdMaster首页</a></li>
                 <li><a href="http://www.trackmaster.com.cn/?m=home&amp;a=service">服务条款</a></li>
                 <li><a href="http://www.admaster.com.cn/?page_id=27">与我们联系</a></li>
-              </ul>
+              </ul>-->
 
               <p>&copy; <span id="year">year</span> AdMaster Inc. All rights reserved.</p>
               <p>&nbsp;</p>

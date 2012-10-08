@@ -42,29 +42,28 @@ title: 协议及请求方式
 
 1.发送无效 JSON将导致400个错误请求响应。
 
-{:.prettyprint}
     HTTP/1.1 400 Bad Request
     Content-Length: 35
 
+{:.prettyprint}
     {"message":"Problems parsing JSON"}
-
 
 
 2.发送错误类型的JSON值将导致400错误请求响应
 
-{:.prettyprint}
     HTTP/1.1 400 Bad Request
     Content-Length: 40
 
+{:.prettyprint}
     {"message":"Body should be a JSON Hash"}
 
 
 3.发送无效文件将导致422无法处理的实体响应。
 
-{:.prettyprint}
     HTTP/1.1 422 Unprocessable Entity
     Content-Length: 149
 
+{:.prettyprint}
     {
       "message": "Validation Failed",
       "errors": [
@@ -79,13 +78,10 @@ title: 协议及请求方式
 
 所有的错误对象都有资源和字段属性，您的客户端可以说明问题所在。还有一个错误代码让您知道什么是错误区域，下面这些都是可能的验证错误代码：
 
-`missing` 这意味着资源不存在。
-
-`missing_field` 这意味着对资源所需的领域尚未确定。
-
-`invalid` 这意味着领域格式不合法。资源文档应该给您提供更专业的信息。
-
-`already_exists` 这意味着已经存在和该领域同样值的资源了。这就要求要有独立的key（如：标签名称）
+* `missing` 这意味着资源不存在。
+* `missing_field` 这意味着对资源所需的领域尚未确定。
+* `invalid` 这意味着领域格式不合法。资源文档应该给您提供更专业的信息。
+* `already_exists` 这意味着已经存在和该领域同样值的资源了。这就要求要有独立的key（如：标签名称）
 
 如果资源有自定义的验证错误，他们将用资源来记录。
 
@@ -110,12 +106,12 @@ title: 协议及请求方式
 
 OAuth2 Token (头部发送):
 
-    $ curl -H "Authorization: token OAUTH-TOKEN" https://track.admasterapi.com
+    $ curl -H "Authorization: token OAUTH-TOKEN" http://track.admasterapi.com
 
 
 OAuth2 Token (作为参数发送):
 
-    $ curl https://track.admasterapi.com/advertisers?access_token=OAUTH-TOKEN
+    $ curl http://track.admasterapi.com/advertisers?access_token=OAUTH-TOKEN
 
 
 在某些地方，对认证的需求将返回 404，而不是403。这是为了防止意外泄漏给未经授权的用户的私人资料。
@@ -124,32 +120,29 @@ OAuth2 Token (作为参数发送):
 
 默认情况下，多项目请求将会被分页成30项。您可以利用参数`?page`指定进一步页，您也可以利用参数`?per_page`自定义页大小到100.
 
-    $ curl https://track.admasterapi.com/advertisers?page=2&amp;per_page=100
+    $ curl http://track.admasterapi.com/advertisers?page=2&amp;per_page=100
 
 
 分页信息包含在 the link header：
 
 {:.prettyprint}
-    Link: <https://track.admasterapi.com/advertisers?page=3&per_page=100>; rel=”next”, 
-      https://track.admasterapi.com/advertisers?page=50&per_page=100>; rel=”last”
+    Link: <http://track.admasterapi.com/advertisers?page=3&per_page=100>; rel=”next”, 
+      <http://track.admasterapi.com/advertisers?page=50&per_page=100>; rel=”last”
 
-包括换行以提高可读性。
-
+换行仅做显示用。
 
 `rel` 的可能值有：
 
-`next` 立即显示下页结果的URL。
-
-`last` 显示上页结果的URL。
-
-`first` 显示第一页结果的URL。
-
-`prev` 立即显示前页结果的URL。
+* `next` 立即显示下页结果的URL。
+* `last` 显示上页结果的URL。
+* `first` 显示第一页结果的URL。
+* `prev` 立即显示前页结果的URL。
 
 
 ## 速度限制
 
-我们以每小时5000限制的API v3的要求。这是键入了您的登录，您的OAuth的令牌，或请求的IP。您可以检查返回的API请求的HTTP头，查看您当前的状态：
+我们以每小时5000限制的API 的请求。这是记录了您的登录，您的OAuth的令牌，或请求的IP。
+您可以检查返回的API请求的HTTP头，查看您当前的状态：
 
 {:.prettyprint}
     $ curl -i https://track.admasterapi.com/users/whatever
@@ -159,11 +152,11 @@ OAuth2 Token (作为参数发送):
     X-RateLimit-Limit: 5000
     X-RateLimit-Remaining: 4966
 
-你可以联系我们要求进行您应用程序白名单访问，我们更喜欢为用户设置OAuth 应用。
+你可以联系我们要求进行您应用程序白名单访问，我们更推荐为用户设置OAuth应用。
 
-## 交叉资源共享
+## 跨域资源共享
 
-对于AJAX需求的，API支持交叉资源共享。你可以从HTML5安全指南中阅读CORS W3C working draft, 或者 this intro。
+对于AJAX需求的，API支持跨域资源共享。你可以从HTML5安全指南中阅读CORS W3C working draft, 或者 this intro。
 
 
 下面是一个发自浏览器的示例需求`http://some-site.com`：
@@ -182,7 +175,7 @@ OAuth2 Token (作为参数发送):
     Access-Control-Allow-Credentials: true
 
 
-下面是CORS系统预检请求看起来的样子：
+下面是CORS系统预检请求：
 
     $ curl -i https://track.admasterapi.com -H "Origin: http://calendaraboutnothing.com" -X OPTIONS   
 

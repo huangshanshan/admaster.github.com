@@ -7,10 +7,6 @@ title: 接口定义 - 通用说明
 
 # 接口定义 - 通用说明
 
-## 全局名称定义
-
-![trackmast结构示意图](/doc/trackmaster/v1/cn/trackmaster.png)
-
 
 ## 通用参数说明
 
@@ -45,6 +41,9 @@ title: 接口定义 - 通用说明
 
 `404 NOT FOUND`
 	请求的资源不存在
+
+`422 UNPROCESSABLE ENTITY`
+  请求参数错误，返回消息中包含错误信息列表
 
 `500 INTERNAL SERVER ERROR`
 	服务器内部错误

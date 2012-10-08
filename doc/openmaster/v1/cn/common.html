@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>接口定义 - 通用说明 - AdMaster API 文档中心</title>
+  <title>接口定义 - 通用说明 - openmaster - AdMaster API 文档中心</title>
   <link href="/doc/assets/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/960.css" rel="stylesheet" type="text/css" />
   <link href="/doc/assets/css/uv_active4d.css" rel="stylesheet" type="text/css" />
@@ -41,16 +41,12 @@
       <div class="content">
         <h1 id="section">接口定义 - 通用说明</h1>
 
-<h2 id="section-1">全局名称定义</h2>
-
-<p><img src="/doc/trackmaster/v1/cn/trackmaster.png" alt="trackmast结构示意图" /></p>
-
-<h2 id="section-2">通用参数说明</h2>
+<h2 id="section-1">通用参数说明</h2>
 
 <p><code>access_token</code>
 	oauth 验证串，通过授权验证可以得到，请求授权数据的时候需要携带，具体查看[oauth 验证][apiOauth]</p>
 
-<h2 id="section-3">返回状态说明</h2>
+<h2 id="section-2">返回状态说明</h2>
 
 <p><strong>返回状态在请求返回的头部信息</strong></p>
 
@@ -78,10 +74,13 @@
 <p><code>404 NOT FOUND</code>
 	请求的资源不存在</p>
 
+<p><code>422 UNPROCESSABLE ENTITY</code>
+  请求参数错误，返回消息中包含错误信息列表</p>
+
 <p><code>500 INTERNAL SERVER ERROR</code>
 	服务器内部错误</p>
 
-<h2 id="section-4">错误代码说明</h2>
+<h2 id="section-3">错误代码说明</h2>
 
 
       </div>
@@ -515,11 +514,11 @@
        <div class="lower_footer">
         <div class="footer_inner clearfix">              
           <div id="legal"> 
-              <ul id="legal_links">
+              <!--<ul id="legal_links">
                 <li><a href="http://www.admaster.com.cn/">AdMaster首页</a></li>
                 <li><a href="http://www.trackmaster.com.cn/?m=home&amp;a=service">服务条款</a></li>
                 <li><a href="http://www.admaster.com.cn/?page_id=27">与我们联系</a></li>
-              </ul>
+              </ul>-->
 
               <p>&copy; <span id="year">year</span> AdMaster Inc. All rights reserved.</p>
               <p>&nbsp;</p>
