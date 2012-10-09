@@ -47,7 +47,7 @@
         <ul>
         {% for weight in (1..30) %}
           {% for p in site.pages %}{% if p.url contains page.category %}
-            {% if p.weight == weight %}
+            {% if p.weight == weight %}{% unless p.subcategory %}
               <li class="js-topic">
                 <h3>
                   <a href="#" class="js-expand-btn collapsed">&nbsp;</a>
@@ -55,10 +55,12 @@
                   {{ p.title }}
                 </a></h3>
                 <ul class="js-guides">
-                  <li style="display: none;"></li>
+                  {% for i in site.pages %}{% if p.url contains i.subcategory %}
+                  <li style=""><a href="/doc{{i.url}}">{{ i.title }}</a></li>
+                  {% endif %}{% endfor %}
                 </ul>
               </li>
-            {% endif %}
+            {% endunless %}{% endif %}
           {% endif %}{% endfor %}
         {% endfor %}
        </ul>
