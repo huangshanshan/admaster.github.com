@@ -75,7 +75,12 @@ title: 媒体报告
 
 ## 获取指定监测代码下的项目日报告
 
-    GET /medias/campaigns/daily_reports/code/:code
+    GET /medias/campaigns/daily_reports/codes
+
+**参数**
+
+`code`
+: _必选_ **string** - 项目监测代码
 
 **响应**
 
