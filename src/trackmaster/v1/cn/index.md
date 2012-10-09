@@ -2,11 +2,9 @@
 weight: 1
 layout: default
 category: trackmaster
-title: TrackMaster首页
+title: TrackMaster文档首页
 ---
 
-* TOC
-{:toc}
 
 # {{ page.title }}
 
@@ -18,6 +16,6 @@ title: TrackMaster首页
 
 ## 媒体发布商
 
-* [媒体对接指南](/doc/trackmaster/v1/cn/publisher_guide.html)
+* [媒体对接指南](/doc/trackmaster/v1/cn/publisher.html)
 
 ## 广告客户/代理机构

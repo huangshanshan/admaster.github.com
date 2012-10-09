@@ -2,7 +2,7 @@
 layout: default
 category: openmaster
 weight: 1
-title: OpenMaster首页
+title: OpenMaster文档首页
 ---
 
 # {{ page.title }}

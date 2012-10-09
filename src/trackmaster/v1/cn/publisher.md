@@ -2,14 +2,14 @@
 weight: 14
 layout: default
 category: trackmaster
-title: 媒体对接指南
+title: 媒体
 ---
-
-* TOC
-{:toc}
 
 
 # 媒体对接指南
+
+* TOC
+{:toc}
 
 
 TrackMaster™ 所有API的访问都是通过 HTTP 执行的，所有被发送和接受的的数据都是 JSON。
@@ -78,8 +78,8 @@ TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和�
 
 **参数**
 
-    :media_id 必选 Int - TrackMaster分配的媒体ID
-    :campaign_id 必选 Int - 项目ID
+    :media_id 必选 Integer - TrackMaster分配的媒体ID
+    :campaign_id 必选 Integer - 项目ID
 
     access_token=***
     start_time 可选 Date - 项目开始日期，例如2012-08-01，会列出项目开始日期大于等于此设定的项目
@@ -91,6 +91,7 @@ TrackMaster™ 使用 OAuth2.0 对用户进行验证，保障用户的隐私和�
 **响应**
 
     Status: 200 OK
+
     [
       {
         "time": "2012-08-01", // 时间
