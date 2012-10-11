@@ -91,6 +91,23 @@ title: 媒体报告
     X-RateLimit-Remaining: 4999
 
 
+## 获取指定监测代码下的项目报告
+
+    GET /medias/campaigns/reports/codes
+
+**参数**
+
+`code`
+: _必选_ **string** - 项目监测代码
+
+**响应**
+
+    Status: 204 No Content
+    Link: <http://{{site.track_api_host}}/medias/1308/campaigns/10256/reports>; rel="campaigns"
+    X-RateLimit-Limit: 5000
+    X-RateLimit-Remaining: 4999
+
+
 ## 媒体用户获取iab数据
 
     GET /medias/:id/ies
