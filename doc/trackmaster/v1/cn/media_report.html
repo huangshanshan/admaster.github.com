@@ -45,8 +45,9 @@
   <li><a href="#section-1">获取指定媒体下的项目</a></li>
   <li><a href="#section-2">获取指定项目下的日报告</a></li>
   <li><a href="#section-3">获取指定监测代码下的项目日报告</a></li>
+  <li><a href="#section-4">获取指定监测代码下的项目报告</a></li>
   <li><a href="#iab">媒体用户获取iab数据</a></li>
-  <li><a href="#section-4">获取指定媒体项目报告列表</a></li>
+  <li><a href="#section-5">获取指定媒体项目报告列表</a></li>
 </ul>
 
 <h2 id="section-1">获取指定媒体下的项目</h2>
@@ -138,6 +139,26 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
 </code></pre>
 
+<h2 id="section-4">获取指定监测代码下的项目报告</h2>
+
+<pre><code>GET /medias/campaigns/reports/codes
+</code></pre>
+
+<p><strong>参数</strong></p>
+
+<dl>
+  <dt><code>code</code></dt>
+  <dd><em>必选</em> <strong>string</strong> - 项目监测代码</dd>
+</dl>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 204 No Content
+Link: &lt;http://track.admasterapi.com/medias/1308/campaigns/10256/reports&gt;; rel="campaigns"
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
 <h2 id="iab">媒体用户获取iab数据</h2>
 
 <pre><code>GET /medias/:id/ies
@@ -175,7 +196,7 @@ X-RateLimit-Remaining: 4999
 ]
 </code></pre>
 
-<h2 id="section-4">获取指定媒体项目报告列表</h2>
+<h2 id="section-5">获取指定媒体项目报告列表</h2>
 
 <pre><code>GET /medias/:media_id/campaigns/:campaign_id/reports
 </code></pre>
