@@ -44,7 +44,6 @@
 <ul id="markdown-toc">
   <li><a href="#section-1">获取系统媒体库列表</a></li>
   <li><a href="#section-2">获取指定系统媒体详细信息</a></li>
-  <li><a href="#iab">媒体用户获取iab数据</a></li>
   <li><a href="#section-3">获取指定工作网络下媒体库列表</a></li>
   <li><a href="#section-4">获取指定工作网络下指定媒体信息</a></li>
   <li><a href="#section-5">给指定工作网络添加一个媒体</a></li>
@@ -131,43 +130,6 @@ X-RateLimit-Remaining: 4999
     "tag": "综合其他",
     "created_at": "2012-09-06T20:39:23Z"
 }
-</code></pre>
-
-<h2 id="iab">媒体用户获取iab数据</h2>
-
-<pre><code>GET /medias/:id/ies
-</code></pre>
-
-<p><strong>响应</strong></p>
-
-<pre><code>Status: 200 OK
-Link: &lt;http://track.admasterapi.com/medias/1/ies?page=2&gt;; rel="next",
-      &lt;http://track.admasterapi.com/medias/1/ies?page=10&gt;; rel="last"
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999
-</code></pre>
-
-<p><strong>参数</strong></p>
-
-<dl>
-  <dt><code>pubid</code></dt>
-  <dd><em>可选</em> <strong>string</strong> - pubid 指定后只获取该pubid的数据</dd>
-  <dt><code>date</code></dt>
-  <dd><em>可选</em> <strong>date</strong> - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取头一天的数据</dd>
-  <dt><code>page</code></dt>
-  <dd><em>可选</em> <strong>integer</strong> - 显示页码</dd>
-</dl>
-
-<pre class="prettyprint"><code>[
-  {
-    "date_hour": 2012061015,
-    "pubid": "IYK_IMloxnwepMEqlx",
-    "city": "北京",
-    "geoid": 110000,
-    "impression": 12039423,
-    "click": 43432,
-  }
-]
 </code></pre>
 
 <h2 id="section-3">获取指定工作网络下媒体库列表</h2>

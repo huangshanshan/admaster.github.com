@@ -45,6 +45,8 @@
   <li><a href="#section-1">获取指定媒体下的项目</a></li>
   <li><a href="#section-2">获取指定项目下的日报告</a></li>
   <li><a href="#section-3">获取指定监测代码下的项目日报告</a></li>
+  <li><a href="#iab">媒体用户获取iab数据</a></li>
+  <li><a href="#section-4">获取指定媒体项目报告列表</a></li>
 </ul>
 
 <h2 id="section-1">获取指定媒体下的项目</h2>
@@ -134,6 +136,126 @@
 Link: &lt;http://track.admasterapi.com/medias/1308/campaigns/10256/daily_reports&gt;; rel="campaigns"
 X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4999
+</code></pre>
+
+<h2 id="iab">媒体用户获取iab数据</h2>
+
+<pre><code>GET /medias/:id/ies
+</code></pre>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 200 OK
+Link: &lt;http://track.admasterapi.com/medias/1/ies?page=2&gt;; rel="next",
+      &lt;http://track.admasterapi.com/medias/1/ies?page=10&gt;; rel="last"
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+</code></pre>
+
+<p><strong>参数</strong></p>
+
+<dl>
+  <dt><code>pubid</code></dt>
+  <dd><em>可选</em> <strong>string</strong> - pubid 指定后只获取该pubid的数据</dd>
+  <dt><code>date</code></dt>
+  <dd><em>可选</em> <strong>date</strong> - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取头一天的数据</dd>
+  <dt><code>page</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 显示页码</dd>
+</dl>
+
+<pre class="prettyprint"><code>[
+  {
+    "date_hour": 2012061015,
+    "pubid": "IYK_IMloxnwepMEqlx",
+    "city": "北京",
+    "geoid": 110000,
+    "impression": 12039423,
+    "click": 43432,
+  }
+]
+</code></pre>
+
+<h2 id="section-4">获取指定媒体项目报告列表</h2>
+
+<pre><code>GET /medias/:media_id/campaigns/:campaign_id/reports
+</code></pre>
+
+<p><strong>参数</strong></p>
+
+<dl>
+  <dt><code>time</code></dt>
+  <dd><em>必选</em> <strong>string</strong> - 数据时间类型
+
+    <ul>
+      <li><code>hourly</code> 获取小时数据</li>
+      <li><code>daily</code> 获取日数据</li>
+      <li><code>weekly</code> 获取周数据</li>
+      <li><code>monthly</code> 获取月数据</li>
+    </ul>
+  </dd>
+  <dt><code>dims</code></dt>
+  <dd><em>必选</em> <strong>string</strong> - 数据聚合维度,多个选项之间用<code>,</code>分开
+
+    <ul>
+      <li><code>placement</code> 按广告位维度聚合</li>
+      <li><code>keyword</code> 按关键字维度聚合</li>
+      <li><code>creative</code> 按创意维度聚合</li>
+      <li><code>geo</code> 按地域维度聚合</li>
+      <li><code>time</code> 按时间维度聚合</li>
+    </ul>
+  </dd>
+  <dt><code>placement_id</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 广告位ID</dd>
+  <dt><code>keyword_id</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 关键字ID</dd>
+  <dt><code>creative_id</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 创意ID</dd>
+  <dt><code>geo_id</code></dt>
+  <dd><em>可选</em> <strong>integer</strong> - 地域ID</dd>
+  <dt><code>start_time</code></dt>
+  <dd><em>可选</em> <strong>hour</strong> - 开始时间，会列出日期大于等于此设定的项目</dd>
+  <dt><code>end_time</code></dt>
+  <dd><em>可选</em> <strong>hour</strong> - 结束时间，会列出日期小于等于此设定的项目</dd>
+  <dt><code>sort</code></dt>
+  <dd><em>可选</em> <strong>string</strong> - 列表排序以什么排序
+
+    <ul>
+      <li><code>time</code> - 按照时间排序</li>
+      <li><code>imp</code> - 按照曝光排序</li>
+      <li><code>clk</code> - 按照点击排序</li>
+      <li><code>uimp</code> - 按照独立曝光排序</li>
+      <li><code>uclk</code> - 按照独立点击排序</li>
+    </ul>
+  </dd>
+  <dt><code>direction</code></dt>
+  <dd><em>可选</em> <strong>string</strong> - 排序方式
+
+    <ul>
+      <li><code>asc</code> 升序 (<em>默认</em>)</li>
+      <li><code>desc</code> 降序</li>
+    </ul>
+  </dd>
+</dl>
+
+<p><strong>响应</strong></p>
+
+<pre><code>Status: 200 OK
+Link: &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=2&gt;; rel="next",
+      &lt;http://track.admasterapi.com/medias/1/campaigns/12/reports?page=10&gt;; rel="last"
+</code></pre>
+
+<pre class="prettyprint"><code>[
+  {
+    "campaign_id": 10185,
+    "time": "2012-08-03",
+    "imp": 9,
+    "uimp": 6,
+    "ipuimp": 6,
+    "clk": 3,
+    "uclk": 3,
+    "ipuclk": 2
+  }
+]
 </code></pre>
 
       </div>

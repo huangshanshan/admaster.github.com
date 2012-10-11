@@ -80,42 +80,6 @@ title: 媒体
     }
 
 
-## 媒体用户获取iab数据
-
-    GET /medias/:id/ies
-
-**响应**
-
-    Status: 200 OK
-    Link: <http://{{site.track_api_host}}/medias/1/ies?page=2>; rel="next",
-          <http://{{site.track_api_host}}/medias/1/ies?page=10>; rel="last"
-    X-RateLimit-Limit: 5000
-    X-RateLimit-Remaining: 4999
-
-**参数**
-
-`pubid`
-: _可选_ **string** - pubid 指定后只获取该pubid的数据
-
-`date`
-: _可选_ **date** - 日期，要查看的数据日期，YYYY-mm-dd 例如: 2012-06-08 ,不指定则获取头一天的数据
-
-`page`
-: _可选_ **integer** - 显示页码
-
-{:.prettyprint}
-    [
-      {
-        "date_hour": 2012061015,
-        "pubid": "IYK_IMloxnwepMEqlx",
-        "city": "北京",
-        "geoid": 110000,
-        "impression": 12039423,
-        "click": 43432,
-      }
-    ]
-
-
 ## 获取指定工作网络下媒体库列表
 
     GET /networks/:network_id/medias
